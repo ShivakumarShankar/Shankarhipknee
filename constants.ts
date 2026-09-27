@@ -12,12 +12,14 @@ import {
 
 export const PRACTICE_NAME = "London Essex Hip and Knee Surgeon";
 export const SURGEON_NAME = "Mr Shivakumar Shankar";
-export const SURGEON_ROLE = "Consultant Robotic Hip and Knee Surgeon";
-export const SURGEON_TITLE = "Consultant Robotic Hip and Knee Surgeon";
+export const SURGEON_ROLE = "Consultant Orthopaedic Surgeon";
+export const SURGEON_TITLE = "Consultant Orthopaedic Surgeon";
+export const SPECIALITY = "Hip and Knee Surgery";
+export const BRAND_NAME = "London and Essex Hip and Knee Surgeon";
 export const TAGLINE = "Minimally Invasive • Robotic • Computer-Navigated Hip & Knee Surgery";
 export const SLOGAN = "Restoring your active lifestyle";
-export const QUALIFICATIONS = "MBBS, MRCS, MSc (Trauma & Orthopaedics - UCL), FRCSEd (Tr & Orth), CCT";
-export const ADDITIONAL_DIPLOMA = "Diploma in Robotic and Computer -Assisted orthopaedic surgery";
+export const QUALIFICATIONS = "MBBS, DHA, MRCSEd, MSc (Trauma & Orthopaedics), FRCSEd (Tr & Orth), PG Diploma in Principles of Computer and Robotic Assisted Orthopaedic Surgery";
+export const ADDITIONAL_DIPLOMA = "PG Diploma in Principles of Computer and Robotic Assisted Orthopaedic Surgery";
 export const GMC_NUMBER = "GMC: 6062754 (Specialist Register)";
 export const EMAIL = "hip.knee_specialist@yahoo.com";
 export const PHONE = "07587765888";
@@ -60,24 +62,24 @@ export const NAV_LINKS = [
 
 export const SURGICAL_STATS: SurgicalStat[] = [
   {
-    value: "8,000+",
-    label: "Elective & Trauma Procedures",
-    detail: "Extensive career volume spanning primary, complex, and urgent orthopaedic care."
+    value: "9+ Years",
+    label: "Arthroplasty Experience",
+    detail: "Extensive experience performing manual and computer-assisted hip and knee replacement surgery for approximately 9 years, incorporating MAKO robotic-assisted surgery."
   },
   {
     value: "3,000+",
     label: "Hip & Knee Replacements",
-    detail: "High-volume arthroplasty practice with conventional, navigated, and robotic methods."
+    detail: "High-volume arthroplasty practice encompassing manual, computer-assisted, and robotic surgical approaches."
   },
   {
     value: "1,200+",
     label: "Knee Arthroscopies",
-    detail: "Specialist keyhole interventions, meniscal preservation, and biological cartilage repair."
+    detail: "Specialist keyhole interventions, meniscal preservation, and joint cartilage care in London and Essex."
   },
   {
-    value: "1st in Essex",
-    label: "Robotic Hip Pioneer",
-    detail: "First surgeon in Essex and North East London to perform robotic and computer-assisted total hip replacement."
+    value: "Essex Pioneer",
+    label: "Robotic Hip Arthroplasty",
+    detail: "Mr Shivakumar Shankar has stated that he was the first surgeon to perform computer-assisted and robotic total hip replacement in Essex and North East London."
   }
 ];
 
@@ -429,7 +431,7 @@ export const LOCATIONS: Location[] = [
   {
     id: "spire-hartswood",
     name: "Spire Hartswood Hospital",
-    type: "Private Hospital",
+    type: "Private Practice Location",
     area: "Brentwood, Essex",
     address: "Eagle Way, Great Warley, Brentwood",
     postcode: "CM13 3LE",
@@ -449,7 +451,7 @@ export const LOCATIONS: Location[] = [
   {
     id: "nuffield-brentwood",
     name: "Nuffield Health Brentwood Hospital",
-    type: "Private Hospital",
+    type: "Private Practice Location",
     area: "Brentwood, Essex",
     address: "Shenfield Road, Brentwood",
     postcode: "CM15 8EH",
@@ -467,20 +469,36 @@ export const LOCATIONS: Location[] = [
     bookingUrl: NUFFIELD_BRENTWOOD_BOOKING_URL
   },
   {
-    id: "nhs-trust",
-    name: "Barking, Havering & Redbridge NHS Trust",
-    type: "NHS Trust",
-    area: "Queen's Hospital & King George Hospital",
-    address: "Romford & Goodmayes, Greater London / Essex",
+    id: "queens-hospital",
+    name: "Queen's Hospital, Romford",
+    type: "NHS Hospital Location",
+    area: "Romford, Greater London / Essex",
+    address: "Rom Valley Way, Romford",
     postcode: "RM7 0AG",
     phone: "01708 435 000",
     facilities: [
-      "NHS Consultant in Trauma & Orthopaedics since 2017",
-      "Former Clinical Director for Trauma and Orthopaedics",
-      "Major regional trauma centre and elective orthopaedic centre"
+      "Substantive NHS Consultant in Trauma & Orthopaedics at BHRUT",
+      "Major regional acute trauma and joint reconstruction centre",
+      "Barking, Havering and Redbridge University Hospitals NHS Trust"
     ],
-    transport: "Accessible via Romford Station, bus networks, and major Essex trunk roads.",
+    transport: "Accessible via Romford Station (Elizabeth Line / Overground / National Rail), local bus networks, and A12.",
     mapQuery: "Queen's Hospital Romford"
+  },
+  {
+    id: "king-george-hospital",
+    name: "King George Hospital, Goodmayes",
+    type: "NHS Hospital Location",
+    area: "Goodmayes, Ilford, Greater London / Essex",
+    address: "Barley Lane, Goodmayes, Ilford",
+    postcode: "IG3 8YB",
+    phone: "020 8983 8000",
+    facilities: [
+      "High-volume elective orthopaedic surgery centre for BHRUT",
+      "Dedicated clean-air orthopaedic surgical theatres and day surgery unit",
+      "Barking, Havering and Redbridge University Hospitals NHS Trust"
+    ],
+    transport: "Located on Barley Lane, Goodmayes, accessible via Goodmayes and Newbury Park stations.",
+    mapQuery: "King George Hospital Goodmayes"
   }
 ];
 
