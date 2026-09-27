@@ -4,7 +4,7 @@ import {
   Download, ChevronRight, Activity, Bone, Stethoscope, 
   Award, Calendar, X, CheckCircle, Sparkles, 
   Clock, Navigation, Cpu, Heart, AlertCircle, ChevronDown, Building, Star,
-  Search, HelpCircle, ShieldAlert, AlertTriangle, ShieldCheck
+  Search, HelpCircle, ShieldAlert, AlertTriangle, ShieldCheck, ExternalLink
 } from 'lucide-react';
 import { 
   PRACTICE_NAME,
@@ -34,7 +34,9 @@ import {
   WHY_CHOOSE_POINTS,
   SOCIAL_HANDLE,
   X_HANDLE,
-  SOCIAL_LINKS
+  SOCIAL_LINKS,
+  SPIRE_HARTSWOOD_BOOKING_URL,
+  NUFFIELD_BRENTWOOD_BOOKING_URL
 } from './constants';
 import { Treatment, Protocol } from './types';
 import Header from './components/Header';
@@ -46,11 +48,13 @@ import { CombinedReviewHub } from './components/CombinedReviewHub';
 import { ReviewsPage } from './components/ReviewsPage';
 import { PatientGuidesHub } from './components/PatientGuidesHub';
 import { MediaGalleryHub } from './components/MediaGalleryHub';
+import { SecretarialPortalModal } from './components/SecretarialPortalModal';
 import { PROCEDURE_RISK_DATA } from './patientInfoData';
 import { generateProcedureRiskPdf, generateProtocolPdf } from './pdfGenerator';
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSecretarialModalOpen, setIsSecretarialModalOpen] = useState(false);
   const [modalPreferredHospital, setModalPreferredHospital] = useState('Spire Hartswood Hospital');
   const [currentPage, setCurrentPage] = useState<'home' | 'about' | 'reviews'>('home');
   const [selectedCategory, setSelectedCategory] = useState<'all' | 'hip' | 'knee' | 'robotic' | 'preservation'>('all');
@@ -117,8 +121,38 @@ function App() {
     setIsModalOpen(true);
   };
 
-  const handleBookingSubmit = (e: React.FormEvent) => {
+  const handleBookingSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const submissionData = {
+      ...bookingForm,
+      source: 'Booking Modal'
+    };
+
+    // 1. Save to local storage
+    try {
+      const stored = localStorage.getItem('shankar_patient_consultations');
+      const list = stored ? JSON.parse(stored) : [];
+      list.unshift({
+        id: `booking-${Date.now()}`,
+        timestamp: new Date().toISOString(),
+        ...submissionData
+      });
+      localStorage.setItem('shankar_patient_consultations', JSON.stringify(list));
+    } catch {
+      // ignore
+    }
+
+    // 2. Post to server endpoint
+    try {
+      await fetch('/api/submit-consultation', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(submissionData)
+      });
+    } catch {
+      // ignore
+    }
+
     setBookingSubmitted(true);
   };
 
@@ -840,12 +874,35 @@ function App() {
                           {loc.phone}
                         </a>
                       </div>
-                      <button 
-                        onClick={() => openBookingModal(loc.name)}
-                        className="w-full sm:w-auto bg-[#E8A24C] hover:bg-[#D99136] text-white px-5 py-2.5 rounded-lg text-xs font-bold transition-colors shadow-md"
-                      >
-                        Book at {loc.name.split(' ')[0]}
-                      </button>
+                      <div className="flex items-center gap-2 w-full sm:w-auto flex-wrap justify-end">
+                        {loc.bookingUrl ? (
+                          <>
+                            <a 
+                              href={loc.bookingUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="w-full sm:w-auto bg-[#1B4965] hover:bg-[#13364B] text-white px-4 py-2.5 rounded-lg text-xs font-bold transition-all shadow-md flex items-center justify-center gap-1.5"
+                            >
+                              <Calendar size={13} />
+                              <span>Book Online at {loc.name.includes('Nuffield') ? 'Nuffield Health' : 'Spire'} (Live Slots)</span>
+                              <ExternalLink size={12} />
+                            </a>
+                            <button 
+                              onClick={() => openBookingModal(loc.name)}
+                              className="w-full sm:w-auto bg-white hover:bg-slate-50 text-slate-700 border border-slate-300 px-3.5 py-2.5 rounded-lg text-xs font-bold transition-colors shadow-2xs"
+                            >
+                              Request via Secretary
+                            </button>
+                          </>
+                        ) : (
+                          <button 
+                            onClick={() => openBookingModal(loc.name)}
+                            className="w-full sm:w-auto bg-[#E8A24C] hover:bg-[#D99136] text-white px-5 py-2.5 rounded-lg text-xs font-bold transition-colors shadow-md"
+                          >
+                            Book at {loc.name.split(' ')[0]}
+                          </button>
+                        )}
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -1278,9 +1335,25 @@ function App() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-14 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center text-xs text-slate-600 gap-4">
           <p>&copy; {new Date().getFullYear()} {SURGEON_NAME}. All Rights Reserved.</p>
-          <p>Consultant Orthopaedic Hip & Knee Surgeon • Private & NHS Practice • GMC: 6062754</p>
+          <div className="flex items-center gap-3">
+            <span>Consultant Orthopaedic Hip & Knee Surgeon • Private & NHS Practice • GMC: 6062754</span>
+            <span className="text-slate-300">|</span>
+            <button
+              onClick={() => setIsSecretarialModalOpen(true)}
+              className="font-bold text-[#1B4965] hover:underline flex items-center gap-1 bg-[#EAF1F6] px-2.5 py-1 rounded"
+              title="Open practice inquiries and consultation requests log"
+            >
+              Secretary Inquiries Portal
+            </button>
+          </div>
         </div>
       </footer>
+
+      {/* SECRETARIAL INQUIRIES MODAL */}
+      <SecretarialPortalModal 
+        isOpen={isSecretarialModalOpen} 
+        onClose={() => setIsSecretarialModalOpen(false)} 
+      />
 
       {/* BOOKING CONSULTATION MODAL */}
       {isModalOpen && (
@@ -1300,29 +1373,110 @@ function App() {
             </button>
 
             {bookingSubmitted ? (
-              <div className="py-8 text-center space-y-4">
+              <div className="py-6 text-center space-y-4">
                 <img 
                   src="./logo.png" 
                   alt="London Essex Hip and Knee Surgeon" 
                   className="h-14 mx-auto object-contain mb-1" 
                 />
                 <p className="font-script text-[#1B4965] text-lg font-bold">Restoring your active lifestyle</p>
-                <div className="w-16 h-16 bg-[#EAF1F6] text-[#1B4965] rounded-full flex items-center justify-center mx-auto">
-                  <CheckCircle size={36} />
+                <div className="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto border border-emerald-200">
+                  <CheckCircle size={32} />
                 </div>
                 <h3 className="text-2xl font-bold text-slate-900">Appointment Request Received</h3>
                 <p className="text-sm text-slate-600 max-w-sm mx-auto leading-relaxed">
-                  Thank you, <strong>{bookingForm.firstName}</strong>. Your consultation request for <strong>{bookingForm.hospital}</strong> has been logged.
+                  Thank you, <strong>{bookingForm.firstName}</strong>. Your consultation request for <strong>{bookingForm.hospital}</strong> has been recorded in the practice booking system.
                 </p>
-                <div className="p-4 bg-[#F8FAFC] rounded-xl text-xs text-slate-600 text-left border border-slate-200">
-                  <p><strong>Next Step:</strong> Mr Shankar's medical secretary will contact you on <strong>{bookingForm.phone || bookingForm.email}</strong> to verify your insurance details or self-pay quote and confirm your appointment time slot.</p>
+
+                <div className="p-4 bg-[#F8FAFC] rounded-xl text-xs text-slate-700 text-left border border-slate-200 space-y-1.5">
+                  <p className="font-bold text-slate-900 flex items-center gap-1.5 text-xs text-[#1B4965]">
+                    <ShieldCheck size={14} /> Logged with Medical Secretary ({SECRETARY_NAME})
+                  </p>
+                  <p className="leading-relaxed">
+                    Our team will contact you on <strong>{bookingForm.phone || bookingForm.email}</strong> to verify insurance details (Bupa, AXA, etc.) or provide self-funding fixed package quotes and confirm your consultation date.
+                  </p>
                 </div>
-                <button
-                  onClick={() => setIsModalOpen(false)}
-                  className="bg-[#1B4965] text-white px-6 py-2.5 rounded-lg text-xs font-bold hover:bg-[#13364B] transition-colors"
-                >
-                  Close Window
-                </button>
+
+                {/* Direct Action Options */}
+                <div className="pt-2 space-y-2">
+                  <a
+                    href={`mailto:${EMAIL}?subject=${encodeURIComponent(`[Consultation Request] ${bookingForm.firstName} ${bookingForm.lastName} - ${bookingForm.hospital}`)}&body=${encodeURIComponent(
+`Dear Mr Shankar and Remya Rexlin,
+
+I would like to request an outpatient consultation appointment.
+
+PATIENT DETAILS:
+• Name: ${bookingForm.firstName} ${bookingForm.lastName}
+• Email: ${bookingForm.email}
+• Phone: ${bookingForm.phone}
+• Preferred Hospital: ${bookingForm.hospital}
+• Joint / Condition: ${bookingForm.treatmentArea}
+• Funding Method: ${bookingForm.fundingType}
+
+ADDITIONAL CLINICAL NOTES:
+${bookingForm.notes || 'None provided.'}
+
+Kind regards,
+${bookingForm.firstName} ${bookingForm.lastName}`
+                    )}`}
+                    className="w-full bg-[#1B4965] hover:bg-[#13364B] text-white px-5 py-2.5 rounded-lg text-xs font-bold transition-colors flex items-center justify-center gap-2 shadow-xs"
+                  >
+                    <Mail size={14} />
+                    <span>Open Pre-filled Email to Secretary ({EMAIL})</span>
+                  </a>
+
+                  {bookingForm.hospital.includes('Spire') && (
+                    <a
+                      href={SPIRE_HARTSWOOD_BOOKING_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full bg-[#005EB8] hover:bg-[#004b93] text-white px-5 py-2.5 rounded-lg text-xs font-bold transition-colors flex items-center justify-center gap-2 shadow-xs"
+                    >
+                      <Calendar size={14} />
+                      <span>View Live Timeslots on Spire Healthcare Portal</span>
+                      <ExternalLink size={12} />
+                    </a>
+                  )}
+
+                  {bookingForm.hospital.includes('Nuffield') && (
+                    <a
+                      href={NUFFIELD_BRENTWOOD_BOOKING_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full bg-[#00703C] hover:bg-[#005a30] text-white px-5 py-2.5 rounded-lg text-xs font-bold transition-colors flex items-center justify-center gap-2 shadow-xs"
+                    >
+                      <Calendar size={14} />
+                      <span>View Booking on Nuffield Health Portal</span>
+                      <ExternalLink size={12} />
+                    </a>
+                  )}
+
+                  <div className="grid grid-cols-2 gap-2 text-xs">
+                    <a
+                      href={`tel:${MOBILE_PHONE.replace(/\s+/g, '')}`}
+                      className="bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 px-3 py-2 rounded-lg font-bold flex items-center justify-center gap-1.5 transition-colors shadow-2xs"
+                    >
+                      <Phone size={13} className="text-[#1B4965]" />
+                      <span>Call Mobile ({MOBILE_PHONE})</span>
+                    </a>
+                    <a
+                      href={`tel:${LANDLINE_PHONE.replace(/\s+/g, '')}`}
+                      className="bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 px-3 py-2 rounded-lg font-bold flex items-center justify-center gap-1.5 transition-colors shadow-2xs"
+                    >
+                      <Phone size={13} className="text-[#1B4965]" />
+                      <span>Office ({LANDLINE_PHONE})</span>
+                    </a>
+                  </div>
+                </div>
+
+                <div className="pt-2">
+                  <button
+                    onClick={() => setIsModalOpen(false)}
+                    className="text-slate-500 hover:text-slate-800 text-xs font-semibold py-1 transition-colors"
+                  >
+                    Close Window
+                  </button>
+                </div>
               </div>
             ) : (
               <div>
@@ -1346,6 +1500,41 @@ function App() {
                   </p>
                 </div>
 
+                {/* Direct Hospital Booking Callout */}
+                <div className="mb-5 p-3.5 bg-gradient-to-r from-[#EAF1F6] to-sky-50 rounded-xl border border-sky-200/80 text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs">
+                  <div className="flex items-start gap-2.5">
+                    <Calendar size={16} className="text-[#1B4965] shrink-0 mt-0.5" />
+                    <div>
+                      <span className="font-bold text-[#1B4965] block">
+                        Direct Online Booking Available:
+                      </span>
+                      <span className="text-slate-600 text-[11px]">
+                        Prefer to pick your exact consultation date & time slot directly in Mr Shankar's live hospital diary?
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <a
+                      href={SPIRE_HARTSWOOD_BOOKING_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-[#1B4965] hover:bg-[#13364B] text-white px-3 py-1.5 rounded-lg text-xs font-bold transition-all inline-flex items-center justify-center gap-1.5 shrink-0 shadow-xs hover:shadow-md"
+                    >
+                      <span>Spire Portal</span>
+                      <ExternalLink size={11} />
+                    </a>
+                    <a
+                      href={NUFFIELD_BRENTWOOD_BOOKING_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-[#00703C] hover:bg-[#005a30] text-white px-3 py-1.5 rounded-lg text-xs font-bold transition-all inline-flex items-center justify-center gap-1.5 shrink-0 shadow-xs hover:shadow-md"
+                    >
+                      <span>Nuffield Portal</span>
+                      <ExternalLink size={11} />
+                    </a>
+                  </div>
+                </div>
+
                 <form onSubmit={handleBookingSubmit} className="space-y-4">
                   {/* Hospital Selection */}
                   <div>
@@ -1358,9 +1547,43 @@ function App() {
                       required
                       className="w-full p-3 rounded-lg bg-[#F8FAFC] border border-slate-200 text-sm font-medium text-slate-800 focus:outline-none focus:border-[#1B4965] focus:ring-1 focus:ring-[#1B4965]"
                     >
-                      <option value="Spire Hartswood Hospital">Spire Hartswood Hospital (Brentwood, Essex)</option>
-                      <option value="Nuffield Brentwood Hospital">Nuffield Health Brentwood Hospital (Brentwood, Essex)</option>
+                      <option value="Spire Hartswood Hospital">Spire Hartswood Hospital (Brentwood, Essex) — Live Diary Available</option>
+                      <option value="Nuffield Brentwood Hospital">Nuffield Health Brentwood Hospital (Brentwood, Essex) — Live Booking Available</option>
                     </select>
+
+                    {bookingForm.hospital === 'Spire Hartswood Hospital' && (
+                      <div className="mt-2 p-2.5 bg-sky-50/80 rounded-lg border border-sky-100 flex items-center justify-between text-xs text-slate-700">
+                        <span className="text-[11px] text-slate-600">
+                          ⚡ <strong>Spire Appointment System:</strong> View real-time consultation timeslots:
+                        </span>
+                        <a
+                          href={SPIRE_HARTSWOOD_BOOKING_URL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-bold text-[#1B4965] hover:underline flex items-center gap-1 text-[11px] shrink-0"
+                        >
+                          <span>Open Spire Portal</span>
+                          <ExternalLink size={11} />
+                        </a>
+                      </div>
+                    )}
+
+                    {bookingForm.hospital === 'Nuffield Brentwood Hospital' && (
+                      <div className="mt-2 p-2.5 bg-emerald-50/80 rounded-lg border border-emerald-100 flex items-center justify-between text-xs text-slate-700">
+                        <span className="text-[11px] text-slate-600">
+                          ⚡ <strong>Nuffield Health System:</strong> Book directly on Nuffield Health portal:
+                        </span>
+                        <a
+                          href={NUFFIELD_BRENTWOOD_BOOKING_URL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-bold text-emerald-800 hover:underline flex items-center gap-1 text-[11px] shrink-0"
+                        >
+                          <span>Open Nuffield Portal</span>
+                          <ExternalLink size={11} />
+                        </a>
+                      </div>
+                    )}
                   </div>
 
                   {/* Joint / Condition of Concern */}

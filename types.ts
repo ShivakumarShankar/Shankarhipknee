@@ -55,6 +55,7 @@ export interface Location {
   facilities: string[];
   transport: string;
   mapQuery: string;
+  bookingUrl?: string;
 }
 
 export interface Testimonial {

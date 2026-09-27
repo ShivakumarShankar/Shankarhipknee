@@ -15,6 +15,59 @@ export default defineConfig(({ mode }) => {
         {
           name: 'mako-image-uploader',
           configureServer(server) {
+            server.middlewares.use('/api/consultations', (req, res) => {
+              const consultationsFile = path.resolve(__dirname, 'consultations.json');
+              if (req.method === 'GET') {
+                try {
+                  const data = fs.existsSync(consultationsFile) ? fs.readFileSync(consultationsFile, 'utf8') : '[]';
+                  res.writeHead(200, { 'Content-Type': 'application/json' });
+                  res.end(data);
+                } catch (e: any) {
+                  res.writeHead(500, { 'Content-Type': 'application/json' });
+                  res.end(JSON.stringify({ error: e.message }));
+                }
+                return;
+              }
+              res.writeHead(405);
+              res.end();
+            });
+            server.middlewares.use('/api/submit-consultation', (req, res) => {
+              if (req.method === 'POST') {
+                const chunks: any[] = [];
+                req.on('data', chunk => chunks.push(chunk));
+                req.on('end', () => {
+                  try {
+                    const body = JSON.parse(Buffer.concat(chunks).toString());
+                    const consultationsFile = path.resolve(__dirname, 'consultations.json');
+                    let existing: any[] = [];
+                    if (fs.existsSync(consultationsFile)) {
+                      try {
+                        existing = JSON.parse(fs.readFileSync(consultationsFile, 'utf8'));
+                      } catch {
+                        existing = [];
+                      }
+                    }
+                    const newEntry = {
+                      id: `booking-${Date.now()}-${Math.random().toString(36).substring(2, 7)}`,
+                      timestamp: new Date().toISOString(),
+                      ...body
+                    };
+                    existing.unshift(newEntry);
+                    fs.writeFileSync(consultationsFile, JSON.stringify(existing, null, 2));
+                    res.writeHead(200, { 'Content-Type': 'application/json' });
+                    res.end(JSON.stringify({ success: true, entry: newEntry, total: existing.length }));
+                    return;
+                  } catch (e: any) {
+                    res.writeHead(500, { 'Content-Type': 'application/json' });
+                    res.end(JSON.stringify({ error: e.message }));
+                    return;
+                  }
+                });
+              } else {
+                res.writeHead(405);
+                res.end();
+              }
+            });
             server.middlewares.use('/api/upload-media-image', (req, res) => {
               if (req.method === 'POST') {
                 const chunks: any[] = [];

@@ -216,12 +216,12 @@ const MENU_PAGES: NavMenuItem[] = [
     subItems: [
       {
         name: 'Spire Hartswood Hospital',
-        description: 'Eagle Way, Brentwood, Essex CM13 3LE',
+        description: 'Eagle Way, Brentwood • Live Online Booking Available',
         href: '#locations'
       },
       {
         name: 'Nuffield Health Brentwood Hospital',
-        description: 'Shenfield Road, Brentwood, Essex CM15 8EH',
+        description: 'Shenfield Road, Brentwood • Live Online Booking Available',
         href: '#locations'
       },
       {

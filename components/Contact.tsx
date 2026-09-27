@@ -26,7 +26,9 @@ import {
   BUPA_PROFILE_URL,
   LINKEDIN_URL,
   X_URL,
-  X_HANDLE
+  X_HANDLE,
+  SPIRE_HARTSWOOD_BOOKING_URL,
+  NUFFIELD_BRENTWOOD_BOOKING_URL
 } from '../constants';
 import { SurgeonPortrait } from './SurgeonPortrait';
 
@@ -56,8 +58,44 @@ const Contact: React.FC<ContactProps> = ({ onBook }) => {
     }, 2000);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const submissionData = {
+      name: contactForm.name,
+      email: contactForm.email,
+      phone: contactForm.phone,
+      hospital: contactForm.hospital,
+      treatmentArea: contactForm.enquiryType,
+      fundingType: contactForm.fundingMethod,
+      message: contactForm.message,
+      source: 'Contact Page'
+    };
+
+    // 1. Save to local storage
+    try {
+      const stored = localStorage.getItem('shankar_patient_consultations');
+      const list = stored ? JSON.parse(stored) : [];
+      list.unshift({
+        id: `contact-${Date.now()}`,
+        timestamp: new Date().toISOString(),
+        ...submissionData
+      });
+      localStorage.setItem('shankar_patient_consultations', JSON.stringify(list));
+    } catch {
+      // ignore
+    }
+
+    // 2. Post to server endpoint
+    try {
+      await fetch('/api/submit-consultation', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(submissionData)
+      });
+    } catch {
+      // ignore
+    }
+
     setFormSubmitted(true);
   };
 
@@ -316,16 +354,67 @@ const Contact: React.FC<ContactProps> = ({ onBook }) => {
                   Thank you, <strong>{contactForm.name}</strong>. Your message has been routed directly to <strong>{SECRETARY_NAME}</strong>.
                 </p>
                 <div className="p-4 bg-[#F8FAFC] rounded-xl text-xs text-slate-700 text-left border border-slate-200 max-w-md mx-auto space-y-1">
-                  <p className="font-bold text-slate-900">Next steps:</p>
-                  <p>Remya will review your enquiry regarding <strong>{contactForm.enquiryType}</strong> and reply to <strong>{contactForm.phone || contactForm.email}</strong> during working hours.</p>
-                  <p className="text-slate-500 pt-1">For immediate assistance, please call direct on <strong>{MOBILE_PHONE}</strong>.</p>
+                  <p className="font-bold text-slate-900 flex items-center gap-1.5 text-xs text-[#1B4965]">
+                    <ShieldCheck size={14} /> Logged with Medical Secretary ({SECRETARY_NAME})
+                  </p>
+                  <p>Remya will review your enquiry regarding <strong>{contactForm.enquiryType}</strong> ({contactForm.hospital}) and reply to <strong>{contactForm.phone || contactForm.email}</strong> during working hours.</p>
+                  <p className="text-slate-500 pt-1">For urgent consultation inquiries, you can also connect directly:</p>
                 </div>
-                <button 
-                  onClick={() => setFormSubmitted(false)}
-                  className="mt-4 bg-[#1B4965] hover:bg-[#13364B] text-white text-xs font-bold py-2.5 px-6 rounded-lg transition-colors"
-                >
-                  Send Another Enquiry
-                </button>
+
+                {/* Direct Action Options */}
+                <div className="max-w-md mx-auto space-y-2 pt-1">
+                  <a
+                    href={`mailto:${EMAIL}?subject=${encodeURIComponent(`[Website Enquiry] ${contactForm.name} - ${contactForm.enquiryType}`)}&body=${encodeURIComponent(
+`Dear Mr Shankar and Remya Rexlin,
+
+I have submitted an enquiry via your practice website:
+
+PATIENT ENQUIRY:
+• Name: ${contactForm.name}
+• Email: ${contactForm.email}
+• Phone: ${contactForm.phone}
+• Preferred Hospital: ${contactForm.hospital}
+• Enquiry Type: ${contactForm.enquiryType}
+• Funding: ${contactForm.fundingMethod}
+
+MESSAGE:
+${contactForm.message || 'None provided.'}
+
+Kind regards,
+${contactForm.name}`
+                    )}`}
+                    className="w-full bg-[#1B4965] hover:bg-[#13364B] text-white px-5 py-2.5 rounded-lg text-xs font-bold transition-colors flex items-center justify-center gap-2 shadow-xs"
+                  >
+                    <Mail size={14} />
+                    <span>Open Email to Medical Secretary ({EMAIL})</span>
+                  </a>
+
+                  <div className="grid grid-cols-2 gap-2 text-xs">
+                    <a
+                      href={`tel:${MOBILE_PHONE.replace(/\s+/g, '')}`}
+                      className="bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 px-3 py-2 rounded-lg font-bold flex items-center justify-center gap-1.5 transition-colors shadow-2xs"
+                    >
+                      <Phone size={13} className="text-[#1B4965]" />
+                      <span>Call Mobile ({MOBILE_PHONE})</span>
+                    </a>
+                    <a
+                      href={`tel:${LANDLINE_PHONE.replace(/\s+/g, '')}`}
+                      className="bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 px-3 py-2 rounded-lg font-bold flex items-center justify-center gap-1.5 transition-colors shadow-2xs"
+                    >
+                      <Phone size={13} className="text-[#1B4965]" />
+                      <span>Office ({LANDLINE_PHONE})</span>
+                    </a>
+                  </div>
+                </div>
+
+                <div className="pt-2">
+                  <button 
+                    onClick={() => setFormSubmitted(false)}
+                    className="text-slate-500 hover:text-slate-800 text-xs font-semibold py-1 transition-colors"
+                  >
+                    Send Another Enquiry
+                  </button>
+                </div>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -384,10 +473,44 @@ const Contact: React.FC<ContactProps> = ({ onBook }) => {
                       onChange={(e) => setContactForm({ ...contactForm, hospital: e.target.value })}
                       className="w-full p-3 rounded-xl bg-[#F8FAFC] border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-[#1B4965]"
                     >
-                      <option value="Spire Hartswood Hospital">Spire Hartswood Hospital (Brentwood)</option>
-                      <option value="Nuffield Brentwood Hospital">Nuffield Health Brentwood Hospital (Brentwood)</option>
+                      <option value="Spire Hartswood Hospital">Spire Hartswood Hospital (Brentwood) — Live Diary Available</option>
+                      <option value="Nuffield Brentwood Hospital">Nuffield Health Brentwood Hospital (Brentwood) — Live Booking Available</option>
                       <option value="Either / First Available">Either / First Available Clinic Slot</option>
                     </select>
+
+                    {contactForm.hospital === 'Spire Hartswood Hospital' && (
+                      <div className="mt-2 p-2.5 bg-sky-50 rounded-lg border border-sky-100 flex items-center justify-between text-xs text-slate-700">
+                        <span className="text-[11px] text-slate-600">
+                          ⚡ Prefer live timeslots? <strong>Book directly via Spire:</strong>
+                        </span>
+                        <a
+                          href={SPIRE_HARTSWOOD_BOOKING_URL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-bold text-[#1B4965] hover:underline flex items-center gap-1 text-[11px] shrink-0"
+                        >
+                          <span>Spire Portal</span>
+                          <ExternalLink size={11} />
+                        </a>
+                      </div>
+                    )}
+
+                    {contactForm.hospital === 'Nuffield Brentwood Hospital' && (
+                      <div className="mt-2 p-2.5 bg-emerald-50 rounded-lg border border-emerald-100 flex items-center justify-between text-xs text-slate-700">
+                        <span className="text-[11px] text-slate-600">
+                          ⚡ Prefer live timeslots? <strong>Book directly via Nuffield Health:</strong>
+                        </span>
+                        <a
+                          href={NUFFIELD_BRENTWOOD_BOOKING_URL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-bold text-emerald-800 hover:underline flex items-center gap-1 text-[11px] shrink-0"
+                        >
+                          <span>Nuffield Portal</span>
+                          <ExternalLink size={11} />
+                        </a>
+                      </div>
+                    )}
                   </div>
                 </div>
 
@@ -514,14 +637,26 @@ const Contact: React.FC<ContactProps> = ({ onBook }) => {
                   <a href={`tel:${LANDLINE_PHONE.replace(/\s+/g, '')}`} className="text-slate-800 hover:text-[#1B4965] font-semibold">{LANDLINE_PHONE}</a>
                 </div>
               </div>
-              {onBook && (
-                <button
-                  onClick={() => onBook('Spire Hartswood Hospital')}
-                  className="w-full bg-[#EAF1F6] hover:bg-[#1B4965] hover:text-white text-[#1B4965] text-xs font-bold py-2 rounded-lg transition-colors flex items-center justify-center gap-1.5 border border-slate-200"
+              <div className="space-y-2">
+                <a
+                  href={SPIRE_HARTSWOOD_BOOKING_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-[#1B4965] hover:bg-[#13364B] text-white text-xs font-bold py-2.5 rounded-lg transition-all flex items-center justify-center gap-1.5 shadow-xs hover:shadow-md"
                 >
-                  <Calendar size={13} /> Book at Spire Hartswood
-                </button>
-              )}
+                  <Calendar size={13} />
+                  <span>Book Online at Spire (Live Timeslots)</span>
+                  <ExternalLink size={12} />
+                </a>
+                {onBook && (
+                  <button
+                    onClick={() => onBook('Spire Hartswood Hospital')}
+                    className="w-full bg-[#EAF1F6] hover:bg-[#dbe7f0] text-[#1B4965] text-xs font-bold py-2 rounded-lg transition-colors flex items-center justify-center gap-1.5 border border-slate-200"
+                  >
+                    Request via Medical Secretary
+                  </button>
+                )}
+              </div>
             </div>
 
             {/* Nuffield Health Brentwood Hospital Card */}
@@ -551,14 +686,26 @@ const Contact: React.FC<ContactProps> = ({ onBook }) => {
                   <a href={`tel:${LANDLINE_PHONE.replace(/\s+/g, '')}`} className="text-slate-800 hover:text-[#1B4965] font-semibold">{LANDLINE_PHONE}</a>
                 </div>
               </div>
-              {onBook && (
-                <button
-                  onClick={() => onBook('Nuffield Brentwood Hospital')}
-                  className="w-full bg-[#EAF1F6] hover:bg-[#1B4965] hover:text-white text-[#1B4965] text-xs font-bold py-2 rounded-lg transition-colors flex items-center justify-center gap-1.5 border border-slate-200"
+              <div className="space-y-2">
+                <a
+                  href={NUFFIELD_BRENTWOOD_BOOKING_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-[#00703C] hover:bg-[#005a30] text-white text-xs font-bold py-2.5 rounded-lg transition-all flex items-center justify-center gap-1.5 shadow-xs hover:shadow-md"
                 >
-                  <Calendar size={13} /> Book at Nuffield Brentwood
-                </button>
-              )}
+                  <Calendar size={13} />
+                  <span>Book Online at Nuffield (Live Slots)</span>
+                  <ExternalLink size={12} />
+                </a>
+                {onBook && (
+                  <button
+                    onClick={() => onBook('Nuffield Brentwood Hospital')}
+                    className="w-full bg-[#EAF1F6] hover:bg-[#dbe7f0] text-[#1B4965] text-xs font-bold py-2 rounded-lg transition-colors flex items-center justify-center gap-1.5 border border-slate-200"
+                  >
+                    Request via Medical Secretary
+                  </button>
+                )}
+              </div>
             </div>
 
             {/* Insurance & Self-Pay Notice */}

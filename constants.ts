@@ -32,6 +32,8 @@ export const X_HANDLE = "@ShankarHipKnee";
 export const LINKEDIN_URL = "https://www.linkedin.com/in/shivakumar-shankar-25758026/recent-activity/all/";
 export const X_URL = "https://x.com/ShankarHipKnee";
 export const BUPA_PROFILE_URL = "https://finder.bupa.co.uk/Consultant/mr-shivakumar-shankar-orthopaedic-surgery-brentwood-romford";
+export const SPIRE_HARTSWOOD_BOOKING_URL = "https://appointments.spirehealthcare.com/?c=C6038414";
+export const NUFFIELD_BRENTWOOD_BOOKING_URL = "https://www.nuffieldhealth.com/consultants/mr-shivakumar-shankar#book";
 
 export const SOCIAL_LINKS = {
   handle: "@ShankarHipKnee",
@@ -441,7 +443,8 @@ export const LOCATIONS: Location[] = [
       "Private en-suite recovery rooms"
     ],
     transport: "Conveniently located just off the M25 (J28/J29) and A12. 5 minutes from Brentwood Station (Elizabeth Line). Free on-site parking.",
-    mapQuery: "Spire Hartswood Hospital, Eagle Way, Brentwood"
+    mapQuery: "Spire Hartswood Hospital, Eagle Way, Brentwood",
+    bookingUrl: SPIRE_HARTSWOOD_BOOKING_URL
   },
   {
     id: "nuffield-brentwood",
@@ -460,7 +463,8 @@ export const LOCATIONS: Location[] = [
       "Recognised by all major private medical insurers"
     ],
     transport: "Located on Shenfield Road, easily reachable from Shenfield Station (Elizabeth Line & mainline) and Brentwood town centre. Free patient parking.",
-    mapQuery: "Nuffield Health Brentwood Hospital, Shenfield Road, Brentwood"
+    mapQuery: "Nuffield Health Brentwood Hospital, Shenfield Road, Brentwood",
+    bookingUrl: NUFFIELD_BRENTWOOD_BOOKING_URL
   },
   {
     id: "nhs-trust",
