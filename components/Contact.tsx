@@ -723,7 +723,7 @@ ${contactForm.name}`
                   rel="noopener noreferrer"
                   className="bg-[#0079C8] hover:bg-[#005a96] text-white px-3 py-1.5 rounded-lg text-[11px] font-bold flex items-center gap-1.5 transition-colors shadow-2xs"
                 >
-                  <img src="./profile.jpg" alt="Mr Shankar Bupa" className="w-4 h-4 rounded-full object-cover object-top border border-white/50 shrink-0" />
+                  <img src="./profile.jpg" alt="Mr Shivakumar Shankar Bupa Consultant Profile" className="w-4 h-4 rounded-full object-cover object-top border border-white/50 shrink-0" />
                   <ShieldCheck size={12} />
                   <span>Verified Bupa Finder Profile</span>
                   <ExternalLink size={10} />
@@ -734,7 +734,7 @@ ${contactForm.name}`
                   rel="noopener noreferrer"
                   className="bg-[#0A66C2] hover:bg-[#004182] text-white px-3 py-1.5 rounded-lg text-[11px] font-bold flex items-center gap-1.5 transition-colors shadow-2xs"
                 >
-                  <img src="./profile.jpg" alt="Mr Shankar LinkedIn" className="w-4 h-4 rounded-full object-cover object-top border border-white/50 shrink-0" />
+                  <img src="./profile.jpg" alt="Mr Shivakumar Shankar LinkedIn Profile" className="w-4 h-4 rounded-full object-cover object-top border border-white/50 shrink-0" />
                   <span>LinkedIn Network</span>
                   <ExternalLink size={10} />
                 </a>
@@ -744,7 +744,7 @@ ${contactForm.name}`
                   rel="noopener noreferrer"
                   className="bg-black hover:bg-slate-800 text-white px-3 py-1.5 rounded-lg text-[11px] font-bold flex items-center gap-1.5 transition-colors shadow-2xs"
                 >
-                  <img src="./profile.jpg" alt="Mr Shankar X" className="w-4 h-4 rounded-full object-cover object-top border border-white/50 shrink-0" />
+                  <img src="./profile.jpg" alt="Mr Shivakumar Shankar X Profile" className="w-4 h-4 rounded-full object-cover object-top border border-white/50 shrink-0" />
                   <span>X ({X_HANDLE})</span>
                   <ExternalLink size={10} />
                 </a>

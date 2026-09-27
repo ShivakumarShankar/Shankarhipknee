@@ -1,51 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ais-pre-fkxcgnrup234hxgqhr4oi6-567510833386.europe-west2.run.app/</loc>
+    <loc>https://www.shivakumarshankar.co.uk/</loc>
     <lastmod>2026-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://ais-pre-fkxcgnrup234hxgqhr4oi6-567510833386.europe-west2.run.app/#about</loc>
+    <loc>https://www.shivakumarshankar.co.uk/about</loc>
     <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://ais-pre-fkxcgnrup234hxgqhr4oi6-567510833386.europe-west2.run.app/#treatments</loc>
+    <loc>https://www.shivakumarshankar.co.uk/hip-replacement</loc>
     <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://ais-pre-fkxcgnrup234hxgqhr4oi6-567510833386.europe-west2.run.app/#patient-guides</loc>
+    <loc>https://www.shivakumarshankar.co.uk/knee-replacement</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.shivakumarshankar.co.uk/robotic-surgery</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.shivakumarshankar.co.uk/knee-arthroscopy</loc>
     <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ais-pre-fkxcgnrup234hxgqhr4oi6-567510833386.europe-west2.run.app/#reviews</loc>
+    <loc>https://www.shivakumarshankar.co.uk/patient-guides</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.shivakumarshankar.co.uk/reviews</loc>
     <lastmod>2026-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ais-pre-fkxcgnrup234hxgqhr4oi6-567510833386.europe-west2.run.app/#locations</loc>
+    <loc>https://www.shivakumarshankar.co.uk/contact</loc>
     <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ais-pre-fkxcgnrup234hxgqhr4oi6-567510833386.europe-west2.run.app/#media</loc>
-    <lastmod>2026-09-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ais-pre-fkxcgnrup234hxgqhr4oi6-567510833386.europe-west2.run.app/#faq</loc>
-    <lastmod>2026-09-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 </urlset>

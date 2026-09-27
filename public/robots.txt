@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ais-pre-fkxcgnrup234hxgqhr4oi6-567510833386.europe-west2.run.app/sitemap.xml
+Sitemap: https://www.shivakumarshankar.co.uk/sitemap.xml

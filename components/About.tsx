@@ -60,7 +60,7 @@ const About: React.FC<AboutProps> = ({ onBook, onNavigateHome }) => {
               <div className="flex items-center gap-3.5 sm:gap-4">
                 <img 
                   src="./logo_icon.png" 
-                  alt="London Essex Hip & Knee" 
+                  alt="Mr Shivakumar Shankar - London and Essex Hip and Knee Surgeon Logo Icon" 
                   className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain bg-white p-1 rounded-xl shadow-md flex-shrink-0 border border-slate-200"
                 />
                 <h2 className="font-serif text-[28px] sm:text-[34px] text-[#1B4965] font-semibold tracking-tight leading-tight">

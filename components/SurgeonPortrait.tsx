@@ -24,7 +24,7 @@ const CANDIDATE_SOURCES = [
 
 export const SurgeonPortrait: React.FC<SurgeonPortraitProps> = ({
   className = 'w-full h-auto object-cover object-top',
-  alt = `${SURGEON_NAME} - Consultant Orthopaedic Hip & Knee Surgeon`,
+  alt = `${SURGEON_NAME} - London & Essex Hip and Knee Surgeon, Consultant Orthopaedic Surgeon`,
 }) => {
   const [sourceIndex, setSourceIndex] = useState(0);
 
@@ -39,6 +39,8 @@ export const SurgeonPortrait: React.FC<SurgeonPortraitProps> = ({
       src={CANDIDATE_SOURCES[sourceIndex]}
       alt={alt}
       className={className}
+      loading="eager"
+      decoding="async"
       referrerPolicy="no-referrer"
       onError={handleError}
     />
@@ -54,7 +56,7 @@ export interface SurgeonPortraitCardProps {
 export const SurgeonPortraitCard: React.FC<SurgeonPortraitCardProps> = ({
   className = 'w-full max-w-md',
   imageMaxHeight = 'max-h-[520px]',
-  alt = `${SURGEON_NAME} - Consultant Orthopaedic Surgeon`,
+  alt = `${SURGEON_NAME} - London and Essex Hip and Knee Surgeon`,
 }) => {
   return (
     <div className={`relative rounded-2xl overflow-hidden border border-slate-200 shadow-xl bg-white ${className}`}>

@@ -440,7 +440,7 @@ export const PatientGuidesHub: React.FC<PatientGuidesHubProps> = ({ onOpenBookin
         {/* Clinical Disclaimer Banner */}
         <div className="mt-12 bg-white p-5 rounded-2xl border border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-slate-600 shadow-2xs">
           <div className="flex items-center gap-3">
-            <img src="/logo.png" alt="London Essex Hip and Knee" className="h-8 w-auto object-contain flex-shrink-0" />
+            <img src="/logo.png" alt="Mr Shivakumar Shankar - London and Essex Hip and Knee Surgeon" className="h-8 w-auto object-contain flex-shrink-0" />
             <div>
               <p className="font-extrabold text-slate-900">{SURGEON_NAME} &bull; {SURGEON_ROLE}</p>
               <p className="text-slate-500">Official patient education and clinical consent documentation.</p>
@@ -476,7 +476,7 @@ export const PatientGuidesHub: React.FC<PatientGuidesHubProps> = ({ onOpenBookin
 
             {/* Branded Clinical Header */}
             <div className="flex items-center gap-3.5 mb-5 pb-4 border-b border-slate-100">
-              <img src="/logo.png" alt="London Essex Hip and Knee" className="h-11 w-auto object-contain" />
+              <img src="/logo.png" alt="Mr Shivakumar Shankar - London and Essex Hip and Knee Surgeon" className="h-11 w-auto object-contain" />
               <div className="border-l border-slate-200 pl-3">
                 <p className="text-xs font-extrabold text-slate-900">{SURGEON_NAME}</p>
                 <p className="text-[11px] text-[#1B4965] font-bold">{SURGEON_ROLE}</p>
@@ -642,7 +642,7 @@ export const PatientGuidesHub: React.FC<PatientGuidesHubProps> = ({ onOpenBookin
 
             {/* Practice Brand Header */}
             <div className="flex items-center gap-3 mb-4 pb-3 border-b border-slate-100">
-              <img src="/logo.png" alt="London Essex Hip and Knee" className="h-10 w-auto object-contain" />
+              <img src="/logo.png" alt="Mr Shivakumar Shankar - London and Essex Hip and Knee Surgeon" className="h-10 w-auto object-contain" />
               <div className="border-l border-slate-200 pl-3">
                 <p className="text-xs font-extrabold text-slate-900">{SURGEON_NAME}</p>
                 <p className="text-[11px] text-[#1B4965] font-bold">{SURGEON_ROLE}</p>
@@ -757,7 +757,7 @@ export const PatientGuidesHub: React.FC<PatientGuidesHubProps> = ({ onOpenBookin
 
             {/* Practice Header */}
             <div className="flex items-center gap-3 mb-4 pb-3 border-b border-slate-100">
-              <img src="/logo.png" alt="London Essex Hip and Knee" className="h-10 w-auto object-contain" />
+              <img src="/logo.png" alt="Mr Shivakumar Shankar - London and Essex Hip and Knee Surgeon" className="h-10 w-auto object-contain" />
               <div className="border-l border-slate-200 pl-3">
                 <p className="text-xs font-extrabold text-slate-900">{SURGEON_NAME}</p>
                 <p className="text-[11px] text-[#1B4965] font-bold">{SURGEON_ROLE}</p>

@@ -19,7 +19,7 @@ import { SurgeonPortrait } from './SurgeonPortrait';
 interface HeaderProps {
   onBook: () => void;
   onNavigate: (href: string) => void;
-  currentPage: 'home' | 'about' | 'reviews';
+  currentPage: string;
 }
 
 interface NavSubItem {
@@ -67,69 +67,69 @@ const MENU_PAGES: NavMenuItem[] = [
   },
   {
     name: 'Services',
-    href: '#treatments',
+    href: 'hip-replacement',
     subItems: [
       {
-        name: 'Robotic Hip Replacement',
+        name: 'Hip Replacement Surgery',
         description: 'Sub-millimetre precision implant positioning with 3D planning',
-        href: '#treatments'
+        href: 'hip-replacement'
       },
       {
-        name: 'Minimally Invasive Hip Surgery',
-        description: 'Tissue-preserving approach for reduced pain and rapid discharge',
-        href: '#treatments'
+        name: 'Minimally Invasive Hip Approaches',
+        description: 'Tissue-preserving Rottinger and anterior approaches for rapid recovery',
+        href: 'hip-replacement'
       },
       {
-        name: 'Robotic Knee Replacement',
+        name: 'Knee Replacement & Arthroplasty',
         description: 'Custom kinematics with balanced ligament tensioning',
-        href: '#treatments'
+        href: 'knee-replacement'
       },
       {
         name: 'Partial Knee Replacement',
         description: 'Preserving natural knee ligaments with unicompartmental resurfacing',
-        href: '#treatments'
+        href: 'knee-replacement'
       },
       {
         name: 'Knee Arthroscopy & Keyhole Surgery',
         description: 'Meniscal tears, cartilage preservation, and joint debridement',
-        href: '#treatments'
+        href: 'knee-arthroscopy'
       },
       {
-        name: 'Joint Injections & Preservation',
-        description: 'Hyaluronic acid viscosupplementation and targeted pain relief',
-        href: '#treatments'
+        name: 'Robotic Joint Arthroplasty',
+        description: 'Mako robotic arm-assisted precision joint replacement',
+        href: 'robotic-surgery'
       }
     ]
   },
   {
     name: 'Robotic Surgery',
-    href: '#robotic',
+    href: 'robotic-surgery',
     subItems: [
       {
         name: 'Robotic Arthroplasty Overview',
         description: 'How robotic guidance transforms joint replacement precision',
-        href: '#robotic'
+        href: 'robotic-surgery'
       },
       {
         name: 'Computer-Assisted Navigation',
         description: 'Real-time dynamic optical feedback during surgery',
-        href: '#robotic'
+        href: 'robotic-surgery'
       },
       {
         name: 'Regional Pioneer Milestone',
         description: 'First surgeon in Essex & NE London for robotic total hip surgery',
-        href: '#robotic'
+        href: 'robotic-surgery'
       }
     ]
   },
   {
     name: 'Patient Info',
-    href: '#patient-guides',
+    href: 'patient-guides',
     subItems: [
       {
         name: 'Surgical Risks & Patient Guides (PDF)',
         description: 'Procedure risks, non-operative options, and downloadable guides',
-        href: '#patient-guides'
+        href: 'patient-guides'
       },
       {
         name: 'Enhanced Recovery Protocols',
@@ -233,7 +233,7 @@ const MENU_PAGES: NavMenuItem[] = [
   },
   {
     name: 'Appointments & Contact',
-    href: '#contact',
+    href: 'contact',
     subItems: [
       {
         name: 'Book Private Consultation',
@@ -243,11 +243,18 @@ const MENU_PAGES: NavMenuItem[] = [
       {
         name: 'Direct Contact & Secretary',
         description: 'Call 07587 765888 or email hip.knee_specialist@yahoo.com',
-        href: '#contact'
+        href: 'contact'
       }
     ]
   }
 ];
+
+export const getCanonicalHref = (href: string) => {
+  if (href === 'book') return '#';
+  if (href.startsWith('#')) return href;
+  if (href === 'home' || href === '') return '/';
+  return href.startsWith('/') ? href : `/${href}`;
+};
 
 const Header: React.FC<HeaderProps> = ({ onBook, onNavigate, currentPage }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -277,7 +284,8 @@ const Header: React.FC<HeaderProps> = ({ onBook, onNavigate, currentPage }) => {
           <div className="flex justify-between items-center gap-4">
             
             {/* Brand Logo & Surgeon Identification */}
-            <div 
+            <a 
+              href="/"
               className="flex-shrink-0 flex items-center gap-3 sm:gap-4 cursor-pointer group" 
               onClick={(e) => handleNavClick('home', e)}
               title="London Essex Hip and Knee Surgeon - Restoring your active lifestyle"
@@ -285,13 +293,13 @@ const Header: React.FC<HeaderProps> = ({ onBook, onNavigate, currentPage }) => {
               {/* Full Logo on Tablet & Desktop */}
               <img 
                 src="/logo.png" 
-                alt="London Essex Hip and Knee Surgeon Logo" 
+                alt="Mr Shivakumar Shankar - London and Essex Hip and Knee Surgeon" 
                 className="hidden sm:block h-12 md:h-14 lg:h-16 w-auto object-contain transition-transform group-hover:scale-102 flex-shrink-0"
               />
               {/* Compact Logo Mark on Mobile screens */}
               <img 
                 src="/logo_icon.png" 
-                alt="London Essex Hip and Knee Surgeon Logo" 
+                alt="London and Essex Hip and Knee Surgeon Logo Icon" 
                 className="sm:hidden h-11 w-11 object-contain flex-shrink-0 bg-white rounded-lg p-0.5 border border-slate-200 shadow-2xs"
               />
               
@@ -306,7 +314,7 @@ const Header: React.FC<HeaderProps> = ({ onBook, onNavigate, currentPage }) => {
                   Spire Hartswood Hospital &bull; Nuffield Health Brentwood Hospital &bull; Queen's Hospital
                 </span>
               </div>
-            </div>
+            </a>
 
             {/* Header Right Information & CTA */}
             <div className="flex items-center gap-3 sm:gap-5">
@@ -372,9 +380,14 @@ const Header: React.FC<HeaderProps> = ({ onBook, onNavigate, currentPage }) => {
               {/* Individual Pages Navigation List */}
               <div className="flex items-center space-x-1">
                 {MENU_PAGES.map((page) => {
-                  const isActive = (page.href === 'about' && currentPage === 'about') || 
-                                   (page.href === 'reviews' && currentPage === 'reviews') ||
-                                   (page.href === 'home' && currentPage === 'home');
+                  const isActive = 
+                    (page.href === 'about' && currentPage === 'about') || 
+                    (page.href === 'reviews' && currentPage === 'reviews') ||
+                    (page.href === 'contact' && currentPage === 'contact') ||
+                    (page.href === 'robotic-surgery' && currentPage === 'robotic-surgery') ||
+                    (page.href === 'hip-replacement' && (currentPage === 'hip-replacement' || currentPage === 'knee-replacement' || currentPage === 'knee-arthroscopy')) ||
+                    (page.href === 'patient-guides' && currentPage === 'patient-guides') ||
+                    (page.href === 'home' && currentPage === 'home');
                   const hasSub = page.subItems && page.subItems.length > 0;
                   return (
                     <div 
@@ -382,7 +395,7 @@ const Header: React.FC<HeaderProps> = ({ onBook, onNavigate, currentPage }) => {
                       className="relative group py-2"
                     >
                       <a
-                        href={page.href === 'book' ? '#' : page.href}
+                        href={getCanonicalHref(page.href)}
                         onClick={(e) => handleNavClick(page.href, e)}
                         className={`flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold uppercase tracking-wider rounded-md transition-colors ${
                           isActive 
@@ -407,7 +420,7 @@ const Header: React.FC<HeaderProps> = ({ onBook, onNavigate, currentPage }) => {
                           {page.subItems!.map((sub) => (
                             <a
                               key={sub.name}
-                              href={sub.href === 'book' ? '#' : sub.href}
+                              href={getCanonicalHref(sub.href)}
                               onClick={(e) => handleNavClick(sub.href, e)}
                               className="block px-3.5 py-2 hover:bg-[#F8FAFC] transition-colors group/item"
                             >
@@ -469,7 +482,7 @@ const Header: React.FC<HeaderProps> = ({ onBook, onNavigate, currentPage }) => {
                     <div key={page.name} className="border-b border-slate-100 last:border-b-0 pb-1">
                       <div className="flex items-center justify-between">
                         <a
-                          href={page.href === 'book' ? '#' : page.href}
+                          href={getCanonicalHref(page.href)}
                           onClick={(e) => handleNavClick(page.href, e)}
                           className="flex-1 py-2 text-sm font-bold text-slate-800 hover:text-[#1B4965]"
                         >
@@ -494,7 +507,7 @@ const Header: React.FC<HeaderProps> = ({ onBook, onNavigate, currentPage }) => {
                           {page.subItems!.map((sub) => (
                             <a
                               key={sub.name}
-                              href={sub.href === 'book' ? '#' : sub.href}
+                              href={getCanonicalHref(sub.href)}
                               onClick={(e) => handleNavClick(sub.href, e)}
                               className="block py-1.5 px-2 text-xs font-semibold text-slate-700 hover:text-[#1B4965] hover:bg-white rounded transition-colors"
                             >
