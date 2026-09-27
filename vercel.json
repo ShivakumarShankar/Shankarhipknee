@@ -27,7 +27,39 @@
   ],
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/about",
+      "destination": "/about/index.html"
+    },
+    {
+      "source": "/hip-replacement",
+      "destination": "/hip-replacement/index.html"
+    },
+    {
+      "source": "/knee-replacement",
+      "destination": "/knee-replacement/index.html"
+    },
+    {
+      "source": "/robotic-surgery",
+      "destination": "/robotic-surgery/index.html"
+    },
+    {
+      "source": "/knee-arthroscopy",
+      "destination": "/knee-arthroscopy/index.html"
+    },
+    {
+      "source": "/patient-guides",
+      "destination": "/patient-guides/index.html"
+    },
+    {
+      "source": "/reviews",
+      "destination": "/reviews/index.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact/index.html"
+    },
+    {
+      "source": "/((?!about|hip-replacement|knee-replacement|robotic-surgery|knee-arthroscopy|patient-guides|reviews|contact|sitemap\\.xml|robots\\.txt|f89417282cb246d892a0885e7cba8b1f\\.txt|assets/|.*\\..*).*)",
       "destination": "/index.html"
     }
   ]
