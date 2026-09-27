@@ -1,0 +1,57 @@
+:root {
+  --color-primary: #1B4965;
+  --color-primary-hover: #13364B;
+  --color-accent: #E8A24C;
+  --color-accent-hover: #D99136;
+  --color-bg-light: #F8FAFC;
+  --color-charcoal: #1E293B;
+  --color-border: #E2E8F0;
+}
+
+/* Custom base styles and animations for London Essex Hip and Knee Surgeon */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--color-charcoal);
+  background-color: var(--color-bg-light);
+}
+
+/* Custom fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Subtle mask for hero graphics */
+.mask-image-b-fade {
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1B4965;
+}

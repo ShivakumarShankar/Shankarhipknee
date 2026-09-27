@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Favicon using circular anatomical logo icon -->
+    <link rel="icon" type="image/png" href="./logo_icon.png" />
+    <link rel="apple-touch-icon" href="./logo_icon.png" />
+    
+    <!-- SEO Optimised Title matching metadata.json -->
+    <title>London Essex Hip & Knee Surgeon | Mr Shivakumar Shankar</title>
+    
+    <!-- Geo-targeted Meta Description -->
+    <meta name="description" content="London Essex Hip and Knee Surgeon - Restoring your active lifestyle. Profile and specialist treatments of Mr Shivakumar Shankar, Consultant Robotic Hip and Knee Surgeon in Essex and London.">
+    
+    <meta name="keywords" content="London Essex Hip and Knee Surgeon, Mr Shivakumar Shankar, Orthopaedic Surgeon Essex, Hip Replacement Brentwood, Robotic Knee Surgery Essex, Spire Hartswood Hospital, Nuffield Brentwood, Knee Arthroscopy, Minimally Invasive Hip">
+
+    <!-- Open Graph for Social Sharing -->
+    <meta property="og:title" content="London Essex Hip & Knee Surgeon | Mr Shivakumar Shankar">
+    <meta property="og:description" content="London Essex Hip and Knee Surgeon - Restoring your active lifestyle. Profile and specialist treatments of Mr Shivakumar Shankar, Consultant Robotic Hip and Knee Surgeon in Essex and London.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_GB">
+
+    <!-- JSON-LD Schema: Specialist Physician & Arthroplasty Clinic -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Physician",
+      "name": "Mr Shivakumar Shankar",
+      "medicalSpecialty": [
+        "Orthopaedic Surgery", 
+        "Hip Replacement Surgery", 
+        "Knee Replacement Surgery",
+        "Robotic-Assisted Joint Replacement",
+        "Knee Arthroscopy"
+      ],
+      "jobTitle": "Consultant Orthopaedic Hip & Knee Surgeon",
+      "description": "High-volume Consultant Orthopaedic Hip & Knee Surgeon specialising in minimally invasive, robotic, and computer-navigated joint replacement at Spire Hartswood Hospital and Nuffield Brentwood Hospital.",
+      "url": "https://www.shankarortho.co.uk",
+      "telephone": "07587765888",
+      "email": "hip.knee_specialist@yahoo.com",
+      "areaServed": [
+        { "@type": "City", "name": "Brentwood" },
+        { "@type": "AdministrativeArea", "name": "Essex" },
+        { "@type": "City", "name": "London" },
+        { "@type": "AdministrativeArea", "name": "North East London" }
+      ],
+      "availableService": [
+        { "@type": "MedicalProcedure", "name": "Total Hip Replacement" },
+        { "@type": "MedicalProcedure", "name": "Robotic Total Hip Replacement" },
+        { "@type": "MedicalProcedure", "name": "Minimally Invasive Hip Replacement" },
+        { "@type": "MedicalProcedure", "name": "Total Knee Replacement" },
+        { "@type": "MedicalProcedure", "name": "Robotic Knee Replacement" },
+        { "@type": "MedicalProcedure", "name": "Partial Knee Replacement" },
+        { "@type": "MedicalProcedure", "name": "Knee Arthroscopy & Meniscal Repair" },
+        { "@type": "MedicalProcedure", "name": "PRP Knee Injections" },
+        { "@type": "MedicalProcedure", "name": "Complex Hip and Knee Reconstruction" }
+      ],
+      "address": [
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "Eagle Way, Great Warley",
+          "addressLocality": "Brentwood",
+          "addressRegion": "Essex",
+          "postalCode": "CM13 3LE",
+          "addressCountry": "GB"
+        },
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "Shenfield Rd",
+          "addressLocality": "Brentwood",
+          "addressRegion": "Essex",
+          "postalCode": "CM15 8EH",
+          "addressCountry": "GB"
+        }
+      ]
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
+              serif: ['"Playfair Display"', 'Georgia', 'serif'],
+              script: ['"Caveat"', 'cursive'],
+            },
+            colors: {
+              les: {
+                50: '#F8FAFC',
+                100: '#EAF1F6',
+                200: '#D5E3EE',
+                300: '#94BFDC',
+                400: '#4F8FB9',
+                500: '#2A6F97',
+                600: '#1B4965', // Primary Navy
+                700: '#1B4965', // Primary Navy
+                800: '#13364B',
+                900: '#0C2331',
+                950: '#06121A',
+              },
+              charcoal: {
+                DEFAULT: '#242424',
+                900: '#1A1A1A',
+                800: '#242424',
+                700: '#3D3D3D',
+              },
+              amber: {
+                DEFAULT: '#E8A24C',
+                100: '#FFF7ED',
+                200: '#FFEDD5',
+                300: '#FDBA74',
+                400: '#FB923C',
+                500: '#E8A24C', // Warm Amber Accent
+                600: '#D99136',
+                700: '#B45309',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="/index.css">
+  </head>
+  <body class="bg-[#F8FAFC] text-[#242424] antialiased selection:bg-[#1B4965] selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+    <!-- Doctify Widget Auto-resize Plugin -->
+    <script type="text/javascript" src="https://www.doctify.com/wv2/doctify-widget-autoresize-plugin.js?tenantId=athena-uk&widgetName=average-carousel-rating-widget&containerId=0485624v"></script>
+  </body>
+</html>

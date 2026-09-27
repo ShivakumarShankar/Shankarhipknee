@@ -1,0 +1,1798 @@
+import React, { useState, useEffect } from 'react';
+import { 
+  Phone, Mail, MapPin, ArrowRight, FileText, 
+  Download, ChevronRight, Activity, Bone, Stethoscope, 
+  Award, Calendar, X, CheckCircle, Sparkles, 
+  Clock, Navigation, Cpu, Heart, AlertCircle, ChevronDown, Building, Star,
+  Search, HelpCircle, ShieldAlert, AlertTriangle, ShieldCheck
+} from 'lucide-react';
+import { 
+  PRACTICE_NAME,
+  SURGEON_NAME, 
+  SURGEON_ROLE, 
+  SURGEON_TITLE,
+  QUALIFICATIONS, 
+  ADDITIONAL_DIPLOMA,
+  GMC_NUMBER, 
+  EMAIL, 
+  PHONE, 
+  PHONE_ALT,
+  MOBILE_PHONE,
+  LANDLINE_PHONE,
+  SECRETARY_NAME,
+  SECRETARY_ROLE,
+  SLOGAN,
+  TAGLINE,
+  SURGICAL_STATS,
+  TREATMENTS, 
+  CONDITIONS_TREATED,
+  FELLOWSHIPS,
+  LOCATIONS, 
+  TESTIMONIALS, 
+  FAQS, 
+  PROTOCOLS,
+  WHY_CHOOSE_POINTS,
+  SOCIAL_HANDLE,
+  X_HANDLE,
+  SOCIAL_LINKS
+} from './constants';
+import { Treatment, Protocol } from './types';
+import Header from './components/Header';
+import About from './components/About';
+import Contact from './components/Contact';
+import { SurgeonPortrait, SurgeonPortraitCard } from './components/SurgeonPortrait';
+import DoctifyCarousel from './components/DoctifyCarousel';
+import { CombinedReviewHub } from './components/CombinedReviewHub';
+import { ReviewsPage } from './components/ReviewsPage';
+import { PatientGuidesHub } from './components/PatientGuidesHub';
+import { MediaGalleryHub } from './components/MediaGalleryHub';
+import { PROCEDURE_RISK_DATA } from './patientInfoData';
+import { generateProcedureRiskPdf, generateProtocolPdf } from './pdfGenerator';
+
+function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalPreferredHospital, setModalPreferredHospital] = useState('Spire Hartswood Hospital');
+  const [currentPage, setCurrentPage] = useState<'home' | 'about' | 'reviews'>('home');
+  const [selectedCategory, setSelectedCategory] = useState<'all' | 'hip' | 'knee' | 'robotic' | 'preservation'>('all');
+  const [selectedConditionJoint, setSelectedConditionJoint] = useState<'Hip' | 'Knee'>('Hip');
+  const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(0);
+  const [activeFaqQuestion, setActiveFaqQuestion] = useState<string | null>(FAQS[0]?.question || null);
+  const [faqCategory, setFaqCategory] = useState<string>('all');
+  const [faqSearchQuery, setFaqSearchQuery] = useState<string>('');
+  const [selectedTreatment, setSelectedTreatment] = useState<Treatment | null>(null);
+  const [selectedProtocol, setSelectedProtocol] = useState<Protocol | null>(null);
+  
+  // Booking Form State
+  const [bookingSubmitted, setBookingSubmitted] = useState(false);
+  const [bookingForm, setBookingForm] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    hospital: 'Spire Hartswood Hospital',
+    treatmentArea: 'Hip',
+    fundingType: 'Insured (Bupa, AXA, etc.)',
+    notes: ''
+  });
+
+  // Prevent scroll when modal is open
+  useEffect(() => {
+    if (isModalOpen || selectedTreatment || selectedProtocol) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isModalOpen, selectedTreatment, selectedProtocol]);
+
+  const handleNavigate = (target: string) => {
+    if (target === 'home') {
+      setCurrentPage('home');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (target === 'about') {
+      setCurrentPage('about');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (target === 'reviews') {
+      setCurrentPage('reviews');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (target.startsWith('#')) {
+      if (currentPage !== 'home') {
+        setCurrentPage('home');
+        setTimeout(() => {
+          const element = document.querySelector(target);
+          element?.scrollIntoView({ behavior: 'smooth' });
+        }, 120);
+      } else {
+        const element = document.querySelector(target);
+        element?.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
+  const openBookingModal = (hospital?: string) => {
+    if (hospital) {
+      setModalPreferredHospital(hospital);
+      setBookingForm(prev => ({ ...prev, hospital }));
+    }
+    setBookingSubmitted(false);
+    setIsModalOpen(true);
+  };
+
+  const handleBookingSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setBookingSubmitted(true);
+  };
+
+  const filteredTreatments = selectedCategory === 'all' 
+    ? TREATMENTS 
+    : TREATMENTS.filter(t => t.category === selectedCategory || (selectedCategory === 'robotic' && t.isPioneering));
+
+  return (
+    <div className="min-h-screen bg-[#F8FAFC] font-sans text-slate-800 selection:bg-[#1B4965] selection:text-white">
+      <Header 
+        onBook={() => openBookingModal()} 
+        onNavigate={handleNavigate} 
+        currentPage={currentPage}
+      />
+
+      {currentPage === 'about' ? (
+        <About 
+          onBook={() => openBookingModal()} 
+          onNavigateHome={() => handleNavigate('home')} 
+        />
+      ) : currentPage === 'reviews' ? (
+        <ReviewsPage 
+          onBook={() => openBookingModal()} 
+          onNavigateHome={() => handleNavigate('home')} 
+        />
+      ) : (
+        <>
+          {/* HERO SECTION */}
+          <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-gradient-to-b from-white via-[#F8FAFC] to-[#F1F5F9] overflow-hidden text-slate-800 border-b border-slate-200">
+            {/* Ambient Background Accents */}
+            <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-b from-slate-100/70 via-slate-50/40 to-transparent pointer-events-none"></div>
+            <div className="absolute -top-24 -left-24 w-96 h-96 bg-[#1B4965]/5 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                {/* Left Column: Surgeon Headline and Highlights */}
+                <div className="lg:col-span-7 space-y-5">
+                  {/* Surgeon Credential Badge */}
+                  <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 bg-white border border-slate-200 rounded-full text-xs sm:text-sm font-bold text-[#1B4965] shadow-2xs">
+                    <span className="w-2 h-2 rounded-full bg-[#E8A24C] animate-pulse"></span>
+                    <span>{SURGEON_NAME} &bull; {SURGEON_ROLE}</span>
+                  </div>
+
+                  {/* Slogan with Logo Icon */}
+                  <div className="flex items-center gap-3.5 sm:gap-4">
+                    <img 
+                      src="/logo_icon.png" 
+                      alt="London Essex Hip & Knee" 
+                      className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain bg-white p-1 rounded-xl shadow-md flex-shrink-0 border border-slate-200"
+                    />
+                    <h1 className="font-serif text-[30px] sm:text-[36px] lg:text-[40px] text-[#1B4965] font-semibold tracking-tight leading-tight">
+                      {SLOGAN}
+                    </h1>
+                  </div>
+
+                  <p className="text-base sm:text-lg text-slate-700 leading-relaxed max-w-2xl border-l-4 border-[#1B4965] pl-4">
+                    High-volume Consultant Orthopaedic Surgeon specialising in <strong>hip and knee replacement surgery, minimally invasive hip replacement, robotic-assisted arthroplasty</strong>, and <strong>computer-navigated joint replacement</strong> in Essex and London.
+                    <span className="block mt-3 text-slate-900 font-semibold">
+                      First Surgeon in Essex &amp; North East London to perform computer-assisted and robotic total hip replacement.
+                    </span>
+                  </p>
+
+                  {/* Hospital Availability Callout */}
+                  <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm text-slate-700 py-1">
+                    <span className="font-bold text-slate-900 flex items-center gap-1.5">
+                      <MapPin size={15} className="text-[#1B4965]" /> Private Consultations:
+                    </span>
+                    <span className="bg-white border border-slate-200 px-2.5 py-1 rounded text-slate-800 font-medium shadow-2xs">
+                      Spire Hartswood Hospital
+                    </span>
+                    <span className="bg-white border border-slate-200 px-2.5 py-1 rounded text-slate-800 font-medium shadow-2xs">
+                      Nuffield Brentwood Hospital
+                    </span>
+                  </div>
+
+                  {/* CTA Buttons */}
+                  <div className="flex flex-wrap gap-4 pt-2">
+                    <button 
+                      onClick={() => openBookingModal()} 
+                      className="bg-[#E8A24C] hover:bg-[#D99136] text-white px-8 py-3.5 rounded-lg font-bold transition-all shadow-md hover:shadow-[#E8A24C]/30 text-sm tracking-wide transform hover:-translate-y-0.5 flex items-center gap-2"
+                    >
+                      <Calendar size={16} />
+                      Book Consultation
+                    </button>
+                    <button 
+                      onClick={() => handleNavigate('#treatments')}
+                      className="px-6 py-3.5 rounded-lg font-bold text-[#1B4965] bg-white border border-slate-300 hover:bg-[#1B4965] hover:text-white transition-all text-sm flex items-center gap-2 shadow-2xs"
+                    >
+                      Explore Treatments <ArrowRight size={16} />
+                    </button>
+                    <button 
+                      onClick={() => handleNavigate('about')}
+                      className="px-5 py-3.5 rounded-lg font-medium text-slate-600 hover:text-[#1B4965] hover:underline transition-all text-sm"
+                    >
+                      Full Biography & Credentials
+                    </button>
+                  </div>
+                </div>
+                
+                {/* Right Column: Hero Graphic / Surgeon Card */}
+                <div className="lg:col-span-5 relative flex justify-center lg:justify-end">
+                  <div className="relative z-10 w-full max-w-md">
+                    <SurgeonPortraitCard 
+                      className="w-full max-w-md shadow-xl"
+                      imageMaxHeight="max-h-[520px]"
+                      alt={`${SURGEON_NAME} - Consultant Orthopaedic Surgeon`}
+                    />
+                  </div>
+                </div>
+
+              </div>
+
+              {/* High-Impact Surgical Experience Stats Bar */}
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-16 pt-12 border-t border-slate-200">
+                {SURGICAL_STATS.map((stat, idx) => (
+                  <div 
+                    key={idx} 
+                    className="p-5 rounded-xl bg-white border border-slate-200 shadow-xs hover:border-[#1B4965] hover:shadow-sm transition-all"
+                  >
+                    <p className="text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
+                      {stat.value}
+                    </p>
+                    <p className="text-xs font-bold uppercase tracking-wider text-[#1B4965] mt-1 mb-1">
+                      {stat.label}
+                    </p>
+                    <p className="text-xs text-slate-600 leading-normal">
+                      {stat.detail}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+            </div>
+          </section>
+
+          {/* QUICK CREDENTIALS & AUTHORITY BANNER */}
+          <section className="bg-white py-6 border-b border-slate-200">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-slate-700">
+                <div className="flex items-center gap-3.5 p-3 rounded-xl bg-[#F8FAFC] border border-slate-200 shadow-sm">
+                  <div className="bg-white p-1 rounded-lg border border-slate-200 flex-shrink-0 shadow-sm">
+                    <img src="./logo_icon.png" alt="London Essex Hip & Knee" className="w-9 h-9 object-contain" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-xs text-slate-900 uppercase tracking-wide">London Essex Practice</h4>
+                    <p className="font-script text-[#1B4965] text-sm font-bold leading-tight">Restoring your active lifestyle</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3.5 p-3 rounded-xl hover:bg-[#F8FAFC] transition-colors">
+                  <div className="w-10 h-10 rounded-full bg-[#EAF1F6] text-[#1B4965] flex items-center justify-center flex-shrink-0">
+                    <Award size={20} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-sm text-slate-900">Prestige UK Fellowships</h4>
+                    <p className="text-xs text-slate-500">RNOH Stanmore & Golden Jubilee Glasgow</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3.5 p-3 rounded-xl hover:bg-[#F8FAFC] transition-colors">
+                  <div className="w-10 h-10 rounded-full bg-[#EAF1F6] text-[#1B4965] flex items-center justify-center flex-shrink-0">
+                    <Cpu size={20} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-sm text-slate-900">Robotic & Navigation Pioneer</h4>
+                    <p className="text-xs text-slate-500">Sub-millimeter component precision</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3.5 p-3 rounded-xl hover:bg-[#F8FAFC] transition-colors">
+                  <div className="w-10 h-10 rounded-full bg-[#EAF1F6] text-[#1B4965] flex items-center justify-center flex-shrink-0">
+                    <Building size={20} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-sm text-slate-900">Private Clinics</h4>
+                    <p className="text-xs text-slate-500">Spire Hartswood • Nuffield Brentwood</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* TREATMENTS OFFERED SECTION */}
+          <section id="treatments" className="py-20 bg-[#F8FAFC] border-b border-slate-200">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              
+              {/* Section Header */}
+              <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-4">
+                <div>
+                  <span className="text-[#1B4965] font-bold uppercase tracking-wider text-xs flex items-center gap-1.5">
+                    <Stethoscope size={14} /> Comprehensive Clinical Services
+                  </span>
+                  <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-1 tracking-tight">
+                    Treatments Offered
+                  </h2>
+                  <p className="text-slate-600 text-sm mt-2 max-w-2xl">
+                    From muscle-sparing minimally invasive joint replacements to robotic-assisted arthroplasty and biological knee preservation.
+                  </p>
+                </div>
+                
+                <a 
+                  href="#protocols" 
+                  onClick={(e) => { e.preventDefault(); handleNavigate('#protocols'); }} 
+                  className="text-xs font-bold text-[#1B4965] hover:text-white bg-white hover:bg-[#1B4965] border border-slate-300 px-4 py-2.5 rounded-lg transition-colors flex items-center gap-1.5 shadow-xs"
+                >
+                  <FileText size={14} /> View Recovery Protocols
+                </a>
+              </div>
+
+              {/* Category Filter Pills */}
+              <div className="flex flex-wrap gap-2 mb-10">
+                {[
+                  { id: 'all', label: 'All Treatments' },
+                  { id: 'hip', label: 'Hip Replacement & Surgery' },
+                  { id: 'knee', label: 'Knee Arthroplasty' },
+                  { id: 'robotic', label: 'Robotic & Computer-Assisted' },
+                  { id: 'preservation', label: 'Joint Preservation & Arthroscopy' }
+                ].map((tab) => (
+                  <button
+                    key={tab.id}
+                    onClick={() => setSelectedCategory(tab.id as any)}
+                    className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${
+                      selectedCategory === tab.id
+                        ? 'bg-[#1B4965] text-white shadow-md'
+                        : 'bg-white text-slate-600 border border-slate-200 hover:border-[#1B4965] hover:text-[#1B4965]'
+                    }`}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
+
+              {/* Treatment Cards Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredTreatments.map((treatment) => (
+                  <div 
+                    key={treatment.id} 
+                    className="bg-white rounded-xl p-7 border border-slate-200 shadow-sm hover:shadow-md hover:border-[#1B4965] transition-all flex flex-col justify-between group"
+                  >
+                    <div>
+                      {/* Card Header & Badges */}
+                      <div className="flex justify-between items-start mb-4">
+                        <div className="p-2.5 rounded-lg bg-[#EAF1F6] text-[#1B4965] group-hover:bg-[#1B4965] group-hover:text-white transition-colors">
+                          {treatment.category === 'hip' ? (
+                            <Bone size={22} />
+                          ) : treatment.category === 'robotic' ? (
+                            <Cpu size={22} />
+                          ) : (
+                            <Activity size={22} />
+                          )}
+                        </div>
+
+                        <div className="flex flex-col items-end gap-1">
+                          {treatment.isPioneering && (
+                            <span className="text-[10px] uppercase font-bold bg-[#FFF7ED] text-[#C26B08] px-2 py-0.5 rounded border border-[#FDBA74]">
+                              Regional 1st
+                            </span>
+                          )}
+                          <span className="text-[10px] uppercase font-bold text-slate-500 bg-[#F8FAFC] px-2 py-0.5 rounded border border-slate-200">
+                            {treatment.category}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Title & Subtitle */}
+                      <h3 className="text-xl font-bold text-slate-900 mb-1 group-hover:text-[#1B4965] transition-colors">
+                        {treatment.title}
+                      </h3>
+                      {treatment.subtitle && (
+                        <p className="text-xs font-semibold text-slate-500 mb-3">
+                          {treatment.subtitle}
+                        </p>
+                      )}
+
+                      {/* Description */}
+                      <p className="text-slate-600 text-sm leading-relaxed mb-4">
+                        {treatment.description}
+                      </p>
+
+                      {/* Key Clinical Benefits */}
+                      {treatment.keyBenefits && (
+                        <div className="space-y-1.5 mb-5 pt-3 border-t border-slate-100">
+                          {treatment.keyBenefits.slice(0, 3).map((benefit, bidx) => (
+                            <div key={bidx} className="flex items-start gap-2 text-xs text-slate-600">
+                              <CheckCircle size={14} className="text-[#1B4965] flex-shrink-0 mt-0.5" />
+                              <span>{benefit}</span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Action Bar */}
+                    <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-2">
+                      <button 
+                        onClick={() => setSelectedTreatment(treatment)}
+                        className="text-xs font-bold text-slate-700 hover:text-[#1B4965] flex items-center gap-1 transition-colors"
+                      >
+                        Details & Risks <ChevronRight size={14} />
+                      </button>
+
+                      <div className="flex items-center gap-1.5">
+                        {(() => {
+                          const activeRiskInfo = treatment.procedureRiskId
+                            ? PROCEDURE_RISK_DATA.find(p => p.id === treatment.procedureRiskId)
+                            : PROCEDURE_RISK_DATA.find(p => p.id === treatment.id);
+                          return activeRiskInfo ? (
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                generateProcedureRiskPdf(activeRiskInfo);
+                              }}
+                              title="Download Official Patient Information Guide & Risks (PDF)"
+                              className="text-xs font-bold text-[#1B4965] hover:bg-[#EAF1F6] px-2.5 py-1.5 rounded transition-colors flex items-center gap-1 border border-slate-200"
+                            >
+                              <Download size={12} /> PDF
+                            </button>
+                          ) : null;
+                        })()}
+                        <button 
+                          onClick={() => openBookingModal()}
+                          className="text-xs font-bold text-white bg-[#E8A24C] hover:bg-[#D99136] px-3 py-1.5 rounded transition-colors shadow-xs"
+                        >
+                          Book
+                        </button>
+                      </div>
+                    </div>
+
+                  </div>
+                ))}
+              </div>
+
+            </div>
+          </section>
+
+          {/* ROBOTIC & COMPUTER-ASSISTED SURGERY SPOTLIGHT */}
+          <section id="robotic" className="py-20 bg-gradient-to-b from-white via-[#F8FAFC] to-[#F1F5F9] text-slate-800 relative overflow-hidden border-y border-slate-200">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-[#1B4965]/5 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div className="lg:col-span-7 space-y-6">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#EAF1F6] text-[#1B4965] text-xs font-bold uppercase tracking-wider border border-slate-300">
+                    <Cpu size={14} className="text-[#1B4965]" /> Technology-Assisted Precision
+                  </div>
+
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight">
+                    Robotic & Computer-Navigated Arthroplasty
+                  </h2>
+
+                  <p className="text-lg text-slate-700 leading-relaxed">
+                    Mr Shankar was the <strong>first surgeon in the Essex and North East London region to perform computer-assisted and robotic total hip replacement</strong>. 
+                    He completed subspecialist fellowship training at the world-renowned <strong>Golden Jubilee National Hospital in Glasgow</strong>, earning a <strong>Diploma in Robotic and Computer -Assisted orthopaedic surgery</strong>.
+                  </p>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                    <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-xs">
+                      <h4 className="font-bold text-slate-900 text-sm flex items-center gap-2 mb-1.5">
+                        <Navigation size={16} className="text-[#1B4965]" /> Hip Sub-Millimeter Accuracy
+                      </h4>
+                      <p className="text-xs text-slate-600 leading-relaxed">
+                        Precision assessment of component positioning, acetabular inclination, anteversion, femoral offset, leg length restoration, and centre of rotation.
+                      </p>
+                    </div>
+
+                    <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-xs">
+                      <h4 className="font-bold text-slate-900 text-sm flex items-center gap-2 mb-1.5">
+                        <Activity size={16} className="text-[#1B4965]" /> Knee Soft-Tissue Balancing
+                      </h4>
+                      <p className="text-xs text-slate-600 leading-relaxed">
+                        Dynamic live feedback through full flexion and extension arcs, optimising ligament tension and restoring the patient's individual mechanical axis.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="p-4 rounded-xl bg-[#F8FAFC] border border-slate-200 text-xs text-slate-700 leading-relaxed">
+                    <strong className="text-[#1B4965] font-bold block mb-1">Clinical Philosophy:</strong>
+                    "The use of robotic and computer-assisted technology is considered on an individual basis and forms part of the overall surgical strategy rather than replacing surgical judgement, clinical examination, and experience."
+                  </div>
+
+                  <div className="pt-2 flex flex-wrap gap-4">
+                    <button 
+                      onClick={() => openBookingModal()} 
+                      className="bg-[#E8A24C] hover:bg-[#D99136] text-white px-7 py-3 rounded-lg font-bold text-sm transition-all shadow-md"
+                    >
+                      Enquire About Robotic Surgery
+                    </button>
+                    <button 
+                      onClick={() => handleNavigate('about')} 
+                      className="px-6 py-3 rounded-lg font-bold text-[#1B4965] bg-white border border-slate-300 hover:bg-[#1B4965] hover:text-white transition-all text-sm shadow-2xs"
+                    >
+                      Read Fellowship Credentials
+                    </button>
+                  </div>
+                </div>
+
+                <div className="lg:col-span-5 space-y-4">
+                  <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
+                    <h3 className="font-bold text-lg text-slate-900 border-b border-slate-100 pb-3">
+                      Key Surgical Capabilities
+                    </h3>
+
+                    {[
+                      { title: "Detailed 3D Pre-Operative Planning", desc: "Patient-specific virtual blueprint calibrated to precise anatomical landmarks." },
+                      { title: "Dynamic Intra-Operative Feedback", desc: "Live kinematic assessment of stability and implant orientation during the procedure." },
+                      { title: "Bone & Soft-Tissue Preservation", desc: "Restricted cutting boundaries protecting adjacent ligaments and healthy bone stock." },
+                      { title: "High Reproducibility & Alignment", desc: "Ensures planned surgical parameters are executed with exacting fidelity." }
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-start gap-3">
+                        <div className="w-6 h-6 rounded-full bg-[#EAF1F6] text-[#1B4965] border border-slate-200 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">
+                          {i + 1}
+                        </div>
+                        <div>
+                          <p className="text-sm font-bold text-slate-900">{item.title}</p>
+                          <p className="text-xs text-slate-600 leading-relaxed">{item.desc}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </section>
+
+          {/* CONDITIONS TREATED DIRECTORY */}
+          <section id="conditions" className="py-20 bg-white border-b border-slate-200">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              
+              <div className="text-center max-w-3xl mx-auto mb-12">
+                <span className="text-[#1B4965] font-bold uppercase tracking-wider text-xs">Diagnostic Assessment</span>
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-1">
+                  Conditions Treated
+                </h2>
+                <p className="text-slate-600 text-sm mt-2">
+                  Specialist evaluation and individualised management plans for hip and knee pathology.
+                </p>
+                
+                {/* Joint Selector */}
+                <div className="inline-flex p-1 bg-[#F8FAFC] rounded-lg mt-6 border border-slate-200">
+                  <button
+                    onClick={() => setSelectedConditionJoint('Hip')}
+                    className={`px-8 py-2.5 rounded-md font-bold text-sm transition-all ${
+                      selectedConditionJoint === 'Hip'
+                        ? 'bg-[#1B4965] text-white shadow-sm'
+                        : 'text-slate-600 hover:text-[#1B4965]'
+                    }`}
+                  >
+                    Hip Conditions
+                  </button>
+                  <button
+                    onClick={() => setSelectedConditionJoint('Knee')}
+                    className={`px-8 py-2.5 rounded-md font-bold text-sm transition-all ${
+                      selectedConditionJoint === 'Knee'
+                        ? 'bg-[#1B4965] text-white shadow-sm'
+                        : 'text-slate-600 hover:text-[#1B4965]'
+                    }`}
+                  >
+                    Knee Conditions
+                  </button>
+                </div>
+              </div>
+
+              {/* Conditions Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {CONDITIONS_TREATED.find(c => c.joint === selectedConditionJoint)?.items.map((cond, idx) => (
+                  <div 
+                    key={idx} 
+                    className="p-6 rounded-xl bg-[#F8FAFC] border border-slate-200 hover:border-[#1B4965] hover:bg-white hover:shadow-sm transition-all"
+                  >
+                    <div className="flex items-center gap-2 mb-3">
+                      <div className="w-2 h-2 rounded-full bg-[#1B4965]"></div>
+                      <h3 className="font-bold text-lg text-slate-900">
+                        {cond.name}
+                      </h3>
+                    </div>
+
+                    <p className="text-xs text-slate-600 leading-relaxed mb-4">
+                      {cond.description}
+                    </p>
+
+                    <div className="pt-3 border-t border-slate-200">
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block mb-1.5">
+                        Recommended Treatment Pathways:
+                      </span>
+                      <div className="flex flex-wrap gap-1.5">
+                        {cond.commonTreatments.map((t, tidx) => (
+                          <span 
+                            key={tidx}
+                            className="text-[11px] font-medium bg-white border border-slate-200 px-2 py-0.5 rounded text-slate-700"
+                          >
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+            </div>
+          </section>
+
+          {/* SURGICAL RISKS & PATIENT INFORMATION GUIDES HUB */}
+          <PatientGuidesHub onOpenBooking={() => openBookingModal()} />
+
+          {/* PHYSIO PROTOCOLS & RECOVERY */}
+          <section id="protocols" className="py-20 bg-gradient-to-b from-white via-[#F8FAFC] to-[#F1F5F9] text-slate-800 border-b border-slate-200">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              
+              <div className="text-center max-w-3xl mx-auto mb-16">
+                <span className="text-[#1B4965] font-bold uppercase tracking-wider text-xs">Rehabilitation & Outcomes</span>
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-1">
+                  Physio Protocols & Recovery
+                </h2>
+                <p className="text-slate-600 text-sm mt-2">
+                  Adherence to structured post-operative physiotherapy protocols is vital for achieving rapid mobility and optimal surgical results.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {PROTOCOLS.map((proto, idx) => (
+                  <div 
+                    key={idx} 
+                    className="bg-white border border-slate-200 p-6 rounded-xl flex flex-col justify-between hover:border-[#1B4965] hover:shadow-md transition-all group"
+                  >
+                    <div>
+                      <div className="flex justify-between items-start mb-4">
+                        <FileText className="text-[#1B4965] group-hover:text-[#13364B] transition-colors" size={32} />
+                        <span className="text-[10px] uppercase font-bold text-[#1B4965] bg-[#EAF1F6] px-2 py-1 rounded border border-slate-200">
+                          {proto.joint} Care
+                        </span>
+                      </div>
+
+                      <h3 className="font-bold text-lg text-slate-900 mb-1 group-hover:text-[#1B4965] transition-colors">
+                        {proto.title}
+                      </h3>
+                      
+                      <div className="text-xs font-semibold text-[#C26B08] bg-[#FFF7ED] border border-[#FDBA74] px-2 py-0.5 rounded inline-flex items-center gap-1 mb-3">
+                        <Clock size={12} /> {proto.timeline}
+                      </div>
+
+                      <p className="text-xs text-slate-600 mb-4 leading-relaxed">
+                        {proto.description}
+                      </p>
+
+                      <div className="space-y-1 mb-5">
+                        {proto.keyMilestones.slice(0, 2).map((ms, midx) => (
+                          <div key={midx} className="text-[11px] text-slate-700 flex items-start gap-1.5">
+                            <span className="text-[#1B4965] font-bold">•</span>
+                            <span>{ms}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
+                      <button 
+                        onClick={() => setSelectedProtocol(proto)}
+                        className="text-xs font-bold text-slate-700 hover:text-[#1B4965] flex items-center gap-1 transition-colors"
+                      >
+                        View Protocol <ChevronRight size={14} />
+                      </button>
+                      <button 
+                        onClick={() => generateProtocolPdf(proto)}
+                        className="text-xs font-bold text-[#1B4965] hover:text-[#13364B] flex items-center gap-1 transition-colors"
+                      >
+                        <Download size={14} /> PDF Guide
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-10 p-4 rounded-xl bg-white border border-slate-200 text-center max-w-2xl mx-auto text-xs text-slate-600 shadow-2xs">
+                Post-operative milestones may vary based on individual healing rates. Always consult Mr Shankar and your designated physiotherapist.
+              </div>
+
+            </div>
+          </section>
+
+          {/* PATIENT TESTIMONIALS */}
+          <section id="testimonials" className="py-20 bg-white border-b border-slate-200">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              
+              <div className="text-center max-w-3xl mx-auto mb-12">
+                <span className="text-[#1B4965] font-bold uppercase tracking-wider text-xs">Patient Feedback</span>
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-1">
+                  Patient Experiences & Verified Reviews
+                </h2>
+                <p className="text-slate-600 text-sm mt-2">
+                  Hear directly from patients who have undergone joint replacement and keyhole surgery under Mr Shankar's care, with verified ratings from both <strong>Doctify</strong> and <strong>iWantGreatCare</strong>.
+                </p>
+              </div>
+
+              {/* Combined Review Hub (Doctify & iWantGreatCare) */}
+              <div className="mb-14">
+                <CombinedReviewHub onNavigateToReviewsPage={() => handleNavigate('reviews')} />
+              </div>
+
+              {/* Featured Patient Story Highlights */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {TESTIMONIALS.slice(0, 3).map((t, idx) => (
+                  <div 
+                    key={idx} 
+                    className="bg-[#F8FAFC] p-8 rounded-xl border border-slate-200 relative flex flex-col justify-between shadow-2xs hover:shadow-xs transition-shadow"
+                  >
+                    <div>
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="flex items-center gap-1">
+                          {[...Array(t.rating || 5)].map((_, i) => (
+                            <Star key={i} size={13} className="fill-[#E8A24C] text-[#E8A24C]" />
+                          ))}
+                        </div>
+                        {t.source === 'Doctify' ? (
+                          <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-blue-50 text-[#1B4965] border border-blue-200">
+                            Doctify Verified
+                          </span>
+                        ) : (
+                          <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200">
+                            iWantGreatCare Verified
+                          </span>
+                        )}
+                      </div>
+
+                      <div className="text-4xl text-[#1B4965]/20 font-serif leading-none mb-2">“</div>
+                      <p className="text-slate-700 text-sm italic leading-relaxed mb-6">
+                        {t.text}
+                      </p>
+                    </div>
+
+                    <div className="pt-4 border-t border-slate-200 flex items-center justify-between">
+                      <div>
+                        <p className="font-bold text-sm text-slate-900">{t.author}</p>
+                        <p className="text-xs font-semibold text-[#1B4965]">{t.procedure}</p>
+                      </div>
+                      <span className="text-[11px] text-slate-400 font-medium">
+                        {t.hospital}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* View Full Reviews Hub Button */}
+              <div className="mt-10 text-center">
+                <button
+                  onClick={() => handleNavigate('reviews')}
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#1B4965] hover:bg-[#13364B] text-white text-xs font-bold uppercase tracking-wider transition-colors shadow-2xs group"
+                >
+                  <span>Explore Combined Review Page & Filter Feedback</span>
+                  <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
+                </button>
+              </div>
+
+            </div>
+          </section>
+
+          {/* OFFICIAL MEDIA & SOCIAL MEDIA HUB */}
+          <MediaGalleryHub onOpenBooking={() => openBookingModal()} />
+
+          {/* PRIVATE HOSPITALS & CLINIC LOCATIONS */}
+          <section id="locations" className="py-20 bg-[#F8FAFC] border-b border-slate-200">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              
+              <div className="text-center max-w-3xl mx-auto mb-14">
+                <span className="text-[#1B4965] font-bold uppercase tracking-wider text-xs">Where to Find Us</span>
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-1">
+                  Consulting Hospitals in Essex & London
+                </h2>
+                <p className="text-slate-600 text-sm mt-2">
+                  Private consultations and surgery provided at premier independent hospitals in Brentwood, Essex.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {LOCATIONS.filter(l => l.type === 'Private Hospital').map((loc, idx) => (
+                  <div 
+                    key={idx} 
+                    className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md hover:border-[#1B4965] transition-all flex flex-col justify-between group"
+                  >
+                    <div className="p-8">
+                      <div className="flex justify-between items-start mb-4">
+                        <span className="text-xs font-bold uppercase px-2.5 py-1 rounded bg-[#EAF1F6] text-[#1B4965] border border-slate-200">
+                          {loc.type}
+                        </span>
+                        <span className="text-xs font-semibold text-slate-500">{loc.area}</span>
+                      </div>
+
+                      <h3 className="text-2xl font-bold text-slate-900 mb-1">{loc.name}</h3>
+                      <p className="text-sm text-slate-600 mb-4 flex items-center gap-1.5">
+                        <MapPin size={15} className="text-[#1B4965] flex-shrink-0" />
+                        {loc.address}, {loc.postcode}
+                      </p>
+
+                      <div className="space-y-2 mb-6 text-xs text-slate-600">
+                        <p className="font-bold text-slate-800 uppercase tracking-wider text-[11px]">Specialist Facilities:</p>
+                        <ul className="space-y-1.5">
+                          {loc.facilities.map((f, fidx) => (
+                            <li key={fidx} className="flex items-start gap-2">
+                              <CheckCircle size={14} className="text-[#1B4965] flex-shrink-0 mt-0.5" />
+                              <span>{f}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div className="p-3 bg-[#F8FAFC] rounded-lg text-xs text-slate-600 border border-slate-200">
+                        <strong className="text-slate-800">Transport & Access:</strong> {loc.transport}
+                      </div>
+                    </div>
+
+                    <div className="p-6 bg-[#F8FAFC] border-t border-slate-200 flex flex-col sm:flex-row justify-between items-center gap-4">
+                      <div>
+                        <span className="text-[11px] text-slate-500 uppercase block font-semibold">Telephone Enquiries</span>
+                        <a href={`tel:${loc.phone.replace(/\s+/g, '')}`} className="font-bold text-slate-900 text-sm hover:text-[#1B4965]">
+                          {loc.phone}
+                        </a>
+                      </div>
+                      <button 
+                        onClick={() => openBookingModal(loc.name)}
+                        className="w-full sm:w-auto bg-[#E8A24C] hover:bg-[#D99136] text-white px-5 py-2.5 rounded-lg text-xs font-bold transition-colors shadow-md"
+                      >
+                        Book at {loc.name.split(' ')[0]}
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* NHS Trust Box */}
+              <div className="mt-8 bg-white text-slate-700 rounded-xl p-6 border border-slate-200 shadow-xs flex flex-col md:flex-row justify-between items-center gap-4">
+                <div>
+                  <h4 className="text-slate-900 font-bold text-base flex items-center gap-2">
+                    <Building size={18} className="text-[#1B4965]" />
+                    NHS Consultant Practice: Barking, Havering and Redbridge University Hospitals NHS Trust
+                  </h4>
+                  <p className="text-xs text-slate-600 mt-1">
+                    Based at Queen's Hospital (Romford) and King George Hospital (Goodmayes). Former Clinical Director for Trauma and Orthopaedics.
+                  </p>
+                </div>
+                <button 
+                  onClick={() => handleNavigate('about')} 
+                  className="text-xs font-bold text-white bg-[#1B4965] hover:bg-[#13364B] px-4 py-2 rounded-lg transition-colors flex-shrink-0"
+                >
+                  View NHS Credentials
+                </button>
+              </div>
+
+            </div>
+          </section>
+
+          {/* FREQUENTLY ASKED QUESTIONS */}
+          <section id="faq" className="py-20 bg-white">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+              
+              <div className="text-center mb-10">
+                <span className="text-[#1B4965] font-bold uppercase tracking-wider text-xs">Patient Information &amp; Advice</span>
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-1">
+                  Frequently Asked Questions
+                </h2>
+                <p className="text-slate-600 text-sm mt-2 max-w-2xl mx-auto">
+                  Comprehensive guidance on private consultations, health insurance and self-funding packages, surgical planning, hospital stay essentials, and recovery under Mr Shankar's care.
+                </p>
+              </div>
+
+              {/* Search & Category Filter Controls */}
+              <div className="mb-8 space-y-4">
+                {/* Search Bar */}
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                    <Search size={16} />
+                  </div>
+                  <input
+                    type="text"
+                    value={faqSearchQuery}
+                    onChange={(e) => setFaqSearchQuery(e.target.value)}
+                    placeholder="Search questions (e.g., insurance, recovery, scars, driving, smoking, first visit)..."
+                    className="w-full pl-10 pr-10 py-3 bg-[#F8FAFC] border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#1B4965]/20 focus:border-[#1B4965] transition-all shadow-2xs"
+                  />
+                  {faqSearchQuery && (
+                    <button
+                      onClick={() => setFaqSearchQuery('')}
+                      className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-xs text-slate-400 hover:text-slate-600"
+                    >
+                      <X size={15} />
+                    </button>
+                  )}
+                </div>
+
+                {/* Category Filter Pills */}
+                <div className="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar text-xs font-semibold">
+                  {[
+                    { id: 'all', label: 'All Questions', count: FAQS.length },
+                    { id: 'Appointments', label: 'Appointments & First Visit', count: FAQS.filter(f => f.category === 'Appointments').length },
+                    { id: 'Insurance', label: 'Fees & Insurance', count: FAQS.filter(f => f.category === 'Insurance').length },
+                    { id: 'Surgery', label: 'Surgery & Hospital Stay', count: FAQS.filter(f => f.category === 'Surgery').length },
+                    { id: 'Recovery', label: 'Recovery & Aftercare', count: FAQS.filter(f => f.category === 'Recovery').length },
+                    { id: 'Joints', label: 'Hip, Knee & Robotics', count: FAQS.filter(f => ['Robotics', 'Hip', 'Knee'].includes(f.category)).length }
+                  ].map((cat) => {
+                    const isSelected = faqCategory === cat.id;
+                    return (
+                      <button
+                        key={cat.id}
+                        onClick={() => {
+                          setFaqCategory(cat.id);
+                        }}
+                        className={`px-3.5 py-1.5 rounded-lg whitespace-nowrap transition-all flex items-center gap-1.5 ${
+                          isSelected
+                            ? 'bg-[#1B4965] text-white shadow-2xs font-bold'
+                            : 'bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900'
+                        }`}
+                      >
+                        <span>{cat.label}</span>
+                        <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${
+                          isSelected ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'
+                        }`}>
+                          {cat.count}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* FAQ Accordion List */}
+              <div className="space-y-3.5">
+                {FAQS
+                  .filter((faq) => {
+                    // Category filter
+                    if (faqCategory !== 'all') {
+                      if (faqCategory === 'Joints') {
+                        if (!['Robotics', 'Hip', 'Knee'].includes(faq.category)) return false;
+                      } else if (faq.category !== faqCategory) {
+                        return false;
+                      }
+                    }
+                    // Search filter
+                    if (faqSearchQuery.trim()) {
+                      const q = faqSearchQuery.toLowerCase();
+                      return faq.question.toLowerCase().includes(q) || faq.answer.toLowerCase().includes(q);
+                    }
+                    return true;
+                  })
+                  .map((faq, idx) => {
+                    const isOpen = activeFaqQuestion === faq.question;
+                    
+                    // Category badge helper
+                    const getCategoryBadge = (cat: string) => {
+                      switch (cat) {
+                        case 'Appointments':
+                          return { text: 'Appointments', bg: 'bg-blue-50 text-[#1B4965] border-blue-200' };
+                        case 'Insurance':
+                          return { text: 'Fees & Insurance', bg: 'bg-emerald-50 text-emerald-800 border-emerald-200' };
+                        case 'Surgery':
+                          return { text: 'Surgery & Hospital', bg: 'bg-amber-50 text-amber-800 border-amber-200' };
+                        case 'Recovery':
+                          return { text: 'Recovery & Aftercare', bg: 'bg-purple-50 text-purple-800 border-purple-200' };
+                        case 'Robotics':
+                          return { text: 'Robotic Surgery', bg: 'bg-indigo-50 text-indigo-800 border-indigo-200' };
+                        case 'Hip':
+                          return { text: 'Hip Care', bg: 'bg-slate-100 text-slate-700 border-slate-200' };
+                        case 'Knee':
+                          return { text: 'Knee Care', bg: 'bg-slate-100 text-slate-700 border-slate-200' };
+                        default:
+                          return { text: 'Information', bg: 'bg-slate-100 text-slate-700 border-slate-200' };
+                      }
+                    };
+
+                    const badge = getCategoryBadge(faq.category);
+
+                    return (
+                      <div 
+                        key={idx} 
+                        className={`border rounded-xl overflow-hidden transition-all bg-white ${
+                          isOpen ? 'border-[#1B4965] shadow-xs ring-1 ring-[#1B4965]/10' : 'border-slate-200 hover:border-slate-300'
+                        }`}
+                      >
+                        <button
+                          onClick={() => setActiveFaqQuestion(isOpen ? null : faq.question)}
+                          className={`w-full text-left p-4 sm:p-5 flex justify-between items-start gap-4 transition-colors ${
+                            isOpen ? 'bg-[#F8FAFC]' : 'bg-white hover:bg-slate-50/80'
+                          }`}
+                        >
+                          <div className="space-y-1.5 flex-1 pr-2">
+                            <div className="flex items-center gap-2">
+                              <span className={`text-[10px] font-bold px-2 py-0.5 rounded border uppercase tracking-wider ${badge.bg}`}>
+                                {badge.text}
+                              </span>
+                            </div>
+                            <h3 className="font-bold text-slate-900 text-sm sm:text-base leading-snug">
+                              {faq.question}
+                            </h3>
+                          </div>
+                          
+                          <div className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 transition-colors mt-0.5 ${
+                            isOpen ? 'bg-[#1B4965] text-white' : 'bg-slate-100 text-slate-500'
+                          }`}>
+                            <ChevronDown 
+                              size={16} 
+                              className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} 
+                            />
+                          </div>
+                        </button>
+                        
+                        {isOpen && (
+                          <div className="p-5 sm:p-6 bg-white text-slate-700 text-xs sm:text-sm leading-relaxed border-t border-slate-100">
+                            <p>{faq.answer}</p>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+
+                {/* Empty State */}
+                {FAQS.filter((faq) => {
+                  if (faqCategory !== 'all') {
+                    if (faqCategory === 'Joints') {
+                      if (!['Robotics', 'Hip', 'Knee'].includes(faq.category)) return false;
+                    } else if (faq.category !== faqCategory) {
+                      return false;
+                    }
+                  }
+                  if (faqSearchQuery.trim()) {
+                    const q = faqSearchQuery.toLowerCase();
+                    return faq.question.toLowerCase().includes(q) || faq.answer.toLowerCase().includes(q);
+                  }
+                  return true;
+                }).length === 0 && (
+                  <div className="text-center py-12 bg-[#F8FAFC] rounded-2xl border border-slate-200 p-6">
+                    <HelpCircle size={32} className="mx-auto text-slate-400 mb-2" />
+                    <p className="font-bold text-slate-800 text-sm">No matching questions found</p>
+                    <p className="text-xs text-slate-500 mt-1 max-w-sm mx-auto">
+                      We couldn't find any questions matching "{faqSearchQuery}". Try adjusting your keywords or browse all categories.
+                    </p>
+                    <button
+                      onClick={() => { setFaqSearchQuery(''); setFaqCategory('all'); }}
+                      className="mt-3 text-xs font-bold text-[#1B4965] hover:underline"
+                    >
+                      Clear search &amp; view all
+                    </button>
+                  </div>
+                )}
+              </div>
+
+              {/* Still have questions */}
+              <div className="mt-12 text-center p-8 bg-[#F8FAFC] rounded-2xl border border-slate-200">
+                <h3 className="font-bold text-slate-900 text-lg mb-2">Have a question not listed here?</h3>
+                <p className="text-sm text-slate-600 mb-4 max-w-md mx-auto">
+                  Our medical secretary, <strong>{SECRETARY_NAME}</strong>, is available to assist with appointments, insurance pre-authorisations, hospital admission details, and clinical queries.
+                </p>
+                <div className="flex flex-wrap justify-center gap-4">
+                  <a 
+                    href={`tel:${MOBILE_PHONE.replace(/\s+/g, '')}`} 
+                    className="bg-[#1B4965] hover:bg-[#13364B] text-white px-5 py-2.5 rounded-lg text-xs font-bold flex items-center gap-2 transition-colors shadow-sm"
+                  >
+                    <Phone size={14} /> Call Secretary ({MOBILE_PHONE})
+                  </a>
+                  <a 
+                    href="#contact"
+                    onClick={(e) => { e.preventDefault(); handleNavigate('#contact'); }}
+                    className="bg-[#E8A24C] hover:bg-[#D99136] text-white px-5 py-2.5 rounded-lg text-xs font-bold flex items-center gap-2 transition-colors shadow-md"
+                  >
+                    <Mail size={14} /> Contact Secretary
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          {/* CONTACT US SECTION */}
+          <Contact onBook={(hospital) => openBookingModal(hospital)} />
+        </>
+      )}
+
+      {/* FOOTER */}
+      <footer className="bg-gradient-to-b from-slate-100 via-[#F8FAFC] to-white text-slate-700 py-16 text-sm border-t border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
+          
+          {/* Brand Col */}
+          <div className="col-span-1 md:col-span-1 space-y-4">
+            {/* Official Practice Logo & Surgeon Portrait */}
+            <div className="flex items-center gap-3">
+              <div className="bg-white p-2.5 rounded-2xl inline-block shadow-sm border border-slate-200">
+                <img 
+                  src="./logo.png" 
+                  alt="London Essex Hip and Knee Surgeon - Restoring your active lifestyle" 
+                  className="h-14 w-auto object-contain"
+                />
+              </div>
+              <div className="relative w-14 h-18 rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-white flex-shrink-0">
+                <SurgeonPortrait 
+                  alt={SURGEON_NAME} 
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+            </div>
+            <div>
+              <h4 className="text-slate-900 font-extrabold text-lg tracking-tight leading-snug">{SURGEON_NAME}</h4>
+              <p className="text-xs text-[#1B4965] font-bold">{SURGEON_ROLE}</p>
+              <p className="font-script text-[#1B4965] text-xl font-bold mt-1.5 leading-none">
+                "Restoring your active lifestyle"
+              </p>
+            </div>
+            <p className="text-xs text-slate-700 leading-relaxed">
+              Specialist practice providing advanced robotic, computer-navigated, and minimally invasive hip and knee surgery in Essex and London.
+            </p>
+            <div className="text-xs text-slate-600 pt-2 border-t border-slate-200">
+              <p>{QUALIFICATIONS}</p>
+              <p className="mt-1">{GMC_NUMBER}</p>
+            </div>
+
+            {/* Social Media Follow Links */}
+            <div className="pt-3 border-t border-slate-200">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 block mb-2">
+                Connect &amp; Follow ({X_HANDLE})
+              </span>
+              <div className="flex items-center gap-2 flex-wrap">
+                <a
+                  href={SOCIAL_LINKS.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 rounded-lg bg-[#0A66C2] text-white hover:bg-[#004182] flex items-center justify-center transition-colors shadow-2xs"
+                  aria-label="LinkedIn"
+                  title="LinkedIn - Mr Shivakumar Shankar"
+                >
+                  <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  </svg>
+                </a>
+                <a
+                  href={SOCIAL_LINKS.x}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 rounded-lg bg-black text-white hover:bg-slate-800 flex items-center justify-center transition-colors shadow-2xs"
+                  aria-label="X (Twitter)"
+                  title={`X ${X_HANDLE}`}
+                >
+                  <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                  </svg>
+                </a>
+                <a
+                  href={SOCIAL_LINKS.bupa}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 rounded-lg bg-[#0079C8] text-white hover:bg-[#005a96] flex items-center justify-center transition-colors shadow-2xs"
+                  aria-label="Bupa Finder Profile"
+                  title="Bupa Finder Profile - Fee-Assured Consultant"
+                >
+                  <ShieldCheck size={16} />
+                </a>
+                <a
+                  href={SOCIAL_LINKS.youtube}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 rounded-lg bg-red-50 text-red-600 hover:bg-red-100 flex items-center justify-center transition-colors border border-red-200"
+                  aria-label="YouTube"
+                  title="YouTube @ShankarHipKnee"
+                >
+                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                  </svg>
+                </a>
+                <a
+                  href={SOCIAL_LINKS.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 rounded-lg bg-pink-50 text-pink-700 hover:bg-pink-100 flex items-center justify-center transition-colors border border-pink-200"
+                  aria-label="Instagram"
+                  title="Instagram @ShankarHipKnee"
+                >
+                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                  </svg>
+                </a>
+                <a
+                  href={SOCIAL_LINKS.tiktok}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 rounded-lg bg-slate-900 text-white hover:bg-black flex items-center justify-center transition-colors shadow-2xs"
+                  aria-label="TikTok"
+                  title="TikTok @ShankarHipKnee"
+                >
+                  <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-1.01-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Navigation Links */}
+          <div>
+            <h5 className="text-slate-900 font-bold mb-4 uppercase tracking-wider text-xs">Quick Links</h5>
+            <ul className="space-y-2 text-xs">
+              <li><button onClick={() => handleNavigate('home')} className="text-slate-600 hover:text-[#1B4965] transition-colors">Home</button></li>
+              <li><button onClick={() => handleNavigate('about')} className="text-slate-600 hover:text-[#1B4965] transition-colors">About Mr Shankar</button></li>
+              <li><button onClick={() => handleNavigate('reviews')} className="text-[#1B4965] font-bold hover:underline transition-colors">Patient Reviews (Doctify &amp; IWGC)</button></li>
+              <li><button onClick={() => handleNavigate('#media')} className="text-slate-600 hover:text-[#1B4965] font-semibold transition-colors">Photos, Videos &amp; Social</button></li>
+              <li><button onClick={() => handleNavigate('#treatments')} className="text-slate-600 hover:text-[#1B4965] transition-colors">Treatments Offered</button></li>
+              <li><button onClick={() => handleNavigate('#robotic')} className="text-slate-600 hover:text-[#1B4965] transition-colors">Robotic & Computer-Assisted</button></li>
+              <li><button onClick={() => handleNavigate('#conditions')} className="text-slate-600 hover:text-[#1B4965] transition-colors">Conditions Treated</button></li>
+              <li><button onClick={() => handleNavigate('#protocols')} className="text-slate-600 hover:text-[#1B4965] transition-colors">Physio Recovery Protocols</button></li>
+              <li><button onClick={() => handleNavigate('#locations')} className="text-slate-600 hover:text-[#1B4965] transition-colors">Hospitals & Clinics</button></li>
+              <li><button onClick={() => handleNavigate('#contact')} className="text-[#1B4965] font-bold hover:text-[#13364B] transition-colors">Contact Us</button></li>
+              <li><button onClick={() => handleNavigate('#faq')} className="text-slate-600 hover:text-[#1B4965] transition-colors">FAQ</button></li>
+            </ul>
+          </div>
+
+          {/* Key Treatments */}
+          <div>
+            <h5 className="text-slate-900 font-bold mb-4 uppercase tracking-wider text-xs">Specialist Procedures</h5>
+            <ul className="space-y-2 text-xs">
+              <li><button onClick={() => handleNavigate('#treatments')} className="text-slate-600 hover:text-[#1B4965] transition-colors">Total Hip Replacement</button></li>
+              <li><button onClick={() => handleNavigate('#treatments')} className="text-slate-600 hover:text-[#1B4965] transition-colors">Robotic Hip & Knee Surgery</button></li>
+              <li><button onClick={() => handleNavigate('#treatments')} className="text-slate-600 hover:text-[#1B4965] transition-colors">Minimally Invasive Hip (Anterior/Rottinger)</button></li>
+              <li><button onClick={() => handleNavigate('#treatments')} className="text-slate-600 hover:text-[#1B4965] transition-colors">Partial (Unicompartmental) Knee</button></li>
+              <li><button onClick={() => handleNavigate('#treatments')} className="text-slate-600 hover:text-[#1B4965] transition-colors">Knee Arthroscopy & Meniscal Repair</button></li>
+              <li><button onClick={() => handleNavigate('#treatments')} className="text-slate-600 hover:text-[#1B4965] transition-colors">Complex Revision Arthroplasty</button></li>
+            </ul>
+          </div>
+
+          {/* Secretary & Private Hospitals Contact */}
+          <div>
+            <h5 className="text-slate-900 font-bold mb-4 uppercase tracking-wider text-xs">Secretary & Appointments</h5>
+            <ul className="space-y-2.5 text-xs">
+              <li className="p-3.5 bg-white rounded-xl border border-slate-200 shadow-xs">
+                <span className="text-[10px] uppercase font-bold text-[#1B4965] block">Medical Secretary</span>
+                <strong className="text-slate-900 text-sm block">{SECRETARY_NAME}</strong>
+                <span className="text-[11px] text-slate-500">{SECRETARY_ROLE}</span>
+              </li>
+              <li className="flex items-center gap-2 pt-1">
+                <Phone size={13} className="text-[#1B4965] flex-shrink-0" />
+                <span className="text-slate-500">Mobile:</span>
+                <a href={`tel:${MOBILE_PHONE.replace(/\s+/g, '')}`} className="hover:text-[#1B4965] text-slate-900 font-bold">{MOBILE_PHONE}</a>
+              </li>
+              <li className="flex items-center gap-2">
+                <Phone size={13} className="text-[#1B4965] flex-shrink-0" />
+                <span className="text-slate-500">Landline:</span>
+                <a href={`tel:${LANDLINE_PHONE.replace(/\s+/g, '')}`} className="hover:text-[#1B4965] text-slate-800">{LANDLINE_PHONE}</a>
+              </li>
+              <li className="flex items-center gap-2">
+                <Mail size={13} className="text-[#1B4965] flex-shrink-0" />
+                <a href={`mailto:${EMAIL}`} className="hover:text-[#1B4965] text-slate-800 break-all">{EMAIL}</a>
+              </li>
+              <li className="pt-2 border-t border-slate-200 text-[11px] text-slate-600">
+                <strong>Clinics:</strong> Spire Hartswood, Nuffield Brentwood
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-14 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center text-xs text-slate-600 gap-4">
+          <p>&copy; {new Date().getFullYear()} {SURGEON_NAME}. All Rights Reserved.</p>
+          <p>Consultant Orthopaedic Hip & Knee Surgeon • Private & NHS Practice • GMC: 6062754</p>
+        </div>
+      </footer>
+
+      {/* BOOKING CONSULTATION MODAL */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+          <div 
+            className="absolute inset-0 bg-slate-900/50 backdrop-blur-xs"
+            onClick={() => setIsModalOpen(false)}
+          ></div>
+          
+          <div className="relative w-full max-w-lg max-h-[92vh] overflow-y-auto bg-white rounded-2xl shadow-2xl p-6 sm:p-8 animate-fade-in border border-slate-100">
+            <button 
+              onClick={() => setIsModalOpen(false)}
+              className="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-800 hover:bg-slate-100 rounded-full transition-colors"
+              aria-label="Close modal"
+            >
+              <X size={20} />
+            </button>
+
+            {bookingSubmitted ? (
+              <div className="py-8 text-center space-y-4">
+                <img 
+                  src="./logo.png" 
+                  alt="London Essex Hip and Knee Surgeon" 
+                  className="h-14 mx-auto object-contain mb-1" 
+                />
+                <p className="font-script text-[#1B4965] text-lg font-bold">Restoring your active lifestyle</p>
+                <div className="w-16 h-16 bg-[#EAF1F6] text-[#1B4965] rounded-full flex items-center justify-center mx-auto">
+                  <CheckCircle size={36} />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900">Appointment Request Received</h3>
+                <p className="text-sm text-slate-600 max-w-sm mx-auto leading-relaxed">
+                  Thank you, <strong>{bookingForm.firstName}</strong>. Your consultation request for <strong>{bookingForm.hospital}</strong> has been logged.
+                </p>
+                <div className="p-4 bg-[#F8FAFC] rounded-xl text-xs text-slate-600 text-left border border-slate-200">
+                  <p><strong>Next Step:</strong> Mr Shankar's medical secretary will contact you on <strong>{bookingForm.phone || bookingForm.email}</strong> to verify your insurance details or self-pay quote and confirm your appointment time slot.</p>
+                </div>
+                <button
+                  onClick={() => setIsModalOpen(false)}
+                  className="bg-[#1B4965] text-white px-6 py-2.5 rounded-lg text-xs font-bold hover:bg-[#13364B] transition-colors"
+                >
+                  Close Window
+                </button>
+              </div>
+            ) : (
+              <div>
+                <div className="text-center mb-6">
+                  <img 
+                    src="./logo.png" 
+                    alt="London Essex Hip and Knee Surgeon" 
+                    className="h-14 sm:h-16 mx-auto object-contain mb-1" 
+                  />
+                  <p className="font-script text-[#1B4965] text-base sm:text-lg font-bold -mt-0.5 mb-2">
+                    Restoring your active lifestyle
+                  </p>
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#1B4965] bg-[#EAF1F6] px-2.5 py-1 rounded">
+                    Private Consultation Booking
+                  </span>
+                  <h2 className="text-2xl font-extrabold text-slate-900 mt-2">
+                    Book an Appointment with {SURGEON_NAME}
+                  </h2>
+                  <p className="text-xs text-slate-500 mt-1">
+                    Specialist assessment at Spire Hartswood Hospital or Nuffield Brentwood Hospital.
+                  </p>
+                </div>
+
+                <form onSubmit={handleBookingSubmit} className="space-y-4">
+                  {/* Hospital Selection */}
+                  <div>
+                    <label className="block text-xs font-bold uppercase text-slate-600 mb-1">
+                      Select Hospital Location *
+                    </label>
+                    <select
+                      value={bookingForm.hospital}
+                      onChange={(e) => setBookingForm({ ...bookingForm, hospital: e.target.value })}
+                      required
+                      className="w-full p-3 rounded-lg bg-[#F8FAFC] border border-slate-200 text-sm font-medium text-slate-800 focus:outline-none focus:border-[#1B4965] focus:ring-1 focus:ring-[#1B4965]"
+                    >
+                      <option value="Spire Hartswood Hospital">Spire Hartswood Hospital (Brentwood, Essex)</option>
+                      <option value="Nuffield Brentwood Hospital">Nuffield Health Brentwood Hospital (Brentwood, Essex)</option>
+                    </select>
+                  </div>
+
+                  {/* Joint / Condition of Concern */}
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-xs font-bold uppercase text-slate-600 mb-1">
+                        Joint of Concern *
+                      </label>
+                      <select
+                        value={bookingForm.treatmentArea}
+                        onChange={(e) => setBookingForm({ ...bookingForm, treatmentArea: e.target.value })}
+                        required
+                        className="w-full p-3 rounded-lg bg-[#F8FAFC] border border-slate-200 text-sm text-slate-800 focus:outline-none focus:border-[#1B4965]"
+                      >
+                        <option value="Hip">Hip Condition</option>
+                        <option value="Knee">Knee Condition</option>
+                        <option value="Robotic Surgery">Robotic Joint Replacement</option>
+                        <option value="Arthroscopy">Knee Keyhole / Arthroscopy</option>
+                        <option value="Second Opinion">Second Opinion / Revision</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold uppercase text-slate-600 mb-1">
+                        Funding Method *
+                      </label>
+                      <select
+                        value={bookingForm.fundingType}
+                        onChange={(e) => setBookingForm({ ...bookingForm, fundingType: e.target.value })}
+                        required
+                        className="w-full p-3 rounded-lg bg-[#F8FAFC] border border-slate-200 text-sm text-slate-800 focus:outline-none focus:border-[#1B4965]"
+                      >
+                        <option value="Insured (Bupa, AXA, Aviva, etc.)">Private Medical Insurance</option>
+                        <option value="Self-Paying">Self-Pay Patient</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  {/* Self-Funding Consultation Fees Transparency Notice */}
+                  {bookingForm.fundingType === "Self-Paying" && (
+                    <div className="p-3.5 bg-[#FFFBF5] border border-[#FDE68A] rounded-xl text-xs text-slate-800 animate-fade-in shadow-2xs">
+                      <div className="flex items-center justify-between font-bold text-[#92400E] mb-1.5">
+                        <span className="flex items-center gap-1.5">
+                          <CheckCircle size={14} className="text-[#E8A24C]" />
+                          Self-Funding Outpatient Consultation Fees:
+                        </span>
+                        <span className="text-[10px] uppercase font-bold bg-[#FEF3C7] text-[#92400E] px-2 py-0.5 rounded border border-[#FDE68A]">
+                          Transparent Pricing
+                        </span>
+                      </div>
+                      <div className="grid grid-cols-2 gap-2 mt-2 pt-2 border-t border-[#FDE68A]/60">
+                        <div className="bg-white/80 p-2 rounded-lg border border-[#FDE68A]/80">
+                          <span className="text-[10px] text-slate-500 font-bold uppercase block">First Appointment</span>
+                          <span className="text-base font-black text-slate-900">£250</span>
+                          <span className="text-[10px] text-slate-500 block leading-tight">Initial full consultation</span>
+                        </div>
+                        <div className="bg-white/80 p-2 rounded-lg border border-[#FDE68A]/80">
+                          <span className="text-[10px] text-slate-500 font-bold uppercase block">Follow-Up Visit</span>
+                          <span className="text-base font-black text-slate-900">£200</span>
+                          <span className="text-[10px] text-slate-500 block leading-tight">Review & progress check</span>
+                        </div>
+                      </div>
+                      <p className="text-[10px] text-slate-500 mt-2 leading-normal">
+                        * Diagnostic investigations (e.g. X-rays, MRI) or surgical procedures are quoted transparently by the hospital if required.
+                      </p>
+                    </div>
+                  )}
+
+                  {/* Name Fields */}
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-xs font-bold uppercase text-slate-600 mb-1">First Name *</label>
+                      <input 
+                        type="text" 
+                        required 
+                        placeholder="e.g. John"
+                        value={bookingForm.firstName}
+                        onChange={(e) => setBookingForm({ ...bookingForm, firstName: e.target.value })}
+                        className="w-full p-3 rounded-lg bg-[#F8FAFC] border border-slate-200 text-sm text-slate-800 focus:outline-none focus:border-[#1B4965]" 
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-bold uppercase text-slate-600 mb-1">Last Name *</label>
+                      <input 
+                        type="text" 
+                        required 
+                        placeholder="e.g. Smith"
+                        value={bookingForm.lastName}
+                        onChange={(e) => setBookingForm({ ...bookingForm, lastName: e.target.value })}
+                        className="w-full p-3 rounded-lg bg-[#F8FAFC] border border-slate-200 text-sm text-slate-800 focus:outline-none focus:border-[#1B4965]" 
+                      />
+                    </div>
+                  </div>
+
+                  {/* Email & Phone */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-xs font-bold uppercase text-slate-600 mb-1">Email Address *</label>
+                      <input 
+                        type="email" 
+                        required 
+                        placeholder="name@example.com"
+                        value={bookingForm.email}
+                        onChange={(e) => setBookingForm({ ...bookingForm, email: e.target.value })}
+                        className="w-full p-3 rounded-lg bg-[#F8FAFC] border border-slate-200 text-sm text-slate-800 focus:outline-none focus:border-[#1B4965]" 
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-bold uppercase text-slate-600 mb-1">Telephone Number *</label>
+                      <input 
+                        type="tel" 
+                        required 
+                        placeholder="07xxx xxxxxx"
+                        value={bookingForm.phone}
+                        onChange={(e) => setBookingForm({ ...bookingForm, phone: e.target.value })}
+                        className="w-full p-3 rounded-lg bg-[#F8FAFC] border border-slate-200 text-sm text-slate-800 focus:outline-none focus:border-[#1B4965]" 
+                      />
+                    </div>
+                  </div>
+
+                  {/* Clinical Brief / Symptoms */}
+                  <div>
+                    <label className="block text-xs font-bold uppercase text-slate-600 mb-1">
+                      Brief Description of Symptoms (Optional)
+                    </label>
+                    <textarea 
+                      rows={2}
+                      placeholder="e.g. Groin pain when walking, knee catching, prior imaging taken..."
+                      value={bookingForm.notes}
+                      onChange={(e) => setBookingForm({ ...bookingForm, notes: e.target.value })}
+                      className="w-full p-3 rounded-lg bg-[#F8FAFC] border border-slate-200 text-sm text-slate-800 focus:outline-none focus:border-[#1B4965]"
+                    ></textarea>
+                  </div>
+
+                  <button 
+                    type="submit" 
+                    className="w-full bg-[#E8A24C] hover:bg-[#D99136] text-white font-bold py-3.5 rounded-lg transition-colors shadow-md text-sm tracking-wider uppercase mt-2 flex items-center justify-center gap-2"
+                  >
+                    <Calendar size={16} /> Submit Consultation Request
+                  </button>
+
+                  <p className="text-[11px] text-slate-500 text-center">
+                    Your medical details are confidential and handled according to GMC privacy guidelines.
+                  </p>
+                </form>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* TREATMENT DETAIL MODAL */}
+      {selectedTreatment && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+          <div 
+            className="absolute inset-0 bg-slate-900/50 backdrop-blur-xs"
+            onClick={() => setSelectedTreatment(null)}
+          ></div>
+          
+          <div className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-white rounded-2xl shadow-2xl p-6 sm:p-8 animate-fade-in border border-slate-100">
+            <button 
+              onClick={() => setSelectedTreatment(null)}
+              className="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-800 hover:bg-slate-100 rounded-full transition-colors"
+            >
+              <X size={20} />
+            </button>
+
+            {/* Practice Brand Header */}
+            <div className="flex items-center gap-3 mb-4 pb-3 border-b border-slate-100">
+              <img src="./logo.png" alt="London Essex Hip and Knee" className="h-10 w-auto object-contain" />
+              <div className="relative w-10 h-13 rounded-xl overflow-hidden border border-slate-200 shadow-xs bg-white flex-shrink-0">
+                <SurgeonPortrait 
+                  alt={SURGEON_NAME} 
+                  className="w-full h-full object-cover object-top" 
+                />
+              </div>
+              <div className="border-l border-slate-200 pl-3">
+                <p className="text-xs font-extrabold text-slate-900">{SURGEON_NAME}</p>
+                <p className="text-[10px] text-[#1B4965] font-bold uppercase">{SURGEON_ROLE}</p>
+                <p className="font-script text-[#1B4965] text-xs font-bold -mt-0.5">Restoring your active lifestyle</p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-xs font-bold uppercase bg-[#EAF1F6] text-[#1B4965] px-2.5 py-0.5 rounded">
+                {selectedTreatment.category}
+              </span>
+              {selectedTreatment.isPioneering && (
+                <span className="text-xs font-bold uppercase bg-[#FFF7ED] text-[#C26B08] px-2.5 py-0.5 rounded border border-[#FDBA74]">
+                  First in Essex & NE London
+                </span>
+              )}
+            </div>
+
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-1">
+              {selectedTreatment.title}
+            </h2>
+            {selectedTreatment.subtitle && (
+              <p className="text-sm font-semibold text-slate-500 mb-4">
+                {selectedTreatment.subtitle}
+              </p>
+            )}
+
+            <div className="p-4 bg-[#F8FAFC] rounded-xl border border-slate-200 mb-6">
+              <p className="text-sm text-slate-700 leading-relaxed">
+                {selectedTreatment.description}
+              </p>
+            </div>
+
+            {selectedTreatment.fullDetails && (
+              <div className="space-y-3 mb-6">
+                <h4 className="font-bold text-sm text-slate-900 uppercase tracking-wider">Clinical Overview:</h4>
+                {selectedTreatment.fullDetails.map((detail, idx) => (
+                  <p key={idx} className="text-sm text-slate-600 leading-relaxed">
+                    {detail}
+                  </p>
+                ))}
+              </div>
+            )}
+
+            {selectedTreatment.keyBenefits && (
+              <div className="mb-6">
+                <h4 className="font-bold text-sm text-slate-900 uppercase tracking-wider mb-2">Key Advantages & Outcomes:</h4>
+                <div className="space-y-2">
+                  {selectedTreatment.keyBenefits.map((benefit, idx) => (
+                    <div key={idx} className="flex items-start gap-2.5 text-sm text-slate-700">
+                      <CheckCircle size={16} className="text-[#1B4965] flex-shrink-0 mt-0.5" />
+                      <span>{benefit}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* SURGICAL RISKS & NON-OPERATIVE OPTIONS ACCORDION */}
+            {(() => {
+              const activeRiskInfo = selectedTreatment.procedureRiskId
+                ? PROCEDURE_RISK_DATA.find(p => p.id === selectedTreatment.procedureRiskId)
+                : PROCEDURE_RISK_DATA.find(p => p.id === selectedTreatment.id);
+
+              if (!activeRiskInfo) return null;
+
+              return (
+                <div className="mt-6 pt-6 border-t border-slate-200">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+                    <div>
+                      <h4 className="font-extrabold text-base text-slate-900 flex items-center gap-2">
+                        <ShieldAlert size={18} className="text-[#1B4965]" />
+                        Surgical Risks & Non-Operative Alternatives
+                      </h4>
+                      <p className="text-xs text-slate-500 mt-0.5">
+                        Clinical consent details, conservative alternatives, and potential complications
+                      </p>
+                    </div>
+                    <button
+                      onClick={() => generateProcedureRiskPdf(activeRiskInfo)}
+                      className="bg-[#1B4965] hover:bg-[#13364B] text-white px-3.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-colors shadow-xs self-start sm:self-auto"
+                    >
+                      <Download size={13} />
+                      Download PDF Guide
+                    </button>
+                  </div>
+
+                  {/* Non-Operative Options */}
+                  <div className="bg-[#F8FAFC] p-4 rounded-xl border border-slate-200 mb-4 text-xs text-slate-700 leading-relaxed">
+                    <p className="font-bold text-[#1B4965] uppercase text-[11px] mb-2 flex items-center gap-1.5">
+                      <CheckCircle size={14} /> Non-Operative Options Discussed:
+                    </p>
+                    <p>• <strong>Analgesia & Medical Therapy:</strong> {activeRiskInfo.nonOperativeOptions.analgesia}</p>
+                    <p className="mt-1">• <strong>Activity Modification:</strong> {activeRiskInfo.nonOperativeOptions.activityModification}</p>
+                    <p className="mt-1">• <strong>Low-Impact Exercises:</strong> {activeRiskInfo.nonOperativeOptions.exercises.join(', ')}</p>
+                    <p className="mt-1">• <strong>Nutritional Supplements:</strong> {activeRiskInfo.nonOperativeOptions.supplements.join(', ')}</p>
+                  </div>
+
+                  {/* Surgical Risks List */}
+                  <div className="space-y-2.5 mb-4">
+                    <p className="font-bold text-slate-900 text-xs uppercase tracking-wider">
+                      Potential Surgical Complications & Explanations:
+                    </p>
+                    {activeRiskInfo.surgicalRisks.map((risk, ridx) => (
+                      <div key={ridx} className="p-3.5 bg-white rounded-xl border border-slate-200 text-xs shadow-2xs">
+                        <div className="flex items-center justify-between font-bold text-slate-900 mb-1">
+                          <span>{ridx + 1}. {risk.title}</span>
+                          {risk.incidence && (
+                            <span className="text-[10px] text-[#E8A24C] bg-[#FFF7ED] px-2 py-0.5 rounded border border-[#FDBA74]">
+                              {risk.incidence}
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-slate-600 text-[11px] leading-relaxed mb-1.5">
+                          {risk.description}
+                        </p>
+                        {risk.warningSigns && (
+                          <div className="text-[10px] text-red-700 bg-red-50 p-1.5 rounded mb-1 border border-red-100">
+                            <strong>Symptoms to report:</strong> {risk.warningSigns.join('; ')}
+                          </div>
+                        )}
+                        <p className="text-[10px] text-slate-500">
+                          <strong>Assessment & Management:</strong> {risk.managementOrAssessment}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Red alert for 999 */}
+                  <div className="p-3.5 bg-red-50 border border-red-200 rounded-xl text-xs text-red-950 flex items-start gap-2 mb-4">
+                    <AlertTriangle size={16} className="text-red-600 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-bold">Emergency 999 Symptoms:</p>
+                      <p className="text-[11px] text-red-900 mt-0.5">
+                        {activeRiskInfo.postoperativeSymptomsToReport.emergency999.join(' • ')}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })()}
+
+            <div className="pt-4 border-t border-slate-200 flex flex-wrap justify-between items-center gap-3">
+              <span className="text-xs text-slate-500">
+                Available at <strong>Spire Hartswood</strong> & <strong>Nuffield Brentwood</strong>
+              </span>
+              <div className="flex gap-2">
+                {(() => {
+                  const activeRiskInfo = selectedTreatment.procedureRiskId
+                    ? PROCEDURE_RISK_DATA.find(p => p.id === selectedTreatment.procedureRiskId)
+                    : PROCEDURE_RISK_DATA.find(p => p.id === selectedTreatment.id);
+                  return activeRiskInfo ? (
+                    <button
+                      onClick={() => generateProcedureRiskPdf(activeRiskInfo)}
+                      className="bg-slate-100 hover:bg-slate-200 text-slate-800 px-4 py-2.5 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-colors"
+                    >
+                      <Download size={13} />
+                      Download PDF
+                    </button>
+                  ) : null;
+                })()}
+                <button
+                  onClick={() => {
+                    setSelectedTreatment(null);
+                    openBookingModal();
+                  }}
+                  className="bg-[#E8A24C] hover:bg-[#D99136] text-white px-5 py-2.5 rounded-lg text-xs font-bold transition-colors shadow-md"
+                >
+                  Book Consultation for this Procedure
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* PROTOCOL DETAIL MODAL */}
+      {selectedProtocol && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+          <div 
+            className="absolute inset-0 bg-slate-900/50 backdrop-blur-xs"
+            onClick={() => setSelectedProtocol(null)}
+          ></div>
+          
+          <div className="relative w-full max-w-xl max-h-[90vh] overflow-y-auto bg-white rounded-2xl shadow-2xl p-6 sm:p-8 animate-fade-in border border-slate-100">
+            <button 
+              onClick={() => setSelectedProtocol(null)}
+              className="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-800 hover:bg-slate-100 rounded-full transition-colors"
+            >
+              <X size={20} />
+            </button>
+
+            {/* Practice Brand Header */}
+            <div className="flex items-center gap-3 mb-4 pb-3 border-b border-slate-100">
+              <img src="./logo.png" alt="London Essex Hip and Knee" className="h-10 w-auto object-contain" />
+              <div className="relative w-10 h-13 rounded-xl overflow-hidden border border-slate-200 shadow-xs bg-white flex-shrink-0">
+                <SurgeonPortrait 
+                  alt={SURGEON_NAME} 
+                  className="w-full h-full object-cover object-top" 
+                />
+              </div>
+              <div className="border-l border-slate-200 pl-3">
+                <p className="text-xs font-extrabold text-slate-900">{SURGEON_NAME}</p>
+                <p className="text-[10px] text-[#1B4965] font-bold uppercase">{SURGEON_ROLE}</p>
+                <p className="font-script text-[#1B4965] text-xs font-bold -mt-0.5">Restoring your active lifestyle</p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2 text-xs font-bold text-[#1B4965] uppercase mb-2">
+              <FileText size={16} /> Rehabilitation Protocol
+            </div>
+
+            <h3 className="text-2xl font-bold text-slate-900 mb-1">
+              {selectedProtocol.title}
+            </h3>
+            <p className="text-xs font-semibold text-slate-500 mb-4">
+              Timeline: {selectedProtocol.timeline}
+            </p>
+
+            <p className="text-sm text-slate-600 mb-6 leading-relaxed">
+              {selectedProtocol.description}
+            </p>
+
+            <div className="space-y-3 mb-6 bg-[#F8FAFC] p-5 rounded-xl border border-slate-200">
+              <h4 className="font-bold text-xs uppercase tracking-wider text-slate-700">Key Recovery Milestones:</h4>
+              <ul className="space-y-2">
+                {selectedProtocol.keyMilestones.map((milestone, idx) => (
+                  <li key={idx} className="flex items-start gap-2.5 text-xs text-slate-700">
+                    <span className="w-5 h-5 rounded-full bg-[#EAF1F6] text-[#1B4965] flex items-center justify-center font-bold flex-shrink-0 text-[10px]">
+                      {idx + 1}
+                    </span>
+                    <span className="mt-0.5">{milestone}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="pt-4 border-t border-slate-200 flex items-center justify-between">
+              <span className="text-xs text-slate-400 font-mono">
+                {selectedProtocol.filename}
+              </span>
+              <button
+                onClick={() => {
+                  generateProtocolPdf(selectedProtocol);
+                }}
+                className="bg-[#1B4965] hover:bg-[#13364B] text-white px-5 py-2.5 rounded-lg text-xs font-bold flex items-center gap-2 transition-colors shadow-md"
+              >
+                <Download size={14} /> Download Protocol Guide (PDF)
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+    </div>
+  );
+}
+
+export default App;

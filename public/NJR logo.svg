@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 710 272" width="710" height="272">
+  <rect width="710" height="272" fill="#ffffff" />
+  
+  <!-- Green arc wrapping the circle -->
+  <path d="M 125,28 A 78,78 0 1,0 178,135" fill="none" stroke="#52a43b" stroke-width="15" stroke-linecap="round" />
+  
+  <!-- Main Blue Emblem Circle -->
+  <circle cx="120" cy="98" r="62" fill="#154989" />
+  
+  <!-- NJR Center Text -->
+  <text x="120" y="115" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="46" fill="#ffffff" text-anchor="middle" letter-spacing="-1">NJR</text>
+  
+  <!-- National -->
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="68" fill="#154989" letter-spacing="-1.5">
+    <text x="212" y="90">Nat</text>
+    <!-- Dotless i + green dot -->
+    <text x="315" y="90">ı</text>
+    <circle cx="320" cy="46" r="6.5" fill="#52a43b" />
+    <text x="333" y="90">onal</text>
+  </g>
+  
+  <!-- Joint Registry -->
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="68" fill="#154989" letter-spacing="-1.5">
+    <text x="208" y="162">Jo</text>
+    <!-- Dotless i + green dot -->
+    <text x="274" y="162">ınt</text>
+    <circle cx="280" cy="118" r="6.5" fill="#52a43b" />
+    <text x="375" y="162">Reg</text>
+    <!-- Dotless i in Registry -->
+    <text x="496" y="162">ı</text>
+    <circle cx="501" cy="118" r="6.5" fill="#52a43b" />
+    <text x="514" y="162">stry</text>
+  </g>
+  
+  <!-- Bottom Banner -->
+  <rect x="10" y="215" width="690" height="45" fill="#154989" />
+  <text x="355" y="244" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="19.5" fill="#ffffff" text-anchor="middle" letter-spacing="0.5">Working for patients, committed to excellence</text>
+</svg>
