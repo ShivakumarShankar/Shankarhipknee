@@ -55,6 +55,7 @@ export const NAV_LINKS = [
   { name: 'Robotic & Navigation', href: '#robotic' },
   { name: 'Conditions', href: '#conditions' },
   { name: 'Hospitals', href: '#locations' },
+  { name: 'Media & Social', href: '#media' },
   { name: 'Physio Protocols', href: '#protocols' },
   { name: 'Contact Us', href: '#contact' },
   { name: 'FAQ', href: '#faq' },

@@ -73,6 +73,7 @@ const renderFooter = () => `
             <li><a href="/robotic-computer-assisted-surgery" class="text-slate-600 hover:text-[#1B4965] transition-colors">Robotic &amp; Computer-Assisted</a></li>
             <li><a href="/knee-arthroscopy" class="text-slate-600 hover:text-[#1B4965] transition-colors">Knee Arthroscopy &amp; Keyhole</a></li>
             <li><a href="/patient-information" class="text-slate-600 hover:text-[#1B4965] transition-colors">Patient Information Guides</a></li>
+            <li><a href="/#media" class="text-slate-600 hover:text-[#1B4965] transition-colors">Media &amp; Social</a></li>
             <li><a href="/reviews" class="text-[#1B4965] font-bold hover:underline transition-colors">Patient Reviews (Doctify &amp; IWGC)</a></li>
             <li><a href="/book-consultation" class="text-[#1B4965] font-bold hover:text-[#13364B] transition-colors">Book Private Consultation</a></li>
           </ul>
@@ -188,6 +189,81 @@ const pageDefinitions = [
           desc: 'Hundreds of independently verified patient reviews on Doctify and iWantGreatCare praising clinical excellence, bedside manner, and rapid recovery.'
         }
       ])}
+
+      <!-- Media & Social Section -->
+      <section id="media" class="py-12 border-t border-slate-200 bg-slate-50 rounded-2xl p-6 sm:p-8 mb-12">
+        <div class="text-center max-w-3xl mx-auto mb-8">
+          <span class="inline-block px-3 py-1 rounded-full bg-white border border-slate-200 text-[#1B4965] text-xs font-bold uppercase tracking-wider mb-2">
+            Professional News &amp; Updates
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+            Media &amp; Social
+          </h2>
+          <p class="text-slate-600 text-xs sm:text-sm mt-2 leading-relaxed">
+            Follow Mr Shivakumar Shankar for professional updates, patient education and information about developments in hip and knee surgery.
+          </p>
+        </div>
+
+        <!-- Social Channels (@ShankarHipKnee) -->
+        <div class="bg-white rounded-xl p-5 border border-slate-200 shadow-xs mb-8 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-[#1B4965]">Professional Channels</span>
+            <h3 class="text-base font-bold text-slate-900">Follow @ShankarHipKnee</h3>
+            <p class="text-xs text-slate-600">Educational video walkthroughs, joint surgery updates, and patient recovery insights.</p>
+          </div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <a href="https://www.linkedin.com/in/shivakumar-shankar-25758026/recent-activity/all/" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-[#0A66C2] text-white text-xs font-bold hover:bg-[#004182] transition-colors">LinkedIn</a>
+            <a href="https://x.com/ShankarHipKnee" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-black text-white text-xs font-bold hover:bg-slate-800 transition-colors">X (@ShankarHipKnee)</a>
+            <a href="https://www.youtube.com/@ShankarHipKnee" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-red-600 text-white text-xs font-bold hover:bg-red-700 transition-colors">YouTube</a>
+            <a href="https://www.instagram.com/ShankarHipKnee" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-gradient-to-r from-amber-500 to-pink-600 text-white text-xs font-bold hover:opacity-90 transition-opacity">Instagram</a>
+            <a href="https://www.tiktok.com/@ShankarHipKnee" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-slate-900 text-white text-xs font-bold hover:bg-black transition-colors">TikTok</a>
+            <a href="https://finder.bupa.co.uk/Consultant/mr-shivakumar-shankar-orthopaedic-surgery-brentwood-romford" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-[#0079C8] text-white text-xs font-bold hover:bg-[#005a96] transition-colors">Bupa Profile</a>
+          </div>
+        </div>
+
+        <!-- Featured Media & Milestones Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-xs flex flex-col justify-between">
+            <div>
+              <span class="text-[10px] font-bold text-amber-700 uppercase tracking-wider block mb-1">Procedural Milestone</span>
+              <h3 class="font-bold text-slate-900 text-sm mb-2">100 MAKO Robotic-Assisted Joint Replacement Procedures</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Mr Shivakumar Shankar completed his personal landmark 100th MAKO robotic-assisted joint replacement procedure at BHRUT, restoring active mobility for fitness manager Catherine O'Brien-Passfield.
+              </p>
+            </div>
+            <a href="https://www.bhrhospitals.nhs.uk/news/fitness-manager-catherine-gets-a-whole-new-lease-of-life-after-being-the-100th-patient-to-have-a-robotic-joint-replacement-5735" target="_blank" rel="noopener noreferrer" class="mt-4 text-xs font-bold text-[#1B4965] hover:underline flex items-center gap-1">
+              Read BHRUT NHS Report &rarr;
+            </a>
+          </div>
+
+          <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-xs flex flex-col justify-between">
+            <div>
+              <span class="text-[10px] font-bold text-red-700 uppercase tracking-wider block mb-1">BBC London Broadcast</span>
+              <h3 class="font-bold text-slate-900 text-sm mb-2">BBC News: Robotic Joint Replacement at Elective Surgical Hub</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Featured on BBC London News demonstrating how robotic 3D CT guidance and dedicated ring-fenced theatres protect planned operations from emergency winter delays.
+              </p>
+            </div>
+            <a href="https://www.bbc.co.uk/news/articles/c5ydj10l0k3o" target="_blank" rel="noopener noreferrer" class="mt-4 text-xs font-bold text-[#1B4965] hover:underline flex items-center gap-1">
+              Read BBC News Feature &rarr;
+            </a>
+          </div>
+
+          <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-xs flex flex-col justify-between">
+            <div>
+              <span class="text-[10px] font-bold text-red-600 uppercase tracking-wider block mb-1">Patient Education Videos</span>
+              <h3 class="font-bold text-slate-900 text-sm mb-2">Home Exercises for Hip &amp; Knee Arthritis</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Consultant-guided 5-minute video tutorials demonstrating evidence-based strengthening and range-of-motion routines for patients managing joint symptoms.
+              </p>
+            </div>
+            <a href="https://www.youtube.com/@ShankarHipKnee" target="_blank" rel="noopener noreferrer" class="mt-4 text-xs font-bold text-[#1B4965] hover:underline flex items-center gap-1">
+              Watch on YouTube &rarr;
+            </a>
+          </div>
+        </div>
+      </section>
+
       <section class="p-8 bg-[#EAF1F6] rounded-2xl border border-slate-300 flex flex-col md:flex-row items-center justify-between gap-6 mb-12">
         <div>
           <h2 class="text-xl font-bold text-[#1B4965]">Consultation &amp; Surgical Scheduling</h2>

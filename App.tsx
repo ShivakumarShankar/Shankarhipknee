@@ -127,6 +127,7 @@ export const getPageFromPath = (path: string): AppPage => {
   if (clean === '/king-george-hospital-goodmayes') return 'king-george-hospital-goodmayes';
   if (clean === '/contact' || clean === '/contact-consultation') return 'contact';
   if (clean === '/book-consultation' || clean === '/book') return 'book-consultation';
+  if (clean === '/media' || clean === '/media-social' || clean === '/social' || clean === '/news') return 'home';
   return '404';
 };
 
@@ -399,9 +400,22 @@ function App() {
     const rawPath = window.location.pathname;
     if (rawPath === '/home' || rawPath === '/home/' || rawPath === '/index.html' || rawPath === '/index') {
       window.history.replaceState({}, '', '/');
+    } else if (rawPath === '/media' || rawPath === '/media-social' || rawPath === '/social' || rawPath === '/news') {
+      window.history.replaceState({}, '', '/#media');
+      setTimeout(() => {
+        const el = document.querySelector('#media');
+        el?.scrollIntoView({ behavior: 'smooth' });
+      }, 150);
     } else if (rawPath.endsWith('.html') || (rawPath.endsWith('/') && rawPath.length > 1)) {
       const clean = rawPath.replace(/\.html$/, '').replace(/\/$/, '') || '/';
       window.history.replaceState({}, '', clean);
+    }
+
+    if (window.location.hash) {
+      setTimeout(() => {
+        const el = document.querySelector(window.location.hash);
+        el?.scrollIntoView({ behavior: 'smooth' });
+      }, 150);
     }
   }, []);
 
@@ -1776,6 +1790,7 @@ function App() {
               <li><a href="/patient-guides" onClick={(e) => { e.preventDefault(); handleNavigate('patient-guides'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Patient Guides &amp; Risks</a></li>
               <li><a href="/reviews" onClick={(e) => { e.preventDefault(); handleNavigate('reviews'); }} className="text-[#1B4965] font-bold hover:underline transition-colors block">Patient Reviews (Doctify &amp; IWGC)</a></li>
               <li><a href="/contact" onClick={(e) => { e.preventDefault(); handleNavigate('contact'); }} className="text-[#1B4965] font-bold hover:text-[#13364B] transition-colors block">Contact Practice Secretary</a></li>
+              <li><a href="#media" onClick={(e) => { e.preventDefault(); handleNavigate('#media'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Media &amp; Social</a></li>
               <li><a href="#faq" onClick={(e) => { e.preventDefault(); handleNavigate('#faq'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Patient FAQs</a></li>
             </ul>
           </div>

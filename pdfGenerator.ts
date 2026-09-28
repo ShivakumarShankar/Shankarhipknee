@@ -595,3 +595,231 @@ export function generateProtocolPdf(protocol: Protocol) {
   finalizeFooters(doc);
   doc.save(protocol.filename);
 }
+
+export interface PatientLetterheadData {
+  date?: string;
+  patientName?: string;
+  dob?: string;
+  salutation?: string;
+  body?: string;
+  signoff?: string;
+  surgeonName?: string;
+  surgeonTitle?: string;
+}
+
+/**
+ * Builds the official A4 Patient Letterhead PDF.
+ * If data fields are empty, leaves clean blank lines for handwriting or manual typing.
+ */
+export function buildLetterheadPdfDoc(data: PatientLetterheadData = {}): jsPDF {
+  const doc = new jsPDF({
+    orientation: "portrait",
+    unit: "mm",
+    format: "a4",
+    compress: true
+  });
+
+  const pageWidth = doc.internal.pageSize.getWidth();
+  const pageHeight = doc.internal.pageSize.getHeight();
+  const margin = 16;
+  const contentWidth = pageWidth - margin * 2;
+
+  const dateText = data.date !== undefined && data.date !== "" ? data.date : "______________________";
+  const nameText = data.patientName !== undefined && data.patientName !== "" ? data.patientName : "____________________________________________________";
+  const dobText = data.dob !== undefined && data.dob !== "" ? data.dob : "______________________";
+  const dearText = data.salutation !== undefined && data.salutation !== "" ? data.salutation : "______________________,";
+  const bodyText = data.body || "";
+  const signoffText = data.signoff || "Yours sincerely,";
+  const surgeonNameText = data.surgeonName || "Mr Shivakumar Shankar";
+  const surgeonTitleText = data.surgeonTitle || "Consultant Robotic Hip and Knee Surgeon";
+
+  function drawLetterheadHeader() {
+    const headerY = 12;
+
+    // 1. Left: Brand Logo
+    try {
+      if (LOGO_DATA_URI) {
+        doc.addImage(LOGO_DATA_URI, "PNG", margin, headerY, 40, 12.8);
+      }
+    } catch (e) {
+      console.warn("Could not draw logo in Letterhead PDF:", e);
+    }
+
+    // 2. Centre: Surgeon Name & Affiliations
+    const centreX = margin + 44;
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(12.5);
+    doc.setTextColor(PRIMARY_NAVY[0], PRIMARY_NAVY[1], PRIMARY_NAVY[2]);
+    doc.text("Mr Shivakumar Shankar", centreX, headerY + 4);
+
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(8.5);
+    doc.setTextColor(PRIMARY_NAVY[0], PRIMARY_NAVY[1], PRIMARY_NAVY[2]);
+    doc.text("Consultant Robotic Hip and Knee Surgeon", centreX, headerY + 8);
+
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(6.5);
+    doc.setTextColor(TEXT_MUTED[0], TEXT_MUTED[1], TEXT_MUTED[2]);
+    doc.text("Spire Hartswood Hospital • Nuffield Health Brentwood Hospital • Queen's Hospital", centreX, headerY + 11.5);
+
+    // 3. Right: Contact details
+    const rightX = pageWidth - margin;
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(6.8);
+    doc.setTextColor(TEXT_MUTED[0], TEXT_MUTED[1], TEXT_MUTED[2]);
+    doc.text("MOBILE:", rightX - 22, headerY + 3.5, { align: "right" });
+    doc.setFont("helvetica", "bold");
+    doc.setTextColor(TEXT_DARK[0], TEXT_DARK[1], TEXT_DARK[2]);
+    doc.text("07587 765888", rightX, headerY + 3.5, { align: "right" });
+
+    doc.setFont("helvetica", "bold");
+    doc.setTextColor(TEXT_MUTED[0], TEXT_MUTED[1], TEXT_MUTED[2]);
+    doc.text("LANDLINE:", rightX - 22, headerY + 6.8, { align: "right" });
+    doc.setFont("helvetica", "normal");
+    doc.setTextColor(TEXT_DARK[0], TEXT_DARK[1], TEXT_DARK[2]);
+    doc.text("020 3523 0621", rightX, headerY + 6.8, { align: "right" });
+
+    doc.setFont("helvetica", "bold");
+    doc.setTextColor(TEXT_MUTED[0], TEXT_MUTED[1], TEXT_MUTED[2]);
+    doc.text("EMAIL:", rightX - 44, headerY + 10.1, { align: "right" });
+    doc.setFont("helvetica", "normal");
+    doc.setTextColor(PRIMARY_NAVY[0], PRIMARY_NAVY[1], PRIMARY_NAVY[2]);
+    doc.text("hip.knee_specialist@yahoo.com", rightX, headerY + 10.1, { align: "right" });
+
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(7.2);
+    doc.setTextColor(PRIMARY_NAVY[0], PRIMARY_NAVY[1], PRIMARY_NAVY[2]);
+    doc.text("www.shivakumarshankar.co.uk", rightX, headerY + 13.5, { align: "right" });
+
+    // Subtle horizontal divider line
+    const lineY = headerY + 16;
+    doc.setDrawColor(203, 213, 225); // #CBD5E1
+    doc.setLineWidth(0.4);
+    doc.line(margin, lineY, pageWidth - margin, lineY);
+
+    return lineY + 8;
+  }
+
+  function drawLetterheadFooter(pageNumber: number, totalPages: number) {
+    const footerY = pageHeight - 12;
+    doc.setDrawColor(226, 232, 240); // #E2E8F0
+    doc.setLineWidth(0.3);
+    doc.line(margin, footerY, pageWidth - margin, footerY);
+
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(7.5);
+    doc.setTextColor(TEXT_MUTED[0], TEXT_MUTED[1], TEXT_MUTED[2]);
+    doc.text("Mr Shivakumar Shankar • Consultant Robotic Hip and Knee Surgeon", margin, footerY + 5);
+
+    doc.setFont("helvetica", "normal");
+    doc.setTextColor(PRIMARY_NAVY[0], PRIMARY_NAVY[1], PRIMARY_NAVY[2]);
+    doc.text("www.shivakumarshankar.co.uk", pageWidth - margin, footerY + 5, { align: "right" });
+  }
+
+  let currentY = drawLetterheadHeader();
+
+  // Patient details block
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(10);
+  doc.setTextColor(PRIMARY_NAVY[0], PRIMARY_NAVY[1], PRIMARY_NAVY[2]);
+  doc.text("Date:", margin, currentY);
+  doc.setFont("helvetica", "normal");
+  doc.setTextColor(TEXT_DARK[0], TEXT_DARK[1], TEXT_DARK[2]);
+  doc.text(dateText, margin + 14, currentY);
+  currentY += 6;
+
+  doc.setFont("helvetica", "bold");
+  doc.setTextColor(PRIMARY_NAVY[0], PRIMARY_NAVY[1], PRIMARY_NAVY[2]);
+  doc.text("Patient Name:", margin, currentY);
+  doc.setFont("helvetica", "normal");
+  doc.setTextColor(TEXT_DARK[0], TEXT_DARK[1], TEXT_DARK[2]);
+  doc.text(nameText, margin + 28, currentY);
+  currentY += 6;
+
+  doc.setFont("helvetica", "bold");
+  doc.setTextColor(PRIMARY_NAVY[0], PRIMARY_NAVY[1], PRIMARY_NAVY[2]);
+  doc.text("DOB:", margin, currentY);
+  doc.setFont("helvetica", "normal");
+  doc.setTextColor(TEXT_DARK[0], TEXT_DARK[1], TEXT_DARK[2]);
+  doc.text(dobText, margin + 14, currentY);
+  currentY += 9;
+
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(10.5);
+  doc.setTextColor(TEXT_DARK[0], TEXT_DARK[1], TEXT_DARK[2]);
+  doc.text(`Dear ${dearText}`, margin, currentY);
+  currentY += 10;
+
+  // Main letter body
+  if (bodyText.trim()) {
+    const paragraphs = bodyText.split("\n\n");
+    paragraphs.forEach((p) => {
+      const trimmed = p.trim();
+      if (!trimmed) {
+        currentY += 4;
+        return;
+      }
+      const lines = doc.splitTextToSize(trimmed, contentWidth);
+      const neededSpace = lines.length * 5 + 4;
+      if (currentY + neededSpace > pageHeight - 35) {
+        doc.addPage();
+        currentY = drawLetterheadHeader();
+      }
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(10);
+      doc.setTextColor(TEXT_DARK[0], TEXT_DARK[1], TEXT_DARK[2]);
+      doc.text(lines, margin, currentY);
+      currentY += lines.length * 5 + 4;
+    });
+  } else {
+    // Generous blank writing space
+    currentY += 100;
+  }
+
+  // Check if sign-off fits on current page (needs approx 40mm)
+  if (currentY + 40 > pageHeight - 20) {
+    doc.addPage();
+    currentY = drawLetterheadHeader();
+  }
+
+  // Sign-off
+  currentY += 6;
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(10.5);
+  doc.setTextColor(TEXT_DARK[0], TEXT_DARK[1], TEXT_DARK[2]);
+  doc.text(signoffText, margin, currentY);
+
+  // Space for signature (handwritten or electronic)
+  currentY += 22;
+
+  // Surgeon name & role
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(11);
+  doc.setTextColor(PRIMARY_NAVY[0], PRIMARY_NAVY[1], PRIMARY_NAVY[2]);
+  doc.text(surgeonNameText, margin, currentY);
+
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(9.5);
+  doc.setTextColor(TEXT_MUTED[0], TEXT_MUTED[1], TEXT_MUTED[2]);
+  doc.text(surgeonTitleText, margin, currentY + 4.5);
+
+  // Finalize footers on all pages
+  const totalPages = doc.getNumberOfPages();
+  for (let i = 1; i <= totalPages; i++) {
+    doc.setPage(i);
+    drawLetterheadFooter(i, totalPages);
+  }
+
+  return doc;
+}
+
+/**
+ * Downloads the patient letterhead PDF to user's computer.
+ */
+export function generatePatientLetterheadPdf(
+  data: PatientLetterheadData = {}, 
+  filename: string = "Mr_Shivakumar_Shankar_Patient_Letterhead.pdf"
+): void {
+  const doc = buildLetterheadPdfDoc(data);
+  doc.save(filename);
+}

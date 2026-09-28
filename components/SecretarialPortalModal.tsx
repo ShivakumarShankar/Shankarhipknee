@@ -180,6 +180,39 @@ export const SecretarialPortalModal: React.FC<SecretarialPortalModalProps> = ({ 
         </div>
 
         {/* Action & Filter Bar */}
+        <div className="p-3.5 bg-blue-50/80 border-b border-blue-200/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+          <div className="flex items-center gap-2">
+            <span className="font-bold text-[#1B4965] flex items-center gap-1.5">
+              <span>📄</span> Patient Letterhead:
+            </span>
+            <span className="text-slate-600">Official A4 template for patient correspondence</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <a
+              href="/Mr_Shivakumar_Shankar_Patient_Letterhead.docx"
+              download="Mr_Shivakumar_Shankar_Patient_Letterhead.docx"
+              className="bg-white hover:bg-slate-50 text-[#1B4965] border border-blue-200 px-2.5 py-1.5 rounded-md font-bold shadow-2xs hover:underline inline-flex items-center gap-1"
+            >
+              <Download size={12} /> Word (.docx)
+            </a>
+            <a
+              href="/Mr_Shivakumar_Shankar_Patient_Letterhead.pdf"
+              download="Mr_Shivakumar_Shankar_Patient_Letterhead.pdf"
+              className="bg-white hover:bg-slate-50 text-slate-800 border border-blue-200 px-2.5 py-1.5 rounded-md font-bold shadow-2xs hover:underline inline-flex items-center gap-1"
+            >
+              <Download size={12} /> PDF (.pdf)
+            </a>
+            <a
+              href="/patient-letterhead"
+              onClick={onClose}
+              className="bg-[#1B4965] hover:bg-[#15384F] text-white px-2.5 py-1.5 rounded-md font-bold shadow-2xs inline-flex items-center gap-1"
+            >
+              Open Letterhead
+            </a>
+          </div>
+        </div>
+
+        {/* Filter Bar */}
         <div className="p-4 bg-slate-50 border-b border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3">
           <input
             type="text"

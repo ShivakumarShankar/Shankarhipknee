@@ -196,6 +196,10 @@
       "destination": "/prp-injection/index.html"
     },
     {
+      "source": "/patient-letterhead",
+      "destination": "/patient-letterhead/index.html"
+    },
+    {
       "source": "/robotic-computer-assisted-surgery",
       "destination": "/robotic-computer-assisted-surgery/index.html"
     },
@@ -268,7 +272,7 @@
       "destination": "/book-consultation/index.html"
     },
     {
-      "source": "/((?!about-mr-shivakumar-shankar|hip-replacement|robotic-hip-replacement|computer-assisted-hip-replacement|minimally-invasive-hip-replacement|knee-replacement|robotic-knee-replacement|computer-assisted-knee-replacement|partial-knee-replacement|knee-arthroscopy|prp-injection|robotic-computer-assisted-surgery|conventional-vs-computer-assisted-vs-robotic-surgery|patient-information|hip-replacement-recovery|knee-replacement-recovery|preparing-for-surgery|frequently-asked-questions|physio-protocols|hospitals-locations|london-hip-knee-surgeon|essex-hip-knee-surgeon|spire-hartswood-hospital|nuffield-brentwood-hospital|queens-hospital-romford|king-george-hospital-goodmayes|reviews|contact|book-consultation|sitemap\\.xml|robots\\.txt|f89417282cb246d892a0885e7cba8b1f\\.txt|assets/|.*\\..*).*)",
+      "source": "/((?!about-mr-shivakumar-shankar|hip-replacement|robotic-hip-replacement|computer-assisted-hip-replacement|minimally-invasive-hip-replacement|knee-replacement|robotic-knee-replacement|computer-assisted-knee-replacement|partial-knee-replacement|knee-arthroscopy|prp-injection|patient-letterhead|robotic-computer-assisted-surgery|conventional-vs-computer-assisted-vs-robotic-surgery|patient-information|hip-replacement-recovery|knee-replacement-recovery|preparing-for-surgery|frequently-asked-questions|physio-protocols|hospitals-locations|london-hip-knee-surgeon|essex-hip-knee-surgeon|spire-hartswood-hospital|nuffield-brentwood-hospital|queens-hospital-romford|king-george-hospital-goodmayes|reviews|contact|book-consultation|sitemap\\.xml|robots\\.txt|f89417282cb246d892a0885e7cba8b1f\\.txt|assets/|.*\\..*).*)",
       "destination": "/index.html"
     }
   ]

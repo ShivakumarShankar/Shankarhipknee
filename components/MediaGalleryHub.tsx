@@ -216,18 +216,18 @@ const DEFAULT_MEDIA: MediaItem[] = [
   {
     id: 'bhrut-100th-robotic',
     type: 'social',
-    title: 'BHR Hospitals: Fitness Manager Catherine Gets a ‘Whole New Lease of Life’ — 100th Robotic Joint Replacement',
+    title: '100 MAKO Robotic-Assisted Joint Replacement Procedures',
     category: 'Robotic Surgery',
     src: './Shankar MAKO picture.JPG',
     thumbnail: './Shankar MAKO picture.JPG',
     platform: 'bhrut',
     socialHandle: 'BHRUT NHS Trust',
-    authorName: 'BHR Hospitals NHS Trust & Mr Shankar',
+    authorName: 'Mr Shivakumar Shankar & BHRUT',
     authorAvatar: './profile.jpg',
     externalUrl: 'https://www.bhrhospitals.nhs.uk/news/fitness-manager-catherine-gets-a-whole-new-lease-of-life-after-being-the-100th-patient-to-have-a-robotic-joint-replacement-5735',
     quote: '“Robotic-assisted surgery allows us to be even more accurate, with the potential for implants to last longer and patients to experience reduced recovery time. Having used computer navigation for approximately 10 years, introducing the Mako robot has elevated surgical precision and created invaluable training opportunities for the next generation of surgeons.”',
-    caption: 'Official BHRUT News: Fitness manager Catherine O’Brien-Passfield gets a ‘whole new lease of life’ after being the landmark 100th patient to have a robotic joint replacement at BHRUT, carried out by Consultant Shivakumar Shankar using the Mako surgical robot.',
-    description: 'Barking, Havering and Redbridge University Hospitals NHS Trust published feature: Mr Shankar, holder of a Postgraduate Diploma in Computer and Robot-Assisted Orthopaedic Surgery, performed the Trust’s milestone 100th robotic total knee replacement. At that time, BHRUT was one of only seven hospitals in the country equipped with a Mako surgical robot for hip and knee replacements (first robotic op in July 2021). Computer navigation had already been utilised within the department for approximately 10 years before robotics was introduced.',
+    caption: 'Personal Procedural Milestone: Mr Shivakumar Shankar completed his personal landmark 100th MAKO robotic-assisted joint replacement procedure at BHRUT, restoring joint function and an active lifestyle for fitness manager Catherine O’Brien-Passfield.',
+    description: 'Mr Shivakumar Shankar achieved his personal procedural milestone of completing 100 MAKO robotic-assisted joint replacement operations at Barking, Havering and Redbridge University Hospitals NHS Trust. Mr Shankar, holder of a Postgraduate Diploma in Computer and Robot-Assisted Orthopaedic Surgery, performed this landmark robotic total knee replacement using Mako 3D CT guidance. (This highlights Mr Shankar’s personal operative milestone and does not represent the total robotic procedures performed across the Trust).',
     date: '18 January 2023 • BHRUT Official News',
     likes: '584',
     shares: '162'
@@ -669,13 +669,13 @@ export const MediaGalleryHub: React.FC<MediaGalleryHubProps> = ({ onOpenBooking 
         <div className="text-center max-w-3xl mx-auto mb-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-white border border-slate-200 rounded-full text-xs font-bold text-[#1B4965] shadow-2xs mb-3">
             <Sparkles size={14} className="text-[#E8A24C]" />
-            <span>Official Media & Clinical Education Hub</span>
+            <span>Professional News &amp; Updates</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Photos, Videos & Social Channels
+            Media &amp; Social
           </h2>
-          <p className="text-slate-600 text-sm mt-3 leading-relaxed">
-            Explore procedure walkthroughs, robotic surgery demonstrations, rehabilitation guides, and official social media updates from {SURGEON_NAME}.
+          <p className="text-slate-600 text-sm sm:text-base mt-3 leading-relaxed">
+            Follow Mr Shivakumar Shankar for professional updates, patient education and information about developments in hip and knee surgery.
           </p>
         </div>
 
@@ -840,7 +840,7 @@ export const MediaGalleryHub: React.FC<MediaGalleryHubProps> = ({ onOpenBooking 
                 <Building2 size={13} className="text-cyan-400" /> BHR Hospitals (BHRUT)
               </span>
               <span className="bg-white/10 text-amber-200 text-xs font-semibold px-3 py-1.5 rounded-xl border border-white/15 flex items-center gap-1.5 shadow-2xs">
-                <Cpu size={13} className="text-amber-400" /> 100th Robotic Joint Milestone
+                <Cpu size={13} className="text-amber-400" /> 100 MAKO Joint Procedures Milestone
               </span>
               <span className="bg-white/10 text-emerald-200 text-xs font-semibold px-3 py-1.5 rounded-xl border border-white/15 flex items-center gap-1.5 shadow-2xs">
                 <ShieldCheck size={13} className="text-emerald-400" /> NJR Audited Outcomes

@@ -62,6 +62,11 @@ const MENU_PAGES: NavMenuItem[] = [
         name: 'Practice Locations',
         description: 'Spire Hartswood & Nuffield Health Brentwood Hospitals',
         href: '#locations'
+      },
+      {
+        name: 'Media & Social',
+        description: 'Broadcast features, news milestones, and video tutorials',
+        href: '#media'
       }
     ]
   },
@@ -83,6 +88,11 @@ const MENU_PAGES: NavMenuItem[] = [
         name: 'NHS & Private Practice',
         description: 'Queen’s & King George Hospitals (BHRUT) • Spire Hartswood & Nuffield Brentwood',
         href: 'hospitals-locations'
+      },
+      {
+        name: 'Media & Social',
+        description: 'BBC coverage, Mako milestone, and professional channels',
+        href: '#media'
       }
     ]
   },
