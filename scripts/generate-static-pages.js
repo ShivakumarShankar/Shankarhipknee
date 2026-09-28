@@ -31,7 +31,7 @@ const renderHeader = (currentPath) => `
             <li><a href="/" class="px-2.5 py-1.5 rounded hover:text-[#1B4965] hover:bg-slate-100 transition-colors ${currentPath === '' ? 'text-[#1B4965] font-extrabold bg-[#EAF1F6]' : ''}">Home</a></li>
             <li><a href="/about-mr-shivakumar-shankar" class="px-2.5 py-1.5 rounded hover:text-[#1B4965] hover:bg-slate-100 transition-colors ${currentPath.includes('about') ? 'text-[#1B4965] font-extrabold bg-[#EAF1F6]' : ''}">About</a></li>
             <li><a href="/hip-replacement" class="px-2.5 py-1.5 rounded hover:text-[#1B4965] hover:bg-slate-100 transition-colors ${currentPath.includes('hip') ? 'text-[#1B4965] font-extrabold bg-[#EAF1F6]' : ''}">Hip Surgery</a></li>
-            <li><a href="/knee-replacement" class="px-2.5 py-1.5 rounded hover:text-[#1B4965] hover:bg-slate-100 transition-colors ${currentPath.includes('knee') ? 'text-[#1B4965] font-extrabold bg-[#EAF1F6]' : ''}">Knee Surgery</a></li>
+            <li><a href="/knee-replacement" class="px-2.5 py-1.5 rounded hover:text-[#1B4965] hover:bg-slate-100 transition-colors ${currentPath.includes('knee') || currentPath.includes('prp') ? 'text-[#1B4965] font-extrabold bg-[#EAF1F6]' : ''}">Knee Surgery</a></li>
             <li><a href="/robotic-computer-assisted-surgery" class="px-2.5 py-1.5 rounded hover:text-[#1B4965] hover:bg-slate-100 transition-colors ${currentPath.includes('robotic') ? 'text-[#1B4965] font-extrabold bg-[#EAF1F6]' : ''}">Robotic Tech</a></li>
             <li><a href="/patient-information" class="px-2.5 py-1.5 rounded hover:text-[#1B4965] hover:bg-slate-100 transition-colors ${currentPath.includes('patient') || currentPath.includes('recovery') ? 'text-[#1B4965] font-extrabold bg-[#EAF1F6]' : ''}">Patient Info</a></li>
             <li><a href="/hospitals-locations" class="px-2.5 py-1.5 rounded hover:text-[#1B4965] hover:bg-slate-100 transition-colors ${currentPath.includes('hospital') || currentPath.includes('surgeon') ? 'text-[#1B4965] font-extrabold bg-[#EAF1F6]' : ''}">Locations</a></li>
@@ -89,6 +89,7 @@ const renderFooter = () => `
             <li><a href="/robotic-knee-replacement" class="text-slate-600 hover:text-[#1B4965] transition-colors">Robotic Mako Knee Surgery</a></li>
             <li><a href="/partial-knee-replacement" class="text-slate-600 hover:text-[#1B4965] transition-colors">Partial (Unicompartmental) Knee</a></li>
             <li><a href="/knee-arthroscopy" class="text-slate-600 hover:text-[#1B4965] transition-colors">Knee Arthroscopy &amp; Meniscal Repair</a></li>
+            <li><a href="/prp-injection" class="text-slate-600 hover:text-[#1B4965] transition-colors">Platelet-Rich Plasma (PRP) Injections</a></li>
           </ul>
         </div>
 
@@ -540,7 +541,168 @@ const pageDefinitions = [
     )
   },
 
-  // 13. Robotic & Computer-Assisted Surgery Overview
+  // 13. PRP Injections (Platelet-Rich Plasma)
+  {
+    path: 'prp-injection',
+    title: 'PRP Injections | Mr Shivakumar Shankar | London & Essex',
+    description: 'Consultant-led Platelet-Rich Plasma (PRP) injections in London and Essex for selected knee and musculoskeletal conditions. Balanced clinical assessment.',
+    canonical: 'https://www.shivakumarshankar.co.uk/prp-injection',
+    bodyHtml: renderPageShell(
+      'prp-injection',
+      'Non-Surgical Musculoskeletal Therapy • London & Essex',
+      'PRP Injections in London &amp; Essex',
+      'Platelet-Rich Plasma (PRP) injections are a non-surgical treatment option that may be considered for selected musculoskeletal conditions. PRP is prepared from a patient\'s own blood and contains a concentration of platelets and associated growth factors.',
+      `
+      <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs mb-8 space-y-4">
+        <h2 class="text-2xl font-bold text-slate-900">What is PRP? (Platelet-Rich Plasma)</h2>
+        <p class="text-sm text-slate-700 leading-relaxed">
+          Platelet-Rich Plasma (PRP) is an autologous treatment prepared exclusively from the patient's own blood. A small amount of venous blood is collected in the clinic and processed in a specialised centrifuge to separate and concentrate platelets in the plasma. The resulting platelet-rich plasma is then carefully injected into the relevant joint or soft tissue. Because it is autologous, foreign biological reactions or allergic rejection risks are virtually eliminated.
+        </p>
+      </section>
+
+      <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs mb-8 space-y-4">
+        <h2 class="text-2xl font-bold text-slate-900">Conditions Where PRP May Be Considered</h2>
+        <p class="text-sm text-slate-700 leading-relaxed">
+          PRP may be considered as an additional non-surgical treatment option for selected patients with:
+        </p>
+        <ul class="text-sm text-slate-700 space-y-2 list-disc pl-5">
+          <li><strong>Selected mild-to-moderate knee osteoarthritis:</strong> In patients experiencing persistent joint aching or swelling despite initial conservative measures.</li>
+          <li><strong>Selected tendon-related conditions:</strong> Including chronic patellar tendinopathy or recalcitrant soft-tissue irritation.</li>
+          <li><strong>Other appropriate musculoskeletal conditions:</strong> Evaluated carefully on an individual clinical basis.</li>
+        </ul>
+        <div class="p-4 bg-amber-50 rounded-xl border border-amber-200 text-xs sm:text-sm text-amber-900 mt-3">
+          <strong>Clinical Note:</strong> Evidence varies depending on the condition and grade of wear. PRP is not suitable for every patient and does not cure osteoarthritis or regrow completely worn cartilage.
+        </div>
+      </section>
+
+      <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs mb-8 space-y-4">
+        <h2 class="text-2xl font-bold text-slate-900">How PRP Treatment Works</h2>
+        <ol class="text-sm text-slate-700 space-y-3 list-decimal pl-5">
+          <li><strong>Consultation and Clinical Assessment:</strong> Comprehensive clinical evaluation, examination, and review of recent imaging (X-rays or MRI).</li>
+          <li><strong>Discussion of Treatment Suitability:</strong> Open discussion regarding whether PRP, other non-surgical therapies, or surgical procedures are most appropriate.</li>
+          <li><strong>Blood Sample Collection:</strong> A routine blood draw of 15 to 30 ml from a vein in your arm.</li>
+          <li><strong>Preparation of PRP:</strong> Strict aseptic processing in a dedicated centrifuge to concentrate the platelet layer.</li>
+          <li><strong>Injection into the Affected Area:</strong> Precise delivery of the concentrated plasma into the joint under aseptic outpatient conditions.</li>
+          <li><strong>Post-Treatment Advice and Rehabilitation:</strong> Guidance on relative joint rest for 48 hours and structured physiotherapy coordination.</li>
+        </ol>
+      </section>
+
+      <section class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-3">
+          <h2 class="text-xl font-bold text-slate-900">Potential Benefits</h2>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Some patients experience improvement in pain and joint function, but response varies between individuals. No treatment offers guaranteed pain relief, cartilage regeneration, or guaranteed avoidance of surgery.
+          </p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-3">
+          <h2 class="text-xl font-bold text-slate-900">Limitations and Evidence</h2>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Clinical evidence for PRP varies between conditions and studies. It is not an alternative to joint replacement in patients with advanced bone-on-bone arthritis.
+          </p>
+        </div>
+      </section>
+
+      <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs mb-8 space-y-4">
+        <h2 class="text-2xl font-bold text-slate-900">Risks and Side Effects</h2>
+        <p class="text-sm text-slate-700 leading-relaxed">
+          PRP is well-tolerated. Recognized potential side effects include temporary pain or soreness for 24–48 hours, mild swelling, localized bruising, an extremely rare risk of infection, and the possibility of minimal symptom improvement.
+        </p>
+      </section>
+
+      <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs mb-8 space-y-4">
+        <h2 class="text-2xl font-bold text-slate-900">Alternative Non-Surgical and Surgical Options</h2>
+        <p class="text-sm text-slate-700 leading-relaxed">
+          Patients have multiple evidence-based pathways depending on clinical severity: activity modification, physiotherapy, weight management, simple analgesia, corticosteroid or hyaluronic acid injections, and surgical options such as knee arthroscopy, partial knee replacement, or total knee replacement when indicated.
+        </p>
+      </section>
+
+      <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs mb-8 space-y-4">
+        <h2 class="text-2xl font-bold text-slate-900">Suitability and Clinical Assessment</h2>
+        <p class="text-sm text-slate-700 leading-relaxed">
+          Suitability is determined through expert clinical evaluation by Consultant Orthopaedic Surgeon Mr Shivakumar Shankar, review of radiographic imaging (weight-bearing X-rays or MRI), and transparent discussion tailored to your personal goals.
+        </p>
+      </section>
+
+      <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs mb-8 space-y-4">
+        <h2 class="text-2xl font-bold text-slate-900">Funding and Insurance</h2>
+        <p class="text-sm text-slate-700 leading-relaxed">
+          PRP treatment is generally a self-funded treatment. Some private medical insurers may not cover or authorise PRP injections, depending on the individual policy, insurer criteria and the clinical circumstances. Patients are advised to check directly with their insurer before proceeding with treatment.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-700 space-y-2">
+            <h3 class="font-bold text-slate-900">Private Medical Insurance</h3>
+            <ul class="space-y-1 list-disc pl-4 text-xs text-slate-600">
+              <li>PRP may not be covered under all private medical insurance policies.</li>
+              <li>Prior authorisation may be required by some insurers before treatment.</li>
+              <li>Patients should confirm their individual level of cover directly with their insurer.</li>
+              <li>The fact that a patient has private medical insurance does not necessarily mean that PRP treatment will be covered.</li>
+            </ul>
+          </div>
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-700 space-y-2">
+            <h3 class="font-bold text-slate-900">Self-Funded Treatment</h3>
+            <ul class="space-y-1 list-disc pl-4 text-xs text-slate-600">
+              <li>If insurance does not cover the treatment, PRP may be available as a self-funded option, subject to clinical suitability.</li>
+              <li>Suitability is confirmed during your consultation following detailed examination.</li>
+              <li>Transparent hospital facility and package fee details are confirmed in advance.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs mb-8 space-y-4">
+        <h2 class="text-2xl font-bold text-slate-900">Frequently Asked Questions</h2>
+        <div class="space-y-3 text-sm text-slate-700">
+          <div>
+            <h3 class="font-bold text-slate-900">Is PRP treatment covered by private medical insurance?</h3>
+            <p class="text-xs sm:text-sm text-slate-600">Coverage varies between insurers and individual policies. PRP treatment may not be covered or may require prior authorisation. Patients should check directly with their private medical insurer before proceeding. Where insurance does not cover PRP, treatment may be available as a self-funded option, subject to clinical assessment and suitability.</p>
+          </div>
+          <div>
+            <h3 class="font-bold text-slate-900">Is PRP right for everyone?</h3>
+            <p class="text-xs sm:text-sm text-slate-600">No. Patients with advanced structural deformity or end-stage arthritis are typically better served by surgical intervention.</p>
+          </div>
+          <div>
+            <h3 class="font-bold text-slate-900">How many injections might be needed?</h3>
+            <p class="text-xs sm:text-sm text-slate-600">Many patients receive a single injection with review at 6–8 weeks; courses of 2–3 injections may be considered depending on clinical response.</p>
+          </div>
+          <div>
+            <h3 class="font-bold text-slate-900">What should I expect during the appointment?</h3>
+            <p class="text-xs sm:text-sm text-slate-600">The outpatient visit lasts 30–45 minutes, encompassing consultation, blood draw, centrifugation, and sterile injection.</p>
+          </div>
+          <div>
+            <h3 class="font-bold text-slate-900">What is the recovery after an injection?</h3>
+            <p class="text-xs sm:text-sm text-slate-600">Relative rest for 48 hours is recommended. Mild post-injection soreness settles quickly with paracetamol and cold packs.</p>
+          </div>
+          <div>
+            <h3 class="font-bold text-slate-900">Can PRP cure arthritis?</h3>
+            <p class="text-xs sm:text-sm text-slate-600"><strong>No.</strong> PRP is not a cure for joint arthritis and cannot regrow lost articular cartilage.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="p-8 bg-[#EAF1F6] rounded-2xl border border-slate-300 flex flex-col md:flex-row items-center justify-between gap-6 mb-12">
+        <div>
+          <h2 class="text-xl font-bold text-[#1B4965]">Consultation &amp; PRP Suitability Assessment</h2>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1 max-w-2xl">
+            To discuss whether PRP injection is suitable for your condition, book a consultation with Mr Shivakumar Shankar at Spire Hartswood Hospital or Nuffield Health Brentwood Hospital in Essex.
+          </p>
+          <div class="p-3 bg-white/80 rounded-lg border border-slate-300 text-xs text-slate-700 mt-3 max-w-2xl">
+            <strong>Please note:</strong> PRP treatment is generally self-funded, and private medical insurance cover varies between policies. Please check with your insurer before treatment.
+          </div>
+        </div>
+        <div class="flex gap-3">
+          <a href="/book-consultation" class="bg-[#E8A24C] hover:bg-[#D99136] text-white px-6 py-3 rounded-lg font-bold text-xs uppercase tracking-wider transition-colors shadow-sm">
+            Book Consultation
+          </a>
+          <a href="/contact" class="bg-white hover:bg-slate-50 text-[#1B4965] border border-slate-300 px-6 py-3 rounded-lg font-bold text-xs transition-colors">
+            Contact Secretary
+          </a>
+        </div>
+      </section>
+      `
+    )
+  },
+
+  // 14. Robotic & Computer-Assisted Surgery Overview
   {
     path: 'robotic-computer-assisted-surgery',
     title: 'Robotic & Computer-Assisted Hip & Knee Surgery | Essex & London',

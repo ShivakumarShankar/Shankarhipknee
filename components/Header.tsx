@@ -140,6 +140,11 @@ const MENU_PAGES: NavMenuItem[] = [
         name: 'Knee Arthroscopy & Keyhole',
         description: 'Meniscal preservation, repair, and joint preservation surgery',
         href: 'knee-arthroscopy'
+      },
+      {
+        name: 'PRP Injections',
+        description: 'Platelet-Rich Plasma autologous non-surgical therapy for selected conditions',
+        href: 'prp-injection'
       }
     ]
   },

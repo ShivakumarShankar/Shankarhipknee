@@ -58,6 +58,7 @@ import { RoboticComparisonPage } from './components/RoboticComparisonPage';
 import { LocationsHub, LocationPageMode } from './components/LocationsHub';
 import { PatientInfoHub, PatientInfoMode } from './components/PatientInfoHub';
 import { BookConsultationPage } from './components/BookConsultationPage';
+import { PrpInjectionPage } from './components/PrpInjectionPage';
 
 export type AppPage = 
   | 'home' 
@@ -71,7 +72,8 @@ export type AppPage =
   | 'robotic-knee-replacement'
   | 'computer-assisted-knee-replacement'
   | 'partial-knee-replacement'
-  | 'knee-arthroscopy' 
+  | 'knee-arthroscopy'
+  | 'prp-injection' 
   | 'robotic-surgery' 
   | 'robotic-computer-assisted-surgery'
   | 'conventional-vs-computer-assisted-vs-robotic-surgery'
@@ -107,6 +109,7 @@ export const getPageFromPath = (path: string): AppPage => {
   if (clean === '/computer-assisted-knee-replacement') return 'computer-assisted-knee-replacement';
   if (clean === '/partial-knee-replacement') return 'partial-knee-replacement';
   if (clean === '/knee-arthroscopy') return 'knee-arthroscopy';
+  if (clean === '/prp-injection' || clean === '/prp' || clean === '/platelet-rich-plasma') return 'prp-injection';
   if (clean === '/robotic-surgery' || clean === '/robotic-computer-assisted-surgery') return 'robotic-computer-assisted-surgery';
   if (clean === '/conventional-vs-computer-assisted-vs-robotic-surgery') return 'conventional-vs-computer-assisted-vs-robotic-surgery';
   if (clean === '/patient-guides' || clean === '/patient-information') return 'patient-information';
@@ -182,6 +185,11 @@ const PAGE_METADATA: Record<string, { title: string; desc: string; canonical: st
     title: 'Knee Arthroscopy & Keyhole Surgery | Mr Shivakumar Shankar',
     desc: 'Minimally invasive keyhole knee surgery for meniscal tears, cartilage repair, and loose bodies in London and Essex. Over 1,200 procedures performed.',
     canonical: 'https://www.shivakumarshankar.co.uk/knee-arthroscopy'
+  },
+  'prp-injection': {
+    title: 'PRP Injections | Mr Shivakumar Shankar | London & Essex',
+    desc: 'Consultant-led Platelet-Rich Plasma (PRP) injections in London and Essex for selected knee and musculoskeletal conditions. Balanced clinical assessment.',
+    canonical: 'https://www.shivakumarshankar.co.uk/prp-injection'
   },
   'robotic-surgery': {
     title: 'Robotic & Computer-Assisted Hip & Knee Surgery | Essex & London',
@@ -529,6 +537,11 @@ function App() {
         </div>
       ) : currentPage === 'book-consultation' ? (
         <BookConsultationPage onNavigate={handleNavigate} />
+      ) : currentPage === 'prp-injection' ? (
+        <PrpInjectionPage 
+          onBook={() => openBookingModal()}
+          onNavigate={handleNavigate}
+        />
       ) : CLINICAL_PROCEDURES[currentPage] ? (
         <ClinicalProcedurePage 
           data={CLINICAL_PROCEDURES[currentPage]}
@@ -1774,8 +1787,9 @@ function App() {
               <li><a href="/hip-replacement" onClick={(e) => { e.preventDefault(); handleNavigate('hip-replacement'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Total Hip Replacement</a></li>
               <li><a href="/robotic-surgery" onClick={(e) => { e.preventDefault(); handleNavigate('robotic-surgery'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Robotic Hip &amp; Knee Surgery</a></li>
               <li><a href="/hip-replacement" onClick={(e) => { e.preventDefault(); handleNavigate('hip-replacement'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Minimally Invasive Hip (Anterior/Rottinger)</a></li>
-              <li><a href="/knee-replacement" onClick={(e) => { e.preventDefault(); handleNavigate('knee-replacement'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Partial (Unicompartmental) Knee</a></li>
+              <li><a href="/partial-knee-replacement" onClick={(e) => { e.preventDefault(); handleNavigate('partial-knee-replacement'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Partial (Unicompartmental) Knee</a></li>
               <li><a href="/knee-arthroscopy" onClick={(e) => { e.preventDefault(); handleNavigate('knee-arthroscopy'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Knee Arthroscopy &amp; Meniscal Repair</a></li>
+              <li><a href="/prp-injection" onClick={(e) => { e.preventDefault(); handleNavigate('prp-injection'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Platelet-Rich Plasma (PRP) Injections</a></li>
               <li><a href="/hip-replacement" onClick={(e) => { e.preventDefault(); handleNavigate('hip-replacement'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Complex Revision Arthroplasty</a></li>
             </ul>
           </div>

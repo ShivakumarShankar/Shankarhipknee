@@ -257,6 +257,25 @@ export const TREATMENTS: Treatment[] = [
     ]
   },
   {
+    id: "prp-injection",
+    title: "Platelet-Rich Plasma (PRP) Injections",
+    subtitle: "Autologous Non-Surgical Biological Therapy",
+    category: "preservation",
+    procedureRiskId: "hip-joint-injection",
+    surgicalApproach: "Outpatient Clinical Interventional Injection",
+    description: "Autologous platelet-rich plasma prepared from your own blood, considered as an additional non-surgical treatment option for selected musculoskeletal and knee conditions.",
+    keyBenefits: [
+      "100% autologous biological preparation eliminating allergic rejection risks",
+      "Non-surgical outpatient procedure performed during your clinical consultation",
+      "May be considered for selected mild-to-moderate knee osteoarthritis and tendinopathy",
+      "No surgical downtime, allowing rapid resumption of normal daily activities"
+    ],
+    fullDetails: [
+      "Platelet-Rich Plasma (PRP) is prepared from a small sample of your own blood, concentrating platelets and associated natural signaling growth factors.",
+      "Presented as a balanced non-surgical option for selected patients; does not replace surgery in cases of advanced bone-on-bone arthritis."
+    ]
+  },
+  {
     id: "complex-reconstruction",
     title: "Complex Hip & Knee Reconstruction & Revision",
     subtitle: "Secondary & Specialist Joint Arthroplasty",
