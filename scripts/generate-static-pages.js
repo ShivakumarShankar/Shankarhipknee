@@ -662,7 +662,7 @@ const pageDefinitions = [
           </div>
           <div>
             <h3 class="font-bold text-slate-900">How many injections might be needed?</h3>
-            <p class="text-xs sm:text-sm text-slate-600">Many patients receive a single injection with review at 6–8 weeks; courses of 2–3 injections may be considered depending on clinical response.</p>
+            <p class="text-xs sm:text-sm text-slate-700"><strong>Usually 3 injections spaced 2 to 4 weeks, but single injection options can be discussed</strong> depending on your specific condition, joint severity, and individual clinical requirements.</p>
           </div>
           <div>
             <h3 class="font-bold text-slate-900">What should I expect during the appointment?</h3>

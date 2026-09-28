@@ -566,8 +566,8 @@ export const PrpInjectionPage: React.FC<PrpInjectionPageProps> = ({
               <h3 className="font-bold text-slate-900 text-sm sm:text-base">
                 How many injections might be needed?
               </h3>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Treatment regimens vary according to the specific condition, severity, and initial patient response. Many patients receive a single injection and are reassessed at 6 to 8 weeks. In some cases, a planned course of 2 to 3 injections spaced 2 to 4 weeks apart may be recommended based on clinical guidelines.
+              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                <strong className="font-semibold text-slate-900">Usually 3 injections spaced 2 to 4 weeks, but single injection options can be discussed</strong> depending on your specific condition, joint severity, and individual clinical requirements.
               </p>
             </div>
 
