@@ -2,7 +2,7 @@ import { jsPDF } from "jspdf";
 import { LOGO_DATA_URI } from "./logoDataUri";
 import { ProcedureRiskInfo, ComplicationGuide } from "./patientInfoData";
 import { Protocol } from "./types";
-import { SURGEON_NAME, SURGEON_ROLE } from "./constants";
+import { SURGEON_NAME, SURGEON_ROLE, SECRETARY_NAME, EMAIL } from "./constants";
 
 const PRIMARY_NAVY = [27, 73, 101]; // #1B4965
 const GOLD_ACCENT = [232, 162, 76]; // #E8A24C
@@ -86,9 +86,9 @@ function drawHeader(ctx: PdfContext, isFirstPage: boolean = false) {
   doc.setFont("helvetica", "normal");
   doc.setFontSize(7);
   doc.setTextColor(PRIMARY_NAVY[0], PRIMARY_NAVY[1], PRIMARY_NAVY[2]);
-  doc.text("Enquiries: 01277 554 132 | 07936 601 547", pageWidth - margin, headerY + 5, { align: "right" });
-  doc.text("contact@londonarthroplasty.co.uk", pageWidth - margin, headerY + 8.5, { align: "right" });
-  doc.text("www.londonarthroplasty.co.uk", pageWidth - margin, headerY + 11.5, { align: "right" });
+  doc.text(`Secretary: ${SECRETARY_NAME} | 07587 765888 | 020 3523 0621`, pageWidth - margin, headerY + 5, { align: "right" });
+  doc.text(EMAIL, pageWidth - margin, headerY + 8.5, { align: "right" });
+  doc.text("www.shivakumarshankar.co.uk", pageWidth - margin, headerY + 11.5, { align: "right" });
 
   // Divider line
   const lineY = headerY + 14.5;
@@ -582,8 +582,9 @@ export function generateProtocolPdf(protocol: Protocol) {
   doc.setTextColor(TEXT_DARK[0], TEXT_DARK[1], TEXT_DARK[2]);
   const contactText = [
     `Lead Consultant: ${SURGEON_NAME} (${SURGEON_ROLE})`,
-    "Clinical PA & Practice Manager: Sarah | 01277 554 132 | 07936 601 547",
-    "Clinical Email: contact@londonarthroplasty.co.uk",
+    `Medical Secretary: ${SECRETARY_NAME} | 07587 765888 | 020 3523 0621`,
+    `Practice Email: ${EMAIL}`,
+    "Website: www.shivakumarshankar.co.uk",
     "Hospital Inpatient Physiotherapy Departments: Spire Hartswood (Brentwood) & Nuffield Health Brentwood Hospital"
   ];
   contactText.forEach((c) => {
