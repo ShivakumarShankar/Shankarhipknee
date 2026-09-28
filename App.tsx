@@ -94,8 +94,8 @@ export type AppPage =
   | '404';
 
 export const getPageFromPath = (path: string): AppPage => {
-  const clean = path.toLowerCase().replace(/\/$/, '') || '/';
-  if (clean === '/' || clean === '') return 'home';
+  const clean = path.toLowerCase().replace(/\.html$/, '').replace(/\/$/, '') || '/';
+  if (clean === '/' || clean === '' || clean === '/home' || clean === '/index') return 'home';
   if (clean === '/about' || clean === '/about-mr-shivakumar-shankar') return 'about';
   if (clean === '/reviews' || clean === '/patient-reviews-outcomes') return 'reviews';
   if (clean === '/hip-replacement') return 'hip-replacement';
@@ -386,6 +386,26 @@ function App() {
     if (twitterDesc) twitterDesc.setAttribute('content', desc);
   }, [currentPage]);
 
+  useEffect(() => {
+    // Sanitize non-canonical URLs on mount (e.g. /home, /index.html, .html extensions)
+    const rawPath = window.location.pathname;
+    if (rawPath === '/home' || rawPath === '/home/' || rawPath === '/index.html' || rawPath === '/index') {
+      window.history.replaceState({}, '', '/');
+    } else if (rawPath.endsWith('.html') || (rawPath.endsWith('/') && rawPath.length > 1)) {
+      const clean = rawPath.replace(/\.html$/, '').replace(/\/$/, '') || '/';
+      window.history.replaceState({}, '', clean);
+    }
+  }, []);
+
+  // Sync state with browser back/forward navigation
+  useEffect(() => {
+    const handlePopState = () => {
+      setCurrentPage(getPageFromPath(window.location.pathname));
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
   const handleNavigate = (target: string) => {
     if (target.startsWith('#')) {
       if (currentPage !== 'home') {
@@ -404,13 +424,22 @@ function App() {
       return;
     }
 
+    if (target === 'home' || target === '/home' || target === '/' || target === '') {
+      setCurrentPage('home');
+      if (window.location.pathname !== '/') {
+        window.history.pushState({}, '', '/');
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
     const normalizedPath = target.startsWith('/') ? target : `/${target}`;
-    const newPage = getPageFromPath(normalizedPath);
-    const newPath = normalizedPath === '/' ? '/' : normalizedPath;
+    const cleanPath = normalizedPath.replace(/\.html$/, '').replace(/\/$/, '') || '/';
+    const newPage = getPageFromPath(cleanPath);
 
     setCurrentPage(newPage);
-    if (window.location.pathname !== newPath) {
-      window.history.pushState({}, '', newPath);
+    if (window.location.pathname !== cleanPath) {
+      window.history.pushState({}, '', cleanPath);
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };

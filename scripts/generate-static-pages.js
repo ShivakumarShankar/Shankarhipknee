@@ -23,7 +23,7 @@ const renderHeader = (currentPath) => `
             Mr Shivakumar Shankar
           </a>
           <p class="text-xs sm:text-sm font-semibold text-slate-600 mt-0.5">
-            Consultant Orthopaedic Hip &amp; Knee Surgeon &bull; London &amp; Essex
+            Consultant Robotic Hip and Knee Surgeon &bull; London &amp; Essex
           </p>
         </div>
         <nav aria-label="Main Navigation" class="overflow-x-auto pb-1 md:pb-0">
@@ -52,7 +52,7 @@ const renderFooter = () => `
           <p class="text-xs text-slate-600 leading-relaxed">
             MBBS, DHA, MRCSEd, MSc (Tr &amp; Orth), FRCSEd (Tr &amp; Orth)<br>
             PG Diploma Principles of Computer-Assisted &amp; Robotic Arthroplasty<br>
-            Consultant Orthopaedic Hip &amp; Knee Surgeon &bull; London &amp; Essex<br>
+            Consultant Robotic Hip and Knee Surgeon &bull; London &amp; Essex<br>
             NHS Clinical Lead, Barking, Havering &amp; Redbridge University Hospitals NHS Trust<br>
             GMC Number: 6062754 (Specialist Register)
           </p>
@@ -1250,6 +1250,12 @@ pageDefinitions.forEach(page => {
   html = html.replace(
     /<meta\s+name="twitter:description"\s+content=".*?"\s*\/?>/i,
     `<meta name="twitter:description" content="${page.description}" />`
+  );
+
+  // Update MedicalWebPage in JSON-LD with page-specific URL and title
+  html = html.replace(
+    /"@type":\s*"MedicalWebPage",\s*"@id":\s*".*?",\s*"url":\s*".*?",\s*"name":\s*".*?",/g,
+    `"@type": "MedicalWebPage",\n          "@id": "${page.canonical}",\n          "url": "${page.canonical}",\n          "name": "${page.title.replace(/"/g, '\\"')}",`
   );
 
   // Replace inner contents of <div id="root">

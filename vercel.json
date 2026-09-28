@@ -25,14 +25,125 @@
       ]
     }
   ],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "shivakumarshankar.co.uk"
+        }
+      ],
+      "destination": "https://www.shivakumarshankar.co.uk/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.shivakumarshankar.com"
+        }
+      ],
+      "destination": "https://www.shivakumarshankar.co.uk/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "shivakumarshankar.com"
+        }
+      ],
+      "destination": "https://www.shivakumarshankar.co.uk/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/home",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/home/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/:path*/index.html",
+      "destination": "/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "/about-mr-shivakumar-shankar",
+      "permanent": true
+    },
+    {
+      "source": "/about/",
+      "destination": "/about-mr-shivakumar-shankar",
+      "permanent": true
+    },
+    {
+      "source": "/robotic-surgery",
+      "destination": "/robotic-computer-assisted-surgery",
+      "permanent": true
+    },
+    {
+      "source": "/robotic-surgery/",
+      "destination": "/robotic-computer-assisted-surgery",
+      "permanent": true
+    },
+    {
+      "source": "/patient-guides",
+      "destination": "/patient-information",
+      "permanent": true
+    },
+    {
+      "source": "/patient-guides/",
+      "destination": "/patient-information",
+      "permanent": true
+    },
+    {
+      "source": "/patient-reviews-outcomes",
+      "destination": "/reviews",
+      "permanent": true
+    },
+    {
+      "source": "/patient-reviews-outcomes/",
+      "destination": "/reviews",
+      "permanent": true
+    },
+    {
+      "source": "/contact-consultation",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/contact-consultation/",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/book",
+      "destination": "/book-consultation",
+      "permanent": true
+    },
+    {
+      "source": "/book/",
+      "destination": "/book-consultation",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/about-mr-shivakumar-shankar",
       "destination": "/about-mr-shivakumar-shankar/index.html"
-    },
-    {
-      "source": "/about",
-      "destination": "/about/index.html"
     },
     {
       "source": "/hip-replacement",
@@ -75,20 +186,12 @@
       "destination": "/robotic-computer-assisted-surgery/index.html"
     },
     {
-      "source": "/robotic-surgery",
-      "destination": "/robotic-surgery/index.html"
-    },
-    {
       "source": "/conventional-vs-computer-assisted-vs-robotic-surgery",
       "destination": "/conventional-vs-computer-assisted-vs-robotic-surgery/index.html"
     },
     {
       "source": "/patient-information",
       "destination": "/patient-information/index.html"
-    },
-    {
-      "source": "/patient-guides",
-      "destination": "/patient-guides/index.html"
     },
     {
       "source": "/hip-replacement-recovery",
@@ -139,16 +242,8 @@
       "destination": "/king-george-hospital-goodmayes/index.html"
     },
     {
-      "source": "/patient-reviews-outcomes",
-      "destination": "/patient-reviews-outcomes/index.html"
-    },
-    {
       "source": "/reviews",
       "destination": "/reviews/index.html"
-    },
-    {
-      "source": "/contact-consultation",
-      "destination": "/contact-consultation/index.html"
     },
     {
       "source": "/contact",
@@ -159,7 +254,7 @@
       "destination": "/book-consultation/index.html"
     },
     {
-      "source": "/((?!about-mr-shivakumar-shankar|about|hip-replacement|robotic-hip-replacement|computer-assisted-hip-replacement|minimally-invasive-hip-replacement|knee-replacement|robotic-knee-replacement|computer-assisted-knee-replacement|partial-knee-replacement|knee-arthroscopy|robotic-computer-assisted-surgery|robotic-surgery|conventional-vs-computer-assisted-vs-robotic-surgery|patient-information|patient-guides|hip-replacement-recovery|knee-replacement-recovery|preparing-for-surgery|frequently-asked-questions|physio-protocols|hospitals-locations|london-hip-knee-surgeon|essex-hip-knee-surgeon|spire-hartswood-hospital|nuffield-brentwood-hospital|queens-hospital-romford|king-george-hospital-goodmayes|patient-reviews-outcomes|reviews|contact-consultation|contact|book-consultation|sitemap\\.xml|robots\\.txt|f89417282cb246d892a0885e7cba8b1f\\.txt|assets/|.*\\..*).*)",
+      "source": "/((?!about-mr-shivakumar-shankar|hip-replacement|robotic-hip-replacement|computer-assisted-hip-replacement|minimally-invasive-hip-replacement|knee-replacement|robotic-knee-replacement|computer-assisted-knee-replacement|partial-knee-replacement|knee-arthroscopy|robotic-computer-assisted-surgery|conventional-vs-computer-assisted-vs-robotic-surgery|patient-information|hip-replacement-recovery|knee-replacement-recovery|preparing-for-surgery|frequently-asked-questions|physio-protocols|hospitals-locations|london-hip-knee-surgeon|essex-hip-knee-surgeon|spire-hartswood-hospital|nuffield-brentwood-hospital|queens-hospital-romford|king-george-hospital-goodmayes|reviews|contact|book-consultation|sitemap\\.xml|robots\\.txt|f89417282cb246d892a0885e7cba8b1f\\.txt|assets/|.*\\..*).*)",
       "destination": "/index.html"
     }
   ]

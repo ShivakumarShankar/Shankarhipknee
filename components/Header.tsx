@@ -37,7 +37,7 @@ interface NavMenuItem {
 const MENU_PAGES: NavMenuItem[] = [
   {
     name: 'Home',
-    href: 'home',
+    href: '/',
   },
   {
     name: 'My Practice',
@@ -266,11 +266,11 @@ const MENU_PAGES: NavMenuItem[] = [
 ];
 
 export const getCanonicalHref = (href: string) => {
-  if (href === 'book') return '/book-consultation/';
+  if (href === 'book') return '/book-consultation';
   if (href.startsWith('#')) return href;
   if (href === 'home' || href === '' || href === '/') return '/';
   const clean = href.replace(/^\/+|\/+$/g, '');
-  return `/${clean}/`;
+  return `/${clean}`;
 };
 
 const Header: React.FC<HeaderProps> = ({ onBook, onNavigate, currentPage }) => {
@@ -304,7 +304,7 @@ const Header: React.FC<HeaderProps> = ({ onBook, onNavigate, currentPage }) => {
             <a 
               href="/"
               className="flex-shrink-0 flex items-center gap-3 sm:gap-4 cursor-pointer group" 
-              onClick={(e) => handleNavClick('home', e)}
+              onClick={(e) => handleNavClick('/', e)}
               title="London Essex Hip and Knee Surgeon - Restoring your active lifestyle"
             >
               {/* Full Logo on Tablet & Desktop */}
