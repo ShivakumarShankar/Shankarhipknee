@@ -45,7 +45,7 @@ export interface SurgicalStat {
 export interface Location {
   id: string;
   name: string;
-  type: 'Private Hospital' | 'NHS Trust';
+  type: 'Private Hospital' | 'NHS Trust' | 'Private Practice Location' | 'NHS Hospital Location';
   area: string;
   address: string;
   postcode: string;

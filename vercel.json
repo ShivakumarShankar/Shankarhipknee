@@ -27,6 +27,10 @@
   ],
   "rewrites": [
     {
+      "source": "/about-mr-shivakumar-shankar",
+      "destination": "/about-mr-shivakumar-shankar/index.html"
+    },
+    {
       "source": "/about",
       "destination": "/about/index.html"
     },
@@ -35,31 +39,127 @@
       "destination": "/hip-replacement/index.html"
     },
     {
+      "source": "/robotic-hip-replacement",
+      "destination": "/robotic-hip-replacement/index.html"
+    },
+    {
+      "source": "/computer-assisted-hip-replacement",
+      "destination": "/computer-assisted-hip-replacement/index.html"
+    },
+    {
+      "source": "/minimally-invasive-hip-replacement",
+      "destination": "/minimally-invasive-hip-replacement/index.html"
+    },
+    {
       "source": "/knee-replacement",
       "destination": "/knee-replacement/index.html"
     },
     {
-      "source": "/robotic-surgery",
-      "destination": "/robotic-surgery/index.html"
+      "source": "/robotic-knee-replacement",
+      "destination": "/robotic-knee-replacement/index.html"
+    },
+    {
+      "source": "/computer-assisted-knee-replacement",
+      "destination": "/computer-assisted-knee-replacement/index.html"
+    },
+    {
+      "source": "/partial-knee-replacement",
+      "destination": "/partial-knee-replacement/index.html"
     },
     {
       "source": "/knee-arthroscopy",
       "destination": "/knee-arthroscopy/index.html"
     },
     {
+      "source": "/robotic-computer-assisted-surgery",
+      "destination": "/robotic-computer-assisted-surgery/index.html"
+    },
+    {
+      "source": "/robotic-surgery",
+      "destination": "/robotic-surgery/index.html"
+    },
+    {
+      "source": "/conventional-vs-computer-assisted-vs-robotic-surgery",
+      "destination": "/conventional-vs-computer-assisted-vs-robotic-surgery/index.html"
+    },
+    {
+      "source": "/patient-information",
+      "destination": "/patient-information/index.html"
+    },
+    {
       "source": "/patient-guides",
       "destination": "/patient-guides/index.html"
+    },
+    {
+      "source": "/hip-replacement-recovery",
+      "destination": "/hip-replacement-recovery/index.html"
+    },
+    {
+      "source": "/knee-replacement-recovery",
+      "destination": "/knee-replacement-recovery/index.html"
+    },
+    {
+      "source": "/preparing-for-surgery",
+      "destination": "/preparing-for-surgery/index.html"
+    },
+    {
+      "source": "/frequently-asked-questions",
+      "destination": "/frequently-asked-questions/index.html"
+    },
+    {
+      "source": "/physio-protocols",
+      "destination": "/physio-protocols/index.html"
+    },
+    {
+      "source": "/hospitals-locations",
+      "destination": "/hospitals-locations/index.html"
+    },
+    {
+      "source": "/london-hip-knee-surgeon",
+      "destination": "/london-hip-knee-surgeon/index.html"
+    },
+    {
+      "source": "/essex-hip-knee-surgeon",
+      "destination": "/essex-hip-knee-surgeon/index.html"
+    },
+    {
+      "source": "/spire-hartswood-hospital",
+      "destination": "/spire-hartswood-hospital/index.html"
+    },
+    {
+      "source": "/nuffield-brentwood-hospital",
+      "destination": "/nuffield-brentwood-hospital/index.html"
+    },
+    {
+      "source": "/queens-hospital-romford",
+      "destination": "/queens-hospital-romford/index.html"
+    },
+    {
+      "source": "/king-george-hospital-goodmayes",
+      "destination": "/king-george-hospital-goodmayes/index.html"
+    },
+    {
+      "source": "/patient-reviews-outcomes",
+      "destination": "/patient-reviews-outcomes/index.html"
     },
     {
       "source": "/reviews",
       "destination": "/reviews/index.html"
     },
     {
+      "source": "/contact-consultation",
+      "destination": "/contact-consultation/index.html"
+    },
+    {
       "source": "/contact",
       "destination": "/contact/index.html"
     },
     {
-      "source": "/((?!about|hip-replacement|knee-replacement|robotic-surgery|knee-arthroscopy|patient-guides|reviews|contact|sitemap\\.xml|robots\\.txt|f89417282cb246d892a0885e7cba8b1f\\.txt|assets/|.*\\..*).*)",
+      "source": "/book-consultation",
+      "destination": "/book-consultation/index.html"
+    },
+    {
+      "source": "/((?!about-mr-shivakumar-shankar|about|hip-replacement|robotic-hip-replacement|computer-assisted-hip-replacement|minimally-invasive-hip-replacement|knee-replacement|robotic-knee-replacement|computer-assisted-knee-replacement|partial-knee-replacement|knee-arthroscopy|robotic-computer-assisted-surgery|robotic-surgery|conventional-vs-computer-assisted-vs-robotic-surgery|patient-information|patient-guides|hip-replacement-recovery|knee-replacement-recovery|preparing-for-surgery|frequently-asked-questions|physio-protocols|hospitals-locations|london-hip-knee-surgeon|essex-hip-knee-surgeon|spire-hartswood-hospital|nuffield-brentwood-hospital|queens-hospital-romford|king-george-hospital-goodmayes|patient-reviews-outcomes|reviews|contact-consultation|contact|book-consultation|sitemap\\.xml|robots\\.txt|f89417282cb246d892a0885e7cba8b1f\\.txt|assets/|.*\\..*).*)",
       "destination": "/index.html"
     }
   ]

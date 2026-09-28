@@ -92,9 +92,10 @@ const About: React.FC<AboutProps> = ({ onBook, onNavigateHome }) => {
               </div>
 
               <p className="text-base sm:text-lg text-slate-700 leading-relaxed border-l-4 border-[#1B4965] pl-4">
-                Mr Shivakumar Shankar is a high-volume Consultant Orthopaedic Hip and Knee Surgeon specialising in 
-                <strong> hip and knee replacement surgery, minimally invasive hip replacement, robotic-assisted arthroplasty</strong>, 
-                and <strong>computer-navigated joint replacement</strong>.
+                Mr Shivakumar Shankar is a <strong>Consultant Orthopaedic Surgeon</strong> specialising in 
+                <strong> hip and knee surgery</strong>, with particular expertise in <strong>hip replacement, knee replacement, 
+                robotic-assisted surgery and computer-assisted joint replacement</strong>. His clinical practice is characterised as 
+                <strong> high-volume, minimally invasive, robotic and computer-assisted hip and knee surgery</strong> in London and Essex.
               </p>
 
               <div className="flex flex-wrap gap-4 pt-2">
@@ -127,10 +128,10 @@ const About: React.FC<AboutProps> = ({ onBook, onNavigateHome }) => {
                   <Award size={14} /> Regional Pioneer
                 </div>
                 <p className="text-xs text-slate-700 leading-relaxed">
-                  <strong>First surgeon</strong> in Essex & North East London to perform computer-assisted and robotic total hip replacement.
+                  Mr Shivakumar Shankar has stated that he was the first surgeon to perform computer-assisted and robotic total hip replacement in Essex and North East London.
                 </p>
                 <div className="mt-2.5 pt-2.5 border-t border-slate-200 flex justify-between items-center text-xs text-slate-500">
-                  <span>NHS practice: Queens Hospital Romford</span>
+                  <span>NHS: Queen's & King George Hospitals</span>
                   <span className="text-slate-900 font-semibold">BHRUT NHS Trust</span>
                 </div>
               </div>
@@ -171,41 +172,41 @@ const About: React.FC<AboutProps> = ({ onBook, onNavigateHome }) => {
 
           <div className="space-y-6 text-base sm:text-lg text-slate-700 leading-relaxed">
             <p>
-              Mr Shivakumar Shankar is a high-volume Consultant Orthopaedic Hip and Knee Surgeon. He provides specialist 
-              assessment and treatment for patients with painful or damaged hip and knee joints, ranging from early 
-              degenerative disease and sports-related problems to complex arthritis requiring joint replacement or reconstruction.
+              Mr Shivakumar Shankar is a Consultant Orthopaedic Surgeon specialising in hip and knee surgery, with particular expertise 
+              in hip replacement, knee replacement, robotic-assisted surgery and computer-assisted joint replacement. He has performed 
+              manual and computer-assisted hip and knee replacement surgery for approximately 9 years and has more recently incorporated 
+              MAKO robotic-assisted surgery into his practice.
             </p>
 
             <p>
-              His clinical practice combines extensive surgical experience with specialist fellowship training in 
-              <strong> lower limb arthroplasty, computer-assisted surgery, and robotic technology</strong>. Mr Shankar is appointed 
-              as an NHS Consultant Orthopaedic Surgeon at <strong>Barking, Havering and Redbridge University Hospitals NHS Trust</strong>, 
-              where his NHS practice is based at Queen's Hospital in Romford and King George Hospital in Goodmayes.
+              His higher surgical training in Trauma &amp; Orthopaedics was completed through the North East Thames and London Deanery, 
+              including rotation through the Royal National Orthopaedic Hospital (RNOH), Stanmore. His training experience includes premier 
+              institutions including the <strong>Royal National Orthopaedic Hospital (RNOH), Stanmore</strong>, 
+              <strong> Great Ormond Street Hospital</strong>, and the <strong>Royal London Hospital</strong>, followed by a specialist 
+              <strong> RNOH lower limb arthroplasty fellowship at Stanmore</strong> and advanced <strong>Rottinger approach training at CABPS, Centre Hospitalier Haguenau, France</strong>.
             </p>
 
             <div className="p-6 bg-[#F8FAFC] rounded-xl border border-slate-200 my-8">
               <h3 className="font-bold text-lg text-slate-900 mb-2 flex items-center gap-2">
                 <Shield size={20} className="text-[#1B4965]" />
-                First Robotic Hip Surgeon in Essex & North East London
+                Regional Surgical Innovation
               </h3>
               <p className="text-sm text-slate-600 leading-relaxed">
-                Renowned for his commitment to surgical accuracy, Mr Shankar was the <strong>first surgeon in the Essex and 
-                North East London region to perform computer-assisted and robotic total hip replacement</strong>. He routinely 
-                performs robotic-assisted and computer-navigated knee replacement surgery alongside conventional techniques, 
-                enhancing implant positioning, limb alignment, and joint biomechanics.
+                Mr Shivakumar Shankar has stated that he was the first surgeon to perform computer-assisted and robotic total hip replacement in Essex and North East London. He routinely performs robotic-assisted and computer-navigated knee and hip replacement surgery alongside conventional techniques, enhancing component positioning and joint biomechanics.
               </p>
             </div>
 
             <p>
-              Every patient is unique, and there is no single surgical technique that is appropriate for everyone. 
-              Mr Shankar believes that successful treatment begins with a detailed assessment of the patient's symptoms, 
-              medical history, physical examination findings, and specialised imaging.
+              Mr Shankar holds a substantive NHS Consultant appointment at <strong>Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT)</strong>, 
+              based at <strong>Queen's Hospital, Romford</strong> and <strong>King George Hospital, Goodmayes</strong>. 
+              His private practice is conducted at <strong>Spire Hartswood Hospital</strong> and <strong>Nuffield Health Brentwood Hospital</strong> in Brentwood, Essex.
             </p>
 
             <p>
-              For patients considering joint replacement, he thoroughly discusses the available options — including 
-              conventional, minimally invasive, computer-navigated, and robotic-assisted techniques where appropriate — 
-              empowering patients to make informed decisions about their care.
+              Every patient is unique, and surgical approaches are strictly tailored to individual clinical requirements. 
+              For patients considering joint replacement, Mr Shankar thoroughly discusses the available options — including 
+              conventional manual, minimally invasive, computer-navigated, and robotic-assisted techniques where appropriate — 
+              empowering patients to make informed decisions about their care without unsupported clinical claims.
             </p>
           </div>
         </div>

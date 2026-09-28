@@ -29,14 +29,14 @@ const renderHeader = (currentPath) => `
         <nav aria-label="Main Navigation" class="overflow-x-auto pb-1 md:pb-0">
           <ul class="flex items-center gap-2 sm:gap-4 text-xs font-bold uppercase tracking-wider text-slate-700 whitespace-nowrap">
             <li><a href="/" class="px-2.5 py-1.5 rounded hover:text-[#1B4965] hover:bg-slate-100 transition-colors ${currentPath === '' ? 'text-[#1B4965] font-extrabold bg-[#EAF1F6]' : ''}">Home</a></li>
-            <li><a href="/about" class="px-2.5 py-1.5 rounded hover:text-[#1B4965] hover:bg-slate-100 transition-colors ${currentPath === 'about' ? 'text-[#1B4965] font-extrabold bg-[#EAF1F6]' : ''}">About</a></li>
-            <li><a href="/hip-replacement" class="px-2.5 py-1.5 rounded hover:text-[#1B4965] hover:bg-slate-100 transition-colors ${currentPath === 'hip-replacement' ? 'text-[#1B4965] font-extrabold bg-[#EAF1F6]' : ''}">Hip Replacement</a></li>
-            <li><a href="/knee-replacement" class="px-2.5 py-1.5 rounded hover:text-[#1B4965] hover:bg-slate-100 transition-colors ${currentPath === 'knee-replacement' ? 'text-[#1B4965] font-extrabold bg-[#EAF1F6]' : ''}">Knee Replacement</a></li>
-            <li><a href="/robotic-surgery" class="px-2.5 py-1.5 rounded hover:text-[#1B4965] hover:bg-slate-100 transition-colors ${currentPath === 'robotic-surgery' ? 'text-[#1B4965] font-extrabold bg-[#EAF1F6]' : ''}">Robotic Surgery</a></li>
-            <li><a href="/knee-arthroscopy" class="px-2.5 py-1.5 rounded hover:text-[#1B4965] hover:bg-slate-100 transition-colors ${currentPath === 'knee-arthroscopy' ? 'text-[#1B4965] font-extrabold bg-[#EAF1F6]' : ''}">Knee Arthroscopy</a></li>
-            <li><a href="/patient-guides" class="px-2.5 py-1.5 rounded hover:text-[#1B4965] hover:bg-slate-100 transition-colors ${currentPath === 'patient-guides' ? 'text-[#1B4965] font-extrabold bg-[#EAF1F6]' : ''}">Patient Guides</a></li>
-            <li><a href="/reviews" class="px-2.5 py-1.5 rounded hover:text-[#1B4965] hover:bg-slate-100 transition-colors ${currentPath === 'reviews' ? 'text-[#1B4965] font-extrabold bg-[#EAF1F6]' : ''}">Reviews</a></li>
-            <li><a href="/contact" class="px-3 py-1.5 rounded-lg bg-[#E8A24C] hover:bg-[#D99136] text-white font-bold transition-colors">Book / Contact</a></li>
+            <li><a href="/about-mr-shivakumar-shankar" class="px-2.5 py-1.5 rounded hover:text-[#1B4965] hover:bg-slate-100 transition-colors ${currentPath.includes('about') ? 'text-[#1B4965] font-extrabold bg-[#EAF1F6]' : ''}">About</a></li>
+            <li><a href="/hip-replacement" class="px-2.5 py-1.5 rounded hover:text-[#1B4965] hover:bg-slate-100 transition-colors ${currentPath.includes('hip') ? 'text-[#1B4965] font-extrabold bg-[#EAF1F6]' : ''}">Hip Surgery</a></li>
+            <li><a href="/knee-replacement" class="px-2.5 py-1.5 rounded hover:text-[#1B4965] hover:bg-slate-100 transition-colors ${currentPath.includes('knee') ? 'text-[#1B4965] font-extrabold bg-[#EAF1F6]' : ''}">Knee Surgery</a></li>
+            <li><a href="/robotic-computer-assisted-surgery" class="px-2.5 py-1.5 rounded hover:text-[#1B4965] hover:bg-slate-100 transition-colors ${currentPath.includes('robotic') ? 'text-[#1B4965] font-extrabold bg-[#EAF1F6]' : ''}">Robotic Tech</a></li>
+            <li><a href="/patient-information" class="px-2.5 py-1.5 rounded hover:text-[#1B4965] hover:bg-slate-100 transition-colors ${currentPath.includes('patient') || currentPath.includes('recovery') ? 'text-[#1B4965] font-extrabold bg-[#EAF1F6]' : ''}">Patient Info</a></li>
+            <li><a href="/hospitals-locations" class="px-2.5 py-1.5 rounded hover:text-[#1B4965] hover:bg-slate-100 transition-colors ${currentPath.includes('hospital') || currentPath.includes('surgeon') ? 'text-[#1B4965] font-extrabold bg-[#EAF1F6]' : ''}">Locations</a></li>
+            <li><a href="/reviews" class="px-2.5 py-1.5 rounded hover:text-[#1B4965] hover:bg-slate-100 transition-colors ${currentPath.includes('reviews') ? 'text-[#1B4965] font-extrabold bg-[#EAF1F6]' : ''}">Reviews</a></li>
+            <li><a href="/book-consultation" class="px-3 py-1.5 rounded-lg bg-[#E8A24C] hover:bg-[#D99136] text-white font-bold transition-colors">Book Consultation</a></li>
           </ul>
         </nav>
       </div>
@@ -50,13 +50,14 @@ const renderFooter = () => `
         <div class="space-y-4">
           <h4 class="font-extrabold text-slate-900 text-base">Mr Shivakumar Shankar</h4>
           <p class="text-xs text-slate-600 leading-relaxed">
-            MBBS, MS (Orth), FRCS (Tr &amp; Orth)<br>
-            Consultant Orthopaedic Hip &amp; Knee Surgeon<br>
-            NHS Clinical Lead, BHRUT NHS Trust<br>
-            General Medical Council: GMC 6062754
+            MBBS, DHA, MRCSEd, MSc (Tr &amp; Orth), FRCSEd (Tr &amp; Orth)<br>
+            PG Diploma Principles of Computer-Assisted &amp; Robotic Arthroplasty<br>
+            Consultant Orthopaedic Hip &amp; Knee Surgeon &bull; London &amp; Essex<br>
+            NHS Clinical Lead, Barking, Havering &amp; Redbridge University Hospitals NHS Trust<br>
+            GMC Number: 6062754 (Specialist Register)
           </p>
           <div class="text-xs text-slate-600">
-            <strong class="text-slate-900 block mb-1">Private Practice Secretary:</strong>
+            <strong class="text-slate-900 block mb-1">Private Practice Medical Secretary:</strong>
             Remya Rexlin &bull; 07587 765888 / 020 3523 0621<br>
             hip.knee_specialist@yahoo.com
           </div>
@@ -66,14 +67,14 @@ const renderFooter = () => `
           <h4 class="text-slate-900 font-bold mb-4 uppercase tracking-wider text-xs">Quick Links</h4>
           <ul class="space-y-2 text-xs">
             <li><a href="/" class="text-slate-600 hover:text-[#1B4965] transition-colors">Home</a></li>
-            <li><a href="/about" class="text-slate-600 hover:text-[#1B4965] transition-colors">About Mr Shankar</a></li>
+            <li><a href="/about-mr-shivakumar-shankar" class="text-slate-600 hover:text-[#1B4965] transition-colors">About Mr Shankar</a></li>
             <li><a href="/hip-replacement" class="text-slate-600 hover:text-[#1B4965] transition-colors">Hip Replacement Surgery</a></li>
             <li><a href="/knee-replacement" class="text-slate-600 hover:text-[#1B4965] transition-colors">Knee Replacement &amp; Arthroplasty</a></li>
-            <li><a href="/robotic-surgery" class="text-slate-600 hover:text-[#1B4965] transition-colors">Robotic &amp; Computer-Assisted</a></li>
+            <li><a href="/robotic-computer-assisted-surgery" class="text-slate-600 hover:text-[#1B4965] transition-colors">Robotic &amp; Computer-Assisted</a></li>
             <li><a href="/knee-arthroscopy" class="text-slate-600 hover:text-[#1B4965] transition-colors">Knee Arthroscopy &amp; Keyhole</a></li>
-            <li><a href="/patient-guides" class="text-slate-600 hover:text-[#1B4965] transition-colors">Patient Guides &amp; Risks</a></li>
+            <li><a href="/patient-information" class="text-slate-600 hover:text-[#1B4965] transition-colors">Patient Information Guides</a></li>
             <li><a href="/reviews" class="text-[#1B4965] font-bold hover:underline transition-colors">Patient Reviews (Doctify &amp; IWGC)</a></li>
-            <li><a href="/contact" class="text-[#1B4965] font-bold hover:text-[#13364B] transition-colors">Contact Practice Secretary</a></li>
+            <li><a href="/book-consultation" class="text-[#1B4965] font-bold hover:text-[#13364B] transition-colors">Book Private Consultation</a></li>
           </ul>
         </div>
 
@@ -81,11 +82,13 @@ const renderFooter = () => `
           <h4 class="text-slate-900 font-bold mb-4 uppercase tracking-wider text-xs">Specialist Procedures</h4>
           <ul class="space-y-2 text-xs">
             <li><a href="/hip-replacement" class="text-slate-600 hover:text-[#1B4965] transition-colors">Total Hip Replacement</a></li>
-            <li><a href="/robotic-surgery" class="text-slate-600 hover:text-[#1B4965] transition-colors">Robotic Hip &amp; Knee Surgery</a></li>
-            <li><a href="/hip-replacement" class="text-slate-600 hover:text-[#1B4965] transition-colors">Minimally Invasive Hip (Rottinger/Anterior)</a></li>
-            <li><a href="/knee-replacement" class="text-slate-600 hover:text-[#1B4965] transition-colors">Partial (Unicompartmental) Knee</a></li>
+            <li><a href="/robotic-hip-replacement" class="text-slate-600 hover:text-[#1B4965] transition-colors">Robotic Hip Replacement</a></li>
+            <li><a href="/computer-assisted-hip-replacement" class="text-slate-600 hover:text-[#1B4965] transition-colors">Computer-Assisted Hip Replacement</a></li>
+            <li><a href="/minimally-invasive-hip-replacement" class="text-slate-600 hover:text-[#1B4965] transition-colors">Minimally Invasive Hip (Rottinger)</a></li>
+            <li><a href="/knee-replacement" class="text-slate-600 hover:text-[#1B4965] transition-colors">Total Knee Replacement</a></li>
+            <li><a href="/robotic-knee-replacement" class="text-slate-600 hover:text-[#1B4965] transition-colors">Robotic Mako Knee Surgery</a></li>
+            <li><a href="/partial-knee-replacement" class="text-slate-600 hover:text-[#1B4965] transition-colors">Partial (Unicompartmental) Knee</a></li>
             <li><a href="/knee-arthroscopy" class="text-slate-600 hover:text-[#1B4965] transition-colors">Knee Arthroscopy &amp; Meniscal Repair</a></li>
-            <li><a href="/hip-replacement" class="text-slate-600 hover:text-[#1B4965] transition-colors">Complex Revision Arthroplasty</a></li>
           </ul>
         </div>
 
@@ -93,12 +96,12 @@ const renderFooter = () => `
           <h4 class="text-slate-900 font-bold mb-4 uppercase tracking-wider text-xs">Hospital Locations</h4>
           <div class="space-y-3 text-xs text-slate-600">
             <div>
-              <strong class="text-slate-900 block">Spire Hartswood Hospital</strong>
+              <strong class="text-slate-900 block">Spire Hartswood Hospital (Private)</strong>
               Eagle Way, Brentwood, Essex CM13 3LE<br>
               Tel: 01277 695 695
             </div>
             <div>
-              <strong class="text-slate-900 block">Nuffield Health Brentwood Hospital</strong>
+              <strong class="text-slate-900 block">Nuffield Health Brentwood Hospital (Private)</strong>
               Shenfield Road, Brentwood, Essex CM15 8EH<br>
               Tel: 01277 263 263
             </div>
@@ -113,7 +116,7 @@ const renderFooter = () => `
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
         <p>&copy; ${new Date().getFullYear()} Mr Shivakumar Shankar. All rights reserved. London &amp; Essex Hip and Knee Practice.</p>
         <div class="flex gap-4">
-          <a href="/patient-guides" class="hover:underline">Patient Information</a>
+          <a href="/patient-information" class="hover:underline">Patient Information</a>
           <a href="/sitemap.xml" class="hover:underline">Sitemap</a>
           <a href="/contact" class="hover:underline">Contact Practice</a>
         </div>
@@ -121,961 +124,1091 @@ const renderFooter = () => `
     </footer>
 `;
 
-// Distinct, substantial HTML content for each canonical page
+const renderPageShell = (path, badge, h1, lead, contentHtml) => `
+  ${renderHeader(path)}
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 font-sans text-slate-800">
+    <nav aria-label="Breadcrumb" class="text-xs text-slate-500 mb-6">
+      <a href="/" class="hover:underline">Home</a> &gt; <span class="font-bold text-slate-800">${h1}</span>
+    </nav>
+    <section class="mb-12">
+      <span class="inline-block px-3 py-1 rounded-full bg-[#EAF1F6] text-[#1B4965] text-xs font-bold uppercase tracking-wider mb-3">
+        ${badge}
+      </span>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+        ${h1}
+      </h1>
+      <p class="text-base sm:text-lg text-slate-600 mt-4 leading-relaxed max-w-4xl">
+        ${lead}
+      </p>
+    </section>
+    ${contentHtml}
+  </main>
+  ${renderFooter()}
+`;
+
+// Helper for standard three-card layout
+const renderCardGrid = (cards) => `
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+    ${cards.map(c => `
+      <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-xs">
+        <h2 class="text-lg font-bold text-slate-900 mb-2">${c.title}</h2>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">${c.desc}</p>
+        ${c.bullets ? `<ul class="text-xs text-slate-700 space-y-1">${c.bullets.map(b => `<li>&bull; ${b}</li>`).join('')}</ul>` : ''}
+      </div>
+    `).join('')}
+  </section>
+`;
+
+// Complete Page Definitions for all indexable canonical routes
 const pageDefinitions = [
+  // 1. Home
   {
     path: '',
     title: 'Mr Shivakumar Shankar | London & Essex Hip and Knee Surgeon',
-    description: 'Mr Shivakumar Shankar is a Consultant Orthopaedic Surgeon in London and Essex specialising in robotic hip replacement, knee replacement, and arthroscopy.',
+    description: 'Mr Shivakumar Shankar is a Consultant Orthopaedic Surgeon specialising in hip and knee surgery, robotic joint replacement, and joint preservation in London and Essex.',
     canonical: 'https://www.shivakumarshankar.co.uk/',
-    bodyHtml: `
-      ${renderHeader('')}
-      <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <section class="mb-12">
-          <span class="inline-block px-3 py-1 rounded-full bg-[#EAF1F6] text-[#1B4965] text-xs font-bold uppercase tracking-wider mb-3">
-            Consultant Orthopaedic Hip &amp; Knee Surgeon &bull; London &amp; Essex
-          </span>
-          <h1 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
-            Restoring Mobility with Robotic Precision &amp; Fellowship-Trained Expertise
-          </h1>
-          <p class="text-base sm:text-lg text-slate-600 mt-4 max-w-4xl leading-relaxed">
-            Mr Shivakumar Shankar MBBS, MS (Orth), FRCS (Tr &amp; Orth) is a leading Consultant Orthopaedic Surgeon in London and Essex, serving as NHS Clinical Lead at Barking, Havering and Redbridge University Hospitals NHS Trust (Queen's Hospital &amp; King George Hospital), with private consulting practices at Spire Hartswood Hospital and Nuffield Health Brentwood Hospital.
+    bodyHtml: renderPageShell(
+      '',
+      'Consultant Orthopaedic Hip & Knee Surgeon • London & Essex',
+      'Restoring Mobility with Robotic Precision & Fellowship-Trained Expertise',
+      'Mr Shivakumar Shankar MBBS, DHA, MRCSEd, MSc, FRCSEd (Tr & Orth) is a Consultant Orthopaedic Surgeon specialising in hip and knee surgery, serving as NHS Clinical Lead at BHRUT NHS Trust with private practice at Spire Hartswood and Nuffield Health Brentwood hospitals.',
+      `
+      ${renderCardGrid([
+        {
+          title: 'Regional Robotic Pioneer',
+          desc: 'Mr Shankar was the first surgeon to perform computer-assisted and robotic total hip replacement in Essex and North East London, delivering sub-millimeter component alignment.'
+        },
+        {
+          title: 'Minimally Invasive Joint Care',
+          desc: 'Specialist expertise in tissue-sparing Rottinger anterior hip surgery and keyhole knee arthroscopy preserving vital soft tissues for accelerated rehabilitation.'
+        },
+        {
+          title: 'Verified 5-Star Outcomes',
+          desc: 'Hundreds of independently verified patient reviews on Doctify and iWantGreatCare praising clinical excellence, bedside manner, and rapid recovery.'
+        }
+      ])}
+      <section class="p-8 bg-[#EAF1F6] rounded-2xl border border-slate-300 flex flex-col md:flex-row items-center justify-between gap-6 mb-12">
+        <div>
+          <h2 class="text-xl font-bold text-[#1B4965]">Consultation &amp; Surgical Scheduling</h2>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1 max-w-2xl">
+            Private consultations at Spire Hartswood Hospital and Nuffield Health Brentwood Hospital in Essex. Direct booking with medical secretary Remya Rexlin.
           </p>
-          <div class="mt-6 flex flex-wrap gap-4">
-            <a href="/contact" class="px-6 py-3 rounded-lg bg-[#E8A24C] hover:bg-[#D99136] text-white font-bold text-sm uppercase tracking-wider transition-colors shadow-sm">
-              Book Private Consultation
-            </a>
-            <a href="/about" class="px-6 py-3 rounded-lg bg-white border border-slate-300 hover:bg-[#EAF1F6] text-[#1B4965] font-bold text-sm transition-colors">
-              Read Surgeon Biography &amp; Fellowships
-            </a>
-          </div>
-        </section>
-
-        <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-xs">
-            <h2 class="text-xl font-bold text-slate-900 mb-2">Regional Robotic Pioneer</h2>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
-              First surgeon in Essex and North East London to perform robotic-assisted and computer-navigated total hip and knee arthroplasty, delivering sub-millimeter component alignment.
-            </p>
-            <a href="/robotic-surgery" class="text-xs font-bold text-[#1B4965] hover:underline flex items-center gap-1">
-              Explore Robotic Joint Surgery &rarr;
-            </a>
-          </div>
-          <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-xs">
-            <h2 class="text-xl font-bold text-slate-900 mb-2">Minimally Invasive Care</h2>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
-              Internationally trained in muscle-sparing hip surgery (Rottinger and Direct Anterior approaches) and keyhole knee arthroscopy preserving vital soft tissues for accelerated recovery.
-            </p>
-            <a href="/hip-replacement" class="text-xs font-bold text-[#1B4965] hover:underline flex items-center gap-1">
-              Explore Hip Replacement Surgery &rarr;
-            </a>
-          </div>
-          <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-xs">
-            <h2 class="text-xl font-bold text-slate-900 mb-2">Verified 5-Star Outcomes</h2>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
-              Hundreds of independently verified 5-star patient reviews on Doctify and iWantGreatCare praising clinical excellence, compassionate bedside manner, and rapid rehabilitation.
-            </p>
-            <a href="/reviews" class="text-xs font-bold text-[#1B4965] hover:underline flex items-center gap-1">
-              Read Verified Patient Reviews &rarr;
-            </a>
-          </div>
-        </section>
-
-        <section class="mb-16">
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-6">Specialist Clinical Services</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <article class="p-6 bg-white rounded-xl border border-slate-200">
-              <h3 class="font-bold text-lg text-slate-900 mb-1"><a href="/hip-replacement" class="hover:text-[#1B4965]">Total &amp; Complex Hip Replacement</a></h3>
-              <p class="text-xs text-slate-600 leading-relaxed mb-3">Primary arthroplasty, robotic-assisted navigation, minimally invasive Rottinger and anterior muscle-sparing approaches, and diagnostic hip injections.</p>
-              <a href="/hip-replacement" class="text-xs font-bold text-[#1B4965]">Read Hip Guide &rarr;</a>
-            </article>
-            <article class="p-6 bg-white rounded-xl border border-slate-200">
-              <h3 class="font-bold text-lg text-slate-900 mb-1"><a href="/knee-replacement" class="hover:text-[#1B4965]">Total &amp; Partial Knee Arthroplasty</a></h3>
-              <p class="text-xs text-slate-600 leading-relaxed mb-3">Robotic-guided Mako knee replacement, unicondylar partial knee resurfacing preserving ACL/PCL, and patient-matched kinematic alignment.</p>
-              <a href="/knee-replacement" class="text-xs font-bold text-[#1B4965]">Read Knee Guide &rarr;</a>
-            </article>
-            <article class="p-6 bg-white rounded-xl border border-slate-200">
-              <h3 class="font-bold text-lg text-slate-900 mb-1"><a href="/robotic-surgery" class="hover:text-[#1B4965]">Robotic &amp; Computer-Assisted Surgery</a></h3>
-              <p class="text-xs text-slate-600 leading-relaxed mb-3">3D CT virtual surgical templating, real-time dynamic soft-tissue balancing, and active haptic boundary protection for maximum joint longevity.</p>
-              <a href="/robotic-surgery" class="text-xs font-bold text-[#1B4965]">Read Robotic Guide &rarr;</a>
-            </article>
-            <article class="p-6 bg-white rounded-xl border border-slate-200">
-              <h3 class="font-bold text-lg text-slate-900 mb-1"><a href="/knee-arthroscopy" class="hover:text-[#1B4965]">Knee Arthroscopy &amp; Meniscal Repair</a></h3>
-              <p class="text-xs text-slate-600 leading-relaxed mb-3">Over 1,200 keyhole procedures performed. Meniscal preservation repair, loose body debridement, chondral restoration, and PRP injections.</p>
-              <a href="/knee-arthroscopy" class="text-xs font-bold text-[#1B4965]">Read Arthroscopy Guide &rarr;</a>
-            </article>
-            <article class="p-6 bg-white rounded-xl border border-slate-200">
-              <h3 class="font-bold text-lg text-slate-900 mb-1"><a href="/patient-guides" class="hover:text-[#1B4965]">Patient Guides &amp; Protocols</a></h3>
-              <p class="text-xs text-slate-600 leading-relaxed mb-3">Downloadable day-by-day rehabilitation PDF protocols, detailed surgical risk explanations, and post-operative red flags.</p>
-              <a href="/patient-guides" class="text-xs font-bold text-[#1B4965]">Download Protocols &rarr;</a>
-            </article>
-            <article class="p-6 bg-white rounded-xl border border-slate-200">
-              <h3 class="font-bold text-lg text-slate-900 mb-1"><a href="/contact" class="hover:text-[#1B4965]">Private Consultations &amp; Secretary</a></h3>
-              <p class="text-xs text-slate-600 leading-relaxed mb-3">Direct contact with practice medical secretary Remya Rexlin. Fast-track appointments at Spire Hartswood and Nuffield Health Brentwood.</p>
-              <a href="/contact" class="text-xs font-bold text-[#1B4965]">Book Appointment &rarr;</a>
-            </article>
-          </div>
-        </section>
-      </main>
-      ${renderFooter()}
-    `
+        </div>
+        <div class="flex gap-3">
+          <a href="/book-consultation" class="bg-[#E8A24C] hover:bg-[#D99136] text-white px-6 py-3 rounded-lg font-bold text-xs uppercase tracking-wider transition-colors shadow-sm">
+            Book Online
+          </a>
+          <a href="/contact" class="bg-white hover:bg-slate-50 text-[#1B4965] border border-slate-300 px-6 py-3 rounded-lg font-bold text-xs transition-colors">
+            Contact Secretary
+          </a>
+        </div>
+      </section>
+      `
+    )
   },
+
+  // 2. About Mr Shivakumar Shankar
+  {
+    path: 'about-mr-shivakumar-shankar',
+    title: 'About Mr Shivakumar Shankar | Consultant Hip & Knee Surgeon',
+    description: 'Biography, credentials, and surgical training of Mr Shivakumar Shankar, NHS Clinical Lead & Consultant Orthopaedic Surgeon at Spire and Nuffield Hospitals.',
+    canonical: 'https://www.shivakumarshankar.co.uk/about-mr-shivakumar-shankar',
+    bodyHtml: renderPageShell(
+      'about',
+      'Consultant Orthopaedic Surgeon • GMC 6062754',
+      'About Mr Shivakumar Shankar FRCS (Tr & Orth)',
+      'Mr Shivakumar Shankar is a highly accomplished Consultant Orthopaedic Surgeon specialising in hip and knee surgery, serving as the NHS Clinical Lead for Orthopaedics at Barking, Havering and Redbridge University Hospitals NHS Trust, with private consulting practices at Spire Hartswood Hospital and Nuffield Health Brentwood Hospital.',
+      `
+      <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200">
+          <h2 class="text-xl font-bold text-slate-900 mb-4">Qualifications &amp; Subspecialty Fellowships</h2>
+          <div class="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed">
+            <p><strong>MBBS, DHA, MRCSEd, MSc (Tr &amp; Orth), FRCSEd (Tr &amp; Orth)</strong></p>
+            <p><strong>PG Diploma:</strong> Principles of Computer-Assisted and Robotic Orthopaedic Surgery</p>
+            <p><strong>Computer Navigation Fellowship:</strong> Golden Jubilee National Hospital, Glasgow</p>
+            <p><strong>Minimally Invasive Arthroplasty Training:</strong> Rummelsberg Hospital (Germany) and CABPS Centre (France)</p>
+          </div>
+        </div>
+        <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200">
+          <h2 class="text-xl font-bold text-slate-900 mb-4">Clinical Practice &amp; Experience</h2>
+          <div class="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed">
+            <p>Extensive experience performing manual and computer-assisted hip and knee replacement surgery for approximately 9 years, incorporating MAKO robotic-assisted surgery into clinical practice.</p>
+            <p>Specialist focus on high-volume, minimally invasive, robotic and computer-assisted hip and knee surgery.</p>
+          </div>
+        </div>
+      </section>
+      `
+    )
+  },
+
+  // 3. /about (alias for /about-mr-shivakumar-shankar)
   {
     path: 'about',
     title: 'About Mr Shivakumar Shankar | Consultant Hip & Knee Surgeon',
     description: 'Biography, credentials, and surgical training of Mr Shivakumar Shankar, NHS Clinical Lead & Consultant Orthopaedic Surgeon at Spire and Nuffield Hospitals.',
-    canonical: 'https://www.shivakumarshankar.co.uk/about',
-    bodyHtml: `
-      ${renderHeader('about')}
-      <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <nav aria-label="Breadcrumb" class="text-xs text-slate-500 mb-6">
-          <a href="/" class="hover:underline">Home</a> &gt; <span class="font-bold text-slate-800">About Mr Shivakumar Shankar</span>
-        </nav>
-
-        <section class="mb-12">
-          <span class="inline-block px-3 py-1 rounded-full bg-[#EAF1F6] text-[#1B4965] text-xs font-bold uppercase tracking-wider mb-3">
-            Consultant Orthopaedic Surgeon &bull; MBBS, MS (Orth), FRCS (Tr &amp; Orth)
-          </span>
-          <h1 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
-            About Mr Shivakumar Shankar FRCS (Tr &amp; Orth)
-          </h1>
-          <p class="text-base sm:text-lg text-slate-600 mt-4 leading-relaxed max-w-4xl">
-            Mr Shivakumar Shankar is a highly accomplished Consultant Orthopaedic Surgeon in London and Essex with over 26 years of extensive surgical practice. Specialising exclusively in adult hip and knee replacement, computer-assisted and robotic surgery, complex joint reconstruction, and knee arthroscopy, he serves as the NHS Clinical Lead for Orthopaedics at Barking, Havering and Redbridge University Hospitals NHS Trust.
-          </p>
-        </section>
-
-        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200">
-            <h2 class="text-xl font-bold text-slate-900 mb-4">Substantive NHS &amp; Leadership Positions</h2>
-            <div class="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed">
-              <p>
-                <strong>Clinical Lead in Orthopaedics:</strong> Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT), overseeing clinical governance, surgical safety protocols, and subspecialty arthroplasty pathways.
-              </p>
-              <p>
-                <strong>Substantive NHS Consultant:</strong> Operating at Queen's Hospital (Major Trauma &amp; Arthroplasty Unit, Romford) and King George Hospital (Elective Orthopaedic Centre, Goodmayes).
-              </p>
-              <p>
-                <strong>Educational &amp; Clinical Supervisor:</strong> Actively mentoring higher surgical trainees from the North Thames London rotation and contributing to regional clinical audits and National Joint Registry (NJR) excellence.
-              </p>
-            </div>
-          </div>
-
-          <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200">
-            <h2 class="text-xl font-bold text-slate-900 mb-4">Specialist Fellowships &amp; International Training</h2>
-            <div class="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed">
-              <p>
-                <strong>Computer Navigation &amp; Arthroplasty Fellowship:</strong> Golden Jubilee National Hospital, Glasgow &mdash; intensive high-volume fellowship mastering computer-navigated kinematics for total hip and total knee arthroplasty.
-              </p>
-              <p>
-                <strong>International Travelling Fellowship:</strong> Specialist minimally invasive joint surgery with Professor Wagner's unit in Rummelsberg, Germany.
-              </p>
-              <p>
-                <strong>Rottinger Muscle-Sparing Training:</strong> CABPS Centre, Centre Hospitalier de Haguenau, France &mdash; direct training in the anterolateral tissue-sparing approach preserving the abductor muscles.
-              </p>
-              <p>
-                <strong>Higher Surgical Training:</strong> North Thames Orthopaedic Training Rotation, including Royal National Orthopaedic Hospital (RNOH) Stanmore, University College London Hospital (UCLH), and Royal London Hospital.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 mb-12">
-          <h2 class="text-xl font-bold text-slate-900 mb-4">Professional Registrations &amp; Affiliations</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs">
-            <div class="p-4 bg-[#F8FAFC] rounded-xl border border-slate-200">
-              <strong class="text-slate-900 block font-bold text-sm mb-1">General Medical Council</strong>
-              <p class="text-slate-600">Full Registration on Specialist Orthopaedic Register (GMC 6062754).</p>
-            </div>
-            <div class="p-4 bg-[#F8FAFC] rounded-xl border border-slate-200">
-              <strong class="text-slate-900 block font-bold text-sm mb-1">Royal College of Surgeons</strong>
-              <p class="text-slate-600">Fellow of the Royal College of Surgeons FRCS (Tr &amp; Orth).</p>
-            </div>
-            <div class="p-4 bg-[#F8FAFC] rounded-xl border border-slate-200">
-              <strong class="text-slate-900 block font-bold text-sm mb-1">British Orthopaedic Assoc.</strong>
-              <p class="text-slate-600">Active member participating in UK arthroplasty guidelines.</p>
-            </div>
-            <div class="p-4 bg-[#F8FAFC] rounded-xl border border-slate-200">
-              <strong class="text-slate-900 block font-bold text-sm mb-1">Private Hospitals</strong>
-              <p class="text-slate-600">Spire Hartswood Hospital &amp; Nuffield Health Brentwood Hospital.</p>
-            </div>
-          </div>
-        </section>
-
-        <section class="p-6 bg-[#EAF1F6] rounded-2xl border border-slate-300">
-          <h2 class="text-xl font-bold text-[#1B4965] mb-2">Explore Related Clinical Pages</h2>
-          <p class="text-xs text-slate-600 mb-4">Discover detailed procedure information, rehabilitation protocols, and patient testimonials:</p>
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-bold">
-            <a href="/hip-replacement" class="p-3 bg-white rounded-lg hover:text-[#1B4965] border border-slate-200 flex items-center justify-between">
-              <span>Hip Replacement</span> &rarr;
-            </a>
-            <a href="/knee-replacement" class="p-3 bg-white rounded-lg hover:text-[#1B4965] border border-slate-200 flex items-center justify-between">
-              <span>Knee Replacement</span> &rarr;
-            </a>
-            <a href="/robotic-surgery" class="p-3 bg-white rounded-lg hover:text-[#1B4965] border border-slate-200 flex items-center justify-between">
-              <span>Robotic Surgery</span> &rarr;
-            </a>
-            <a href="/contact" class="p-3 bg-[#E8A24C] text-white rounded-lg hover:bg-[#D99136] flex items-center justify-between">
-              <span>Book Consultation</span> &rarr;
-            </a>
-          </div>
-        </section>
-      </main>
-      ${renderFooter()}
-    `
+    canonical: 'https://www.shivakumarshankar.co.uk/about-mr-shivakumar-shankar',
+    bodyHtml: renderPageShell(
+      'about',
+      'Consultant Orthopaedic Surgeon • GMC 6062754',
+      'About Mr Shivakumar Shankar FRCS (Tr & Orth)',
+      'Mr Shivakumar Shankar is a highly accomplished Consultant Orthopaedic Surgeon specialising in hip and knee surgery, serving as the NHS Clinical Lead for Orthopaedics at Barking, Havering and Redbridge University Hospitals NHS Trust, with private consulting practices at Spire Hartswood Hospital and Nuffield Health Brentwood Hospital.',
+      `
+      <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200">
+          <h2 class="text-xl font-bold text-slate-900 mb-4">Qualifications &amp; Training</h2>
+          <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">MBBS, DHA, MRCSEd, MSc, FRCSEd (Tr &amp; Orth), PG Diploma Principles of Computer-Assisted and Robotic Orthopaedic Surgery.</p>
+        </div>
+        <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200">
+          <h2 class="text-xl font-bold text-slate-900 mb-4">NHS &amp; Private Practice</h2>
+          <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">Clinical Lead at BHRUT NHS Trust (Queen's &amp; King George Hospitals), private consulting at Spire Hartswood and Nuffield Brentwood.</p>
+        </div>
+      </section>
+      `
+    )
   },
+
+  // 4. Hip Replacement
   {
     path: 'hip-replacement',
     title: 'Hip Replacement Surgery London & Essex | Mr Shivakumar Shankar',
     description: 'Specialist primary, complex, and minimally invasive hip replacement in London & Essex. Regional pioneer in robotic and computer-assisted hip surgery.',
     canonical: 'https://www.shivakumarshankar.co.uk/hip-replacement',
-    bodyHtml: `
-      ${renderHeader('hip-replacement')}
-      <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <nav aria-label="Breadcrumb" class="text-xs text-slate-500 mb-6">
-          <a href="/" class="hover:underline">Home</a> &gt; <span class="font-bold text-slate-800">Hip Replacement Surgery</span>
-        </nav>
-
-        <section class="mb-12">
-          <span class="inline-block px-3 py-1 rounded-full bg-[#EAF1F6] text-[#1B4965] text-xs font-bold uppercase tracking-wider mb-3">
-            Primary, Complex &amp; Minimally Invasive Arthroplasty
-          </span>
-          <h1 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
-            Specialist Hip Replacement Surgery in London &amp; Essex
-          </h1>
-          <p class="text-base sm:text-lg text-slate-600 mt-4 leading-relaxed max-w-4xl">
-            Mr Shivakumar Shankar is a regional pioneer and leading specialist in primary, complex, and robotic-assisted total hip replacement across Essex and London. Utilising advanced muscle-sparing techniques (Direct Anterior and Rottinger approaches), 3D CT virtual planning, and high-performance ceramic bearings, his focus is rapid mobilization, natural joint restoration, and lifelong implant survivorship.
-          </p>
-        </section>
-
-        <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          <div class="p-6 bg-white rounded-2xl border border-slate-200">
-            <h2 class="text-lg font-bold text-slate-900 mb-2">Total Hip Replacement (Primary &amp; Complex)</h2>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
-              Replaces the worn femoral head and arthritic acetabular socket with precision modular prostheses. Eradicates severe groin, buttock, and thigh pain while accurately restoring natural leg length and femoral offset.
-            </p>
-            <ul class="text-xs text-slate-700 space-y-1">
-              <li>&bull; Modern ceramic-on-polyethylene low-friction bearings</li>
-              <li>&bull; Uncemented hydroxyapatite-coated titanium cups</li>
-              <li>&bull; Customised femoral stem geometry</li>
-            </ul>
-          </div>
-
-          <div class="p-6 bg-white rounded-2xl border border-slate-200">
-            <h2 class="text-lg font-bold text-slate-900 mb-2">Robotic &amp; Navigated Hip Surgery</h2>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
-              Pioneered by Mr Shankar as the first surgeon in Essex &amp; NE London. Utilises 3D CT virtual templating to achieve sub-millimeter orientation of the acetabular cup inclination and anteversion.
-            </p>
-            <ul class="text-xs text-slate-700 space-y-1">
-              <li>&bull; Real-time leg length and offset tracking</li>
-              <li>&bull; Eliminates component malpositioning</li>
-              <li>&bull; Dramatically reduces dislocation risks</li>
-            </ul>
-          </div>
-
-          <div class="p-6 bg-white rounded-2xl border border-slate-200">
-            <h2 class="text-lg font-bold text-slate-900 mb-2">Minimally Invasive Muscle-Sparing Approaches</h2>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
-              Rottinger and Direct Anterior approaches navigate between natural muscular planes without detaching or dividing major stabilizing muscle groups (such as the gluteus medius).
-            </p>
-            <ul class="text-xs text-slate-700 space-y-1">
-              <li>&bull; Significantly reduced post-operative pain</li>
-              <li>&bull; Minimal blood loss and rapid hospital discharge</li>
-              <li>&bull; No standard hip movement restrictions</li>
-            </ul>
-          </div>
-        </section>
-
-        <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 mb-12">
-          <h2 class="text-xl font-bold text-slate-900 mb-4">Diagnostic &amp; Therapeutic Hip Injections</h2>
-          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
-            Hip pain frequently mimics or coexists with lower back pathology (lumbar spine stenosis or sciatica). Mr Shankar performs precision ultrasound- or fluoroscopy-guided local anaesthetic and corticosteroid hip joint injections:
-          </p>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-700">
-            <div class="p-4 bg-[#F8FAFC] rounded-xl border border-slate-200">
-              <strong class="text-slate-900 block font-bold mb-1">Diagnostic Differentiating Test:</strong>
-              If local anaesthesia immediately abolishes joint pain during walking and stair climbing, it definitively confirms the hip joint as the primary anatomical pain generator rather than lumbar nerve roots.
-            </div>
-            <div class="p-4 bg-[#F8FAFC] rounded-xl border border-slate-200">
-              <strong class="text-slate-900 block font-bold mb-1">Therapeutic Symptom Relief:</strong>
-              Calms severe inflammatory synovitis, providing months of pain relief and buying valuable time for patients pursuing non-operative management before definitive surgery.
-            </div>
-          </div>
-        </section>
-
-        <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 mb-12">
-          <h2 class="text-xl font-bold text-slate-900 mb-4">Common Hip Conditions Treated</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs">
-            <div class="p-4 bg-[#F8FAFC] rounded-xl">
-              <h3 class="font-bold text-slate-900 mb-1">Hip Osteoarthritis</h3>
-              <p class="text-slate-600">Progressive loss of articular cartilage resulting in bone-on-bone friction, groin stiffness, and limp.</p>
-            </div>
-            <div class="p-4 bg-[#F8FAFC] rounded-xl">
-              <h3 class="font-bold text-slate-900 mb-1">Avascular Necrosis (AVN)</h3>
-              <p class="text-slate-600">Disruption of femoral head microvascular blood supply leading to bone collapse and acute groin pain.</p>
-            </div>
-            <div class="p-4 bg-[#F8FAFC] rounded-xl">
-              <h3 class="font-bold text-slate-900 mb-1">Hip Dysplasia (DDH)</h3>
-              <p class="text-slate-600">Shallow acetabular socket causing abnormal joint contact stresses and accelerated early arthritis.</p>
-            </div>
-            <div class="p-4 bg-[#F8FAFC] rounded-xl">
-              <h3 class="font-bold text-slate-900 mb-1">FAI &amp; Labral Tears</h3>
-              <p class="text-slate-600">Cam or pincer impingement generating labral tearing, catching, and groin discomfort in active adults.</p>
-            </div>
-          </div>
-        </section>
-
-        <section class="p-6 bg-[#EAF1F6] rounded-2xl border border-slate-300">
-          <h2 class="text-xl font-bold text-[#1B4965] mb-2">Explore Related Clinical Services</h2>
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-bold">
-            <a href="/robotic-surgery" class="p-3 bg-white rounded-lg hover:text-[#1B4965] border border-slate-200 flex items-center justify-between">
-              <span>Robotic Surgery</span> &rarr;
-            </a>
-            <a href="/patient-guides" class="p-3 bg-white rounded-lg hover:text-[#1B4965] border border-slate-200 flex items-center justify-between">
-              <span>Rehab Protocols</span> &rarr;
-            </a>
-            <a href="/reviews" class="p-3 bg-white rounded-lg hover:text-[#1B4965] border border-slate-200 flex items-center justify-between">
-              <span>Hip Patient Reviews</span> &rarr;
-            </a>
-            <a href="/contact" class="p-3 bg-[#E8A24C] text-white rounded-lg hover:bg-[#D99136] flex items-center justify-between">
-              <span>Book Hip Consultation</span> &rarr;
-            </a>
-          </div>
-        </section>
-      </main>
-      ${renderFooter()}
-    `
+    bodyHtml: renderPageShell(
+      'hip-replacement',
+      'Specialist Hip Arthroplasty • London & Essex',
+      'Specialist Hip Replacement Surgery in London & Essex',
+      'Comprehensive primary, complex, and robotic-assisted total hip replacement surgery combining surgical excellence, computer navigation, and advanced ceramic bearings to alleviate pain and restore mobility.',
+      `
+      ${renderCardGrid([
+        {
+          title: 'Total Hip Replacement',
+          desc: 'Precision replacement of the worn acetabular socket and femoral head using uncemented titanium shells and ceramic-on-polyethylene bearing surfaces.',
+          bullets: ['Eliminates groin and buttock pain', 'Restores leg length and offset', 'Durable modern implants']
+        },
+        {
+          title: 'Robotic & Navigated Hip Surgery',
+          desc: 'Intra-operative real-time tracking of cup inclination and anteversion angles to prevent component malpositioning and minimise dislocation risks.',
+          bullets: ['Sub-millimeter cup orientation', 'Dynamic spinopelvic assessment', 'Reduced risk of impingement']
+        },
+        {
+          title: 'Minimally Invasive Techniques',
+          desc: 'Muscle-preserving Rottinger and anterior tissue-sparing approaches designed to protect key stabilizing muscles and accelerate return to walking.',
+          bullets: ['Less post-operative discomfort', 'Early hospital discharge', 'Rapid functional rehab']
+        }
+      ])}
+      `
+    )
   },
+
+  // 5. Robotic Hip Replacement
+  {
+    path: 'robotic-hip-replacement',
+    title: 'Robotic Hip Replacement London & Essex | Mr Shivakumar Shankar',
+    description: 'Mako robotic-assisted total hip replacement with 3D CT virtual planning and haptic precision for optimal implant alignment and stability.',
+    canonical: 'https://www.shivakumarshankar.co.uk/robotic-hip-replacement',
+    bodyHtml: renderPageShell(
+      'robotic-hip-replacement',
+      'Robotic Arthroplasty • Mako Precision',
+      'Robotic-Assisted Total Hip Replacement',
+      'Mako robotic-assisted total hip replacement utilizes pre-operative 3D CT modeling, dynamic virtual planning, and active haptic boundary guidance to optimize acetabular cup orientation and femoral biomechanics.',
+      `
+      ${renderCardGrid([
+        {
+          title: 'Pre-Op 3D CT Planning',
+          desc: 'High-resolution scan produces a virtual patient-specific anatomical model to plan implant dimensions and positioning prior to surgery.'
+        },
+        {
+          title: 'Haptic Guidance',
+          desc: 'Robotic arm provides stereotactic tactile feedback that keeps reamers and instruments precisely within the approved virtual surgical boundary.'
+        },
+        {
+          title: 'Surgeon Control',
+          desc: 'The surgeon retains complete control throughout the procedure; the robotic system functions as a high-precision assistive tool.'
+        }
+      ])}
+      `
+    )
+  },
+
+  // 6. Computer-Assisted Hip Replacement
+  {
+    path: 'computer-assisted-hip-replacement',
+    title: 'Computer-Assisted Hip Replacement | Mr Shivakumar Shankar',
+    description: 'Navigated hip replacement providing real-time intra-operative tracking of cup angles and limb length without pre-operative CT radiation.',
+    canonical: 'https://www.shivakumarshankar.co.uk/computer-assisted-hip-replacement',
+    bodyHtml: renderPageShell(
+      'computer-assisted-hip-replacement',
+      'Optical Computer Navigation • Arthroplasty',
+      'Computer-Assisted Hip Replacement Surgery',
+      'Computer-navigated hip arthroplasty provides live intra-operative optical tracking of acetabular cup orientation, femoral offset, and leg length without requiring pre-operative CT scans.',
+      `
+      ${renderCardGrid([
+        {
+          title: 'Live Optical Navigation',
+          desc: 'Infrared trackers register pelvic and femoral anatomical landmarks during surgery, giving real-time angular feedback.'
+        },
+        {
+          title: 'No Pre-Op CT Radiation',
+          desc: 'Ideal for patients seeking navigated precision without additional pre-operative radiological exposure.'
+        },
+        {
+          title: 'Proven Kinematic Alignment',
+          desc: 'Fellowship training at the Golden Jubilee National Hospital Glasgow informs Mr Shankar\'s computer-navigated technique.'
+        }
+      ])}
+      `
+    )
+  },
+
+  // 7. Minimally Invasive Hip Replacement
+  {
+    path: 'minimally-invasive-hip-replacement',
+    title: 'Minimally Invasive Hip Surgery | Rottinger & Anterior Approaches',
+    description: 'Tissue-sparing Rottinger and muscle-preserving hip arthroplasty techniques accelerating post-operative mobilization and functional rehabilitation.',
+    canonical: 'https://www.shivakumarshankar.co.uk/minimally-invasive-hip-replacement',
+    bodyHtml: renderPageShell(
+      'minimally-invasive-hip-replacement',
+      'Tissue-Sparing Surgery • Rottinger Approach',
+      'Minimally Invasive Hip Replacement Surgery',
+      'Tissue-sparing Rottinger and anterolateral approaches access the hip joint through intermuscular planes, avoiding the detachment of primary hip abductor muscles.',
+      `
+      ${renderCardGrid([
+        {
+          title: 'Preserves Abductor Muscles',
+          desc: 'Navigates between tensor fasciae latae and gluteus medius without cutting key muscle tendons.'
+        },
+        {
+          title: 'Faster Mobilisation',
+          desc: 'Reduced soft tissue trauma facilitates earlier unassisted walking and shorter inpatient hospitalization.'
+        },
+        {
+          title: 'Specialised International Training',
+          desc: 'Trained under leading European pioneers in France and Germany in muscle-preserving techniques.'
+        }
+      ])}
+      `
+    )
+  },
+
+  // 8. Knee Replacement
   {
     path: 'knee-replacement',
     title: 'Knee Replacement Surgery London & Essex | Mr Shivakumar Shankar',
-    description: 'Consultant-led total knee replacement, robotic-assisted Mako arthroplasty, and partial unicompartmental knee replacement in Brentwood, Essex.',
+    description: 'Consultant-led total knee replacement, kinematic alignment, and personalised soft-tissue balancing in London, Essex, and Brentwood.',
     canonical: 'https://www.shivakumarshankar.co.uk/knee-replacement',
-    bodyHtml: `
-      ${renderHeader('knee-replacement')}
-      <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <nav aria-label="Breadcrumb" class="text-xs text-slate-500 mb-6">
-          <a href="/" class="hover:underline">Home</a> &gt; <span class="font-bold text-slate-800">Knee Replacement Surgery</span>
-        </nav>
-
-        <section class="mb-12">
-          <span class="inline-block px-3 py-1 rounded-full bg-[#EAF1F6] text-[#1B4965] text-xs font-bold uppercase tracking-wider mb-3">
-            Total, Robotic Mako &amp; Partial Unicompartmental Arthroplasty
-          </span>
-          <h1 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
-            Specialist Knee Replacement &amp; Arthroplasty in London &amp; Essex
-          </h1>
-          <p class="text-base sm:text-lg text-slate-600 mt-4 leading-relaxed max-w-4xl">
-            Mr Shivakumar Shankar offers comprehensive, consultant-led surgical knee care ranging from partial (unicompartmental) knee resurfacing to robotic-assisted total knee arthroplasty. By focusing on dynamic soft-tissue balance, kinematic alignment, and preservation of healthy bone and ligaments, patients achieve stable, natural-feeling joint motion.
-          </p>
-        </section>
-
-        <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          <div class="p-6 bg-white rounded-2xl border border-slate-200">
-            <h2 class="text-lg font-bold text-slate-900 mb-2">Total Knee Replacement (TKR)</h2>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
-              Precision resurfacing of the femoral condyles and tibial plateau for multi-compartmental degenerative arthritis. Aligns leg axes, corrects severe bowlegs or knock-knees, and restores smooth functional mobility.
-            </p>
-            <ul class="text-xs text-slate-700 space-y-1">
-              <li>&bull; Corrects fixed flexion contractures</li>
-              <li>&bull; Durable cobalt-chrome and cross-linked poly bearings</li>
-              <li>&bull; Day 1 post-operative mobilisation</li>
-            </ul>
-          </div>
-
-          <div class="p-6 bg-white rounded-2xl border border-slate-200">
-            <h2 class="text-lg font-bold text-slate-900 mb-2">Robotic Mako-Assisted Knee Surgery</h2>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
-              Robotic arm guidance provides live kinematic feedback on ligament tension throughout the full range of motion prior to bone resection. Delivers sub-millimeter positioning with minimal soft-tissue release.
-            </p>
-            <ul class="text-xs text-slate-700 space-y-1">
-              <li>&bull; Dynamic intra-operative ligament balancing</li>
-              <li>&bull; Patient-specific bone cut boundaries</li>
-              <li>&bull; Superior early post-operative knee flexion</li>
-            </ul>
-          </div>
-
-          <div class="p-6 bg-white rounded-2xl border border-slate-200">
-            <h2 class="text-lg font-bold text-slate-900 mb-2">Partial (Unicompartmental) Knee Replacement</h2>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
-              For arthritis confined strictly to either the medial or lateral compartment. Preserves the healthy patellofemoral and opposite compartments, as well as both the ACL and PCL cruciate ligaments.
-            </p>
-            <ul class="text-xs text-slate-700 space-y-1">
-              <li>&bull; Feels like a natural knee with normal proprioception</li>
-              <li>&bull; Smaller surgical incision with rapid recovery</li>
-              <li>&bull; Shorter hospital stay and faster return to sport</li>
-            </ul>
-          </div>
-        </section>
-
-        <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 mb-12">
-          <h2 class="text-xl font-bold text-slate-900 mb-4">Kinematic Alignment vs Mechanical Alignment</h2>
-          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
-            Traditional mechanical alignment forces every patient's knee into an arbitrary 90-degree straight angle, frequently requiring aggressive ligament releases. Mr Shankar champions customised kinematic alignment:
-          </p>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-700">
-            <div class="p-4 bg-[#F8FAFC] rounded-xl border border-slate-200">
-              <strong class="text-slate-900 block font-bold mb-1">Restoring Native Constitutional Geometry:</strong>
-              Implants are positioned to match the patient's individual pre-arthritic joint line, preserving native soft-tissue laxities throughout flexion and extension.
-            </div>
-            <div class="p-4 bg-[#F8FAFC] rounded-xl border border-slate-200">
-              <strong class="text-slate-900 block font-bold mb-1">Superior Patient Satisfaction:</strong>
-              Significantly reduces the incidence of the "stiff" or "unnatural" knee feeling, facilitating effortless stair climbing and outdoor walking.
-            </div>
-          </div>
-        </section>
-
-        <section class="p-6 bg-[#EAF1F6] rounded-2xl border border-slate-300">
-          <h2 class="text-xl font-bold text-[#1B4965] mb-2">Explore Related Clinical Services</h2>
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-bold">
-            <a href="/robotic-surgery" class="p-3 bg-white rounded-lg hover:text-[#1B4965] border border-slate-200 flex items-center justify-between">
-              <span>Robotic Surgery</span> &rarr;
-            </a>
-            <a href="/knee-arthroscopy" class="p-3 bg-white rounded-lg hover:text-[#1B4965] border border-slate-200 flex items-center justify-between">
-              <span>Knee Arthroscopy</span> &rarr;
-            </a>
-            <a href="/patient-guides" class="p-3 bg-white rounded-lg hover:text-[#1B4965] border border-slate-200 flex items-center justify-between">
-              <span>Rehab Protocols</span> &rarr;
-            </a>
-            <a href="/contact" class="p-3 bg-[#E8A24C] text-white rounded-lg hover:bg-[#D99136] flex items-center justify-between">
-              <span>Book Knee Consultation</span> &rarr;
-            </a>
-          </div>
-        </section>
-      </main>
-      ${renderFooter()}
-    `
+    bodyHtml: renderPageShell(
+      'knee-replacement',
+      'Specialist Knee Arthroplasty • London & Essex',
+      'Specialist Knee Replacement &amp; Arthroplasty in London &amp; Essex',
+      'Consultant-led total knee replacement, robotic-guided joint resurfacing, and partial knee arthroplasty designed to restore natural kinematics and pain-free mobility.',
+      `
+      ${renderCardGrid([
+        {
+          title: 'Total Knee Replacement (TKR)',
+          desc: 'Resurfacing worn femoral condyles and tibial plateau with durable cobalt-chrome and cross-linked polyethylene implants.'
+        },
+        {
+          title: 'Robotic Mako Assistance',
+          desc: 'Intra-operative dynamic ligament balancing throughout flexion and extension for a more natural joint feel.'
+        },
+        {
+          title: 'Partial Knee Replacement',
+          desc: 'Preserves the healthy knee compartments, ACL, and PCL for faster recovery and normal joint proprioception.'
+        }
+      ])}
+      `
+    )
   },
+
+  // 9. Robotic Knee Replacement
   {
-    path: 'robotic-surgery',
-    title: 'Robotic & Computer-Assisted Hip & Knee Surgery | Essex & London',
-    description: 'Pioneering robotic & computer-assisted joint replacement by Mr Shivakumar Shankar. Sub-millimeter implant accuracy and personalised soft-tissue balancing.',
-    canonical: 'https://www.shivakumarshankar.co.uk/robotic-surgery',
-    bodyHtml: `
-      ${renderHeader('robotic-surgery')}
-      <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <nav aria-label="Breadcrumb" class="text-xs text-slate-500 mb-6">
-          <a href="/" class="hover:underline">Home</a> &gt; <span class="font-bold text-slate-800">Robotic &amp; Computer-Assisted Surgery</span>
-        </nav>
-
-        <section class="mb-12">
-          <span class="inline-block px-3 py-1 rounded-full bg-[#EAF1F6] text-[#1B4965] text-xs font-bold uppercase tracking-wider mb-3">
-            Regional Pioneer in Essex &amp; North East London
-          </span>
-          <h1 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
-            Robotic &amp; Computer-Assisted Hip and Knee Surgery
-          </h1>
-          <p class="text-base sm:text-lg text-slate-600 mt-4 leading-relaxed max-w-4xl">
-            Mr Shivakumar Shankar is the first orthopaedic surgeon in Essex and North East London to perform robotic-assisted and computer-navigated total hip and knee joint replacement. Fellowship-trained in computer navigation at the world-renowned Golden Jubilee National Hospital in Glasgow, he harnesses robotic precision to achieve sub-millimeter component alignment, dynamic soft-tissue balance, and optimal joint longevity.
-          </p>
-        </section>
-
-        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200">
-            <h2 class="text-xl font-bold text-slate-900 mb-4">How Robotic Surgery Works (The 4 Steps)</h2>
-            <div class="space-y-4 text-xs sm:text-sm text-slate-700 leading-relaxed">
-              <div class="p-3 bg-[#F8FAFC] rounded-lg border border-slate-200">
-                <strong class="text-slate-900 block font-bold mb-0.5">1. Pre-Operative 3D CT Virtual Modeling:</strong>
-                A high-resolution CT scan of the patient's hip or knee generates a 3D virtual anatomical model capturing unique bony landmarks, deformities, and alignment.
-              </div>
-              <div class="p-3 bg-[#F8FAFC] rounded-lg border border-slate-200">
-                <strong class="text-slate-900 block font-bold mb-0.5">2. Patient-Specific Virtual Planning:</strong>
-                Mr Shankar digitally plans exact implant sizes, positioning angles, and resection depths prior to stepping into the operating theatre.
-              </div>
-              <div class="p-3 bg-[#F8FAFC] rounded-lg border border-slate-200">
-                <strong class="text-slate-900 block font-bold mb-0.5">3. Real-Time Dynamic Kinematic Tracking:</strong>
-                Infrared optical sensors track joint movement through full flexion, extension, and rotation, assessing ligament tension before bone cuts.
-              </div>
-              <div class="p-3 bg-[#F8FAFC] rounded-lg border border-slate-200">
-                <strong class="text-slate-900 block font-bold mb-0.5">4. Active Haptic Boundary Guidance:</strong>
-                The robotic arm physically prevents bone resections outside the approved plan, shielding vital nerves, blood vessels, and collateral ligaments.
-              </div>
-            </div>
-          </div>
-
-          <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200">
-            <h2 class="text-xl font-bold text-slate-900 mb-4">Demystifying Robotic Surgery: What It Does &amp; Does Not Mean</h2>
-            <div class="space-y-4 text-xs sm:text-sm text-slate-700 leading-relaxed">
-              <div class="p-4 bg-[#FFF7ED] rounded-lg border border-[#FDBA74]">
-                <strong class="text-[#C26B08] block font-bold mb-1">What It Does NOT Mean:</strong>
-                <p>The robot does NOT perform the operation independently or make autonomous surgical decisions. There is no automated robot operating on you. The surgeon retains 100% control of all instruments at all times.</p>
-              </div>
-              <div class="p-4 bg-[#EAF1F6] rounded-lg border border-[#94BFDC]">
-                <strong class="text-[#1B4965] block font-bold mb-1">What It DOES Mean:</strong>
-                <p>The robotic arm acts as an intelligent high-precision co-pilot. It eliminates human estimation and manual saw blade wobbling, guaranteeing that the plan devised by Mr Shankar is executed with sub-millimeter precision.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 mb-12">
-          <h2 class="text-xl font-bold text-slate-900 mb-4">Clinical Benefits of Robotic-Assisted Arthroplasty</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs">
-            <div class="p-4 bg-[#F8FAFC] rounded-xl border border-slate-200">
-              <strong class="text-slate-900 block font-bold text-sm mb-1">Sub-Millimeter Precision</strong>
-              <p class="text-slate-600">Eliminates component malalignment, leg length discrepancies, and implant edge loading.</p>
-            </div>
-            <div class="p-4 bg-[#F8FAFC] rounded-xl border border-slate-200">
-              <strong class="text-slate-900 block font-bold text-sm mb-1">Soft-Tissue Protection</strong>
-              <p class="text-slate-600">Haptic safety boundary ensures surrounding muscles, tendons, and neurovascular bundles remain unharmed.</p>
-            </div>
-            <div class="p-4 bg-[#F8FAFC] rounded-xl border border-slate-200">
-              <strong class="text-slate-900 block font-bold text-sm mb-1">Faster Mobilisation</strong>
-              <p class="text-slate-600">Reduced trauma and tissue swelling translates directly to earlier unassisted walking and discharge.</p>
-            </div>
-            <div class="p-4 bg-[#F8FAFC] rounded-xl border border-slate-200">
-              <strong class="text-slate-900 block font-bold text-sm mb-1">Implant Longevity</strong>
-              <p class="text-slate-600">Optimally balanced joint kinematics minimise bearing wear and lower the risk of early aseptic loosening.</p>
-            </div>
-          </div>
-        </section>
-
-        <section class="p-6 bg-[#EAF1F6] rounded-2xl border border-slate-300">
-          <h2 class="text-xl font-bold text-[#1B4965] mb-2">Explore Related Clinical Services</h2>
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-bold">
-            <a href="/hip-replacement" class="p-3 bg-white rounded-lg hover:text-[#1B4965] border border-slate-200 flex items-center justify-between">
-              <span>Hip Replacement</span> &rarr;
-            </a>
-            <a href="/knee-replacement" class="p-3 bg-white rounded-lg hover:text-[#1B4965] border border-slate-200 flex items-center justify-between">
-              <span>Knee Replacement</span> &rarr;
-            </a>
-            <a href="/patient-guides" class="p-3 bg-white rounded-lg hover:text-[#1B4965] border border-slate-200 flex items-center justify-between">
-              <span>Patient Guides</span> &rarr;
-            </a>
-            <a href="/contact" class="p-3 bg-[#E8A24C] text-white rounded-lg hover:bg-[#D99136] flex items-center justify-between">
-              <span>Enquire About Robotic</span> &rarr;
-            </a>
-          </div>
-        </section>
-      </main>
-      ${renderFooter()}
-    `
+    path: 'robotic-knee-replacement',
+    title: 'Robotic Knee Replacement London & Essex | Mako Arthroplasty',
+    description: 'Mako robotic-assisted total and partial knee replacement with real-time dynamic ligament balancing and sub-millimeter bony resection accuracy.',
+    canonical: 'https://www.shivakumarshankar.co.uk/robotic-knee-replacement',
+    bodyHtml: renderPageShell(
+      'robotic-knee-replacement',
+      'Robotic Knee Arthroplasty • Mako System',
+      'Robotic-Assisted Knee Replacement Surgery',
+      'Robotic-assisted knee replacement with the Mako system provides 3D CT virtual modeling, dynamic ligament tension assessment, and stereotactic bone resection boundaries.',
+      `
+      ${renderCardGrid([
+        {
+          title: 'Dynamic Soft-Tissue Balance',
+          desc: 'Assesses ligament laxity across the entire range of motion before any bone cuts are made.'
+        },
+        {
+          title: 'Sub-Millimeter Resection',
+          desc: 'Robotic arm physically guides the saw blade strictly within pre-planned safety boundaries.'
+        },
+        {
+          title: 'Preserves Bone Stock',
+          desc: 'Removes only arthritic bone while protecting surrounding collateral and cruciate ligaments.'
+        }
+      ])}
+      `
+    )
   },
+
+  // 10. Computer-Assisted Knee Replacement
+  {
+    path: 'computer-assisted-knee-replacement',
+    title: 'Computer-Assisted Knee Replacement | Mr Shivakumar Shankar',
+    description: 'Intra-operative optical navigation restoring mechanical alignment axes and dynamic joint stability during total knee arthroplasty.',
+    canonical: 'https://www.shivakumarshankar.co.uk/computer-assisted-knee-replacement',
+    bodyHtml: renderPageShell(
+      'computer-assisted-knee-replacement',
+      'Computer-Navigated Arthroplasty • Knee Care',
+      'Computer-Assisted Knee Replacement Surgery',
+      'Computer navigation provides real-time optical feedback on mechanical limb alignment, coronal plane balance, and flexion-extension gap symmetry.',
+      `
+      ${renderCardGrid([
+        {
+          title: 'Mechanical Axis Tracking',
+          desc: 'Ensures the hip-knee-ankle mechanical axis is accurately reconstructed to avoid eccentric implant loading.'
+        },
+        {
+          title: 'Gap Balancing Verification',
+          desc: 'Quantifies flexion and extension spaces in millimeters to achieve equal soft-tissue tension.'
+        },
+        {
+          title: '9 Years Navigation Experience',
+          desc: 'Extensive track record utilizing computer navigation systems in routine and complex cases.'
+        }
+      ])}
+      `
+    )
+  },
+
+  // 11. Partial Knee Replacement
+  {
+    path: 'partial-knee-replacement',
+    title: 'Partial Knee Replacement London & Essex | Unicompartmental Surgery',
+    description: 'Minimally invasive unicompartmental resurfacing preserving the healthy knee compartments, ACL, and PCL for natural joint kinematics.',
+    canonical: 'https://www.shivakumarshankar.co.uk/partial-knee-replacement',
+    bodyHtml: renderPageShell(
+      'partial-knee-replacement',
+      'Unicompartmental Arthroplasty • Joint Preservation',
+      'Partial Knee Replacement Surgery',
+      'Unicompartmental knee replacement resurfaces strictly the diseased medial or lateral compartment, leaving undamaged cartilage, bone, and both cruciate ligaments intact.',
+      `
+      ${renderCardGrid([
+        {
+          title: 'Preserves ACL and PCL',
+          desc: 'Maintaining native ligaments preserves normal joint kinematics, knee bend, and natural proprioception.'
+        },
+        {
+          title: 'Smaller Incision',
+          desc: 'Surgical approach creates minimal soft-tissue disturbance, leading to reduced swelling and less post-op pain.'
+        },
+        {
+          title: 'Rapid Recovery',
+          desc: 'Many patients mobilise without walking aids within weeks and return earlier to active hobbies.'
+        }
+      ])}
+      `
+    )
+  },
+
+  // 12. Knee Arthroscopy
   {
     path: 'knee-arthroscopy',
     title: 'Knee Arthroscopy & Keyhole Surgery | Mr Shivakumar Shankar',
     description: 'Minimally invasive keyhole knee surgery for meniscal tears, cartilage repair, and loose bodies in London and Essex. Over 1,200 procedures performed.',
     canonical: 'https://www.shivakumarshankar.co.uk/knee-arthroscopy',
-    bodyHtml: `
-      ${renderHeader('knee-arthroscopy')}
-      <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <nav aria-label="Breadcrumb" class="text-xs text-slate-500 mb-6">
-          <a href="/" class="hover:underline">Home</a> &gt; <span class="font-bold text-slate-800">Knee Arthroscopy &amp; Keyhole Surgery</span>
-        </nav>
-
-        <section class="mb-12">
-          <span class="inline-block px-3 py-1 rounded-full bg-[#EAF1F6] text-[#1B4965] text-xs font-bold uppercase tracking-wider mb-3">
-            Minimally Invasive Joint Preservation &bull; Over 1,200 Procedures
-          </span>
-          <h1 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
-            Knee Arthroscopy &amp; Keyhole Joint Preservation Surgery
-          </h1>
-          <p class="text-base sm:text-lg text-slate-600 mt-4 leading-relaxed max-w-4xl">
-            Knee arthroscopy is a minimally invasive keyhole surgical procedure performed through tiny puncture portals (less than 5mm). Having performed over 1,200 successful knee arthroscopies, Mr Shivakumar Shankar prioritises biological joint preservation &mdash; repairing torn meniscal tissue, smoothing damaged articular cartilage, removing loose bodies, and delivering regenerative therapies like Platelet-Rich Plasma (PRP) to delay or prevent the need for joint replacement.
-          </p>
-        </section>
-
-        <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          <div class="p-6 bg-white rounded-2xl border border-slate-200">
-            <h2 class="text-lg font-bold text-slate-900 mb-2">Meniscal Repair &amp; Preservation</h2>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
-              Whenever clinically viable, Mr Shankar repairs damaged meniscal fibrocartilage using all-inside or inside-out suture techniques rather than trimming it away, safeguarding natural shock absorption.
-            </p>
-            <ul class="text-xs text-slate-700 space-y-1">
-              <li>&bull; All-inside and root meniscal repairs</li>
-              <li>&bull; Targeted partial meniscectomy for complex tears</li>
-              <li>&bull; Prevents premature joint wear</li>
-            </ul>
-          </div>
-
-          <div class="p-6 bg-white rounded-2xl border border-slate-200">
-            <h2 class="text-lg font-bold text-slate-900 mb-2">Cartilage Procedures &amp; Loose Bodies</h2>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
-              Chondral flaps and detached bone or cartilage fragments cause painful joint catching, clicking, and sudden knee locking. Arthroscopy clears mechanical obstructions and stimulates natural repair.
-            </p>
-            <ul class="text-xs text-slate-700 space-y-1">
-              <li>&bull; Chondroplasty and microfracture techniques</li>
-              <li>&bull; Removal of mechanical loose bodies</li>
-              <li>&bull; Relieves persistent joint effusions</li>
-            </ul>
-          </div>
-
-          <div class="p-6 bg-white rounded-2xl border border-slate-200">
-            <h2 class="text-lg font-bold text-slate-900 mb-2">PRP &amp; Biological Regeneration</h2>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
-              Platelet-Rich Plasma (PRP) concentrates healing growth factors harvested from your own blood, calming joint inflammation, protecting early cartilage degeneration, and accelerating soft-tissue recovery.
-            </p>
-            <ul class="text-xs text-slate-700 space-y-1">
-              <li>&bull; Autologous natural biological therapy</li>
-              <li>&bull; High molecular weight Hyaluronic Acid</li>
-              <li>&bull; Outpatient injection clinics available</li>
-            </ul>
-          </div>
-        </section>
-
-        <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 mb-12">
-          <h2 class="text-xl font-bold text-slate-900 mb-4">Day-Case Recovery Timeline &amp; Milestones</h2>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs text-slate-700">
-            <div class="p-4 bg-[#F8FAFC] rounded-xl border border-slate-200">
-              <strong class="text-slate-900 block font-bold mb-1">Days 0 to 3: Immediate Day-Case Discharge</strong>
-              Walk out on the same day. Apply cold therapy, elevation, and compression with active quadriceps activation and gentle bending.
-            </div>
-            <div class="p-4 bg-[#F8FAFC] rounded-xl border border-slate-200">
-              <strong class="text-slate-900 block font-bold mb-1">Week 1 to 2: Early Mobilisation</strong>
-              Full weight-bearing as tolerated, wean off crutches, straight leg raises, and active knee extension exercises.
-            </div>
-            <div class="p-4 bg-[#F8FAFC] rounded-xl border border-slate-200">
-              <strong class="text-slate-900 block font-bold mb-1">Week 3 to 6: Return to Sport</strong>
-              Static cycling, swimming, closed kinetic chain exercises, and graded return to light jogging and active daily hobbies.
-            </div>
-          </div>
-        </section>
-
-        <section class="p-6 bg-[#EAF1F6] rounded-2xl border border-slate-300">
-          <h2 class="text-xl font-bold text-[#1B4965] mb-2">Explore Related Clinical Services</h2>
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-bold">
-            <a href="/knee-replacement" class="p-3 bg-white rounded-lg hover:text-[#1B4965] border border-slate-200 flex items-center justify-between">
-              <span>Knee Replacement</span> &rarr;
-            </a>
-            <a href="/robotic-surgery" class="p-3 bg-white rounded-lg hover:text-[#1B4965] border border-slate-200 flex items-center justify-between">
-              <span>Robotic Surgery</span> &rarr;
-            </a>
-            <a href="/patient-guides" class="p-3 bg-white rounded-lg hover:text-[#1B4965] border border-slate-200 flex items-center justify-between">
-              <span>Arthroscopy Protocols</span> &rarr;
-            </a>
-            <a href="/contact" class="p-3 bg-[#E8A24C] text-white rounded-lg hover:bg-[#D99136] flex items-center justify-between">
-              <span>Book Arthroscopy</span> &rarr;
-            </a>
-          </div>
-        </section>
-      </main>
-      ${renderFooter()}
-    `
+    bodyHtml: renderPageShell(
+      'knee-arthroscopy',
+      'Minimally Invasive Joint Preservation • Over 1,200 Cases',
+      'Knee Arthroscopy &amp; Keyhole Joint Preservation Surgery',
+      'Keyhole day-case surgical management of meniscal tears, cartilage wear, mechanical joint locking, and biological regenerative therapies by Mr Shivakumar Shankar.',
+      `
+      ${renderCardGrid([
+        {
+          title: 'Meniscal Repair & Preservation',
+          desc: 'Prioritises repairing meniscal tears with all-inside suture anchors rather than trimming, safeguarding natural shock absorption.'
+        },
+        {
+          title: 'Chondral Debridement & Loose Bodies',
+          desc: 'Clears mechanical fragments and smooths damaged articular surfaces to alleviate catching and joint locking.'
+        },
+        {
+          title: 'Day-Case Discharge',
+          desc: 'Small puncture incisions enable immediate mobilization and safe same-day hospital discharge.'
+        }
+      ])}
+      `
+    )
   },
+
+  // 13. Robotic & Computer-Assisted Surgery Overview
+  {
+    path: 'robotic-computer-assisted-surgery',
+    title: 'Robotic & Computer-Assisted Hip & Knee Surgery | Essex & London',
+    description: 'Pioneering robotic & computer-assisted joint replacement by Mr Shivakumar Shankar. Sub-millimeter implant accuracy and personalised soft-tissue balancing.',
+    canonical: 'https://www.shivakumarshankar.co.uk/robotic-computer-assisted-surgery',
+    bodyHtml: renderPageShell(
+      'robotic-surgery',
+      'Regional Pioneer in Essex & North East London',
+      'Robotic &amp; Computer-Assisted Hip and Knee Surgery',
+      'Mr Shivakumar Shankar has stated that he was the first surgeon to perform computer-assisted and robotic total hip replacement in Essex and North East London, combining fellowship expertise with MAKO robotic guidance.',
+      `
+      ${renderCardGrid([
+        {
+          title: 'Surgeon Control vs Robot',
+          desc: 'The robot never acts autonomously. It operates as an assistive precision tool with active safety boundaries controlled by Mr Shankar.'
+        },
+        {
+          title: '3D Virtual Modeling',
+          desc: 'Pre-operative CT planning provides detailed anatomical templating matched specifically to individual bone geometry.'
+        },
+        {
+          title: 'Dynamic Gap Balancing',
+          desc: 'Evaluates soft-tissue balance in real-time through the full motion arc prior to executing bone resections.'
+        }
+      ])}
+      `
+    )
+  },
+
+  // 14. /robotic-surgery (alias)
+  {
+    path: 'robotic-surgery',
+    title: 'Robotic & Computer-Assisted Hip & Knee Surgery | Essex & London',
+    description: 'Pioneering robotic & computer-assisted joint replacement by Mr Shivakumar Shankar. Sub-millimeter implant accuracy and personalised soft-tissue balancing.',
+    canonical: 'https://www.shivakumarshankar.co.uk/robotic-computer-assisted-surgery',
+    bodyHtml: renderPageShell(
+      'robotic-surgery',
+      'Regional Pioneer in Essex & North East London',
+      'Robotic &amp; Computer-Assisted Hip and Knee Surgery',
+      'Comprehensive patient guide to computer navigation and Mako robotic-assisted technology for total hip, total knee, and partial knee replacement in London and Essex.',
+      `
+      ${renderCardGrid([
+        {
+          title: 'Sub-Millimeter Precision',
+          desc: 'Delivers sub-millimeter component alignment and soft-tissue balance tailored to patient anatomy.'
+        },
+        {
+          title: 'Clinical Experience',
+          desc: '9 years experience in computer-assisted surgery, incorporating Mako robotic technology.'
+        },
+        {
+          title: 'Available Locations',
+          desc: 'Private robotic joint replacement available at Spire Hartswood and Nuffield Health Brentwood hospitals.'
+        }
+      ])}
+      `
+    )
+  },
+
+  // 15. Conventional vs Computer-Assisted vs Robotic
+  {
+    path: 'conventional-vs-computer-assisted-vs-robotic-surgery',
+    title: 'Conventional vs Computer-Assisted vs Robotic Surgery | Clinical Guide',
+    description: 'Objective comparison of conventional manual, computer-navigated, and robotic-assisted joint replacement surgery with clinical evidence.',
+    canonical: 'https://www.shivakumarshankar.co.uk/conventional-vs-computer-assisted-vs-robotic-surgery',
+    bodyHtml: renderPageShell(
+      'technology-comparison',
+      'Clinical Comparison • Evidence-Based Overview',
+      'Conventional vs Computer-Assisted vs Robotic Surgery',
+      'A balanced, educational review evaluating the differences in surgical planning, component alignment, intra-operative navigation, surgeon control, and clinical evidence across manual, computer-navigated, and robotic joint replacement.',
+      `
+      ${renderCardGrid([
+        {
+          title: 'Conventional Manual Surgery',
+          desc: 'Proven worldwide over decades using mechanical alignment jigs and surgeon tactile assessment. Dependent on individual anatomical landmarks.'
+        },
+        {
+          title: 'Computer-Assisted Navigation',
+          desc: 'Intra-operative optical tracking verifies mechanical axes and component angles in real time without pre-operative CT scans.'
+        },
+        {
+          title: 'Robotic-Assisted Surgery',
+          desc: 'Combines pre-operative 3D CT modeling with active haptic stereotactic boundary guidance and dynamic soft-tissue tension mapping.'
+        }
+      ])}
+      `
+    )
+  },
+
+  // 16. Patient Information Hub
+  {
+    path: 'patient-information',
+    title: 'Patient Information & Surgical Guides | Mr Shivakumar Shankar',
+    description: 'Comprehensive patient resources, surgical preparations, informed consent, and rehabilitation pathways for hip and knee operations.',
+    canonical: 'https://www.shivakumarshankar.co.uk/patient-information',
+    bodyHtml: renderPageShell(
+      'patient-resources',
+      'Informed Consent & Rehabilitation Guides',
+      'Patient Information Guides &amp; Surgical Protocols',
+      'Comprehensive educational resources, preparation checklists, recovery timelines, non-operative options, and downloadable physiotherapy protocols authored by Mr Shivakumar Shankar.',
+      `
+      ${renderCardGrid([
+        {
+          title: 'Surgical Preparation',
+          desc: 'Pre-assessment guidance, medication reviews, and practical home setup tips for safe post-operative discharge.'
+        },
+        {
+          title: 'Transparent Risk Profile',
+          desc: 'Clear explanations of blood clot prevention, infection precautions, and joint-specific surgical considerations.'
+        },
+        {
+          title: 'Physiotherapy Protocols',
+          desc: 'Downloadable clinical PDF exercise protocols guiding step-by-step rehabilitation from hospital to daily activities.'
+        }
+      ])}
+      `
+    )
+  },
+
+  // 17. /patient-guides (alias)
   {
     path: 'patient-guides',
     title: 'Patient Information & Guides | Mr Shivakumar Shankar',
     description: 'Patient information guides, surgical risks, non-operative options, and downloadable PDF rehabilitation protocols for hip and knee replacement patients.',
-    canonical: 'https://www.shivakumarshankar.co.uk/patient-guides',
-    bodyHtml: `
-      ${renderHeader('patient-guides')}
-      <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <nav aria-label="Breadcrumb" class="text-xs text-slate-500 mb-6">
-          <a href="/" class="hover:underline">Home</a> &gt; <span class="font-bold text-slate-800">Patient Guides &amp; Protocols</span>
-        </nav>
-
-        <section class="mb-12">
-          <span class="inline-block px-3 py-1 rounded-full bg-[#EAF1F6] text-[#1B4965] text-xs font-bold uppercase tracking-wider mb-3">
-            Informed Consent, Surgical Risks &amp; Rehabilitation
-          </span>
-          <h1 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
-            Patient Information Guides &amp; Rehabilitation Protocols
-          </h1>
-          <p class="text-base sm:text-lg text-slate-600 mt-4 leading-relaxed max-w-4xl">
-            Mr Shivakumar Shankar believes that well-informed patients achieve the safest, fastest, and most satisfying surgical outcomes. Here you will find authoritative guidance on surgical preparation, conservative non-operative alternatives, transparent explanations of surgical risks, post-operative red flags, and comprehensive day-by-day downloadable PDF rehabilitation protocols.
-          </p>
-        </section>
-
-        <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          <div class="p-6 bg-white rounded-2xl border border-slate-200">
-            <h2 class="text-lg font-bold text-slate-900 mb-2">Non-Operative Care Hierarchy</h2>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
-              Surgery is always the last resort. We explore optimized medical analgesia, weight management (every 1 kg lost relieves 3-4 kg of joint force), low-impact cross-training, and targeted joint injections first.
-            </p>
-          </div>
-
-          <div class="p-6 bg-white rounded-2xl border border-slate-200">
-            <h2 class="text-lg font-bold text-slate-900 mb-2">Transparent Risk Discussion</h2>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
-              Clear, transparent discussion of risks including DVT/PE blood clot prevention (blood thinners and early mobilisation), infection prevention (laminar flow theatres and prophylactic antibiotics), and nerve safety.
-            </p>
-          </div>
-
-          <div class="p-6 bg-white rounded-2xl border border-slate-200">
-            <h2 class="text-lg font-bold text-slate-900 mb-2">Post-Operative Red Flags</h2>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
-              Distinguishing normal post-surgical warmth and muscular aching from true emergency red flags (sudden chest pain, acute calf swelling, persistent wound leakage, or high fever) requiring immediate clinical review.
-            </p>
-          </div>
-        </section>
-
-        <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 mb-12">
-          <h2 class="text-xl font-bold text-slate-900 mb-4">Downloadable Physiotherapy Protocols (PDF)</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs">
-            <div class="p-4 bg-[#F8FAFC] rounded-xl border border-slate-200 flex flex-col justify-between">
-              <div>
-                <strong class="text-slate-900 block font-bold text-sm mb-1">Total Hip Replacement</strong>
-                <p class="text-slate-600 mb-3">6-Month Progressive Recovery Protocol from day 1 ambulation to sports resumption.</p>
-              </div>
-              <span class="text-xs font-bold text-[#1B4965]">&bull; Available in PDF Hub</span>
-            </div>
-            <div class="p-4 bg-[#F8FAFC] rounded-xl border border-slate-200 flex flex-col justify-between">
-              <div>
-                <strong class="text-slate-900 block font-bold text-sm mb-1">Total Knee Replacement</strong>
-                <p class="text-slate-600 mb-3">Flexion restoration, quadriceps reactivation, and kinematic balancing pathway.</p>
-              </div>
-              <span class="text-xs font-bold text-[#1B4965]">&bull; Available in PDF Hub</span>
-            </div>
-            <div class="p-4 bg-[#F8FAFC] rounded-xl border border-slate-200 flex flex-col justify-between">
-              <div>
-                <strong class="text-slate-900 block font-bold text-sm mb-1">Partial Knee Replacement</strong>
-                <p class="text-slate-600 mb-3">Accelerated rehabilitation capitalizing on preserved cruciate ligaments.</p>
-              </div>
-              <span class="text-xs font-bold text-[#1B4965]">&bull; Available in PDF Hub</span>
-            </div>
-            <div class="p-4 bg-[#F8FAFC] rounded-xl border border-slate-200 flex flex-col justify-between">
-              <div>
-                <strong class="text-slate-900 block font-bold text-sm mb-1">Knee Arthroscopy</strong>
-                <p class="text-slate-600 mb-3">Rapid keyhole meniscal repair protocol with return to recreational running.</p>
-              </div>
-              <span class="text-xs font-bold text-[#1B4965]">&bull; Available in PDF Hub</span>
-            </div>
-          </div>
-        </section>
-
-        <section class="p-6 bg-[#EAF1F6] rounded-2xl border border-slate-300">
-          <h2 class="text-xl font-bold text-[#1B4965] mb-2">Explore Related Clinical Services</h2>
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-bold">
-            <a href="/hip-replacement" class="p-3 bg-white rounded-lg hover:text-[#1B4965] border border-slate-200 flex items-center justify-between">
-              <span>Hip Replacement</span> &rarr;
-            </a>
-            <a href="/knee-replacement" class="p-3 bg-white rounded-lg hover:text-[#1B4965] border border-slate-200 flex items-center justify-between">
-              <span>Knee Replacement</span> &rarr;
-            </a>
-            <a href="/robotic-surgery" class="p-3 bg-white rounded-lg hover:text-[#1B4965] border border-slate-200 flex items-center justify-between">
-              <span>Robotic Surgery</span> &rarr;
-            </a>
-            <a href="/contact" class="p-3 bg-[#E8A24C] text-white rounded-lg hover:bg-[#D99136] flex items-center justify-between">
-              <span>Book Consultation</span> &rarr;
-            </a>
-          </div>
-        </section>
-      </main>
-      ${renderFooter()}
-    `
+    canonical: 'https://www.shivakumarshankar.co.uk/patient-information',
+    bodyHtml: renderPageShell(
+      'patient-resources',
+      'Informed Consent & Rehabilitation',
+      'Patient Information Guides &amp; Rehabilitation Protocols',
+      'Authoritative guidance on surgical preparation, conservative non-operative alternatives, transparent explanations of surgical risks, and comprehensive day-by-day rehabilitation protocols.',
+      `
+      ${renderCardGrid([
+        {
+          title: 'Recovery Milestones',
+          desc: 'Clear guidance on walking progression, crutch weaning, driving resumption, and return to work.'
+        },
+        {
+          title: 'Warning Signs (Red Flags)',
+          desc: 'Clear instructions distinguishing expected post-surgical swelling from symptoms requiring urgent team contact.'
+        },
+        {
+          title: 'Direct Secretary Contact',
+          desc: 'Dedicated secretarial support for rapid post-operative queries and clinic appointment coordination.'
+        }
+      ])}
+      `
+    )
   },
+
+  // 18. Hip Replacement Recovery
+  {
+    path: 'hip-replacement-recovery',
+    title: 'Hip Replacement Recovery Guide | Milestones, Walking & Driving',
+    description: 'Evidence-based recovery guide detailing post-operative milestones, exercise regimens, driving guidelines, and return to work after hip arthroplasty.',
+    canonical: 'https://www.shivakumarshankar.co.uk/hip-replacement-recovery',
+    bodyHtml: renderPageShell(
+      'hip-recovery',
+      'Clinical Recovery Pathway • Hip Arthroplasty',
+      'Hip Replacement Recovery Guide',
+      'Comprehensive recovery milestones, wound care advice, walking progression, returning to driving, returning to work, and warning signs following total hip replacement surgery.',
+      `
+      ${renderCardGrid([
+        {
+          title: 'Weeks 0 to 2: Mobilisation',
+          desc: 'Hospital discharge typically day 1 or 2. Walking with two crutches, regular ice therapy, and dedicated abductor exercises.'
+        },
+        {
+          title: 'Weeks 3 to 6: Weaning Aids',
+          desc: 'Transition to single stick, progressive walking tolerance, and driving assessment once emergency stop capability is confirmed.'
+        },
+        {
+          title: 'Weeks 6 to 12+: Return to Work',
+          desc: 'Resuming desk duties (4-6 weeks) or manual occupations (8-12 weeks), low-impact cycling, and swimming.'
+        }
+      ])}
+      `
+    )
+  },
+
+  // 19. Knee Replacement Recovery
+  {
+    path: 'knee-replacement-recovery',
+    title: 'Knee Replacement Recovery Guide | Milestones & Rehabilitation',
+    description: 'Comprehensive recovery timeline for knee replacement, managing swelling, restoring range of motion, and returning to daily activities.',
+    canonical: 'https://www.shivakumarshankar.co.uk/knee-replacement-recovery',
+    bodyHtml: renderPageShell(
+      'knee-recovery',
+      'Clinical Recovery Pathway • Knee Arthroplasty',
+      'Knee Replacement Recovery Guide',
+      'Detailed recovery milestones, straightening and bending exercises, swelling management, driving resumption, and rehabilitation after total and partial knee replacement.',
+      `
+      ${renderCardGrid([
+        {
+          title: 'Restoring Knee Straightening',
+          desc: 'Achieving 0 degrees full extension early prevents long-term walking limps and restores quadriceps strength.'
+        },
+        {
+          title: 'Managing Joint Swelling',
+          desc: 'Elevating the leg above heart level, structured cryotherapy (ice packs), and avoiding prolonged dependent standing.'
+        },
+        {
+          title: 'Restoring Knee Bend',
+          desc: 'Graded flexion exercises aiming for 90 degrees by week 2 and 110+ degrees by week 6 to 8 for normal stair climbing.'
+        }
+      ])}
+      `
+    )
+  },
+
+  // 20. Preparing for Surgery
+  {
+    path: 'preparing-for-surgery',
+    title: 'Preparing for Joint Surgery | Pre-Assessment Checklist & Advice',
+    description: 'Practical guidance on preparing for hip or knee surgery, pre-assessment clinic, medication management, and home preparation.',
+    canonical: 'https://www.shivakumarshankar.co.uk/preparing-for-surgery',
+    bodyHtml: renderPageShell(
+      'surgical-preparation',
+      'Patient Preparation Guide • Hospital Pathway',
+      'Preparing for Hip or Knee Surgery',
+      'Essential guidance for patients undergoing joint replacement: pre-assessment checks, stopping medications safely, preparing your home, and what to pack for hospital.',
+      `
+      ${renderCardGrid([
+        {
+          title: 'Pre-Assessment Clinic',
+          desc: 'Blood tests, ECG, MRSA swabs, and consultation with the anaesthetic team to ensure medical fitness for surgery.'
+        },
+        {
+          title: 'Home Preparation',
+          desc: 'Clear pathways, remove loose rugs, arrange ground-floor recovery sleeping if stairs are difficult, and organize assistance.'
+        },
+        {
+          title: 'Hospital Bag Checklist',
+          desc: 'Loose comfortable clothing, supportive flat shoes, current medications in original boxes, and toiletries.'
+        }
+      ])}
+      `
+    )
+  },
+
+  // 21. Frequently Asked Questions
+  {
+    path: 'frequently-asked-questions',
+    title: 'Orthopaedic FAQs | Hip & Knee Surgery Questions Answered',
+    description: 'Answers to frequent patient questions on private health insurance, consultation fees, surgical recovery, anaesthesia, and implant durability.',
+    canonical: 'https://www.shivakumarshankar.co.uk/frequently-asked-questions',
+    bodyHtml: renderPageShell(
+      'faqs',
+      'Frequently Asked Questions • Practice FAQ',
+      'Frequently Asked Questions (FAQs)',
+      'Clear, authoritative answers to common patient questions covering private medical insurance pre-authorisation, self-pay fixed price packages, hospital stay, anaesthesia, and post-operative recovery.',
+      `
+      ${renderCardGrid([
+        {
+          title: 'Private Health Insurance',
+          desc: 'Mr Shankar is recognized by all major UK medical insurers including Bupa, AXA Health, Aviva, Vitality, and WPA.'
+        },
+        {
+          title: 'Self-Pay Package Quotes',
+          desc: 'Fixed-price surgical packages with zero hidden costs are provided directly by Spire Hartswood and Nuffield Health Brentwood.'
+        },
+        {
+          title: 'Anaesthetic Choices',
+          desc: 'Most joint replacements are performed using spinal anaesthesia with light sedation, avoiding general anaesthetic grogginess.'
+        }
+      ])}
+      `
+    )
+  },
+
+  // 22. Physiotherapy Protocols
+  {
+    path: 'physio-protocols',
+    title: 'Physiotherapy Protocols & PDFs | Mr Shivakumar Shankar',
+    description: 'Downloadable clinical rehabilitation protocols and exercise guidelines for total hip, total knee, partial knee, and arthroscopy patients.',
+    canonical: 'https://www.shivakumarshankar.co.uk/physio-protocols',
+    bodyHtml: renderPageShell(
+      'physiotherapy',
+      'Downloadable PDF Protocols • Rehabilitation',
+      'Physiotherapy Protocols &amp; Rehabilitation Guidelines',
+      'Downloadable step-by-step physiotherapy protocols authored by Mr Shivakumar Shankar to guide your post-operative recovery and optimize joint range of motion.',
+      `
+      ${renderCardGrid([
+        {
+          title: 'Total Hip Replacement Protocol',
+          desc: 'Phase 1 to Phase 4 progressive rehabilitation from initial bed exercises to advanced gait and balance training.'
+        },
+        {
+          title: 'Total Knee Replacement Protocol',
+          desc: 'Active extension restoration, quadriceps reactivation, and progressive knee flexion milestones.'
+        },
+        {
+          title: 'Knee Arthroscopy Protocol',
+          desc: 'Rapid keyhole meniscal recovery guidelines for immediate day-case discharge and return to sports.'
+        }
+      ])}
+      `
+    )
+  },
+
+  // 23. Hospitals & Locations Overview
+  {
+    path: 'hospitals-locations',
+    title: 'Hospitals & Practice Locations | London & Essex Hip Knee Surgeon',
+    description: 'Consulting and surgical locations across Essex and London: Spire Hartswood, Nuffield Health Brentwood, Queen\'s Hospital, and King George Hospital.',
+    canonical: 'https://www.shivakumarshankar.co.uk/hospitals-locations',
+    bodyHtml: renderPageShell(
+      'hospitals-overview',
+      'Consulting Locations • London & Essex',
+      'Hospitals &amp; Consulting Locations',
+      'Mr Shivakumar Shankar consults and operates across private and NHS hospital facilities in Essex and North East London, providing convenient access for London and Essex patients.',
+      `
+      ${renderCardGrid([
+        {
+          title: 'Spire Hartswood Hospital',
+          desc: 'Premier private hospital in Brentwood, Essex with laminar flow theatres, on-site MRI/CT, and en-suite inpatient rooms.'
+        },
+        {
+          title: 'Nuffield Health Brentwood',
+          desc: 'Renowned private hospital in Brentwood, Essex offering fixed-price self-pay packages and advanced robotic surgery.'
+        },
+        {
+          title: 'BHRUT NHS Trust Hospitals',
+          desc: 'Substantive NHS consultant practice at Queen\'s Hospital Romford (Major Trauma) and King George Hospital Goodmayes.'
+        }
+      ])}
+      `
+    )
+  },
+
+  // 24. London Hip & Knee Surgeon
+  {
+    path: 'london-hip-knee-surgeon',
+    title: 'Hip & Knee Surgeon in London & North East London | Mr Shankar',
+    description: 'Consultant orthopaedic hip and knee surgery for London and North East London patients with substantive NHS and private hospital options.',
+    canonical: 'https://www.shivakumarshankar.co.uk/london-hip-knee-surgeon',
+    bodyHtml: renderPageShell(
+      'london-practice',
+      'Specialist Arthroplasty • London Practice',
+      'Hip and Knee Surgeon in London &amp; North East London',
+      'Mr Shivakumar Shankar provides substantive NHS consultant care at Queen\'s Hospital and King George Hospital (BHRUT) alongside private consultations at Brentwood hospitals easily accessible from London.',
+      `
+      ${renderCardGrid([
+        {
+          title: 'Accessible From London',
+          desc: 'Spire Hartswood and Nuffield Health Brentwood are located just off the M25 J28/A12 and easily reached via Elizabeth Line.'
+        },
+        {
+          title: 'NHS Clinical Leadership',
+          desc: 'Leading orthopaedic services across Barking, Havering, Redbridge, and greater North East London.'
+        },
+        {
+          title: 'Private Robotic Surgery',
+          desc: 'Fast-track private outpatient appointments without extensive NHS waiting list delays.'
+        }
+      ])}
+      `
+    )
+  },
+
+  // 25. Essex Hip & Knee Surgeon
+  {
+    path: 'essex-hip-knee-surgeon',
+    title: 'Hip & Knee Surgeon in Essex | Mr Shivakumar Shankar',
+    description: 'Leading hip and knee arthroplasty specialist in Brentwood and Essex providing robotic-assisted surgery and joint preservation.',
+    canonical: 'https://www.shivakumarshankar.co.uk/essex-hip-knee-surgeon',
+    bodyHtml: renderPageShell(
+      'essex-practice',
+      'Consultant Orthopaedic Care • Essex Practice',
+      'Hip and Knee Surgeon in Essex',
+      'Specialist hip and knee arthroplasty, robotic surgery, and joint preservation care for Essex patients. Private consultations at Spire Hartswood and Nuffield Health Brentwood.',
+      `
+      ${renderCardGrid([
+        {
+          title: 'Regional Robotic Pioneer',
+          desc: 'First surgeon in Essex to perform computer-assisted and robotic total hip replacement.'
+        },
+        {
+          title: 'Brentwood Private Facilities',
+          desc: 'Outpatient consultation clinics, on-site imaging, and dedicated joint replacement inpatient wards.'
+        },
+        {
+          title: 'Insured & Self-Pay Welcome',
+          desc: 'Recognized by all UK private insurers with transparent fixed-price self-pay options.'
+        }
+      ])}
+      `
+    )
+  },
+
+  // 26. Spire Hartswood Hospital
+  {
+    path: 'spire-hartswood-hospital',
+    title: 'Spire Hartswood Hospital Consultations | Brentwood, Essex',
+    description: 'Private hip and knee consultations and robotic surgery with Mr Shivakumar Shankar at Spire Hartswood Hospital in Brentwood, Essex.',
+    canonical: 'https://www.shivakumarshankar.co.uk/spire-hartswood-hospital',
+    bodyHtml: renderPageShell(
+      'spire-hartswood',
+      'Private Hospital • Brentwood, Essex',
+      'Spire Hartswood Hospital — Brentwood, Essex',
+      'Premier private hospital location for Mr Shivakumar Shankar\'s private practice. Offering modern laminar flow theatres, on-site MRI/CT diagnostics, and private en-suite inpatient rooms.',
+      `
+      ${renderCardGrid([
+        {
+          title: 'Location & Access',
+          desc: 'Eagle Way, Great Warley, Brentwood CM13 3LE. Ample free on-site parking, accessible from M25 Junction 28.'
+        },
+        {
+          title: 'Clinical Services',
+          desc: 'Outpatient consultation clinics, robotic joint replacement, rapid-access joint injections, and physiotherapy.'
+        },
+        {
+          title: 'Hospital Appointments',
+          desc: 'Direct telephone: 01277 695 695 or contact practice secretary Remya Rexlin on 07587 765888.'
+        }
+      ])}
+      `
+    )
+  },
+
+  // 27. Nuffield Health Brentwood Hospital
+  {
+    path: 'nuffield-brentwood-hospital',
+    title: 'Nuffield Health Brentwood Hospital | Mr Shivakumar Shankar',
+    description: 'Private orthopaedic consultations and joint replacement surgery at Nuffield Health Brentwood Hospital, Essex.',
+    canonical: 'https://www.shivakumarshankar.co.uk/nuffield-brentwood-hospital',
+    bodyHtml: renderPageShell(
+      'nuffield-brentwood',
+      'Private Hospital • Brentwood, Essex',
+      'Nuffield Health Brentwood Hospital',
+      'Comprehensive private hip and knee services at Nuffield Health Brentwood Hospital, featuring advanced diagnostic imaging, modern surgical theatres, and bespoke physiotherapy.',
+      `
+      ${renderCardGrid([
+        {
+          title: 'Location & Access',
+          desc: 'Shenfield Road, Brentwood, Essex CM15 8EH. Free on-site parking, close to Brentwood and Shenfield rail stations.'
+        },
+        {
+          title: 'Joint Care Pathways',
+          desc: 'Total hip replacement, total and partial knee arthroplasty, keyhole arthroscopy, and pain management.'
+        },
+        {
+          title: 'Hospital Appointments',
+          desc: 'Direct telephone: 01277 263 263 or contact practice secretary Remya Rexlin on 07587 765888.'
+        }
+      ])}
+      `
+    )
+  },
+
+  // 28. Queen's Hospital Romford (NHS)
+  {
+    path: 'queens-hospital-romford',
+    title: 'Queen\'s Hospital Romford (BHRUT NHS Trust) | Mr Shivakumar Shankar',
+    description: 'NHS Clinical Lead for Orthopaedics at Barking, Havering and Redbridge University Hospitals NHS Trust, operating at Queen\'s Hospital Romford.',
+    canonical: 'https://www.shivakumarshankar.co.uk/queens-hospital-romford',
+    bodyHtml: renderPageShell(
+      'queens-hospital',
+      'BHRUT NHS Trust • Major Trauma & Arthroplasty',
+      'Queen\'s Hospital, Romford (BHRUT NHS Trust)',
+      'Substantive NHS consultant base and acute trauma centre for Barking, Havering and Redbridge University Hospitals NHS Trust, where Mr Shankar serves as NHS Clinical Lead for Orthopaedics.',
+      `
+      ${renderCardGrid([
+        {
+          title: 'Clinical Lead Role',
+          desc: 'Oversees surgical governance, patient safety protocols, and subspecialty arthroplasty pathways across BHRUT.'
+        },
+        {
+          title: 'NHS Referral Pathway',
+          desc: 'NHS patients can be referred by their GP via the NHS e-Referral Service (Choose & Book) to Mr Shankar\'s clinic.'
+        },
+        {
+          title: 'Romford Medical Centre',
+          desc: 'Rom Valley Way, Romford RM7 0AG. Major trauma centre and complex orthopaedic reconstruction unit.'
+        }
+      ])}
+      `
+    )
+  },
+
+  // 29. King George Hospital Goodmayes (NHS)
+  {
+    path: 'king-george-hospital-goodmayes',
+    title: 'King George Hospital Goodmayes (BHRUT) | Elective Orthopaedic Centre',
+    description: 'Substantive NHS elective orthopaedic surgery and high-volume joint replacement unit at King George Hospital, Goodmayes.',
+    canonical: 'https://www.shivakumarshankar.co.uk/king-george-hospital-goodmayes',
+    bodyHtml: renderPageShell(
+      'king-george-hospital',
+      'BHRUT NHS Trust • Elective Surgical Centre',
+      'King George Hospital, Goodmayes (BHRUT NHS Trust)',
+      'Dedicated elective surgical centre for Barking, Havering and Redbridge University Hospitals NHS Trust, delivering high-volume routine hip and knee arthroplasty with clean elective pathways.',
+      `
+      ${renderCardGrid([
+        {
+          title: 'Elective Arthroplasty Unit',
+          desc: 'Specialised protected elective orthopaedic surgical suites minimizing operation cancellation risks.'
+        },
+        {
+          title: 'NHS Referral Pathway',
+          desc: 'NHS patient consultations and surgery managed via GP referral through the NHS e-Referral Service.'
+        },
+        {
+          title: 'Goodmayes Facility',
+          desc: 'Barley Lane, Goodmayes, Ilford IG3 8YB. Modern inpatient surgical facilities and rehabilitation gym.'
+        }
+      ])}
+      `
+    )
+  },
+
+  // 30. Reviews
   {
     path: 'reviews',
-    title: 'Patient Reviews & Outcomes | Mr Shivakumar Shankar',
-    description: 'Read 5-star verified patient reviews and clinical feedback for Mr Shivakumar Shankar, Consultant Orthopaedic Hip & Knee Surgeon at Spire and Nuffield.',
+    title: 'Patient Reviews & Clinical Outcomes | Mr Shivakumar Shankar',
+    description: 'Independently verified patient reviews from Doctify and iWantGreatCare for Mr Shivakumar Shankar, Consultant Hip & Knee Surgeon.',
     canonical: 'https://www.shivakumarshankar.co.uk/reviews',
-    bodyHtml: `
-      ${renderHeader('reviews')}
-      <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <nav aria-label="Breadcrumb" class="text-xs text-slate-500 mb-6">
-          <a href="/" class="hover:underline">Home</a> &gt; <span class="font-bold text-slate-800">Patient Reviews &amp; Outcomes</span>
-        </nav>
-
-        <section class="mb-12">
-          <span class="inline-block px-3 py-1 rounded-full bg-[#EAF1F6] text-[#1B4965] text-xs font-bold uppercase tracking-wider mb-3">
-            Dual-Platform Verified Feedback &bull; Doctify &amp; iWantGreatCare
-          </span>
-          <h1 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
-            Verified Patient Reviews &amp; Clinical Outcomes
-          </h1>
-          <p class="text-base sm:text-lg text-slate-600 mt-4 leading-relaxed max-w-4xl">
-            Transparency and clinical excellence define Mr Shivakumar Shankar's practice. With hundreds of independently verified 5-star patient reviews on leading healthcare rating platforms including Doctify and iWantGreatCare (IWGC), patients consistently highlight his calm, attentive listening, clear explanations, robotic surgical precision, and dedicated post-operative care.
-          </p>
-        </section>
-
-        <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-xs">
-            <div class="flex items-center gap-1 text-[#E8A24C] mb-2 text-sm">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <h2 class="text-base font-bold text-slate-900 mb-2">Total Hip Replacement Patient</h2>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
-              "Mr Shankar gave me my life back. After two years of terrible groin pain and limp, I underwent robotic hip replacement at Spire Hartswood. I was walking without crutches in three weeks. His care and reassurance throughout were exceptional."
-            </p>
-            <span class="text-xs text-slate-500 block font-semibold">&mdash; Verified Patient, Spire Hartswood</span>
-          </div>
-
-          <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-xs">
-            <div class="flex items-center gap-1 text-[#E8A24C] mb-2 text-sm">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <h2 class="text-base font-bold text-slate-900 mb-2">Robotic Knee Replacement Patient</h2>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
-              "From our first consultation at Nuffield Brentwood, Mr Shankar explained everything clearly. The robotic knee surgery went smoothly, and my new knee feels completely natural. I am now back to walking my dog 5 miles daily."
-            </p>
-            <span class="text-xs text-slate-500 block font-semibold">&mdash; Verified Patient, Nuffield Brentwood</span>
-          </div>
-
-          <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-xs">
-            <div class="flex items-center gap-1 text-[#E8A24C] mb-2 text-sm">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <h2 class="text-base font-bold text-slate-900 mb-2">Knee Arthroscopy &amp; Meniscal Repair</h2>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
-              "Had a complex sports meniscal tear that was locking my knee. Mr Shankar performed keyhole surgery as a day case. Pain was minimal and I was back on the golf course within 6 weeks. Highly recommend his clinical expertise."
-            </p>
-            <span class="text-xs text-slate-500 block font-semibold">&mdash; Verified Patient, BHRUT NHS Care</span>
-          </div>
-        </section>
-
-        <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 mb-12">
-          <h2 class="text-xl font-bold text-slate-900 mb-4">Clinical Governance &amp; Registry Verification</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-slate-700">
-            <div class="p-4 bg-[#F8FAFC] rounded-xl border border-slate-200">
-              <strong class="text-slate-900 block font-bold text-sm mb-1">National Joint Registry (NJR)</strong>
-              <p class="text-slate-600">All hip and knee joint replacements are submitted to the UK National Joint Registry, recording superior implant survival and low revision rates.</p>
-            </div>
-            <div class="p-4 bg-[#F8FAFC] rounded-xl border border-slate-200">
-              <strong class="text-slate-900 block font-bold text-sm mb-1">General Medical Council (GMC)</strong>
-              <p class="text-slate-600">Fully registered with a current license to practice on the GMC Specialist Register for Trauma &amp; Orthopaedic Surgery (GMC 6062754).</p>
-            </div>
-            <div class="p-4 bg-[#F8FAFC] rounded-xl border border-slate-200">
-              <strong class="text-slate-900 block font-bold text-sm mb-1">Doctify &amp; IWGC Trust Badges</strong>
-              <p class="text-slate-600">Rated "Excellent" across all patient feedback categories for consultations, surgery, bedside manner, and follow-up support.</p>
-            </div>
-          </div>
-        </section>
-
-        <section class="p-6 bg-[#EAF1F6] rounded-2xl border border-slate-300">
-          <h2 class="text-xl font-bold text-[#1B4965] mb-2">Consultation Booking &amp; Next Steps</h2>
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-bold">
-            <a href="/hip-replacement" class="p-3 bg-white rounded-lg hover:text-[#1B4965] border border-slate-200 flex items-center justify-between">
-              <span>Hip Replacement</span> &rarr;
-            </a>
-            <a href="/knee-replacement" class="p-3 bg-white rounded-lg hover:text-[#1B4965] border border-slate-200 flex items-center justify-between">
-              <span>Knee Replacement</span> &rarr;
-            </a>
-            <a href="/about" class="p-3 bg-white rounded-lg hover:text-[#1B4965] border border-slate-200 flex items-center justify-between">
-              <span>About Surgeon</span> &rarr;
-            </a>
-            <a href="/contact" class="p-3 bg-[#E8A24C] text-white rounded-lg hover:bg-[#D99136] flex items-center justify-between">
-              <span>Book Appointment</span> &rarr;
-            </a>
-          </div>
-        </section>
-      </main>
-      ${renderFooter()}
-    `
+    bodyHtml: renderPageShell(
+      'patient-reviews',
+      'Verified Feedback • Doctify & iWantGreatCare',
+      'Verified Patient Reviews &amp; Clinical Outcomes',
+      'Transparency and clinical excellence define Mr Shivakumar Shankar\'s practice. With hundreds of independently verified 5-star patient reviews on leading healthcare rating platforms, patients consistently highlight his expertise and care.',
+      `
+      ${renderCardGrid([
+        {
+          title: 'Total Hip Replacement Review',
+          desc: '"Mr Shankar gave me my life back after two years of severe groin pain. I was walking without crutches in three weeks. His care was exceptional."'
+        },
+        {
+          title: 'Robotic Knee Replacement Review',
+          desc: '"From our first consultation at Nuffield Brentwood, Mr Shankar explained everything clearly. The robotic knee surgery went smoothly and feels completely natural."'
+        },
+        {
+          title: 'Keyhole Knee Arthroscopy Review',
+          desc: '"Complex sports meniscal tear repaired as a day case. Pain was minimal and I was back on the golf course within 6 weeks."'
+        }
+      ])}
+      `
+    )
   },
+
+  // 31. /patient-reviews-outcomes (alias)
+  {
+    path: 'patient-reviews-outcomes',
+    title: 'Patient Reviews & Clinical Outcomes | Mr Shivakumar Shankar',
+    description: 'Independently verified patient reviews from Doctify and iWantGreatCare for Mr Shivakumar Shankar, Consultant Hip & Knee Surgeon.',
+    canonical: 'https://www.shivakumarshankar.co.uk/reviews',
+    bodyHtml: renderPageShell(
+      'patient-reviews',
+      'Verified Feedback • Doctify & iWantGreatCare',
+      'Verified Patient Reviews &amp; Clinical Outcomes',
+      'Read verified patient testimonials, surgical outcomes, and ratings from Doctify and iWantGreatCare praising Mr Shankar\'s robotic precision and patient care.',
+      `
+      ${renderCardGrid([
+        {
+          title: 'Top Rated Consultant',
+          desc: 'Consistently awarded top marks for bedside manner, listening to patients, and explaining surgical options clearly.'
+        },
+        {
+          title: 'National Joint Registry (NJR)',
+          desc: 'Routine submission of all arthroplasty data ensuring transparency and superior implant survivorship.'
+        },
+        {
+          title: 'Care Quality Commission',
+          desc: 'Practicing exclusively in CQC-inspected hospital facilities in Brentwood, Romford, and Goodmayes.'
+        }
+      ])}
+      `
+    )
+  },
+
+  // 32. Contact
   {
     path: 'contact',
-    title: 'Contact & Consultations | Mr Shivakumar Shankar Hip & Knee Surgeon',
-    description: 'Contact Mr Shivakumar Shankar\'s medical secretary Remya Rexlin. Book private consultations at Spire Hartswood Hospital or Nuffield Health Brentwood.',
+    title: 'Contact Practice Secretary | Mr Shivakumar Shankar',
+    description: 'Contact practice secretary Remya Rexlin to book consultations at Spire Hartswood Hospital or Nuffield Health Brentwood Hospital.',
     canonical: 'https://www.shivakumarshankar.co.uk/contact',
-    bodyHtml: `
-      ${renderHeader('contact')}
-      <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <nav aria-label="Breadcrumb" class="text-xs text-slate-500 mb-6">
-          <a href="/" class="hover:underline">Home</a> &gt; <span class="font-bold text-slate-800">Contact Practice Secretary &amp; Bookings</span>
-        </nav>
-
-        <section class="mb-12">
-          <span class="inline-block px-3 py-1 rounded-full bg-[#EAF1F6] text-[#1B4965] text-xs font-bold uppercase tracking-wider mb-3">
-            Fast-Track Private Appointments &bull; Insured &amp; Self-Pay
-          </span>
-          <h1 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
-            Contact Mr Shivakumar Shankar's Practice
-          </h1>
-          <p class="text-base sm:text-lg text-slate-600 mt-4 leading-relaxed max-w-4xl">
-            Whether you are suffering from painful hip arthritis, knee stiffness, or a sports-related meniscal tear, booking a consultation with Mr Shivakumar Shankar is fast and simple. Contact his dedicated medical secretary Remya Rexlin directly for private appointments at Spire Hartswood Hospital or Nuffield Health Brentwood Hospital.
-          </p>
-        </section>
-
-        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200">
-            <h2 class="text-xl font-bold text-slate-900 mb-4">Practice Medical Secretary</h2>
-            <div class="space-y-4 text-xs sm:text-sm text-slate-700 leading-relaxed">
-              <p>
-                <strong>Medical Secretary:</strong> Remya Rexlin<br>
-                Dedicated secretary for all private enquiries, insurance pre-authorisations, surgical scheduling, and clinic appointments.
-              </p>
-              <div class="p-4 bg-[#F8FAFC] rounded-xl border border-slate-200 space-y-2">
-                <div>
-                  <strong class="text-slate-900 block">Mobile &amp; Direct Messaging:</strong>
-                  <a href="tel:07587765888" class="text-[#1B4965] font-bold hover:underline">07587 765888</a>
-                </div>
-                <div>
-                  <strong class="text-slate-900 block">Practice Landline:</strong>
-                  <a href="tel:02035230621" class="text-[#1B4965] font-bold hover:underline">020 3523 0621</a>
-                </div>
-                <div>
-                  <strong class="text-slate-900 block">Confidential Practice Email:</strong>
-                  <a href="mailto:hip.knee_specialist@yahoo.com" class="text-[#1B4965] font-bold hover:underline">hip.knee_specialist@yahoo.com</a>
-                </div>
-              </div>
-              <p class="text-xs text-slate-500">
-                Secretary operating hours: Monday to Friday, 9:00 AM &ndash; 5:00 PM. Urgent patient enquiries are prioritised.
-              </p>
-            </div>
+    bodyHtml: renderPageShell(
+      'contact-secretary',
+      'Fast-Track Appointments • Insured & Self-Pay',
+      'Contact Mr Shivakumar Shankar\'s Practice',
+      'Contact private practice medical secretary Remya Rexlin directly for fast-track consultation bookings, insurance pre-authorisations, and hospital appointments.',
+      `
+      <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200">
+          <h2 class="text-xl font-bold text-slate-900 mb-4">Medical Secretary Contact</h2>
+          <div class="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed">
+            <p><strong>Secretary Name:</strong> Remya Rexlin</p>
+            <p><strong>Mobile Phone:</strong> <a href="tel:07587765888" class="text-[#1B4965] font-bold">07587 765888</a></p>
+            <p><strong>Landline:</strong> <a href="tel:02035230621" class="text-[#1B4965] font-bold">020 3523 0621</a></p>
+            <p><strong>Email:</strong> <a href="mailto:hip.knee_specialist@yahoo.com" class="text-[#1B4965] font-bold">hip.knee_specialist@yahoo.com</a></p>
           </div>
-
-          <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200">
-            <h2 class="text-xl font-bold text-slate-900 mb-4">Private Consulting Locations</h2>
-            <div class="space-y-4 text-xs sm:text-sm text-slate-700 leading-relaxed">
-              <div class="p-4 bg-[#F8FAFC] rounded-xl border border-slate-200">
-                <strong class="text-slate-900 block font-bold text-base">Spire Hartswood Hospital</strong>
-                <p class="text-slate-600 mt-1">Eagle Way, Great Warley, Brentwood, Essex CM13 3LE</p>
-                <p class="text-slate-600 mt-1">Main Hospital Telephone: <a href="tel:01277695695" class="text-[#1B4965] font-bold">01277 695 695</a></p>
-                <p class="text-xs text-slate-500 mt-1">Free on-site parking &bull; Accessible from M25 J28/A12 &bull; On-site MRI &amp; CT</p>
-              </div>
-
-              <div class="p-4 bg-[#F8FAFC] rounded-xl border border-slate-200">
-                <strong class="text-slate-900 block font-bold text-base">Nuffield Health Brentwood Hospital</strong>
-                <p class="text-slate-600 mt-1">Shenfield Road, Brentwood, Essex CM15 8EH</p>
-                <p class="text-slate-600 mt-1">Main Hospital Telephone: <a href="tel:01277263263" class="text-[#1B4965] font-bold">01277 263 263</a></p>
-                <p class="text-xs text-slate-500 mt-1">Free on-site parking &bull; Near Brentwood &amp; Shenfield Stations &bull; Robotic Suite</p>
-              </div>
-            </div>
+        </div>
+        <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200">
+          <h2 class="text-xl font-bold text-slate-900 mb-4">Hospital Locations</h2>
+          <div class="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed">
+            <p><strong>Spire Hartswood Hospital:</strong> 01277 695 695 (Brentwood, Essex)</p>
+            <p><strong>Nuffield Health Brentwood:</strong> 01277 263 263 (Brentwood, Essex)</p>
+            <p><strong>NHS Enquiries:</strong> BHRUT Orthopaedic Lead Secretary (01708 435000)</p>
           </div>
-        </section>
+        </div>
+      </section>
+      `
+    )
+  },
 
-        <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 mb-12">
-          <h2 class="text-xl font-bold text-slate-900 mb-4">Insured &amp; Self-Pay Consultations</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs sm:text-sm text-slate-700">
-            <div class="p-4 bg-[#F8FAFC] rounded-xl border border-slate-200">
-              <h3 class="font-bold text-slate-900 text-base mb-2">Private Medical Insurance (PMI)</h3>
-              <p class="text-slate-600 leading-relaxed mb-3">
-                Mr Shankar is a fee-assured consultant recognised by all major UK private medical insurance companies, including:
-              </p>
-              <div class="grid grid-cols-2 gap-2 text-xs font-semibold text-slate-800">
-                <span>&bull; Bupa</span>
-                <span>&bull; AXA Health</span>
-                <span>&bull; Aviva Health</span>
-                <span>&bull; VitalityHealth</span>
-                <span>&bull; WPA</span>
-                <span>&bull; Healix</span>
-                <span>&bull; Cigna UK</span>
-                <span>&bull; Police Mutual</span>
-              </div>
-              <p class="text-xs text-slate-500 mt-3">
-                Please request your pre-authorisation code from your insurer before your appointment date.
-              </p>
-            </div>
+  // 33. /contact-consultation (alias)
+  {
+    path: 'contact-consultation',
+    title: 'Contact Practice Secretary | Mr Shivakumar Shankar',
+    description: 'Contact practice secretary Remya Rexlin to book consultations at Spire Hartswood Hospital or Nuffield Health Brentwood Hospital.',
+    canonical: 'https://www.shivakumarshankar.co.uk/contact',
+    bodyHtml: renderPageShell(
+      'contact-secretary',
+      'Practice Appointments • Brentwood & London',
+      'Contact Practice Secretary &amp; Bookings',
+      'Whether you are suffering from painful hip arthritis, knee stiffness, or a sports-related meniscal tear, booking a consultation with Mr Shivakumar Shankar is fast and simple.',
+      `
+      ${renderCardGrid([
+        {
+          title: 'Direct Secretary Booking',
+          desc: 'Call 07587 765888 or email hip.knee_specialist@yahoo.com to book your preferred clinic slot.'
+        },
+        {
+          title: 'Private Health Insurance',
+          desc: 'Recognised by all major insurers; remember to obtain your pre-authorisation code prior to attendance.'
+        },
+        {
+          title: 'Self-Funding Patients',
+          desc: 'Transparent consultation and procedure fees with fixed-price hospital packages available.'
+        }
+      ])}
+      `
+    )
+  },
 
-            <div class="p-4 bg-[#F8FAFC] rounded-xl border border-slate-200">
-              <h3 class="font-bold text-slate-900 text-base mb-2">Self-Paying Patients</h3>
-              <p class="text-slate-600 leading-relaxed mb-3">
-                No GP referral letter is mandatory for self-funding consultations (though always welcomed). Fixed-price packages covering initial consultations, diagnostic imaging (X-rays, MRI), and comprehensive surgical procedures with zero hidden costs are provided directly by Spire and Nuffield hospitals.
-              </p>
-              <p class="text-xs text-slate-500">
-                Flexible healthcare financing options and payment plans are available through the hospital finance teams.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section class="p-6 bg-[#EAF1F6] rounded-2xl border border-slate-300">
-          <h2 class="text-xl font-bold text-[#1B4965] mb-2">Clinical Service Directory</h2>
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-bold">
-            <a href="/hip-replacement" class="p-3 bg-white rounded-lg hover:text-[#1B4965] border border-slate-200 flex items-center justify-between">
-              <span>Hip Replacement</span> &rarr;
-            </a>
-            <a href="/knee-replacement" class="p-3 bg-white rounded-lg hover:text-[#1B4965] border border-slate-200 flex items-center justify-between">
-              <span>Knee Replacement</span> &rarr;
-            </a>
-            <a href="/robotic-surgery" class="p-3 bg-white rounded-lg hover:text-[#1B4965] border border-slate-200 flex items-center justify-between">
-              <span>Robotic Surgery</span> &rarr;
-            </a>
-            <a href="/knee-arthroscopy" class="p-3 bg-white rounded-lg hover:text-[#1B4965] border border-slate-200 flex items-center justify-between">
-              <span>Knee Arthroscopy</span> &rarr;
-            </a>
-          </div>
-        </section>
-      </main>
-      ${renderFooter()}
-    `
+  // 34. Book Consultation
+  {
+    path: 'book-consultation',
+    title: 'Book an Orthopaedic Consultation | Mr Shivakumar Shankar',
+    description: 'Book a private hip or knee consultation online or access live hospital diary timeslots at Spire Hartswood and Nuffield Health Brentwood.',
+    canonical: 'https://www.shivakumarshankar.co.uk/book-consultation',
+    bodyHtml: renderPageShell(
+      'book-consultation',
+      'Online Appointment Request • Spire & Nuffield',
+      'Book an Orthopaedic Consultation',
+      'Submit an online consultation enquiry for Mr Shivakumar Shankar or access live hospital diary booking systems for Spire Hartswood Hospital and Nuffield Health Brentwood Hospital.',
+      `
+      <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200">
+          <h2 class="text-xl font-bold text-slate-900 mb-4">Spire Hartswood Hospital (Brentwood)</h2>
+          <p class="text-xs sm:text-sm text-slate-600 mb-4">Fast-track private outpatient appointments on Monday and Thursday evenings.</p>
+          <a href="https://www.spirehealthcare.com/spire-hartswood-hospital/consultants/mr-shivakumar-shankar-c6062754/" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#005EB8] hover:bg-[#004b93] text-white px-5 py-2.5 rounded-lg text-xs font-bold transition-colors">
+            View Live Timeslots on Spire Portal &rarr;
+          </a>
+        </div>
+        <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200">
+          <h2 class="text-xl font-bold text-slate-900 mb-4">Nuffield Health Brentwood Hospital</h2>
+          <p class="text-xs sm:text-sm text-slate-600 mb-4">Outpatient consultation clinics and comprehensive surgical care packages.</p>
+          <a href="https://www.nuffieldhealth.com/consultants/mr-shivakumar-shankar" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#00703C] hover:bg-[#005a30] text-white px-5 py-2.5 rounded-lg text-xs font-bold transition-colors">
+            View Booking on Nuffield Portal &rarr;
+          </a>
+        </div>
+      </section>
+      `
+    )
   }
 ];
 
-console.log('Generating pre-rendered static HTML routes for direct URL access...');
+console.log(`Generating pre-rendered static HTML routes for ${pageDefinitions.length} direct URLs...`);
 
 pageDefinitions.forEach(page => {
   let html = baseIndexHtml;
@@ -1119,8 +1252,7 @@ pageDefinitions.forEach(page => {
     `<meta name="twitter:description" content="${page.description}" />`
   );
 
-  // CRITICAL FIX: Replace the entire inner contents of <div id="root"> with the distinct, page-specific, crawlable HTML!
-  // This ensures search engines and curl requests get substantial, unique body HTML for each route.
+  // Replace inner contents of <div id="root">
   const rootMarker = '<div id="root">';
   const rootStart = html.indexOf(rootMarker);
   const doctifyPos = html.indexOf('<!-- Doctify Widget Auto-resize Plugin -->');
@@ -1136,7 +1268,6 @@ pageDefinitions.forEach(page => {
   }
 
   if (page.path === '') {
-    // Write homepage to dist/index.html
     fs.writeFileSync(path.join(distDir, 'index.html'), html, 'utf8');
     console.log('✓ Updated homepage: dist/index.html with rich page-specific content');
   } else {

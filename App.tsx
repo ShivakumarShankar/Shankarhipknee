@@ -52,31 +52,242 @@ import { MediaGalleryHub } from './components/MediaGalleryHub';
 import { SecretarialPortalModal } from './components/SecretarialPortalModal';
 import { PROCEDURE_RISK_DATA } from './patientInfoData';
 import { generateProcedureRiskPdf, generateProtocolPdf } from './pdfGenerator';
+import { ClinicalProcedurePage } from './components/ClinicalProcedurePage';
+import { CLINICAL_PROCEDURES } from './clinicalProceduresData';
+import { RoboticComparisonPage } from './components/RoboticComparisonPage';
+import { LocationsHub, LocationPageMode } from './components/LocationsHub';
+import { PatientInfoHub, PatientInfoMode } from './components/PatientInfoHub';
+import { BookConsultationPage } from './components/BookConsultationPage';
 
 export type AppPage = 
   | 'home' 
   | 'about' 
   | 'reviews' 
   | 'hip-replacement' 
+  | 'robotic-hip-replacement'
+  | 'computer-assisted-hip-replacement'
+  | 'minimally-invasive-hip-replacement'
   | 'knee-replacement' 
-  | 'robotic-surgery' 
+  | 'robotic-knee-replacement'
+  | 'computer-assisted-knee-replacement'
+  | 'partial-knee-replacement'
   | 'knee-arthroscopy' 
+  | 'robotic-surgery' 
+  | 'robotic-computer-assisted-surgery'
+  | 'conventional-vs-computer-assisted-vs-robotic-surgery'
   | 'patient-guides' 
+  | 'patient-information'
+  | 'hip-replacement-recovery'
+  | 'knee-replacement-recovery'
+  | 'preparing-for-surgery'
+  | 'frequently-asked-questions'
+  | 'physio-protocols'
+  | 'hospitals-locations'
+  | 'london-hip-knee-surgeon'
+  | 'essex-hip-knee-surgeon'
+  | 'spire-hartswood-hospital'
+  | 'nuffield-brentwood-hospital'
+  | 'queens-hospital-romford'
+  | 'king-george-hospital-goodmayes'
   | 'contact'
+  | 'book-consultation'
   | '404';
 
 export const getPageFromPath = (path: string): AppPage => {
   const clean = path.toLowerCase().replace(/\/$/, '') || '/';
   if (clean === '/' || clean === '') return 'home';
-  if (clean === '/about') return 'about';
-  if (clean === '/reviews') return 'reviews';
+  if (clean === '/about' || clean === '/about-mr-shivakumar-shankar') return 'about';
+  if (clean === '/reviews' || clean === '/patient-reviews-outcomes') return 'reviews';
   if (clean === '/hip-replacement') return 'hip-replacement';
+  if (clean === '/robotic-hip-replacement') return 'robotic-hip-replacement';
+  if (clean === '/computer-assisted-hip-replacement') return 'computer-assisted-hip-replacement';
+  if (clean === '/minimally-invasive-hip-replacement') return 'minimally-invasive-hip-replacement';
   if (clean === '/knee-replacement') return 'knee-replacement';
-  if (clean === '/robotic-surgery') return 'robotic-surgery';
+  if (clean === '/robotic-knee-replacement') return 'robotic-knee-replacement';
+  if (clean === '/computer-assisted-knee-replacement') return 'computer-assisted-knee-replacement';
+  if (clean === '/partial-knee-replacement') return 'partial-knee-replacement';
   if (clean === '/knee-arthroscopy') return 'knee-arthroscopy';
-  if (clean === '/patient-guides') return 'patient-guides';
-  if (clean === '/contact') return 'contact';
+  if (clean === '/robotic-surgery' || clean === '/robotic-computer-assisted-surgery') return 'robotic-computer-assisted-surgery';
+  if (clean === '/conventional-vs-computer-assisted-vs-robotic-surgery') return 'conventional-vs-computer-assisted-vs-robotic-surgery';
+  if (clean === '/patient-guides' || clean === '/patient-information') return 'patient-information';
+  if (clean === '/hip-replacement-recovery') return 'hip-replacement-recovery';
+  if (clean === '/knee-replacement-recovery') return 'knee-replacement-recovery';
+  if (clean === '/preparing-for-surgery') return 'preparing-for-surgery';
+  if (clean === '/frequently-asked-questions') return 'frequently-asked-questions';
+  if (clean === '/physio-protocols') return 'physio-protocols';
+  if (clean === '/hospitals-locations') return 'hospitals-locations';
+  if (clean === '/london-hip-knee-surgeon') return 'london-hip-knee-surgeon';
+  if (clean === '/essex-hip-knee-surgeon') return 'essex-hip-knee-surgeon';
+  if (clean === '/spire-hartswood-hospital') return 'spire-hartswood-hospital';
+  if (clean === '/nuffield-brentwood-hospital') return 'nuffield-brentwood-hospital';
+  if (clean === '/queens-hospital-romford') return 'queens-hospital-romford';
+  if (clean === '/king-george-hospital-goodmayes') return 'king-george-hospital-goodmayes';
+  if (clean === '/contact' || clean === '/contact-consultation') return 'contact';
+  if (clean === '/book-consultation' || clean === '/book') return 'book-consultation';
   return '404';
+};
+
+const PAGE_METADATA: Record<string, { title: string; desc: string; canonical: string }> = {
+  'home': {
+    title: 'Mr Shivakumar Shankar | London & Essex Hip and Knee Surgeon',
+    desc: 'Mr Shivakumar Shankar is a Consultant Orthopaedic Surgeon specialising in hip and knee surgery, robotic joint replacement, and joint preservation in London and Essex.',
+    canonical: 'https://www.shivakumarshankar.co.uk/'
+  },
+  'about': {
+    title: 'About Mr Shivakumar Shankar | Consultant Hip & Knee Surgeon',
+    desc: 'Biography, credentials, and surgical training of Mr Shivakumar Shankar, NHS Clinical Lead & Consultant Orthopaedic Surgeon at Spire and Nuffield Hospitals.',
+    canonical: 'https://www.shivakumarshankar.co.uk/about-mr-shivakumar-shankar'
+  },
+  'hip-replacement': {
+    title: 'Hip Replacement Surgery London & Essex | Mr Shivakumar Shankar',
+    desc: 'Specialist primary, complex, and minimally invasive hip replacement in London & Essex. Regional pioneer in robotic and computer-assisted hip surgery.',
+    canonical: 'https://www.shivakumarshankar.co.uk/hip-replacement'
+  },
+  'robotic-hip-replacement': {
+    title: 'Robotic Hip Replacement London & Essex | Mr Shivakumar Shankar',
+    desc: 'Mako robotic-assisted total hip replacement with 3D CT virtual planning and haptic precision for optimal implant alignment and stability.',
+    canonical: 'https://www.shivakumarshankar.co.uk/robotic-hip-replacement'
+  },
+  'computer-assisted-hip-replacement': {
+    title: 'Computer-Assisted Hip Replacement | Mr Shivakumar Shankar',
+    desc: 'Navigated hip replacement providing real-time intra-operative tracking of cup angles and limb length without pre-operative CT radiation.',
+    canonical: 'https://www.shivakumarshankar.co.uk/computer-assisted-hip-replacement'
+  },
+  'minimally-invasive-hip-replacement': {
+    title: 'Minimally Invasive Hip Surgery | Rottinger & Anterior Approaches',
+    desc: 'Tissue-sparing Rottinger and muscle-preserving hip arthroplasty techniques accelerating post-operative mobilization and functional rehabilitation.',
+    canonical: 'https://www.shivakumarshankar.co.uk/minimally-invasive-hip-replacement'
+  },
+  'knee-replacement': {
+    title: 'Knee Replacement Surgery London & Essex | Mr Shivakumar Shankar',
+    desc: 'Consultant-led total knee replacement, kinematic alignment, and personalised soft-tissue balancing in London, Essex, and Brentwood.',
+    canonical: 'https://www.shivakumarshankar.co.uk/knee-replacement'
+  },
+  'robotic-knee-replacement': {
+    title: 'Robotic Knee Replacement London & Essex | Mako Arthroplasty',
+    desc: 'Mako robotic-assisted total and partial knee replacement with real-time dynamic ligament balancing and sub-millimeter bony resection accuracy.',
+    canonical: 'https://www.shivakumarshankar.co.uk/robotic-knee-replacement'
+  },
+  'computer-assisted-knee-replacement': {
+    title: 'Computer-Assisted Knee Replacement | Mr Shivakumar Shankar',
+    desc: 'Intra-operative optical navigation restoring mechanical alignment axes and dynamic joint stability during total knee arthroplasty.',
+    canonical: 'https://www.shivakumarshankar.co.uk/computer-assisted-knee-replacement'
+  },
+  'partial-knee-replacement': {
+    title: 'Partial Knee Replacement London & Essex | Unicompartmental Surgery',
+    desc: 'Minimally invasive unicompartmental resurfacing preserving the healthy knee compartments, ACL, and PCL for natural joint kinematics.',
+    canonical: 'https://www.shivakumarshankar.co.uk/partial-knee-replacement'
+  },
+  'knee-arthroscopy': {
+    title: 'Knee Arthroscopy & Keyhole Surgery | Mr Shivakumar Shankar',
+    desc: 'Minimally invasive keyhole knee surgery for meniscal tears, cartilage repair, and loose bodies in London and Essex. Over 1,200 procedures performed.',
+    canonical: 'https://www.shivakumarshankar.co.uk/knee-arthroscopy'
+  },
+  'robotic-surgery': {
+    title: 'Robotic & Computer-Assisted Hip & Knee Surgery | Essex & London',
+    desc: 'Pioneering robotic & computer-assisted joint replacement by Mr Shivakumar Shankar. Sub-millimeter implant accuracy and personalised soft-tissue balancing.',
+    canonical: 'https://www.shivakumarshankar.co.uk/robotic-computer-assisted-surgery'
+  },
+  'robotic-computer-assisted-surgery': {
+    title: 'Robotic & Computer-Assisted Hip & Knee Surgery | Essex & London',
+    desc: 'Pioneering robotic & computer-assisted joint replacement by Mr Shivakumar Shankar. Sub-millimeter implant accuracy and personalised soft-tissue balancing.',
+    canonical: 'https://www.shivakumarshankar.co.uk/robotic-computer-assisted-surgery'
+  },
+  'conventional-vs-computer-assisted-vs-robotic-surgery': {
+    title: 'Conventional vs Computer-Assisted vs Robotic Surgery | Clinical Guide',
+    desc: 'Objective comparison of conventional manual, computer-navigated, and robotic-assisted joint replacement surgery with clinical evidence.',
+    canonical: 'https://www.shivakumarshankar.co.uk/conventional-vs-computer-assisted-vs-robotic-surgery'
+  },
+  'patient-guides': {
+    title: 'Patient Information & Surgical Guides | Mr Shivakumar Shankar',
+    desc: 'Comprehensive patient resources, surgical preparations, informed consent, and rehabilitation pathways for hip and knee operations.',
+    canonical: 'https://www.shivakumarshankar.co.uk/patient-information'
+  },
+  'patient-information': {
+    title: 'Patient Information & Surgical Guides | Mr Shivakumar Shankar',
+    desc: 'Comprehensive patient resources, surgical preparations, informed consent, and rehabilitation pathways for hip and knee operations.',
+    canonical: 'https://www.shivakumarshankar.co.uk/patient-information'
+  },
+  'hip-replacement-recovery': {
+    title: 'Hip Replacement Recovery Guide | Milestones, Walking & Driving',
+    desc: 'Evidence-based recovery guide detailing post-operative milestones, exercise regimens, driving guidelines, and return to work after hip arthroplasty.',
+    canonical: 'https://www.shivakumarshankar.co.uk/hip-replacement-recovery'
+  },
+  'knee-replacement-recovery': {
+    title: 'Knee Replacement Recovery Guide | Milestones & Rehabilitation',
+    desc: 'Comprehensive recovery timeline for knee replacement, managing swelling, restoring range of motion, and returning to daily activities.',
+    canonical: 'https://www.shivakumarshankar.co.uk/knee-replacement-recovery'
+  },
+  'preparing-for-surgery': {
+    title: 'Preparing for Joint Surgery | Pre-Assessment Checklist & Advice',
+    desc: 'Practical guidance on preparing for hip or knee surgery, pre-assessment clinic, medication management, and home preparation.',
+    canonical: 'https://www.shivakumarshankar.co.uk/preparing-for-surgery'
+  },
+  'frequently-asked-questions': {
+    title: 'Orthopaedic FAQs | Hip & Knee Surgery Questions Answered',
+    desc: 'Answers to frequent patient questions on private health insurance, consultation fees, surgical recovery, anaesthesia, and implant durability.',
+    canonical: 'https://www.shivakumarshankar.co.uk/frequently-asked-questions'
+  },
+  'physio-protocols': {
+    title: 'Physiotherapy Protocols & PDFs | Mr Shivakumar Shankar',
+    desc: 'Downloadable clinical rehabilitation protocols and exercise guidelines for total hip, total knee, partial knee, and arthroscopy patients.',
+    canonical: 'https://www.shivakumarshankar.co.uk/physio-protocols'
+  },
+  'hospitals-locations': {
+    title: 'Hospitals & Practice Locations | London & Essex Hip Knee Surgeon',
+    desc: 'Consulting and surgical locations across Essex and London: Spire Hartswood, Nuffield Health Brentwood, Queen\'s Hospital, and King George Hospital.',
+    canonical: 'https://www.shivakumarshankar.co.uk/hospitals-locations'
+  },
+  'london-hip-knee-surgeon': {
+    title: 'Hip & Knee Surgeon in London & North East London | Mr Shankar',
+    desc: 'Consultant orthopaedic hip and knee surgery for London and North East London patients with substantive NHS and private hospital options.',
+    canonical: 'https://www.shivakumarshankar.co.uk/london-hip-knee-surgeon'
+  },
+  'essex-hip-knee-surgeon': {
+    title: 'Hip & Knee Surgeon in Essex | Mr Shivakumar Shankar',
+    desc: 'Leading hip and knee arthroplasty specialist in Brentwood and Essex providing robotic-assisted surgery and joint preservation.',
+    canonical: 'https://www.shivakumarshankar.co.uk/essex-hip-knee-surgeon'
+  },
+  'spire-hartswood-hospital': {
+    title: 'Spire Hartswood Hospital Consultations | Brentwood, Essex',
+    desc: 'Private hip and knee consultations and robotic surgery with Mr Shivakumar Shankar at Spire Hartswood Hospital in Brentwood, Essex.',
+    canonical: 'https://www.shivakumarshankar.co.uk/spire-hartswood-hospital'
+  },
+  'nuffield-brentwood-hospital': {
+    title: 'Nuffield Health Brentwood Hospital | Mr Shivakumar Shankar',
+    desc: 'Private orthopaedic consultations and joint replacement surgery at Nuffield Health Brentwood Hospital, Essex.',
+    canonical: 'https://www.shivakumarshankar.co.uk/nuffield-brentwood-hospital'
+  },
+  'queens-hospital-romford': {
+    title: 'Queen\'s Hospital Romford (BHRUT NHS Trust) | Mr Shivakumar Shankar',
+    desc: 'NHS Clinical Lead for Orthopaedics at Barking, Havering and Redbridge University Hospitals NHS Trust, operating at Queen\'s Hospital Romford.',
+    canonical: 'https://www.shivakumarshankar.co.uk/queens-hospital-romford'
+  },
+  'king-george-hospital-goodmayes': {
+    title: 'King George Hospital Goodmayes (BHRUT) | Elective Orthopaedic Centre',
+    desc: 'Substantive NHS elective orthopaedic surgery and high-volume joint replacement unit at King George Hospital, Goodmayes.',
+    canonical: 'https://www.shivakumarshankar.co.uk/king-george-hospital-goodmayes'
+  },
+  'reviews': {
+    title: 'Patient Reviews & Clinical Outcomes | Mr Shivakumar Shankar',
+    desc: 'Independently verified patient reviews from Doctify and iWantGreatCare for Mr Shivakumar Shankar, Consultant Hip & Knee Surgeon.',
+    canonical: 'https://www.shivakumarshankar.co.uk/reviews'
+  },
+  'contact': {
+    title: 'Contact Practice Secretary | Mr Shivakumar Shankar',
+    desc: 'Contact practice secretary Remya Rexlin to book consultations at Spire Hartswood Hospital or Nuffield Health Brentwood Hospital.',
+    canonical: 'https://www.shivakumarshankar.co.uk/contact'
+  },
+  'book-consultation': {
+    title: 'Book an Orthopaedic Consultation | Mr Shivakumar Shankar',
+    desc: 'Book a private hip or knee consultation online or access live hospital diary timeslots at Spire Hartswood and Nuffield Health Brentwood.',
+    canonical: 'https://www.shivakumarshankar.co.uk/book-consultation'
+  },
+  '404': {
+    title: 'Page Not Found (404) | Mr Shivakumar Shankar',
+    desc: 'The requested page could not be found. Return to Mr Shivakumar Shankar\'s official orthopedic surgery website for hip and knee care in London and Essex.',
+    canonical: ''
+  }
 };
 
 function App() {
@@ -126,47 +337,10 @@ function App() {
 
   // Synchronise page-specific SEO titles, meta descriptions, and canonical URLs
   useEffect(() => {
-    let title = "Mr Shivakumar Shankar | London & Essex Hip and Knee Surgeon";
-    let desc = "Mr Shivakumar Shankar is a Consultant Orthopaedic Hip & Knee Surgeon in Essex & London. Specialising in robotic joint replacement, total hip & knee arthroplasty.";
-    let canonical = "https://www.shivakumarshankar.co.uk/";
-
-    if (currentPage === 'about') {
-      title = "About Mr Shivakumar Shankar | Consultant Hip & Knee Surgeon";
-      desc = "Biography, credentials, and surgical training of Mr Shivakumar Shankar, NHS Clinical Lead & Consultant Orthopaedic Surgeon at Spire and Nuffield Hospitals.";
-      canonical = "https://www.shivakumarshankar.co.uk/about";
-    } else if (currentPage === 'hip-replacement') {
-      title = "Hip Replacement Surgery London & Essex | Mr Shivakumar Shankar";
-      desc = "Specialist primary, complex, and minimally invasive hip replacement in London & Essex. Regional pioneer in robotic and computer-assisted hip surgery.";
-      canonical = "https://www.shivakumarshankar.co.uk/hip-replacement";
-    } else if (currentPage === 'knee-replacement') {
-      title = "Knee Replacement Surgery London & Essex | Mr Shivakumar Shankar";
-      desc = "Consultant-led total knee replacement, robotic-assisted Mako arthroplasty, and partial unicompartmental knee replacement in Brentwood, Essex.";
-      canonical = "https://www.shivakumarshankar.co.uk/knee-replacement";
-    } else if (currentPage === 'robotic-surgery') {
-      title = "Robotic & Computer-Assisted Hip & Knee Surgery | Essex & London";
-      desc = "Pioneering robotic & computer-assisted joint replacement by Mr Shivakumar Shankar. Sub-millimeter implant accuracy and personalised soft-tissue balancing.";
-      canonical = "https://www.shivakumarshankar.co.uk/robotic-surgery";
-    } else if (currentPage === 'knee-arthroscopy') {
-      title = "Knee Arthroscopy & Keyhole Surgery | Mr Shivakumar Shankar";
-      desc = "Minimally invasive keyhole knee surgery for meniscal tears, cartilage repair, and loose bodies in London and Essex. Over 1,200 procedures performed.";
-      canonical = "https://www.shivakumarshankar.co.uk/knee-arthroscopy";
-    } else if (currentPage === 'patient-guides') {
-      title = "Patient Information & Guides | Mr Shivakumar Shankar";
-      desc = "Patient information guides, surgical risks, non-operative options, and downloadable PDF rehabilitation protocols for hip and knee replacement patients.";
-      canonical = "https://www.shivakumarshankar.co.uk/patient-guides";
-    } else if (currentPage === 'reviews') {
-      title = "Patient Reviews & Outcomes | Mr Shivakumar Shankar";
-      desc = "Read 5-star verified patient reviews and clinical feedback for Mr Shivakumar Shankar, Consultant Orthopaedic Hip & Knee Surgeon at Spire and Nuffield.";
-      canonical = "https://www.shivakumarshankar.co.uk/reviews";
-    } else if (currentPage === 'contact') {
-      title = "Contact & Consultations | Mr Shivakumar Shankar Hip & Knee Surgeon";
-      desc = "Contact Mr Shivakumar Shankar's medical secretary Remya Rexlin. Book private consultations at Spire Hartswood Hospital or Nuffield Health Brentwood.";
-      canonical = "https://www.shivakumarshankar.co.uk/contact";
-    } else if (currentPage === '404') {
-      title = "Page Not Found (404) | Mr Shivakumar Shankar";
-      desc = "The requested page could not be found. Return to Mr Shivakumar Shankar's official orthopedic surgery website for hip and knee care in London and Essex.";
-      canonical = "";
-    }
+    const meta = PAGE_METADATA[currentPage] || PAGE_METADATA['home'];
+    const title = meta.title;
+    const desc = meta.desc;
+    const canonical = meta.canonical;
 
     document.title = title;
 
@@ -213,8 +387,6 @@ function App() {
   }, [currentPage]);
 
   const handleNavigate = (target: string) => {
-    const cleanTarget = target.replace(/^\//, '');
-
     if (target.startsWith('#')) {
       if (currentPage !== 'home') {
         setCurrentPage('home');
@@ -232,40 +404,9 @@ function App() {
       return;
     }
 
-    let newPage: AppPage = 'home';
-    let newPath = '/';
-
-    if (cleanTarget === '' || cleanTarget === 'home') {
-      newPage = 'home';
-      newPath = '/';
-    } else if (cleanTarget === 'about') {
-      newPage = 'about';
-      newPath = '/about';
-    } else if (cleanTarget === 'reviews') {
-      newPage = 'reviews';
-      newPath = '/reviews';
-    } else if (cleanTarget === 'hip-replacement') {
-      newPage = 'hip-replacement';
-      newPath = '/hip-replacement';
-    } else if (cleanTarget === 'knee-replacement') {
-      newPage = 'knee-replacement';
-      newPath = '/knee-replacement';
-    } else if (cleanTarget === 'robotic-surgery') {
-      newPage = 'robotic-surgery';
-      newPath = '/robotic-surgery';
-    } else if (cleanTarget === 'knee-arthroscopy') {
-      newPage = 'knee-arthroscopy';
-      newPath = '/knee-arthroscopy';
-    } else if (cleanTarget === 'patient-guides') {
-      newPage = 'patient-guides';
-      newPath = '/patient-guides';
-    } else if (cleanTarget === 'contact') {
-      newPage = 'contact';
-      newPath = '/contact';
-    } else {
-      newPage = '404';
-      newPath = `/${cleanTarget}`;
-    }
+    const normalizedPath = target.startsWith('/') ? target : `/${target}`;
+    const newPage = getPageFromPath(normalizedPath);
+    const newPath = normalizedPath === '/' ? '/' : normalizedPath;
 
     setCurrentPage(newPage);
     if (window.location.pathname !== newPath) {
@@ -357,835 +498,53 @@ function App() {
           </div>
           <Contact onBook={(hospital) => openBookingModal(hospital)} />
         </div>
-      ) : currentPage === 'patient-guides' ? (
-        <div className="pt-28 md:pt-36 bg-[#F8FAFC]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-200 text-xs">
-              <button 
-                onClick={() => handleNavigate('home')} 
-                className="inline-flex items-center gap-1.5 font-bold text-[#1B4965] hover:text-[#13364B]"
-              >
-                <ArrowLeft size={15} /> Back to Home
-              </button>
-              <div className="text-slate-500">
-                <span className="cursor-pointer hover:underline" onClick={() => handleNavigate('home')}>Home</span> / <span className="font-semibold text-slate-800">Patient Guides &amp; Rehabilitation</span>
-              </div>
-            </div>
-            <div className="mt-6 mb-2">
-              <span className="text-[#1B4965] font-bold uppercase tracking-wider text-xs">Evidence-Based Patient Resources</span>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 mt-1 tracking-tight">
-                Patient Information Guides &amp; Surgical Risks
-              </h1>
-              <p className="text-slate-600 text-sm sm:text-base mt-2 max-w-3xl leading-relaxed">
-                Comprehensive procedure guides, non-operative treatment options, potential surgical complications, and downloadable recovery protocols authored by Mr Shivakumar Shankar.
-              </p>
-            </div>
-          </div>
-
-          <PatientGuidesHub onOpenBooking={() => openBookingModal()} />
-
-          {/* Downloadable Physiotherapy Protocols Section */}
-          <section className="py-16 bg-white border-t border-slate-200">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="max-w-3xl mx-auto text-center mb-10">
-                <span className="text-[#1B4965] font-bold uppercase tracking-wider text-xs">Recovery Protocols</span>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
-                  Downloadable Rehabilitation Protocols (PDF)
-                </h2>
-                <p className="text-slate-600 text-sm mt-2">
-                  Detailed day-by-day and week-by-week physiotherapy milestones designed for safe, rapid return to active daily living.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {PROTOCOLS.map((proto, idx) => (
-                  <div 
-                    key={idx} 
-                    className="bg-[#F8FAFC] border border-slate-200 p-6 rounded-xl flex flex-col justify-between hover:border-[#1B4965] hover:shadow-md transition-all group"
-                  >
-                    <div>
-                      <div className="flex justify-between items-start mb-4">
-                        <FileText className="text-[#1B4965] group-hover:text-[#13364B] transition-colors" size={32} />
-                        <span className="text-[10px] uppercase font-bold text-[#1B4965] bg-[#EAF1F6] px-2 py-1 rounded border border-slate-200">
-                          {proto.joint} Care
-                        </span>
-                      </div>
-
-                      <h3 className="font-bold text-lg text-slate-900 mb-1 group-hover:text-[#1B4965] transition-colors">
-                        {proto.title}
-                      </h3>
-                      
-                      <div className="text-xs font-semibold text-[#C26B08] bg-[#FFF7ED] border border-[#FDBA74] px-2 py-0.5 rounded inline-flex items-center gap-1 mb-3">
-                        <Clock size={12} /> {proto.timeline}
-                      </div>
-
-                      <p className="text-xs text-slate-600 mb-4 leading-relaxed">
-                        {proto.description}
-                      </p>
-
-                      <div className="space-y-1 mb-5">
-                        {proto.keyMilestones.slice(0, 2).map((ms, midx) => (
-                          <div key={midx} className="text-[11px] text-slate-700 flex items-start gap-1.5">
-                            <span className="text-[#1B4965] font-bold">•</span>
-                            <span>{ms}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="pt-4 border-t border-slate-200 flex items-center justify-between">
-                      <button 
-                        onClick={() => setSelectedProtocol(proto)}
-                        className="text-xs font-bold text-slate-700 hover:text-[#1B4965] flex items-center gap-1 transition-colors"
-                      >
-                        View Details <ChevronRight size={14} />
-                      </button>
-                      <button 
-                        onClick={() => generateProtocolPdf(proto)}
-                        className="text-xs font-bold text-white bg-[#1B4965] hover:bg-[#13364B] px-3 py-1.5 rounded flex items-center gap-1 transition-colors shadow-2xs"
-                      >
-                        <Download size={13} /> PDF Guide
-                      </button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* Internal Cross-Linking Navigation */}
-          <section className="py-12 bg-[#F8FAFC] border-t border-slate-200">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-4">Related Clinical Services &amp; Consultations</h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-                <a 
-                  href="/hip-replacement" 
-                  onClick={(e) => { e.preventDefault(); handleNavigate('hip-replacement'); }} 
-                  className="p-3 bg-white rounded-xl border border-slate-200 text-xs font-bold text-slate-800 hover:text-[#1B4965] hover:border-[#1B4965] transition-all flex items-center justify-between shadow-2xs"
-                >
-                  <span>Hip Replacement</span>
-                  <ChevronRight size={14} className="text-slate-400" />
-                </a>
-                <a 
-                  href="/knee-replacement" 
-                  onClick={(e) => { e.preventDefault(); handleNavigate('knee-replacement'); }} 
-                  className="p-3 bg-white rounded-xl border border-slate-200 text-xs font-bold text-slate-800 hover:text-[#1B4965] hover:border-[#1B4965] transition-all flex items-center justify-between shadow-2xs"
-                >
-                  <span>Knee Replacement</span>
-                  <ChevronRight size={14} className="text-slate-400" />
-                </a>
-                <a 
-                  href="/robotic-surgery" 
-                  onClick={(e) => { e.preventDefault(); handleNavigate('robotic-surgery'); }} 
-                  className="p-3 bg-white rounded-xl border border-slate-200 text-xs font-bold text-slate-800 hover:text-[#1B4965] hover:border-[#1B4965] transition-all flex items-center justify-between shadow-2xs"
-                >
-                  <span>Robotic Surgery</span>
-                  <ChevronRight size={14} className="text-slate-400" />
-                </a>
-                <a 
-                  href="/knee-arthroscopy" 
-                  onClick={(e) => { e.preventDefault(); handleNavigate('knee-arthroscopy'); }} 
-                  className="p-3 bg-white rounded-xl border border-slate-200 text-xs font-bold text-slate-800 hover:text-[#1B4965] hover:border-[#1B4965] transition-all flex items-center justify-between shadow-2xs"
-                >
-                  <span>Knee Arthroscopy</span>
-                  <ChevronRight size={14} className="text-slate-400" />
-                </a>
-                <a 
-                  href="/contact" 
-                  onClick={(e) => { e.preventDefault(); handleNavigate('contact'); }} 
-                  className="p-3 bg-[#EAF1F6] rounded-xl border border-slate-300 text-xs font-bold text-[#1B4965] hover:bg-[#1B4965] hover:text-white transition-all flex items-center justify-between shadow-2xs"
-                >
-                  <span>Book Consultation</span>
-                  <ChevronRight size={14} />
-                </a>
-              </div>
-            </div>
-          </section>
-        </div>
-      ) : currentPage === 'robotic-surgery' ? (
-        <div className="pt-28 md:pt-36 bg-[#F8FAFC]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-200 text-xs">
-              <button 
-                onClick={() => handleNavigate('home')} 
-                className="inline-flex items-center gap-1.5 font-bold text-[#1B4965] hover:text-[#13364B]"
-              >
-                <ArrowLeft size={15} /> Back to Home
-              </button>
-              <div className="text-slate-500">
-                <span className="cursor-pointer hover:underline" onClick={() => handleNavigate('home')}>Home</span> / <span className="font-semibold text-slate-800">Robotic &amp; Computer-Assisted Surgery</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Dedicated Robotic & Computer-Assisted Arthroplasty Page Content */}
-          <section className="py-12 bg-gradient-to-b from-white via-[#F8FAFC] to-[#F1F5F9] text-slate-800 relative overflow-hidden border-b border-slate-200">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <div className="lg:col-span-7 space-y-6">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#EAF1F6] text-[#1B4965] text-xs font-bold uppercase tracking-wider border border-slate-300">
-                    <Cpu size={14} className="text-[#1B4965]" /> Technology-Assisted Precision
-                  </div>
-
-                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight">
-                    Robotic &amp; Computer-Assisted Joint Replacement
-                  </h1>
-
-                  <p className="text-lg text-slate-700 leading-relaxed">
-                    Mr Shankar was the <strong>first surgeon in the Essex and North East London region to perform computer-assisted and robotic total hip replacement</strong>. 
-                    He completed subspecialist fellowship training at the world-renowned <strong>Golden Jubilee National Hospital in Glasgow</strong>, earning a <strong>Diploma in Robotic and Computer -Assisted orthopaedic surgery</strong>.
-                  </p>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                    <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-xs">
-                      <h4 className="font-bold text-slate-900 text-sm flex items-center gap-2 mb-1.5">
-                        <Navigation size={16} className="text-[#1B4965]" /> Hip Sub-Millimeter Accuracy
-                      </h4>
-                      <p className="text-xs text-slate-600 leading-relaxed">
-                        Precision assessment of component positioning, acetabular inclination, anteversion, femoral offset, leg length restoration, and centre of rotation.
-                      </p>
-                    </div>
-
-                    <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-xs">
-                      <h4 className="font-bold text-slate-900 text-sm flex items-center gap-2 mb-1.5">
-                        <Activity size={16} className="text-[#1B4965]" /> Knee Soft-Tissue Balancing
-                      </h4>
-                      <p className="text-xs text-slate-600 leading-relaxed">
-                        Dynamic live feedback through full flexion and extension arcs, optimising ligament tension and restoring the patient's individual mechanical axis.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="p-4 rounded-xl bg-[#F8FAFC] border border-slate-200 text-xs text-slate-700 leading-relaxed">
-                    <strong className="text-[#1B4965] font-bold block mb-1">Clinical Philosophy:</strong>
-                    "The use of robotic and computer-assisted technology is considered on an individual basis and forms part of the overall surgical strategy rather than replacing surgical judgement, clinical examination, and experience."
-                  </div>
-
-                  <div className="pt-2 flex flex-wrap gap-4">
-                    <button 
-                      onClick={() => openBookingModal()} 
-                      className="bg-[#E8A24C] hover:bg-[#D99136] text-white px-7 py-3 rounded-lg font-bold text-sm transition-all shadow-md flex items-center gap-2"
-                    >
-                      <Calendar size={16} /> Enquire About Robotic Surgery
-                    </button>
-                    <a 
-                      href="/about" 
-                      onClick={(e) => { e.preventDefault(); handleNavigate('about'); }}
-                      className="px-6 py-3 rounded-lg font-bold text-[#1B4965] bg-white border border-slate-300 hover:bg-[#1B4965] hover:text-white transition-all text-sm shadow-2xs"
-                    >
-                      Read Fellowship Credentials
-                    </a>
-                  </div>
-                </div>
-
-                <div className="lg:col-span-5 space-y-4">
-                  <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
-                    <h3 className="font-bold text-lg text-slate-900 border-b border-slate-100 pb-3">
-                      Key Surgical Capabilities
-                    </h3>
-
-                    {[
-                      { title: "Detailed 3D Pre-Operative Planning", desc: "Patient-specific virtual blueprint calibrated to precise anatomical landmarks." },
-                      { title: "Dynamic Intra-Operative Feedback", desc: "Live kinematic assessment of stability and implant orientation during the procedure." },
-                      { title: "Bone & Soft-Tissue Preservation", desc: "Restricted cutting boundaries protecting adjacent ligaments and healthy bone stock." },
-                      { title: "High Reproducibility & Alignment", desc: "Ensures planned surgical parameters are executed with exacting fidelity." }
-                    ].map((item, i) => (
-                      <div key={i} className="flex items-start gap-3">
-                        <div className="w-6 h-6 rounded-full bg-[#EAF1F6] text-[#1B4965] border border-slate-200 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">
-                          {i + 1}
-                        </div>
-                        <div>
-                          <p className="text-sm font-bold text-slate-900">{item.title}</p>
-                          <p className="text-xs text-slate-600 leading-relaxed">{item.desc}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Robotic Procedures List */}
-          <section className="py-16 bg-[#F8FAFC]">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-8">
-                Robotic &amp; Computer-Assisted Procedures Offered
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {TREATMENTS.filter(t => t.category === 'robotic' || t.isPioneering).map((treatment) => (
-                  <div key={treatment.id} className="bg-white rounded-xl p-7 border border-slate-200 shadow-sm flex flex-col justify-between">
-                    <div>
-                      <div className="flex justify-between items-start mb-4">
-                        <div className="p-2.5 rounded-lg bg-[#EAF1F6] text-[#1B4965]">
-                          <Cpu size={22} />
-                        </div>
-                        <span className="text-[10px] uppercase font-bold bg-[#FFF7ED] text-[#C26B08] px-2 py-0.5 rounded border border-[#FDBA74]">
-                          Regional Pioneer
-                        </span>
-                      </div>
-                      <h3 className="text-xl font-bold text-slate-900 mb-2">{treatment.title}</h3>
-                      <p className="text-slate-600 text-sm leading-relaxed mb-4">{treatment.description}</p>
-                    </div>
-                    <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
-                      <button 
-                        onClick={() => setSelectedTreatment(treatment)}
-                        className="text-xs font-bold text-[#1B4965] hover:underline"
-                      >
-                        Clinical Details &amp; Risks &rarr;
-                      </button>
-                      <button 
-                        onClick={() => openBookingModal()}
-                        className="text-xs font-bold text-white bg-[#E8A24C] hover:bg-[#D99136] px-3.5 py-1.5 rounded transition-colors shadow-xs"
-                      >
-                        Book
-                      </button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* Internal Cross-Linking Navigation */}
-          <section className="py-12 bg-white border-t border-slate-200">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-4">Explore Related Pages &amp; Clinical Information</h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-                <a 
-                  href="/hip-replacement" 
-                  onClick={(e) => { e.preventDefault(); handleNavigate('hip-replacement'); }} 
-                  className="p-3 bg-[#F8FAFC] rounded-xl border border-slate-200 text-xs font-bold text-slate-800 hover:text-[#1B4965] hover:border-[#1B4965] transition-all flex items-center justify-between"
-                >
-                  <span>Hip Replacement</span>
-                  <ChevronRight size={14} className="text-slate-400" />
-                </a>
-                <a 
-                  href="/knee-replacement" 
-                  onClick={(e) => { e.preventDefault(); handleNavigate('knee-replacement'); }} 
-                  className="p-3 bg-[#F8FAFC] rounded-xl border border-slate-200 text-xs font-bold text-slate-800 hover:text-[#1B4965] hover:border-[#1B4965] transition-all flex items-center justify-between"
-                >
-                  <span>Knee Replacement</span>
-                  <ChevronRight size={14} className="text-slate-400" />
-                </a>
-                <a 
-                  href="/about" 
-                  onClick={(e) => { e.preventDefault(); handleNavigate('about'); }} 
-                  className="p-3 bg-[#F8FAFC] rounded-xl border border-slate-200 text-xs font-bold text-slate-800 hover:text-[#1B4965] hover:border-[#1B4965] transition-all flex items-center justify-between"
-                >
-                  <span>About Mr Shankar</span>
-                  <ChevronRight size={14} className="text-slate-400" />
-                </a>
-                <a 
-                  href="/patient-guides" 
-                  onClick={(e) => { e.preventDefault(); handleNavigate('patient-guides'); }} 
-                  className="p-3 bg-[#F8FAFC] rounded-xl border border-slate-200 text-xs font-bold text-slate-800 hover:text-[#1B4965] hover:border-[#1B4965] transition-all flex items-center justify-between"
-                >
-                  <span>Patient Guides</span>
-                  <ChevronRight size={14} className="text-slate-400" />
-                </a>
-                <a 
-                  href="/contact" 
-                  onClick={(e) => { e.preventDefault(); handleNavigate('contact'); }} 
-                  className="p-3 bg-[#EAF1F6] rounded-xl border border-slate-300 text-xs font-bold text-[#1B4965] hover:bg-[#1B4965] hover:text-white transition-all flex items-center justify-between"
-                >
-                  <span>Contact Practice</span>
-                  <ChevronRight size={14} />
-                </a>
-              </div>
-            </div>
-          </section>
-        </div>
-      ) : currentPage === 'hip-replacement' ? (
-        <div className="pt-28 md:pt-36 bg-[#F8FAFC]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-200 text-xs">
-              <button 
-                onClick={() => handleNavigate('home')} 
-                className="inline-flex items-center gap-1.5 font-bold text-[#1B4965] hover:text-[#13364B]"
-              >
-                <ArrowLeft size={15} /> Back to Home
-              </button>
-              <div className="text-slate-500">
-                <span className="cursor-pointer hover:underline" onClick={() => handleNavigate('home')}>Home</span> / <span className="font-semibold text-slate-800">Hip Replacement Surgery</span>
-              </div>
-            </div>
-            <div className="mt-6 mb-2">
-              <span className="text-[#1B4965] font-bold uppercase tracking-wider text-xs">Specialist Orthopaedic Services</span>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 mt-1 tracking-tight">
-                Hip Replacement Surgery in London &amp; Essex
-              </h1>
-              <p className="text-slate-600 text-sm sm:text-base mt-2 max-w-3xl leading-relaxed">
-                Primary and complex total hip replacement, muscle-sparing minimally invasive Rottinger and anterior approaches, and regional-first robotic total hip arthroplasty at Spire Hartswood and Nuffield Health Brentwood Hospitals.
-              </p>
-            </div>
-          </div>
-
-          {/* Minimally Invasive & Robotic Highlights for Hip */}
-          <section className="py-8 bg-white border-y border-slate-200">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="p-5 rounded-xl bg-[#F8FAFC] border border-slate-200 shadow-2xs">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#1B4965] bg-[#EAF1F6] px-2 py-0.5 rounded">Muscle-Sparing</span>
-                  <h3 className="font-bold text-base text-slate-900 mt-2 mb-1">Rottinger &amp; Anterior Approaches</h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Preserves the critical abductor muscle complex without detaching muscle fibres, facilitating earlier mobilisation, reduced post-operative pain, and lower dislocation risks.
-                  </p>
-                </div>
-                <div className="p-5 rounded-xl bg-[#F8FAFC] border border-slate-200 shadow-2xs">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#C26B08] bg-[#FFF7ED] px-2 py-0.5 rounded">Regional Pioneer</span>
-                  <h3 className="font-bold text-base text-slate-900 mt-2 mb-1">Robotic &amp; Navigated Hip Surgery</h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    First surgeon in Essex &amp; NE London to perform robotic and computer-navigated total hip arthroplasty, delivering millimeter-level implant inclination, anteversion, and leg length parity.
-                  </p>
-                </div>
-                <div className="p-5 rounded-xl bg-[#F8FAFC] border border-slate-200 shadow-2xs">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-slate-700 bg-slate-100 px-2 py-0.5 rounded">Pre-Operative Care</span>
-                  <h3 className="font-bold text-base text-slate-900 mt-2 mb-1">3D CT Planning &amp; Injections</h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Custom 3D CT virtual templating ensures exact sizing. Targeted hip joint steroid and hyaluronic acid injections offered for joint preservation and diagnostic confirmation.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Hip Procedures Grid */}
-          <section className="py-12 bg-[#F8FAFC]">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-2xl font-bold text-slate-900 mb-6">Hip Replacement Surgical Procedures</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {TREATMENTS.filter(t => t.category === 'hip' || t.id.includes('hip')).map((treatment) => (
-                  <div key={treatment.id} className="bg-white rounded-xl p-7 border border-slate-200 shadow-sm flex flex-col justify-between">
-                    <div>
-                      <div className="flex justify-between items-start mb-4">
-                        <div className="p-2.5 rounded-lg bg-[#EAF1F6] text-[#1B4965]">
-                          <Bone size={22} />
-                        </div>
-                        {treatment.isPioneering && (
-                          <span className="text-[10px] uppercase font-bold bg-[#FFF7ED] text-[#C26B08] px-2 py-0.5 rounded border border-[#FDBA74]">
-                            Regional 1st
-                          </span>
-                        )}
-                      </div>
-                      <h3 className="text-xl font-bold text-slate-900 mb-1">{treatment.title}</h3>
-                      {treatment.subtitle && (
-                        <p className="text-xs font-semibold text-slate-500 mb-3">{treatment.subtitle}</p>
-                      )}
-                      <p className="text-slate-600 text-sm leading-relaxed mb-4">{treatment.description}</p>
-                      {treatment.keyBenefits && (
-                        <div className="space-y-1.5 mb-5 pt-3 border-t border-slate-200">
-                          {treatment.keyBenefits.slice(0, 3).map((benefit, bidx) => (
-                            <div key={bidx} className="flex items-start gap-2 text-xs text-slate-600">
-                              <CheckCircle size={14} className="text-[#1B4965] flex-shrink-0 mt-0.5" />
-                              <span>{benefit}</span>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                    <div className="pt-4 border-t border-slate-200 flex items-center justify-between">
-                      <button 
-                        onClick={() => setSelectedTreatment(treatment)}
-                        className="text-xs font-bold text-[#1B4965] hover:underline"
-                      >
-                        Details &amp; Risks &rarr;
-                      </button>
-                      <button 
-                        onClick={() => openBookingModal()}
-                        className="text-xs font-bold text-white bg-[#E8A24C] hover:bg-[#D99136] px-3.5 py-1.5 rounded transition-colors shadow-xs"
-                      >
-                        Book
-                      </button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* Hip Conditions Treated */}
-          <section className="py-16 bg-white border-t border-slate-200">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-2xl font-bold text-slate-900 mb-6">Common Hip Conditions Treated</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {CONDITIONS_TREATED.find(c => c.joint === 'Hip')?.items.map((cond, idx) => (
-                  <div key={idx} className="p-6 rounded-xl bg-[#F8FAFC] border border-slate-200 shadow-xs">
-                    <h3 className="font-bold text-base text-slate-900 mb-2">{cond.name}</h3>
-                    <p className="text-xs text-slate-600 leading-relaxed mb-4">{cond.description}</p>
-                    <div className="pt-3 border-t border-slate-200 flex flex-wrap gap-1">
-                      {cond.commonTreatments.map((t, tidx) => (
-                        <span key={tidx} className="text-[10px] bg-white border border-slate-200 px-2 py-0.5 rounded text-slate-700 font-medium">
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* Internal Cross-Linking Navigation */}
-          <section className="py-12 bg-[#F8FAFC] border-t border-slate-200">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-4">Related Clinical Services &amp; Patient Resources</h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-                <a 
-                  href="/robotic-surgery" 
-                  onClick={(e) => { e.preventDefault(); handleNavigate('robotic-surgery'); }} 
-                  className="p-3 bg-white rounded-xl border border-slate-200 text-xs font-bold text-slate-800 hover:text-[#1B4965] hover:border-[#1B4965] transition-all flex items-center justify-between shadow-2xs"
-                >
-                  <span>Robotic Surgery</span>
-                  <ChevronRight size={14} className="text-slate-400" />
-                </a>
-                <a 
-                  href="/patient-guides" 
-                  onClick={(e) => { e.preventDefault(); handleNavigate('patient-guides'); }} 
-                  className="p-3 bg-white rounded-xl border border-slate-200 text-xs font-bold text-slate-800 hover:text-[#1B4965] hover:border-[#1B4965] transition-all flex items-center justify-between shadow-2xs"
-                >
-                  <span>Patient Guides</span>
-                  <ChevronRight size={14} className="text-slate-400" />
-                </a>
-                <a 
-                  href="/knee-replacement" 
-                  onClick={(e) => { e.preventDefault(); handleNavigate('knee-replacement'); }} 
-                  className="p-3 bg-white rounded-xl border border-slate-200 text-xs font-bold text-slate-800 hover:text-[#1B4965] hover:border-[#1B4965] transition-all flex items-center justify-between shadow-2xs"
-                >
-                  <span>Knee Replacement</span>
-                  <ChevronRight size={14} className="text-slate-400" />
-                </a>
-                <a 
-                  href="/reviews" 
-                  onClick={(e) => { e.preventDefault(); handleNavigate('reviews'); }} 
-                  className="p-3 bg-white rounded-xl border border-slate-200 text-xs font-bold text-slate-800 hover:text-[#1B4965] hover:border-[#1B4965] transition-all flex items-center justify-between shadow-2xs"
-                >
-                  <span>Patient Reviews</span>
-                  <ChevronRight size={14} className="text-slate-400" />
-                </a>
-                <a 
-                  href="/contact" 
-                  onClick={(e) => { e.preventDefault(); handleNavigate('contact'); }} 
-                  className="p-3 bg-[#EAF1F6] rounded-xl border border-slate-300 text-xs font-bold text-[#1B4965] hover:bg-[#1B4965] hover:text-white transition-all flex items-center justify-between shadow-2xs"
-                >
-                  <span>Book Consultation</span>
-                  <ChevronRight size={14} />
-                </a>
-              </div>
-            </div>
-          </section>
-        </div>
-      ) : currentPage === 'knee-replacement' ? (
-        <div className="pt-28 md:pt-36 bg-[#F8FAFC]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-200 text-xs">
-              <button 
-                onClick={() => handleNavigate('home')} 
-                className="inline-flex items-center gap-1.5 font-bold text-[#1B4965] hover:text-[#13364B]"
-              >
-                <ArrowLeft size={15} /> Back to Home
-              </button>
-              <div className="text-slate-500">
-                <span className="cursor-pointer hover:underline" onClick={() => handleNavigate('home')}>Home</span> / <span className="font-semibold text-slate-800">Knee Replacement &amp; Arthroplasty</span>
-              </div>
-            </div>
-            <div className="mt-6 mb-2">
-              <span className="text-[#1B4965] font-bold uppercase tracking-wider text-xs">Specialist Orthopaedic Services</span>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 mt-1 tracking-tight">
-                Knee Replacement &amp; Arthroplasty in London &amp; Essex
-              </h1>
-              <p className="text-slate-600 text-sm sm:text-base mt-2 max-w-3xl leading-relaxed">
-                Consultant-led total knee replacement, Mako robotic-assisted knee arthroplasty, and partial unicompartmental knee resurfacing tailored to your knee anatomy and kinematics.
-              </p>
-            </div>
-          </div>
-
-          {/* Knee Technology Highlights */}
-          <section className="py-8 bg-white border-y border-slate-200">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="p-5 rounded-xl bg-[#F8FAFC] border border-slate-200 shadow-2xs">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#1B4965] bg-[#EAF1F6] px-2 py-0.5 rounded">Robotic Precision</span>
-                  <h3 className="font-bold text-base text-slate-900 mt-2 mb-1">Mako &amp; Navigated Knee Arthroplasty</h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Robotic arm-assisted bone preparation with dynamic ligament tensioning throughout full flexion and extension for a more natural-feeling joint.
-                  </p>
-                </div>
-                <div className="p-5 rounded-xl bg-[#F8FAFC] border border-slate-200 shadow-2xs">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#C26B08] bg-[#FFF7ED] px-2 py-0.5 rounded">Joint Preservation</span>
-                  <h3 className="font-bold text-base text-slate-900 mt-2 mb-1">Partial (Unicompartmental) Knee</h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Replaces only the damaged compartment (medial or lateral) while preserving healthy bone, cartilage, and both natural cruciate ligaments (ACL/PCL).
-                  </p>
-                </div>
-                <div className="p-5 rounded-xl bg-[#F8FAFC] border border-slate-200 shadow-2xs">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-slate-700 bg-slate-100 px-2 py-0.5 rounded">Kinematic Alignment</span>
-                  <h3 className="font-bold text-base text-slate-900 mt-2 mb-1">Personalised Alignment &amp; Balance</h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Aligns the prosthetic implants to match your unique native constitutional joint line, reducing soft-tissue release and speeding functional recovery.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Knee Procedures Grid */}
-          <section className="py-12 bg-[#F8FAFC]">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-2xl font-bold text-slate-900 mb-6">Knee Arthroplasty Surgical Procedures</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {TREATMENTS.filter(t => t.category === 'knee' && !t.id.includes('arthroscopy')).map((treatment) => (
-                  <div key={treatment.id} className="bg-white rounded-xl p-7 border border-slate-200 shadow-sm flex flex-col justify-between">
-                    <div>
-                      <div className="flex justify-between items-start mb-4">
-                        <div className="p-2.5 rounded-lg bg-[#EAF1F6] text-[#1B4965]">
-                          <Activity size={22} />
-                        </div>
-                        <span className="text-[10px] uppercase font-bold text-slate-500 bg-white px-2 py-0.5 rounded border border-slate-200">
-                          Knee Arthroplasty
-                        </span>
-                      </div>
-                      <h3 className="text-xl font-bold text-slate-900 mb-1">{treatment.title}</h3>
-                      {treatment.subtitle && (
-                        <p className="text-xs font-semibold text-slate-500 mb-3">{treatment.subtitle}</p>
-                      )}
-                      <p className="text-slate-600 text-sm leading-relaxed mb-4">{treatment.description}</p>
-                      {treatment.keyBenefits && (
-                        <div className="space-y-1.5 mb-5 pt-3 border-t border-slate-200">
-                          {treatment.keyBenefits.slice(0, 3).map((benefit, bidx) => (
-                            <div key={bidx} className="flex items-start gap-2 text-xs text-slate-600">
-                              <CheckCircle size={14} className="text-[#1B4965] flex-shrink-0 mt-0.5" />
-                              <span>{benefit}</span>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                    <div className="pt-4 border-t border-slate-200 flex items-center justify-between">
-                      <button 
-                        onClick={() => setSelectedTreatment(treatment)}
-                        className="text-xs font-bold text-[#1B4965] hover:underline"
-                      >
-                        Details &amp; Risks &rarr;
-                      </button>
-                      <button 
-                        onClick={() => openBookingModal()}
-                        className="text-xs font-bold text-white bg-[#E8A24C] hover:bg-[#D99136] px-3.5 py-1.5 rounded transition-colors shadow-xs"
-                      >
-                        Book
-                      </button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* Knee Conditions Treated */}
-          <section className="py-16 bg-white border-t border-slate-200">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-2xl font-bold text-slate-900 mb-6">Common Knee Conditions Treated</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {CONDITIONS_TREATED.find(c => c.joint === 'Knee')?.items.map((cond, idx) => (
-                  <div key={idx} className="p-6 rounded-xl bg-[#F8FAFC] border border-slate-200 shadow-xs">
-                    <h3 className="font-bold text-base text-slate-900 mb-2">{cond.name}</h3>
-                    <p className="text-xs text-slate-600 leading-relaxed mb-4">{cond.description}</p>
-                    <div className="pt-3 border-t border-slate-200 flex flex-wrap gap-1">
-                      {cond.commonTreatments.map((t, tidx) => (
-                        <span key={tidx} className="text-[10px] bg-white border border-slate-200 px-2 py-0.5 rounded text-slate-700 font-medium">
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* Internal Cross-Linking Navigation */}
-          <section className="py-12 bg-[#F8FAFC] border-t border-slate-200">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-4">Related Clinical Services &amp; Patient Resources</h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-                <a 
-                  href="/robotic-surgery" 
-                  onClick={(e) => { e.preventDefault(); handleNavigate('robotic-surgery'); }} 
-                  className="p-3 bg-white rounded-xl border border-slate-200 text-xs font-bold text-slate-800 hover:text-[#1B4965] hover:border-[#1B4965] transition-all flex items-center justify-between shadow-2xs"
-                >
-                  <span>Robotic Surgery</span>
-                  <ChevronRight size={14} className="text-slate-400" />
-                </a>
-                <a 
-                  href="/knee-arthroscopy" 
-                  onClick={(e) => { e.preventDefault(); handleNavigate('knee-arthroscopy'); }} 
-                  className="p-3 bg-white rounded-xl border border-slate-200 text-xs font-bold text-slate-800 hover:text-[#1B4965] hover:border-[#1B4965] transition-all flex items-center justify-between shadow-2xs"
-                >
-                  <span>Knee Arthroscopy</span>
-                  <ChevronRight size={14} className="text-slate-400" />
-                </a>
-                <a 
-                  href="/patient-guides" 
-                  onClick={(e) => { e.preventDefault(); handleNavigate('patient-guides'); }} 
-                  className="p-3 bg-white rounded-xl border border-slate-200 text-xs font-bold text-slate-800 hover:text-[#1B4965] hover:border-[#1B4965] transition-all flex items-center justify-between shadow-2xs"
-                >
-                  <span>Patient Guides</span>
-                  <ChevronRight size={14} className="text-slate-400" />
-                </a>
-                <a 
-                  href="/hip-replacement" 
-                  onClick={(e) => { e.preventDefault(); handleNavigate('hip-replacement'); }} 
-                  className="p-3 bg-white rounded-xl border border-slate-200 text-xs font-bold text-slate-800 hover:text-[#1B4965] hover:border-[#1B4965] transition-all flex items-center justify-between shadow-2xs"
-                >
-                  <span>Hip Replacement</span>
-                  <ChevronRight size={14} className="text-slate-400" />
-                </a>
-                <a 
-                  href="/contact" 
-                  onClick={(e) => { e.preventDefault(); handleNavigate('contact'); }} 
-                  className="p-3 bg-[#EAF1F6] rounded-xl border border-slate-300 text-xs font-bold text-[#1B4965] hover:bg-[#1B4965] hover:text-white transition-all flex items-center justify-between shadow-2xs"
-                >
-                  <span>Book Consultation</span>
-                  <ChevronRight size={14} />
-                </a>
-              </div>
-            </div>
-          </section>
-        </div>
-      ) : currentPage === 'knee-arthroscopy' ? (
-        <div className="pt-28 md:pt-36 bg-[#F8FAFC]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-200 text-xs">
-              <button 
-                onClick={() => handleNavigate('home')} 
-                className="inline-flex items-center gap-1.5 font-bold text-[#1B4965] hover:text-[#13364B]"
-              >
-                <ArrowLeft size={15} /> Back to Home
-              </button>
-              <div className="text-slate-500">
-                <span className="cursor-pointer hover:underline" onClick={() => handleNavigate('home')}>Home</span> / <span className="font-semibold text-slate-800">Knee Arthroscopy</span>
-              </div>
-            </div>
-            <div className="mt-6 mb-2">
-              <span className="text-[#1B4965] font-bold uppercase tracking-wider text-xs">Keyhole Knee Surgery &amp; Joint Preservation</span>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 mt-1 tracking-tight">
-                Knee Arthroscopy &amp; Keyhole Surgery
-              </h1>
-              <p className="text-slate-600 text-sm sm:text-base mt-2 max-w-3xl leading-relaxed">
-                Minimally invasive diagnostic and therapeutic keyhole surgery for meniscal tears, cartilage preservation, and mechanical symptoms. Over 1,200 procedures performed by Mr Shivakumar Shankar.
-              </p>
-            </div>
-          </div>
-
-          <section className="py-12 bg-white border-y border-slate-200">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <div className="space-y-4">
-                  <div className="p-3 bg-[#EAF1F6] text-[#1B4965] rounded-xl inline-block">
-                    <Activity size={28} />
-                  </div>
-                  <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">
-                    High-Volume Arthroscopic Experience
-                  </h2>
-                  <p className="text-slate-700 leading-relaxed text-sm sm:text-base">
-                    Mr Shankar has performed more than <strong>1,200 knee arthroscopies</strong> across his NHS and private practice. Keyhole surgery is performed as a day-case procedure, allowing patients to walk out of the hospital within hours.
-                  </p>
-                  <div className="space-y-2 pt-2">
-                    {[
-                      "Meniscal repair (inside-out, all-inside, and root repairs) preserving joint shock absorption",
-                      "Cartilage debridement, chondroplasty, and microfracture for articular cartilage preservation",
-                      "Removal of loose osteochondral bodies relieving painful mechanical joint locking",
-                      "Sports injury evaluation including ligament tensioning, plica resection, and fat pad debridement",
-                      "Platelet-Rich Plasma (PRP) & Hyaluronic Acid joint preservation injections"
-                    ].map((pt, i) => (
-                      <div key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
-                        <CheckCircle size={16} className="text-[#1B4965] flex-shrink-0 mt-0.5" />
-                        <span>{pt}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="pt-4 flex gap-3">
-                    <button 
-                      onClick={() => openBookingModal()}
-                      className="bg-[#E8A24C] hover:bg-[#D99136] text-white px-6 py-3 rounded-lg font-bold text-sm shadow-md flex items-center gap-2"
-                    >
-                      <Calendar size={15} /> Book Arthroscopy Consultation
-                    </button>
-                  </div>
-                </div>
-
-                <div className="p-6 bg-[#F8FAFC] rounded-2xl border border-slate-200 shadow-sm space-y-4">
-                  <h3 className="font-bold text-lg text-slate-900 border-b border-slate-200 pb-2">
-                    Arthroscopy Rehabilitation Milestones
-                  </h3>
-                  <div className="space-y-3 text-xs text-slate-600">
-                    <div className="p-3 bg-white rounded-lg border border-slate-200">
-                      <strong className="text-slate-900 block mb-0.5">Day 0 to 3: Immediate Day-Case Discharge</strong>
-                      Ice, elevation, and compression with immediate active ankle pumps, quad sets, and gentle knee flexion.
-                    </div>
-                    <div className="p-3 bg-white rounded-lg border border-slate-200">
-                      <strong className="text-slate-900 block mb-0.5">Week 1 to 2: Early Mobilisation</strong>
-                      Weight-bearing as tolerated, weaning off crutches, straight leg raises, and active knee extension.
-                    </div>
-                    <div className="p-3 bg-white rounded-lg border border-slate-200">
-                      <strong className="text-slate-900 block mb-0.5">Week 3 to 6: Functional Recovery</strong>
-                      Static cycling, swimming, closed kinetic chain exercises, and return to light recreational exercise under physiotherapy guidance.
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Internal Cross-Linking Navigation */}
-          <section className="py-12 bg-[#F8FAFC]">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-4">Related Clinical Services &amp; Patient Resources</h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-                <a 
-                  href="/knee-replacement" 
-                  onClick={(e) => { e.preventDefault(); handleNavigate('knee-replacement'); }} 
-                  className="p-3 bg-white rounded-xl border border-slate-200 text-xs font-bold text-slate-800 hover:text-[#1B4965] hover:border-[#1B4965] transition-all flex items-center justify-between shadow-2xs"
-                >
-                  <span>Knee Replacement</span>
-                  <ChevronRight size={14} className="text-slate-400" />
-                </a>
-                <a 
-                  href="/robotic-surgery" 
-                  onClick={(e) => { e.preventDefault(); handleNavigate('robotic-surgery'); }} 
-                  className="p-3 bg-white rounded-xl border border-slate-200 text-xs font-bold text-slate-800 hover:text-[#1B4965] hover:border-[#1B4965] transition-all flex items-center justify-between shadow-2xs"
-                >
-                  <span>Robotic Surgery</span>
-                  <ChevronRight size={14} className="text-slate-400" />
-                </a>
-                <a 
-                  href="/patient-guides" 
-                  onClick={(e) => { e.preventDefault(); handleNavigate('patient-guides'); }} 
-                  className="p-3 bg-white rounded-xl border border-slate-200 text-xs font-bold text-slate-800 hover:text-[#1B4965] hover:border-[#1B4965] transition-all flex items-center justify-between shadow-2xs"
-                >
-                  <span>Patient Guides</span>
-                  <ChevronRight size={14} className="text-slate-400" />
-                </a>
-                <a 
-                  href="/reviews" 
-                  onClick={(e) => { e.preventDefault(); handleNavigate('reviews'); }} 
-                  className="p-3 bg-white rounded-xl border border-slate-200 text-xs font-bold text-slate-800 hover:text-[#1B4965] hover:border-[#1B4965] transition-all flex items-center justify-between shadow-2xs"
-                >
-                  <span>Patient Reviews</span>
-                  <ChevronRight size={14} className="text-slate-400" />
-                </a>
-                <a 
-                  href="/contact" 
-                  onClick={(e) => { e.preventDefault(); handleNavigate('contact'); }} 
-                  className="p-3 bg-[#EAF1F6] rounded-xl border border-slate-300 text-xs font-bold text-[#1B4965] hover:bg-[#1B4965] hover:text-white transition-all flex items-center justify-between shadow-2xs"
-                >
-                  <span>Book Consultation</span>
-                  <ChevronRight size={14} />
-                </a>
-              </div>
-            </div>
-          </section>
-        </div>
+      ) : currentPage === 'book-consultation' ? (
+        <BookConsultationPage onNavigate={handleNavigate} />
+      ) : CLINICAL_PROCEDURES[currentPage] ? (
+        <ClinicalProcedurePage 
+          data={CLINICAL_PROCEDURES[currentPage]}
+          onBook={() => openBookingModal()}
+          onNavigate={handleNavigate}
+        />
+      ) : currentPage === 'robotic-surgery' || currentPage === 'robotic-computer-assisted-surgery' ? (
+        <RoboticComparisonPage 
+          mode="overview"
+          onBook={() => openBookingModal()}
+          onNavigate={handleNavigate}
+        />
+      ) : currentPage === 'conventional-vs-computer-assisted-vs-robotic-surgery' ? (
+        <RoboticComparisonPage 
+          mode="comparison"
+          onBook={() => openBookingModal()}
+          onNavigate={handleNavigate}
+        />
+      ) : ['hospitals-locations', 'london-hip-knee-surgeon', 'essex-hip-knee-surgeon', 'spire-hartswood-hospital', 'nuffield-brentwood-hospital', 'queens-hospital-romford', 'king-george-hospital-goodmayes'].includes(currentPage) ? (
+        <LocationsHub 
+          mode={
+            currentPage === 'london-hip-knee-surgeon' ? 'london' :
+            currentPage === 'essex-hip-knee-surgeon' ? 'essex' :
+            currentPage === 'spire-hartswood-hospital' ? 'spire' :
+            currentPage === 'nuffield-brentwood-hospital' ? 'nuffield' :
+            currentPage === 'queens-hospital-romford' ? 'queens' :
+            currentPage === 'king-george-hospital-goodmayes' ? 'king-george' :
+            'overview'
+          }
+          onBook={(hospital) => openBookingModal(hospital)}
+          onNavigate={handleNavigate}
+        />
+      ) : ['patient-information', 'patient-guides', 'hip-replacement-recovery', 'knee-replacement-recovery', 'preparing-for-surgery', 'frequently-asked-questions', 'physio-protocols'].includes(currentPage) ? (
+        <PatientInfoHub 
+          mode={
+            currentPage === 'hip-replacement-recovery' ? 'hip-recovery' :
+            currentPage === 'knee-replacement-recovery' ? 'knee-recovery' :
+            currentPage === 'preparing-for-surgery' ? 'preparing' :
+            currentPage === 'frequently-asked-questions' ? 'faqs' :
+            currentPage === 'physio-protocols' ? 'protocols' :
+            'overview'
+          }
+          onBook={() => openBookingModal()}
+          onNavigate={handleNavigate}
+        />
       ) : currentPage === '404' ? (
         <div className="pt-36 pb-24 min-h-[75vh] flex flex-col items-center justify-center px-4 bg-[#F8FAFC] text-center">
           <div className="max-w-lg w-full bg-white p-8 sm:p-10 rounded-2xl border border-slate-200 shadow-sm space-y-5">

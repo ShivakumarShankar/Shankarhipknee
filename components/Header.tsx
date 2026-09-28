@@ -66,121 +66,173 @@ const MENU_PAGES: NavMenuItem[] = [
     ]
   },
   {
-    name: 'Services',
+    name: 'About',
+    href: 'about-mr-shivakumar-shankar',
+    subItems: [
+      {
+        name: 'Biography & Credentials',
+        description: 'Consultant Orthopaedic Hip & Knee Surgeon at BHRUT and Brentwood',
+        href: 'about-mr-shivakumar-shankar'
+      },
+      {
+        name: 'Qualifications & Training',
+        description: 'MBBS, DHA, MRCSEd, MSc, FRCSEd (Tr & Orth), PG Diploma Robotic Surgery',
+        href: 'about-mr-shivakumar-shankar'
+      },
+      {
+        name: 'NHS & Private Practice',
+        description: 'Queen’s & King George Hospitals (BHRUT) • Spire Hartswood & Nuffield Brentwood',
+        href: 'hospitals-locations'
+      }
+    ]
+  },
+  {
+    name: 'Hip Surgery',
     href: 'hip-replacement',
     subItems: [
       {
-        name: 'Hip Replacement Surgery',
-        description: 'Sub-millimetre precision implant positioning with 3D planning',
+        name: 'Total Hip Replacement',
+        description: 'Comprehensive primary, complex & revision hip arthroplasty',
         href: 'hip-replacement'
       },
       {
-        name: 'Minimally Invasive Hip Approaches',
-        description: 'Tissue-preserving Rottinger and anterior approaches for rapid recovery',
-        href: 'hip-replacement'
+        name: 'Robotic Hip Replacement',
+        description: 'Mako robotic arm-assisted precision with 3D CT modeling',
+        href: 'robotic-hip-replacement'
       },
       {
-        name: 'Knee Replacement & Arthroplasty',
-        description: 'Custom kinematics with balanced ligament tensioning',
+        name: 'Computer-Assisted Hip Replacement',
+        description: 'Real-time optical navigation without pre-op CT radiation',
+        href: 'computer-assisted-hip-replacement'
+      },
+      {
+        name: 'Minimally Invasive Hip',
+        description: 'Tissue-sparing Rottinger & anterior approaches for rapid recovery',
+        href: 'minimally-invasive-hip-replacement'
+      }
+    ]
+  },
+  {
+    name: 'Knee Surgery',
+    href: 'knee-replacement',
+    subItems: [
+      {
+        name: 'Total Knee Replacement',
+        description: 'Consultant-led joint resurfacing with kinematic alignment',
         href: 'knee-replacement'
+      },
+      {
+        name: 'Robotic Knee Replacement',
+        description: 'Mako robotic guidance with virtual ligament balancing',
+        href: 'robotic-knee-replacement'
+      },
+      {
+        name: 'Computer-Assisted Knee Surgery',
+        description: 'Intra-operative digital mechanical axis tracking',
+        href: 'computer-assisted-knee-replacement'
       },
       {
         name: 'Partial Knee Replacement',
-        description: 'Preserving natural knee ligaments with unicompartmental resurfacing',
-        href: 'knee-replacement'
+        description: 'Preserving natural cruciate ligaments with unicompartmental resurfacing',
+        href: 'partial-knee-replacement'
       },
       {
-        name: 'Knee Arthroscopy & Keyhole Surgery',
-        description: 'Meniscal tears, cartilage preservation, and joint debridement',
+        name: 'Knee Arthroscopy & Keyhole',
+        description: 'Meniscal preservation, repair, and joint preservation surgery',
         href: 'knee-arthroscopy'
-      },
-      {
-        name: 'Robotic Joint Arthroplasty',
-        description: 'Mako robotic arm-assisted precision joint replacement',
-        href: 'robotic-surgery'
       }
     ]
   },
   {
     name: 'Robotic Surgery',
-    href: 'robotic-surgery',
+    href: 'robotic-computer-assisted-surgery',
     subItems: [
       {
-        name: 'Robotic Arthroplasty Overview',
-        description: 'How robotic guidance transforms joint replacement precision',
-        href: 'robotic-surgery'
+        name: 'Robotic & Computer-Assisted Surgery',
+        description: 'Comprehensive guide to navigation and Mako robotic technology',
+        href: 'robotic-computer-assisted-surgery'
       },
       {
-        name: 'Computer-Assisted Navigation',
-        description: 'Real-time dynamic optical feedback during surgery',
-        href: 'robotic-surgery'
-      },
-      {
-        name: 'Regional Pioneer Milestone',
-        description: 'First surgeon in Essex & NE London for robotic total hip surgery',
-        href: 'robotic-surgery'
+        name: 'Conventional vs Navigated vs Robotic',
+        description: 'Balanced clinical evidence comparison of arthroplasty options',
+        href: 'conventional-vs-computer-assisted-vs-robotic-surgery'
       }
     ]
   },
   {
     name: 'Patient Info',
-    href: 'patient-guides',
+    href: 'patient-information',
     subItems: [
       {
-        name: 'Surgical Risks & Patient Guides (PDF)',
-        description: 'Procedure risks, non-operative options, and downloadable guides',
-        href: 'patient-guides'
+        name: 'Patient Information Hub',
+        description: 'Overview of surgical guides, rehabilitation pathways & advice',
+        href: 'patient-information'
       },
       {
-        name: 'Enhanced Recovery Protocols',
-        description: 'Day-case discharge pathways and rapid rehabilitation guidelines',
-        href: '#protocols'
+        name: 'Hip Replacement Recovery',
+        description: 'Week-by-week milestones, walking, driving, and work resumption',
+        href: 'hip-replacement-recovery'
       },
       {
-        name: 'Hip & Knee Conditions Treated',
-        description: 'Osteoarthritis, dysplasia, avascular necrosis, and cartilage wear',
-        href: '#conditions'
+        name: 'Knee Replacement Recovery',
+        description: 'Straightening exercises, bend milestones, and swelling control',
+        href: 'knee-replacement-recovery'
       },
       {
-        name: 'Patient FAQs',
-        description: 'Insurance, surgery preparation, recovery milestones, and safety',
-        href: '#faq'
+        name: 'Preparing for Surgery',
+        description: 'Pre-assessment checklist, home preparation, and what to bring',
+        href: 'preparing-for-surgery'
       },
       {
-        name: 'Combined Reviews (Doctify & IWGC)',
-        description: 'Verified ratings from Doctify and iWantGreatCare',
-        href: 'reviews'
+        name: 'Frequently Asked Questions',
+        description: 'Fees, health insurance, hospital stay, and anaesthetic choices',
+        href: 'frequently-asked-questions'
       },
       {
-        name: 'Photos, Videos & Social Channels',
-        description: 'Watch robotic surgery walkthroughs, photos & follow @ShankarHipKnee',
-        href: '#media'
+        name: 'Physiotherapy Protocols (PDF)',
+        description: 'Downloadable clinical rehabilitation guidelines for hip and knee',
+        href: 'physio-protocols'
       }
     ]
   },
   {
-    name: 'Media & Social',
-    href: '#media',
+    name: 'Hospitals',
+    href: 'hospitals-locations',
     subItems: [
       {
-        name: 'Photos & Clinical Gallery',
-        description: 'Laminar surgical theatres, knee arthroscopy, and patient mobilisation',
-        href: '#media'
+        name: 'All Hospitals & Locations',
+        description: 'Clear NHS and private hospital practice breakdown',
+        href: 'hospitals-locations'
       },
       {
-        name: 'Robotic Surgery & YouTube Videos',
-        description: 'Watch robotic hip & knee arthroplasty procedures and walkthroughs',
-        href: '#media'
+        name: 'London Hip & Knee Surgeon',
+        description: 'Specialist care for London and North East London patients',
+        href: 'london-hip-knee-surgeon'
       },
       {
-        name: 'Social Media Feeds (@ShankarHipKnee)',
-        description: 'LinkedIn updates, X feed, Bupa profile, BBC News coverage, and YouTube',
-        href: '#media'
+        name: 'Essex Hip & Knee Surgeon',
+        description: 'Private and NHS practice serving Essex and Brentwood',
+        href: 'essex-hip-knee-surgeon'
       },
       {
-        name: 'Upload Media or Add Link',
-        description: 'Add clinical photos, patient videos or YouTube links to the hub',
-        href: '#media'
+        name: 'Spire Hartswood Hospital',
+        description: 'Private hospital in Brentwood with live online booking',
+        href: 'spire-hartswood-hospital'
+      },
+      {
+        name: 'Nuffield Health Brentwood',
+        description: 'Private hospital in Brentwood with fixed-price packages',
+        href: 'nuffield-brentwood-hospital'
+      },
+      {
+        name: 'Queen\'s Hospital, Romford (NHS)',
+        description: 'BHRUT NHS Trust acute trauma and joint reconstruction centre',
+        href: 'queens-hospital-romford'
+      },
+      {
+        name: 'King George Hospital (NHS)',
+        description: 'BHRUT NHS Trust elective orthopaedic surgical centre',
+        href: 'king-george-hospital-goodmayes'
       }
     ]
   },
@@ -189,71 +241,36 @@ const MENU_PAGES: NavMenuItem[] = [
     href: 'reviews',
     subItems: [
       {
-        name: 'Combined Review Hub',
-        description: 'Live Doctify & iWantGreatCare review widgets',
-        href: 'reviews'
-      },
-      {
-        name: 'Doctify Rating Carousel',
-        description: 'Verified reviews and live patient carousel',
-        href: 'reviews'
-      },
-      {
-        name: 'iWantGreatCare Feedback',
-        description: 'Official verified NHS and private patient ratings',
-        href: 'reviews'
-      },
-      {
-        name: 'Leave a Review',
-        description: 'Submit your patient review on Doctify or iWantGreatCare',
+        name: 'Verified Patient Reviews',
+        description: 'Doctify and iWantGreatCare verified patient feedback',
         href: 'reviews'
       }
     ]
   },
   {
-    name: 'Practice Locations',
-    href: '#locations',
-    subItems: [
-      {
-        name: 'Spire Hartswood Hospital',
-        description: 'Eagle Way, Brentwood • Live Online Booking Available',
-        href: '#locations'
-      },
-      {
-        name: 'Nuffield Health Brentwood Hospital',
-        description: 'Shenfield Road, Brentwood • Live Online Booking Available',
-        href: '#locations'
-      },
-      {
-        name: 'Queens Hospital Romford (NHS)',
-        description: 'Barking, Havering & Redbridge University Hospitals NHS Trust',
-        href: '#locations'
-      }
-    ]
-  },
-  {
-    name: 'Appointments & Contact',
+    name: 'Contact',
     href: 'contact',
     subItems: [
       {
-        name: 'Book Private Consultation',
-        description: 'Online direct booking request for Spire or Nuffield',
-        href: 'book'
+        name: 'Contact Medical Secretary',
+        description: 'Remya Rexlin • Tel 07587 765888 • hip.knee_specialist@yahoo.com',
+        href: 'contact'
       },
       {
-        name: 'Direct Contact & Secretary',
-        description: 'Call 07587 765888 or email hip.knee_specialist@yahoo.com',
-        href: 'contact'
+        name: 'Book Consultation',
+        description: 'Online consultation request form & direct live hospital diaries',
+        href: 'book-consultation'
       }
     ]
   }
 ];
 
 export const getCanonicalHref = (href: string) => {
-  if (href === 'book') return '#';
+  if (href === 'book') return '/book-consultation/';
   if (href.startsWith('#')) return href;
-  if (href === 'home' || href === '') return '/';
-  return href.startsWith('/') ? href : `/${href}`;
+  if (href === 'home' || href === '' || href === '/') return '/';
+  const clean = href.replace(/^\/+|\/+$/g, '');
+  return `/${clean}/`;
 };
 
 const Header: React.FC<HeaderProps> = ({ onBook, onNavigate, currentPage }) => {

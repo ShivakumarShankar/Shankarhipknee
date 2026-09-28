@@ -12,7 +12,7 @@ import {
 
 export const PRACTICE_NAME = "London Essex Hip and Knee Surgeon";
 export const SURGEON_NAME = "Mr Shivakumar Shankar";
-export const SURGEON_ROLE = "Consultant Orthopaedic Surgeon";
+export const SURGEON_ROLE = "Consultant Robotic Hip and Knee Surgeon";
 export const SURGEON_TITLE = "Consultant Orthopaedic Surgeon";
 export const SPECIALITY = "Hip and Knee Surgery";
 export const BRAND_NAME = "London and Essex Hip and Knee Surgeon";
