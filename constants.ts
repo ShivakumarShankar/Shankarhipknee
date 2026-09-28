@@ -77,9 +77,9 @@ export const SURGICAL_STATS: SurgicalStat[] = [
     detail: "Specialist keyhole interventions, meniscal preservation, and joint cartilage care in London and Essex."
   },
   {
-    value: "Essex Pioneer",
-    label: "Robotic Hip Arthroplasty",
-    detail: "Mr Shivakumar Shankar has stated that he was the first surgeon to perform computer-assisted and robotic total hip replacement in Essex and North East London."
+    value: "100+",
+    label: "Robotic Joint Surgeries",
+    detail: "Personally completed more than 100 robotic hip and knee replacement surgeries, and was the first surgeon to perform computer-assisted and robotic total hip replacement in Essex and North East London."
   }
 ];
 

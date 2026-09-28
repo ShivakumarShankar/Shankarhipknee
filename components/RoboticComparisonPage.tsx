@@ -85,7 +85,7 @@ export const RoboticComparisonPage: React.FC<RoboticComparisonPageProps> = ({
                   Regional Pioneering Experience
                 </span>
                 <p className="text-sm text-slate-800 leading-relaxed">
-                  Mr Shivakumar Shankar has stated that he was the first surgeon to perform computer-assisted and robotic total hip replacement in Essex and North East London. He has performed manual and computer-assisted hip and knee replacement surgery for approximately 9 years and has more recently incorporated MAKO robotic-assisted surgery into his practice.
+                  Mr Shivakumar Shankar has <strong className="font-bold text-slate-900">personally completed more than 100 robotic hip and knee replacement surgeries</strong>, and was the first surgeon to perform computer-assisted and robotic total hip replacement in Essex and North East London. He has performed manual, computer-assisted, and robotic joint replacement surgery for over 9 years, incorporating advanced MAKO robotic-assisted precision into his high-volume arthroplasty practice.
                 </p>
               </div>
 

@@ -550,7 +550,7 @@ const pageDefinitions = [
       'robotic-surgery',
       'Regional Pioneer in Essex & North East London',
       'Robotic &amp; Computer-Assisted Hip and Knee Surgery',
-      'Mr Shivakumar Shankar has stated that he was the first surgeon to perform computer-assisted and robotic total hip replacement in Essex and North East London, combining fellowship expertise with MAKO robotic guidance.',
+      'Mr Shivakumar Shankar has personally completed more than 100 robotic hip and knee replacement surgeries and was the first surgeon to perform computer-assisted and robotic total hip replacement in Essex and North East London, combining fellowship expertise with MAKO robotic guidance.',
       `
       ${renderCardGrid([
         {
