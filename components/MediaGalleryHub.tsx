@@ -32,7 +32,8 @@ import {
   Check,
   Cpu,
   Activity,
-  GraduationCap
+  GraduationCap,
+  Instagram
 } from 'lucide-react';
 import { SOCIAL_HANDLE, X_HANDLE, SOCIAL_LINKS, SURGEON_NAME } from '../constants';
 
@@ -53,7 +54,7 @@ export interface MediaItem {
   id: string;
   type: 'photo' | 'video' | 'youtube' | 'social';
   title: string;
-  category: 'Robotic Surgery' | 'Hip Replacement' | 'Knee Replacement' | 'Rehabilitation' | 'Clinical Education' | 'News & Social Media';
+  category: 'Robotic Surgery' | 'Hip Replacement' | 'Knee Replacement' | 'Rehabilitation' | 'Clinical Education' | 'News & Social Media' | string;
   src: string;
   youtubeId?: string;
   thumbnail?: string;
@@ -70,10 +71,67 @@ export interface MediaItem {
   caption?: string;
   likes?: string;
   shares?: string;
+  altText?: string;
   broadcastScenes?: BroadcastScene[];
 }
 
 const DEFAULT_MEDIA: MediaItem[] = [
+  {
+    id: 'post-nuffield-brentwood-mako-2026',
+    type: 'social',
+    title: 'MAKO Robotic-Assisted Joint Replacement Introduced to Private Practice in Brentwood',
+    category: 'Robotic Surgery',
+    src: './First Navigated THR picture.JPG',
+    thumbnail: './First Navigated THR picture.JPG',
+    altText: 'Mr Shivakumar Shankar with the clinical team following a MAKO robotic-assisted joint replacement at Nuffield Health Brentwood Hospital',
+    platform: 'instagram',
+    socialHandle: '@shivakumarshankar',
+    authorName: 'Mr Shivakumar Shankar',
+    authorAvatar: './profile.jpg',
+    externalUrl: 'https://www.instagram.com/shivakumarshankar/',
+    quote: '“On 29 September 2026, Mr Shivakumar Shankar performed his first MAKO robotic-assisted joint replacement at Nuffield Health Brentwood Hospital, marking an important development in his private hip and knee practice.”',
+    caption: 'Nuffield Health Brentwood Milestone: On 29 September 2026, Mr Shivakumar Shankar performed his first MAKO robotic-assisted joint replacement at Nuffield Health Brentwood Hospital, marking an important development in his private hip and knee practice.',
+    description: `On 29 September 2026, Mr Shivakumar Shankar performed his first MAKO robotic-assisted joint replacement at Nuffield Health Brentwood Hospital, marking an important development in his private hip and knee practice.
+
+The procedure also represents what Mr Shankar announced as the first MAKO robotic-assisted joint replacement in the private healthcare sector across Essex and East London.
+
+The introduction of MAKO at Brentwood builds on his existing experience in robotic and computer-assisted joint replacement surgery and enables this technology to form part of his private joint replacement practice.
+
+Mr Shankar thanked the Nuffield Health Brentwood theatre team and Stryker UK MAKO team for their support and teamwork in reaching this milestone.
+
+Shared on Instagram on 30 September 2026.`,
+    date: '29 September 2026',
+    likes: '648',
+    shares: '174'
+  },
+  {
+    id: 'post-bhrut-personal-100-mako-2026',
+    type: 'social',
+    title: '100 MAKO Robotic-Assisted Joint Replacements — A Personal Milestone at BHRUT',
+    category: 'Robotic Surgery',
+    src: './Shankar MAKO picture.JPG',
+    thumbnail: './Shankar MAKO picture.JPG',
+    altText: 'Mr Shivakumar Shankar marking his personal milestone of 100 MAKO robotic-assisted joint replacement procedures at BHRUT',
+    platform: 'instagram',
+    socialHandle: '@shivakumarshankar',
+    authorName: 'Mr Shivakumar Shankar',
+    authorAvatar: './profile.jpg',
+    externalUrl: 'https://www.instagram.com/shivakumarshankar/',
+    quote: '“100 procedures represents 100 opportunities to combine technology, precision, experience and teamwork in delivering joint replacement care.”',
+    caption: 'Personal Professional Milestone: On 24 September 2026, Mr Shivakumar Shankar reached a personal milestone of completing 100 MAKO robotic-assisted joint replacement procedures at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT).',
+    description: `On 24 September 2026, Mr Shivakumar Shankar reached a personal milestone of completing 100 MAKO robotic-assisted joint replacement procedures at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT).
+
+The milestone reflects his growing experience with MAKO robotic-assisted hip and knee replacement, building on his previous experience in manual and computer-assisted joint replacement surgery.
+
+Mr Shankar thanked the wider multidisciplinary team involved in delivering joint replacement care, including anaesthetists, nurses, theatre staff, radiographers, physiotherapists and orthopaedic colleagues.
+
+100 procedures represents 100 opportunities to combine technology, precision, experience and teamwork in delivering joint replacement care.
+
+Shared on Instagram on 25 September 2026.`,
+    date: '24 September 2026',
+    likes: '712',
+    shares: '198'
+  },
   {
     id: 'yt-1',
     type: 'youtube',
@@ -216,18 +274,19 @@ const DEFAULT_MEDIA: MediaItem[] = [
   {
     id: 'bhrut-100th-robotic',
     type: 'social',
-    title: '100 MAKO Robotic-Assisted Joint Replacement Procedures',
+    title: 'BHRUT NHS Trust: 100th Robotic Joint Replacement Milestone (Catherine’s Story)',
     category: 'Robotic Surgery',
     src: './Shankar MAKO picture.JPG',
     thumbnail: './Shankar MAKO picture.JPG',
+    altText: 'BHRUT NHS Trust marking the 100th patient robotic joint replacement at King George Hospital',
     platform: 'bhrut',
     socialHandle: 'BHRUT NHS Trust',
     authorName: 'Mr Shivakumar Shankar & BHRUT',
     authorAvatar: './profile.jpg',
     externalUrl: 'https://www.bhrhospitals.nhs.uk/news/fitness-manager-catherine-gets-a-whole-new-lease-of-life-after-being-the-100th-patient-to-have-a-robotic-joint-replacement-5735',
     quote: '“Robotic-assisted surgery allows us to be even more accurate, with the potential for implants to last longer and patients to experience reduced recovery time. Having used computer navigation for approximately 10 years, introducing the Mako robot has elevated surgical precision and created invaluable training opportunities for the next generation of surgeons.”',
-    caption: 'Personal Procedural Milestone: Mr Shivakumar Shankar completed his personal landmark 100th MAKO robotic-assisted joint replacement procedure at BHRUT, restoring joint function and an active lifestyle for fitness manager Catherine O’Brien-Passfield.',
-    description: 'Mr Shivakumar Shankar achieved his personal procedural milestone of completing 100 MAKO robotic-assisted joint replacement operations at Barking, Havering and Redbridge University Hospitals NHS Trust. Mr Shankar, holder of a Postgraduate Diploma in Computer and Robot-Assisted Orthopaedic Surgery, performed this landmark robotic total knee replacement using Mako 3D CT guidance. (This highlights Mr Shankar’s personal operative milestone and does not represent the total robotic procedures performed across the Trust).',
+    caption: 'BHRUT Departmental Milestone: Fitness manager Catherine O’Brien-Passfield becomes the 100th patient to have a robotic joint replacement at BHRUT, performed by Mr Shivakumar Shankar at King George Hospital.',
+    description: 'BHRUT Orthopaedic Department landmark: Fitness manager Catherine O’Brien-Passfield became the 100th patient to receive a robotic-assisted joint replacement at Barking, Havering and Redbridge University Hospitals NHS Trust. Mr Shivakumar Shankar performed this milestone procedure using Mako 3D CT robotic guidance at King George Hospital, helping restore joint mobility and an active lifestyle.',
     date: '18 January 2023 • BHRUT Official News',
     likes: '584',
     shares: '162'
@@ -955,7 +1014,7 @@ export const MediaGalleryHub: React.FC<MediaGalleryHubProps> = ({ onOpenBooking 
                     {item.thumbnail ? (
                       <img
                         src={item.thumbnail}
-                        alt={item.title}
+                        alt={item.altText || item.title}
                         className={`w-full h-full transition-transform duration-300 group-hover:scale-105 ${
                           item.platform === 'njr' ? 'object-contain p-4 bg-white' : 'object-cover'
                         }`}
@@ -965,7 +1024,7 @@ export const MediaGalleryHub: React.FC<MediaGalleryHubProps> = ({ onOpenBooking 
                     ) : item.type === 'photo' ? (
                       <img
                         src={item.src}
-                        alt={item.title}
+                        alt={item.altText || item.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         loading="lazy"
                         referrerPolicy="no-referrer"
@@ -986,9 +1045,17 @@ export const MediaGalleryHub: React.FC<MediaGalleryHubProps> = ({ onOpenBooking 
                           <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
                           <Tv size={11} /> BBC TV (0:47)
                         </span>
+                      ) : item.id === 'post-nuffield-brentwood-mako-2026' ? (
+                        <span className="bg-[#00703C] text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-xs">
+                          <Sparkles size={11} /> Nuffield Health Brentwood
+                        </span>
+                      ) : item.id === 'post-bhrut-personal-100-mako-2026' ? (
+                        <span className="bg-[#1B4965] text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-xs">
+                          <Award size={11} /> 100 MAKO Personal Milestone
+                        </span>
                       ) : item.id === 'bhrut-100th-robotic' ? (
                         <span className="bg-[#E8A24C] text-slate-950 text-[10px] font-black px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-xs">
-                          <Star size={11} className="fill-slate-950" /> 100th Robotic Milestone
+                          <Star size={11} className="fill-slate-950" /> BHRUT 100th Patient
                         </span>
                       ) : item.id === 'bhrut-super-clinics' ? (
                         <span className="bg-amber-400 text-slate-950 text-[10px] font-black px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-xs">
@@ -1013,6 +1080,10 @@ export const MediaGalleryHub: React.FC<MediaGalleryHubProps> = ({ onOpenBooking 
                       ) : item.platform === 'bupa' ? (
                         <span className="bg-[#0079C8] text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-xs">
                           <ShieldCheck size={11} /> Bupa Verified
+                        </span>
+                      ) : item.platform === 'instagram' ? (
+                        <span className="bg-gradient-to-r from-amber-500 via-rose-500 to-purple-600 text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-xs">
+                          <Instagram size={11} /> Instagram Post
                         </span>
                       ) : (item.id.startsWith('bhrut') || item.platform === 'bhrut') ? (
                         <span className="bg-[#005EB8] text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-xs">
@@ -1149,6 +1220,8 @@ export const MediaGalleryHub: React.FC<MediaGalleryHubProps> = ({ onOpenBooking 
                       ? 'Read on LinkedIn'
                       : item.platform === 'bupa'
                       ? 'View Bupa Profile'
+                      : item.platform === 'instagram'
+                      ? 'View on Instagram'
                       : item.platform === 'x'
                       ? 'View Post on X'
                       : (item.id.startsWith('bhrut') || item.platform === 'bhrut')
@@ -1229,6 +1302,8 @@ export const MediaGalleryHub: React.FC<MediaGalleryHubProps> = ({ onOpenBooking 
                         ? 'Shivakumar Shankar • Consultant Orthopaedic Surgeon'
                         : activeItem.platform === 'bupa'
                         ? 'Bupa Recognized Specialist • GMC 6038414'
+                        : activeItem.platform === 'instagram'
+                        ? 'Shivakumar Shankar • Official Instagram'
                         : activeItem.platform === 'x'
                         ? `Official Feed ${X_HANDLE}`
                         : `Official Feed ${activeItem.socialHandle || SOCIAL_HANDLE}`}
@@ -1275,6 +1350,8 @@ export const MediaGalleryHub: React.FC<MediaGalleryHubProps> = ({ onOpenBooking 
                           ? `Consultant Orthopaedic Surgeon • ${X_HANDLE}`
                           : activeItem.platform === 'bupa'
                           ? 'Bupa Recognized Specialist • GMC 6038414 (Specialist Register)'
+                          : activeItem.platform === 'instagram'
+                          ? 'Consultant Orthopaedic Hip & Knee Surgeon • Official Instagram'
                           : (activeItem.id.startsWith('bhrut') || activeItem.platform === 'bhrut')
                           ? 'Barking, Havering and Redbridge University Hospitals NHS Trust'
                           : activeItem.platform === 'njr'
@@ -1303,7 +1380,7 @@ export const MediaGalleryHub: React.FC<MediaGalleryHubProps> = ({ onOpenBooking 
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1.5 text-xs font-bold px-3.5 py-1.5 rounded-lg text-white bg-[#1B4965] hover:bg-[#133549] transition-colors shrink-0 shadow-2xs"
                       >
-                        <span>View on {activeItem.platform === 'linkedin' ? 'LinkedIn' : activeItem.platform === 'x' ? 'X' : activeItem.platform === 'bupa' ? 'Bupa' : activeItem.platform === 'bhrut' ? 'BHRUT' : 'Source'}</span>
+                        <span>View on {activeItem.platform === 'linkedin' ? 'LinkedIn' : activeItem.platform === 'x' ? 'X' : activeItem.platform === 'bupa' ? 'Bupa' : activeItem.platform === 'bhrut' ? 'BHRUT' : activeItem.platform === 'instagram' ? 'Instagram' : 'Source'}</span>
                         <ExternalLink size={12} />
                       </a>
                     )}
@@ -1526,6 +1603,8 @@ export const MediaGalleryHub: React.FC<MediaGalleryHubProps> = ({ onOpenBooking 
                       ? 'LinkedIn Clinical Discussion:'
                       : activeItem.platform === 'bupa'
                       ? 'Bupa Finder Official Record:'
+                      : activeItem.platform === 'instagram'
+                      ? 'Official Instagram (@shivakumarshankar) Post:'
                       : activeItem.platform === 'x'
                       ? 'Official X (@ShankarHipKnee) Post:'
                       : activeItem.platform === 'njr' 
@@ -1549,6 +1628,8 @@ export const MediaGalleryHub: React.FC<MediaGalleryHubProps> = ({ onOpenBooking 
                           ? 'Mr Shivakumar Shankar • Professional LinkedIn Network & Activity'
                           : activeItem.platform === 'bupa'
                           ? 'Bupa Recognized Specialist Directory • GMC 6038414 (Specialist Register)'
+                          : activeItem.platform === 'instagram'
+                          ? 'Mr Shivakumar Shankar • Instagram (@shivakumarshankar)'
                           : activeItem.platform === 'x'
                           ? 'Official X Profile (@ShankarHipKnee) • Consultant Orthopaedic Surgeon'
                           : activeItem.platform === 'njr'
@@ -1564,9 +1645,9 @@ export const MediaGalleryHub: React.FC<MediaGalleryHubProps> = ({ onOpenBooking 
 
               {/* Description & Links */}
               {activeItem.description && (
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed pt-1">
+                <div className="text-xs sm:text-sm text-slate-600 leading-relaxed pt-1 whitespace-pre-line space-y-2">
                   {activeItem.description}
-                </p>
+                </div>
               )}
 
               {/* Action Bar */}
@@ -1582,6 +1663,8 @@ export const MediaGalleryHub: React.FC<MediaGalleryHubProps> = ({ onOpenBooking 
                           ? 'bg-[#0A66C2] hover:bg-[#004182]'
                           : activeItem.platform === 'bupa'
                           ? 'bg-[#0079C8] hover:bg-[#005a96]'
+                          : activeItem.platform === 'instagram'
+                          ? 'bg-gradient-to-r from-amber-500 via-rose-500 to-purple-600 hover:opacity-95'
                           : activeItem.platform === 'x'
                           ? 'bg-black hover:bg-slate-800'
                           : activeItem.platform === 'njr'
@@ -1597,6 +1680,8 @@ export const MediaGalleryHub: React.FC<MediaGalleryHubProps> = ({ onOpenBooking 
                         </svg>
                       ) : activeItem.platform === 'bupa' ? (
                         <ShieldCheck size={14} />
+                      ) : activeItem.platform === 'instagram' ? (
+                        <Instagram size={14} />
                       ) : activeItem.platform === 'x' ? (
                         <svg className="w-3 h-3 fill-current" viewBox="0 0 24 24">
                           <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
@@ -1611,6 +1696,8 @@ export const MediaGalleryHub: React.FC<MediaGalleryHubProps> = ({ onOpenBooking 
                           ? 'Open LinkedIn Post / Activity'
                           : activeItem.platform === 'bupa'
                           ? 'Open Bupa Finder Profile'
+                          : activeItem.platform === 'instagram'
+                          ? 'View on Instagram (@shivakumarshankar)'
                           : activeItem.platform === 'x'
                           ? 'View Post on X (@ShankarHipKnee)'
                           : activeItem.platform === 'njr'

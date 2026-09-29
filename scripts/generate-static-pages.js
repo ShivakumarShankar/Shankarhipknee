@@ -222,13 +222,48 @@ const pageDefinitions = [
         </div>
 
         <!-- Featured Media & Milestones Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-xs flex flex-col justify-between">
             <div>
-              <span class="text-[10px] font-bold text-amber-700 uppercase tracking-wider block mb-1">Procedural Milestone</span>
-              <h3 class="font-bold text-slate-900 text-sm mb-2">100 MAKO Robotic-Assisted Joint Replacement Procedures</h3>
+              <div class="flex items-center justify-between text-[11px] text-slate-500 mb-2">
+                <span class="font-bold text-[#00703C] uppercase tracking-wider text-[10px]">Robotic Surgery &bull; Nuffield Brentwood</span>
+                <span class="font-semibold text-slate-700">29 September 2026</span>
+              </div>
+              <h3 class="font-bold text-slate-900 text-sm mb-2">MAKO Robotic-Assisted Joint Replacement Introduced to Private Practice in Brentwood</h3>
               <p class="text-xs text-slate-600 leading-relaxed">
-                Mr Shivakumar Shankar completed his personal landmark 100th MAKO robotic-assisted joint replacement procedure at BHRUT, restoring active mobility for fitness manager Catherine O'Brien-Passfield.
+                On 29 September 2026, Mr Shivakumar Shankar performed his first MAKO robotic-assisted joint replacement at Nuffield Health Brentwood Hospital, marking an important development in his private hip and knee practice.
+              </p>
+            </div>
+            <a href="https://www.instagram.com/shivakumarshankar/" target="_blank" rel="noopener noreferrer" class="mt-4 text-xs font-bold text-[#1B4965] hover:underline flex items-center gap-1">
+              View on Instagram (@shivakumarshankar) &rarr;
+            </a>
+          </div>
+
+          <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-xs flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-[11px] text-slate-500 mb-2">
+                <span class="font-bold text-[#1B4965] uppercase tracking-wider text-[10px]">Robotic Surgery &bull; BHRUT Milestone</span>
+                <span class="font-semibold text-slate-700">24 September 2026</span>
+              </div>
+              <h3 class="font-bold text-slate-900 text-sm mb-2">100 MAKO Robotic-Assisted Joint Replacements — A Personal Milestone at BHRUT</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                On 24 September 2026, Mr Shivakumar Shankar reached a personal milestone of completing 100 MAKO robotic-assisted joint replacement procedures at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT).
+              </p>
+            </div>
+            <a href="https://www.instagram.com/shivakumarshankar/" target="_blank" rel="noopener noreferrer" class="mt-4 text-xs font-bold text-[#1B4965] hover:underline flex items-center gap-1">
+              View on Instagram (@shivakumarshankar) &rarr;
+            </a>
+          </div>
+
+          <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-xs flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-[11px] text-slate-500 mb-2">
+                <span class="text-[10px] font-bold text-amber-700 uppercase tracking-wider">BHRUT Departmental Milestone</span>
+                <span class="font-semibold text-slate-700">18 January 2023</span>
+              </div>
+              <h3 class="font-bold text-slate-900 text-sm mb-2">BHRUT NHS Trust: 100th Robotic Joint Replacement Milestone (Catherine’s Story)</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Fitness manager Catherine O'Brien-Passfield becomes the 100th patient to receive a robotic-assisted joint replacement at Barking, Havering and Redbridge University Hospitals NHS Trust, performed by Mr Shivakumar Shankar.
               </p>
             </div>
             <a href="https://www.bhrhospitals.nhs.uk/news/fitness-manager-catherine-gets-a-whole-new-lease-of-life-after-being-the-100th-patient-to-have-a-robotic-joint-replacement-5735" target="_blank" rel="noopener noreferrer" class="mt-4 text-xs font-bold text-[#1B4965] hover:underline flex items-center gap-1">
