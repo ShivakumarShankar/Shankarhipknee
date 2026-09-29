@@ -213,7 +213,7 @@ export const PrpInjectionPage: React.FC<PrpInjectionPageProps> = ({
           </div>
 
           <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-            The treatment is performed entirely as an outpatient procedure in a private clinical consulting setting, typically taking between 30 and 45 minutes:
+            PRP treatment is generally performed as an outpatient procedure in a private clinical consulting setting. The time required can vary depending on the assessment and treatment being undertaken (typically approximately 30 to 45 minutes):
           </p>
 
           <div className="space-y-4">
@@ -246,7 +246,7 @@ export const PrpInjectionPage: React.FC<PrpInjectionPageProps> = ({
               {
                 step: '6',
                 title: 'Post-Treatment Advice & Rehabilitation',
-                desc: 'You are provided with clear post-injection guidance: relative rest for 48 hours, temporary avoidance of high-impact loading, and coordination with physical therapy to support progressive recovery.'
+                desc: 'Some temporary modification of activity may be recommended following PRP treatment. Specific advice will depend on the area treated and the individual\'s clinical circumstances. Patients should follow the individual aftercare advice provided following their procedure.'
               }
             ].map((s) => (
               <div key={s.step} className="flex gap-4 p-4 rounded-xl border border-slate-100 bg-slate-50 hover:bg-slate-100/80 transition-colors">
@@ -349,8 +349,8 @@ export const PrpInjectionPage: React.FC<PrpInjectionPageProps> = ({
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 pt-1">
             <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200 text-xs">
-              <strong className="text-slate-900 block mb-1">Post-Injection Flare</strong>
-              <span className="text-slate-600">Temporary soreness, aching, or feeling of fullness for 24–48 hours as the biological response initiates.</span>
+              <strong className="text-slate-900 block mb-1">Post-Injection Discomfort</strong>
+              <span className="text-slate-600">Temporary soreness, aching, or feeling of fullness may occur following treatment as the biological response initiates.</span>
             </div>
             <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200 text-xs">
               <strong className="text-slate-900 block mb-1">Local Bruising &amp; Swelling</strong>
@@ -567,7 +567,7 @@ export const PrpInjectionPage: React.FC<PrpInjectionPageProps> = ({
                 How many injections might be needed?
               </h3>
               <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
-                <strong className="font-semibold text-slate-900">Usually 3 injections spaced 2 to 4 weeks, but single injection options can be discussed</strong> depending on your specific condition, joint severity, and individual clinical requirements.
+                The number of PRP injections recommended can vary depending on the condition being treated, the individual patient's circumstances and their response to treatment. This will be discussed following clinical assessment. Some patients may be offered a single injection while others may be advised to have more than one treatment. If more than one PRP injection is recommended, the timing between treatments will depend on the condition being treated and the individual treatment plan.
               </p>
             </div>
 
@@ -576,7 +576,7 @@ export const PrpInjectionPage: React.FC<PrpInjectionPageProps> = ({
                 What should I expect during the appointment?
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                The entire appointment takes approximately 30 to 45 minutes. A standard blood sample is drawn from your arm, prepared in the centrifuge (which takes about 15 minutes), and then precisely injected into the joint under strict sterile conditions. You will be able to walk immediately after the appointment and travel home comfortably.
+                PRP treatment is generally performed as an outpatient procedure. The time required can vary depending on the assessment and treatment being undertaken (typically approximately 30 to 45 minutes). A routine blood sample is collected from your arm, prepared in a specialised medical centrifuge to concentrate platelets and bioactive signaling factors, and then carefully delivered into the affected area under strict sterile conditions. Patients should follow the individual instructions provided following their procedure.
               </p>
             </div>
 
@@ -585,7 +585,7 @@ export const PrpInjectionPage: React.FC<PrpInjectionPageProps> = ({
                 What is the recovery after an injection?
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                You should plan for relative rest of the treated joint for 48 hours, avoiding vigorous exercise, heavy lifting, or prolonged walking. Mild post-injection aching is common for 24–48 hours and can be managed with paracetamol and cold packs (anti-inflammatory medications like ibuprofen are typically avoided for several days so they do not interfere with natural platelet signaling). Normal daily activities can generally be resumed after 2 to 3 days.
+                Recovery and response to PRP vary between individuals and according to the condition being treated. Some temporary soreness or discomfort may occur following treatment. Some temporary modification of activity may be recommended, and advice regarding activity, exercise and rehabilitation will be tailored to the individual. Patients should follow the individual aftercare advice provided following their procedure. Some patients may experience improvement in symptoms, but response to PRP varies and benefit cannot be guaranteed.
               </p>
             </div>
 

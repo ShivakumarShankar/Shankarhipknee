@@ -659,7 +659,7 @@ const pageDefinitions = [
           <li><strong>Blood Sample Collection:</strong> A routine blood draw of 15 to 30 ml from a vein in your arm.</li>
           <li><strong>Preparation of PRP:</strong> Strict aseptic processing in a dedicated centrifuge to concentrate the platelet layer.</li>
           <li><strong>Injection into the Affected Area:</strong> Precise delivery of the concentrated plasma into the joint under aseptic outpatient conditions.</li>
-          <li><strong>Post-Treatment Advice and Rehabilitation:</strong> Guidance on relative joint rest for 48 hours and structured physiotherapy coordination.</li>
+          <li><strong>Post-Treatment Advice and Rehabilitation:</strong> Some temporary modification of activity may be recommended following treatment. Specific advice will depend on the area treated and the individual's clinical circumstances. Patients should follow the individual aftercare advice provided following their procedure.</li>
         </ol>
       </section>
 
@@ -681,7 +681,7 @@ const pageDefinitions = [
       <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs mb-8 space-y-4">
         <h2 class="text-2xl font-bold text-slate-900">Risks and Side Effects</h2>
         <p class="text-sm text-slate-700 leading-relaxed">
-          PRP is well-tolerated. Recognized potential side effects include temporary pain or soreness for 24–48 hours, mild swelling, localized bruising, an extremely rare risk of infection, and the possibility of minimal symptom improvement.
+          PRP is generally well-tolerated. Recognized potential side effects include temporary soreness or discomfort following treatment, mild swelling, localized bruising, an extremely rare risk of infection, and the possibility that response varies between individuals.
         </p>
       </section>
 
@@ -738,15 +738,15 @@ const pageDefinitions = [
           </div>
           <div>
             <h3 class="font-bold text-slate-900">How many injections might be needed?</h3>
-            <p class="text-xs sm:text-sm text-slate-700"><strong>Usually 3 injections spaced 2 to 4 weeks, but single injection options can be discussed</strong> depending on your specific condition, joint severity, and individual clinical requirements.</p>
+            <p class="text-xs sm:text-sm text-slate-700">The number of PRP injections recommended can vary depending on the condition being treated, the individual patient's circumstances and their response to treatment. This will be discussed following clinical assessment. If more than one PRP injection is recommended, the timing between treatments will depend on the condition being treated and the individual treatment plan.</p>
           </div>
           <div>
             <h3 class="font-bold text-slate-900">What should I expect during the appointment?</h3>
-            <p class="text-xs sm:text-sm text-slate-600">The outpatient visit lasts 30–45 minutes, encompassing consultation, blood draw, centrifugation, and sterile injection.</p>
+            <p class="text-xs sm:text-sm text-slate-600">PRP treatment is generally performed as an outpatient procedure. The time required can vary depending on the assessment and treatment being undertaken (typically approximately 30 to 45 minutes).</p>
           </div>
           <div>
             <h3 class="font-bold text-slate-900">What is the recovery after an injection?</h3>
-            <p class="text-xs sm:text-sm text-slate-600">Relative rest for 48 hours is recommended. Mild post-injection soreness settles quickly with paracetamol and cold packs.</p>
+            <p class="text-xs sm:text-sm text-slate-600">Recovery and response to PRP vary between individuals and according to the condition being treated. Some temporary soreness or discomfort may occur following treatment. Some temporary modification of activity may be recommended, and advice regarding activity, exercise and rehabilitation will be tailored to the individual. Patients should follow the individual aftercare advice provided following their procedure.</p>
           </div>
           <div>
             <h3 class="font-bold text-slate-900">Can PRP cure arthritis?</h3>

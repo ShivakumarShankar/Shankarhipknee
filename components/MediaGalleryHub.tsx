@@ -317,11 +317,11 @@ const DEFAULT_MEDIA: MediaItem[] = [
     thumbnail: './King George Hospital entrance.webp',
     platform: 'njr',
     socialHandle: 'National Joint Registry',
-    authorName: 'National Joint Registry (GMC 6038414)',
+    authorName: 'National Joint Registry (GMC 6062754)',
     authorAvatar: './profile.jpg',
     externalUrl: 'https://www.njrcentre.org.uk',
-    quote: '“GMC 6038414 officially audited on the National Joint Registry with active Hip (H) and Knee (K) joint replacement outcomes at King George Hospital — Barking, Havering and Redbridge University Hospitals NHS Trust.”',
-    caption: 'Official Registry Audit: National Joint Registry lists Shivakumar Shankar (GMC 6038414) with recorded Hip (H) and Knee (K) joint-replacement activity at King George Hospital (BHRUT).',
+    quote: '“GMC 6062754 officially audited on the National Joint Registry with active Hip (H) and Knee (K) joint replacement outcomes at King George Hospital — Barking, Havering and Redbridge University Hospitals NHS Trust.”',
+    caption: 'Official Registry Audit: National Joint Registry lists Shivakumar Shankar (GMC 6062754) with recorded Hip (H) and Knee (K) joint-replacement activity at King George Hospital (BHRUT).',
     description: 'Independent official registry source: The National Joint Registry lists Shivakumar Shankar among surgeons with recorded joint-replacement activity at King George Hospital (Barking, Havering and Redbridge University Hospitals NHS Trust), recording activity categories H = Hip and K = Knee, verifying high-volume arthroplasty outcomes and clinical quality.',
     date: 'National Joint Registry Official Profile',
     likes: '492',
@@ -416,7 +416,7 @@ const DEFAULT_MEDIA: MediaItem[] = [
     authorAvatar: './profile.jpg',
     externalUrl: 'https://finder.bupa.co.uk/Consultant/mr-shivakumar-shankar-orthopaedic-surgery-brentwood-romford',
     quote: '“Bupa-recognized and fee-assured Consultant Orthopaedic & Trauma Surgeon with over 26 years of extensive clinical and surgical experience in hip and knee arthroplasty, robotic joint surgery, arthroscopy, and sports joint injuries.”',
-    caption: 'Official Bupa Finder Directory Profile: Mr Shivakumar Shankar (GMC 6038414) accredited for consultations and surgery at Spire Hartswood Hospital and Nuffield Health Brentwood Hospital.',
+    caption: 'Official Bupa Finder Directory Profile: Mr Shivakumar Shankar (GMC 6062754) accredited for consultations and surgery at Spire Hartswood Hospital and Nuffield Health Brentwood Hospital.',
     description: 'Verified Bupa Consultant profile: Mr Shankar is fully fee-assured with direct insurance billing. Special interests on Bupa include robotic and computer-assisted total hip and knee replacement, Rottinger muscle-sparing hip surgery, partial knee replacement, ACL and meniscal repair, and PRP biological therapy.',
     date: 'Verified Bupa Consultant Profile',
     likes: '620',
@@ -825,7 +825,7 @@ export const MediaGalleryHub: React.FC<MediaGalleryHubProps> = ({ onOpenBooking 
                 <h3 className="text-base font-extrabold text-white tracking-tight flex items-center gap-2 flex-wrap">
                   <span>Verified Clinical Governance & NHS Trust Record</span>
                   <span className="bg-emerald-500/25 text-emerald-300 text-[10px] font-mono px-2 py-0.5 rounded-full border border-emerald-400/30">
-                    GMC: 6038414
+                    GMC: 6062754
                   </span>
                 </h3>
                 <p className="text-xs text-slate-300 mt-0.5">
@@ -1228,7 +1228,7 @@ export const MediaGalleryHub: React.FC<MediaGalleryHubProps> = ({ onOpenBooking 
                         : activeItem.platform === 'linkedin'
                         ? 'Shivakumar Shankar • Consultant Orthopaedic Surgeon'
                         : activeItem.platform === 'bupa'
-                        ? 'Bupa Recognized Specialist • GMC 6038414'
+                        ? 'Bupa Recognized Specialist • GMC 6062754'
                         : activeItem.platform === 'x'
                         ? `Official Feed ${X_HANDLE}`
                         : `Official Feed ${activeItem.socialHandle || SOCIAL_HANDLE}`}
@@ -1274,7 +1274,7 @@ export const MediaGalleryHub: React.FC<MediaGalleryHubProps> = ({ onOpenBooking 
                           : activeItem.platform === 'x'
                           ? `Consultant Orthopaedic Surgeon • ${X_HANDLE}`
                           : activeItem.platform === 'bupa'
-                          ? 'Bupa Recognized Specialist • GMC 6038414 (Specialist Register)'
+                          ? 'Bupa Recognized Specialist • GMC 6062754 (Specialist Register)'
                           : (activeItem.id.startsWith('bhrut') || activeItem.platform === 'bhrut')
                           ? 'Barking, Havering and Redbridge University Hospitals NHS Trust'
                           : activeItem.platform === 'njr'
@@ -1548,11 +1548,11 @@ export const MediaGalleryHub: React.FC<MediaGalleryHubProps> = ({ onOpenBooking 
                         {activeItem.platform === 'linkedin'
                           ? 'Mr Shivakumar Shankar • Professional LinkedIn Network & Activity'
                           : activeItem.platform === 'bupa'
-                          ? 'Bupa Recognized Specialist Directory • GMC 6038414 (Specialist Register)'
+                          ? 'Bupa Recognized Specialist Directory • GMC 6062754 (Specialist Register)'
                           : activeItem.platform === 'x'
                           ? 'Official X Profile (@ShankarHipKnee) • Consultant Orthopaedic Surgeon'
                           : activeItem.platform === 'njr'
-                          ? 'National Joint Registry Verified Surgeon Profile • GMC 6038414'
+                          ? 'National Joint Registry Verified Surgeon Profile • GMC 6062754'
                           : (activeItem.id.startsWith('bhrut') || activeItem.platform === 'bhrut')
                           ? 'BHR Hospitals Official Published Record • Barking, Havering and Redbridge University Hospitals NHS Trust'
                           : 'BBC News London Feature • Barking, Havering and Redbridge University Hospitals NHS Trust'}
