@@ -110,7 +110,7 @@ export const ReviewsPage: React.FC<ReviewsPageProps> = ({
             <div className="bg-white p-3.5 rounded-xl border border-slate-200 shadow-2xs text-center">
               <CheckCircle size={18} className="text-blue-600 mx-auto mb-1" />
               <p className="text-xs font-extrabold text-slate-900">GMC Specialist</p>
-              <p className="text-[11px] text-slate-500">Reg: 6062754</p>
+              <p className="text-[11px] text-slate-500">Reg: 6038414</p>
             </div>
           </div>
         </div>

@@ -54,7 +54,7 @@ const renderFooter = () => `
             PG Diploma Principles of Computer-Assisted &amp; Robotic Arthroplasty<br>
             Consultant Robotic Hip and Knee Surgeon &bull; London &amp; Essex<br>
             NHS Clinical Lead, Barking, Havering &amp; Redbridge University Hospitals NHS Trust<br>
-            GMC Number: 6062754 (Specialist Register)
+            GMC Number: 6038414 (Specialist Register)
           </p>
           <div class="text-xs text-slate-600">
             <strong class="text-slate-900 block mb-1">Private Practice Medical Secretary:</strong>
@@ -292,7 +292,7 @@ const pageDefinitions = [
     canonical: 'https://www.shivakumarshankar.co.uk/about-mr-shivakumar-shankar',
     bodyHtml: renderPageShell(
       'about',
-      'Consultant Orthopaedic Surgeon • GMC 6062754',
+      'Consultant Orthopaedic Surgeon • GMC 6038414',
       'About Mr Shivakumar Shankar FRCS (Tr & Orth)',
       'Mr Shivakumar Shankar is a highly accomplished Consultant Orthopaedic Surgeon specialising in hip and knee surgery, serving as the NHS Clinical Lead for Orthopaedics at Barking, Havering and Redbridge University Hospitals NHS Trust, with private consulting practices at Spire Hartswood Hospital and Nuffield Health Brentwood Hospital.',
       `
@@ -326,7 +326,7 @@ const pageDefinitions = [
     canonical: 'https://www.shivakumarshankar.co.uk/about-mr-shivakumar-shankar',
     bodyHtml: renderPageShell(
       'about',
-      'Consultant Orthopaedic Surgeon • GMC 6062754',
+      'Consultant Orthopaedic Surgeon • GMC 6038414',
       'About Mr Shivakumar Shankar FRCS (Tr & Orth)',
       'Mr Shivakumar Shankar is a highly accomplished Consultant Orthopaedic Surgeon specialising in hip and knee surgery, serving as the NHS Clinical Lead for Orthopaedics at Barking, Havering and Redbridge University Hospitals NHS Trust, with private consulting practices at Spire Hartswood Hospital and Nuffield Health Brentwood Hospital.',
       `
@@ -1429,7 +1429,7 @@ const pageDefinitions = [
         <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200">
           <h2 class="text-xl font-bold text-slate-900 mb-4">Spire Hartswood Hospital (Brentwood)</h2>
           <p class="text-xs sm:text-sm text-slate-600 mb-4">Fast-track private outpatient appointments on Monday and Thursday evenings.</p>
-          <a href="https://www.spirehealthcare.com/spire-hartswood-hospital/consultants/mr-shivakumar-shankar-c6062754/" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#005EB8] hover:bg-[#004b93] text-white px-5 py-2.5 rounded-lg text-xs font-bold transition-colors">
+          <a href="https://www.spirehealthcare.com/spire-hartswood-hospital/consultants/mr-shivakumar-shankar-c6038414/" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#005EB8] hover:bg-[#004b93] text-white px-5 py-2.5 rounded-lg text-xs font-bold transition-colors">
             View Live Timeslots on Spire Portal &rarr;
           </a>
         </div>

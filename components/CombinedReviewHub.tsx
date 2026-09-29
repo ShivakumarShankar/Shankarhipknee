@@ -120,7 +120,7 @@ export const CombinedReviewHub: React.FC<CombinedReviewHubProps> = ({
               <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span>
               Live widget sync
             </span>
-            <span>GMC: 6062754</span>
+            <span>GMC: 6038414</span>
           </div>
         </div>
       </div>

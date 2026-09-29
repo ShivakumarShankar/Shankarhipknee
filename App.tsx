@@ -1843,7 +1843,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-14 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center text-xs text-slate-600 gap-4">
           <p>&copy; {new Date().getFullYear()} {SURGEON_NAME}. All Rights Reserved.</p>
           <div className="flex items-center gap-3">
-            <span>Consultant Orthopaedic Hip & Knee Surgeon • Private & NHS Practice • GMC: 6062754</span>
+            <span>Consultant Orthopaedic Hip & Knee Surgeon • Private & NHS Practice • GMC: 6038414</span>
             <span className="text-slate-300">|</span>
             <button
               onClick={() => setIsSecretarialModalOpen(true)}
