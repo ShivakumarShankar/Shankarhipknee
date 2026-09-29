@@ -737,8 +737,8 @@ const pageDefinitions = [
             <p class="text-xs sm:text-sm text-slate-600">No. Patients with advanced structural deformity or end-stage arthritis are typically better served by surgical intervention.</p>
           </div>
           <div>
-            <h3 class="font-bold text-slate-900">How many injections might be needed?</h3>
-            <p class="text-xs sm:text-sm text-slate-700">The number of PRP injections recommended can vary depending on the condition being treated, the individual patient's circumstances and their response to treatment. This will be discussed following clinical assessment. If more than one PRP injection is recommended, the timing between treatments will depend on the condition being treated and the individual treatment plan.</p>
+            <h3 class="font-bold text-slate-900">How many PRP injections will I need?</h3>
+            <p class="text-xs sm:text-sm text-slate-700">For knee osteoarthritis, my usual treatment protocol is a course of <strong>three PRP injections, typically given at intervals of approximately 2–3 weeks</strong>. However, treatment is individualised. A <strong>single PRP injection may also be considered</strong> depending on the condition being treated, the severity of symptoms, clinical findings, patient preference and response to treatment. The appropriate number and timing of injections will be discussed following clinical assessment.</p>
           </div>
           <div>
             <h3 class="font-bold text-slate-900">What should I expect during the appointment?</h3>

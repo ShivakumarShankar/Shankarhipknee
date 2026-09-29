@@ -564,10 +564,16 @@ export const PrpInjectionPage: React.FC<PrpInjectionPageProps> = ({
 
             <div className="p-4 sm:p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
               <h3 className="font-bold text-slate-900 text-sm sm:text-base">
-                How many injections might be needed?
+                How many PRP injections will I need?
               </h3>
               <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
-                The number of PRP injections recommended can vary depending on the condition being treated, the individual patient's circumstances and their response to treatment. This will be discussed following clinical assessment. Some patients may be offered a single injection while others may be advised to have more than one treatment. If more than one PRP injection is recommended, the timing between treatments will depend on the condition being treated and the individual treatment plan.
+                For knee osteoarthritis, my usual treatment protocol is a course of <strong className="font-semibold text-slate-900">three PRP injections, typically given at intervals of approximately 2–3 weeks</strong>.
+              </p>
+              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                However, treatment is individualised. A <strong className="font-semibold text-slate-900">single PRP injection may also be considered</strong> depending on the condition being treated, the severity of symptoms, clinical findings, patient preference and response to treatment.
+              </p>
+              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                The appropriate number and timing of injections will be discussed following clinical assessment.
               </p>
             </div>
 
