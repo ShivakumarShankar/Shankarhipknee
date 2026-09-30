@@ -223,8 +223,11 @@ const pageDefinitions = [
 
         <!-- Featured Media & Milestones Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-xs flex flex-col justify-between">
+          <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-xs flex flex-col justify-between overflow-hidden">
             <div>
+              <div class="relative aspect-video w-full bg-slate-900 overflow-hidden rounded-lg mb-3">
+                <img src="/nuffield-brentwood-mako-2026.jpg" alt="Mr Shivakumar Shankar with the clinical team following a MAKO robotic-assisted joint replacement at Nuffield Health Brentwood Hospital" class="w-full h-full object-cover" width="600" height="338" loading="lazy" />
+              </div>
               <div class="flex items-center justify-between text-[11px] text-slate-500 mb-2">
                 <span class="font-bold text-[#00703C] uppercase tracking-wider text-[10px]">Robotic Surgery &bull; Nuffield Brentwood</span>
                 <span class="font-semibold text-slate-700">29 September 2026</span>
@@ -239,8 +242,11 @@ const pageDefinitions = [
             </a>
           </div>
 
-          <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-xs flex flex-col justify-between">
+          <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-xs flex flex-col justify-between overflow-hidden">
             <div>
+              <div class="relative aspect-video w-full bg-slate-900 overflow-hidden rounded-lg mb-3">
+                <img src="/shankar-personal-100-mako-2026.jpg" alt="Mr Shivakumar Shankar marking his personal milestone of 100 MAKO robotic-assisted joint replacement procedures at BHRUT" class="w-full h-full object-cover" width="600" height="338" loading="lazy" />
+              </div>
               <div class="flex items-center justify-between text-[11px] text-slate-500 mb-2">
                 <span class="font-bold text-[#1B4965] uppercase tracking-wider text-[10px]">Robotic Surgery &bull; BHRUT Milestone</span>
                 <span class="font-semibold text-slate-700">24 September 2026</span>
@@ -255,8 +261,11 @@ const pageDefinitions = [
             </a>
           </div>
 
-          <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-xs flex flex-col justify-between">
+          <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-xs flex flex-col justify-between overflow-hidden">
             <div>
+              <div class="relative aspect-video w-full bg-slate-900 overflow-hidden rounded-lg mb-3">
+                <img src="/Shankar MAKO picture.JPG" alt="BHRUT NHS Trust marking the 100th patient robotic joint replacement at King George Hospital" class="w-full h-full object-cover" width="600" height="338" loading="lazy" />
+              </div>
               <div class="flex items-center justify-between text-[11px] text-slate-500 mb-2">
                 <span class="text-[10px] font-bold text-amber-700 uppercase tracking-wider">BHRUT Departmental Milestone</span>
                 <span class="font-semibold text-slate-700">18 January 2023</span>
@@ -271,8 +280,11 @@ const pageDefinitions = [
             </a>
           </div>
 
-          <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-xs flex flex-col justify-between">
+          <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-xs flex flex-col justify-between overflow-hidden">
             <div>
+              <div class="relative aspect-video w-full bg-slate-900 overflow-hidden rounded-lg mb-3">
+                <img src="https://ichef.bbci.co.uk/ace/standard/960/cpsprodpb/b026/live/529541b0-f6f1-11f0-b385-5f48925de19a.png" alt="BBC News: Robotic Joint Replacement at Elective Surgical Hub" class="w-full h-full object-cover" width="600" height="338" loading="lazy" />
+              </div>
               <span class="text-[10px] font-bold text-red-700 uppercase tracking-wider block mb-1">BBC London Broadcast</span>
               <h3 class="font-bold text-slate-900 text-sm mb-2">BBC News: Robotic Joint Replacement at Elective Surgical Hub</h3>
               <p class="text-xs text-slate-600 leading-relaxed">
@@ -284,8 +296,11 @@ const pageDefinitions = [
             </a>
           </div>
 
-          <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-xs flex flex-col justify-between">
+          <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-xs flex flex-col justify-between overflow-hidden">
             <div>
+              <div class="relative aspect-video w-full bg-slate-900 overflow-hidden rounded-lg mb-3">
+                <img src="https://img.youtube.com/vi/QHnGZWrE3fU/hqdefault.jpg" alt="Home Exercises for Hip &amp; Knee Arthritis" class="w-full h-full object-cover" width="600" height="338" loading="lazy" />
+              </div>
               <span class="text-[10px] font-bold text-red-600 uppercase tracking-wider block mb-1">Patient Education Videos</span>
               <h3 class="font-bold text-slate-900 text-sm mb-2">Home Exercises for Hip &amp; Knee Arthritis</h3>
               <p class="text-xs text-slate-600 leading-relaxed">
