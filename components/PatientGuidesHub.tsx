@@ -22,11 +22,6 @@ import {
 } from '../patientInfoData';
 import { PROTOCOLS, SURGEON_NAME, SURGEON_ROLE } from '../constants';
 import { Protocol } from '../types';
-import { 
-  generateProcedureRiskPdf, 
-  generateComplicationLeafletPdf, 
-  generateProtocolPdf 
-} from '../pdfGenerator';
 
 type TabType = 'all' | 'procedures' | 'complications' | 'protocols';
 
@@ -42,9 +37,10 @@ export const PatientGuidesHub: React.FC<PatientGuidesHubProps> = ({ onOpenBookin
   const [viewingProtocol, setViewingProtocol] = useState<Protocol | null>(null);
   const [downloadingId, setDownloadingId] = useState<string | null>(null);
 
-  const handleDownloadProcedure = (item: ProcedureRiskInfo) => {
+  const handleDownloadProcedure = async (item: ProcedureRiskInfo) => {
     setDownloadingId(item.id);
     try {
+      const { generateProcedureRiskPdf } = await import('../pdfGenerator');
       generateProcedureRiskPdf(item);
     } catch (e) {
       console.error(e);
@@ -53,9 +49,10 @@ export const PatientGuidesHub: React.FC<PatientGuidesHubProps> = ({ onOpenBookin
     }
   };
 
-  const handleDownloadComplication = (item: ComplicationGuide) => {
+  const handleDownloadComplication = async (item: ComplicationGuide) => {
     setDownloadingId(item.id);
     try {
+      const { generateComplicationLeafletPdf } = await import('../pdfGenerator');
       generateComplicationLeafletPdf(item);
     } catch (e) {
       console.error(e);
@@ -64,9 +61,10 @@ export const PatientGuidesHub: React.FC<PatientGuidesHubProps> = ({ onOpenBookin
     }
   };
 
-  const handleDownloadProtocol = (item: Protocol) => {
+  const handleDownloadProtocol = async (item: Protocol) => {
     setDownloadingId(item.title);
     try {
+      const { generateProtocolPdf } = await import('../pdfGenerator');
       generateProtocolPdf(item);
     } catch (e) {
       console.error(e);

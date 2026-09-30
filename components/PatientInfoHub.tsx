@@ -13,7 +13,6 @@ import {
   EMAIL, 
   SECRETARY_NAME 
 } from '../constants';
-import { generateProtocolPdf } from '../pdfGenerator';
 
 export type PatientInfoMode = 
   | 'overview' 
@@ -41,6 +40,7 @@ export const PatientInfoHub: React.FC<PatientInfoHubProps> = ({
   const handleDownloadProtocol = async (proto: any) => {
     try {
       setGeneratingPdf(proto.title);
+      const { generateProtocolPdf } = await import('../pdfGenerator');
       await generateProtocolPdf(proto);
     } catch (e) {
       console.error("PDF generation failed:", e);

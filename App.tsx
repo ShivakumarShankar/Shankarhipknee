@@ -49,16 +49,21 @@ import { CombinedReviewHub } from './components/CombinedReviewHub';
 import { ReviewsPage } from './components/ReviewsPage';
 import { PatientGuidesHub } from './components/PatientGuidesHub';
 import { MediaGalleryHub } from './components/MediaGalleryHub';
-import { SecretarialPortalModal } from './components/SecretarialPortalModal';
 import { PROCEDURE_RISK_DATA } from './patientInfoData';
-import { generateProcedureRiskPdf, generateProtocolPdf } from './pdfGenerator';
 import { ClinicalProcedurePage } from './components/ClinicalProcedurePage';
 import { CLINICAL_PROCEDURES } from './clinicalProceduresData';
 import { RoboticComparisonPage } from './components/RoboticComparisonPage';
 import { LocationsHub, LocationPageMode } from './components/LocationsHub';
 import { PatientInfoHub, PatientInfoMode } from './components/PatientInfoHub';
 import { BookConsultationPage } from './components/BookConsultationPage';
-import { PrpInjectionPage } from './components/PrpInjectionPage';
+
+const SecretarialPortalModal = React.lazy(() => 
+  import('./components/SecretarialPortalModal').then(m => ({ default: m.SecretarialPortalModal }))
+);
+
+const PrpInjectionPage = React.lazy(() => 
+  import('./components/PrpInjectionPage').then(m => ({ default: m.PrpInjectionPage }))
+);
 
 export type AppPage = 
   | 'home' 
@@ -552,10 +557,19 @@ function App() {
       ) : currentPage === 'book-consultation' ? (
         <BookConsultationPage onNavigate={handleNavigate} />
       ) : currentPage === 'prp-injection' ? (
-        <PrpInjectionPage 
-          onBook={() => openBookingModal()}
-          onNavigate={handleNavigate}
-        />
+        <React.Suspense fallback={
+          <div className="pt-36 pb-24 min-h-[60vh] flex flex-col items-center justify-center text-slate-500 bg-[#F8FAFC]">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-8 h-8 border-2 border-[#1B4965] border-t-transparent rounded-full animate-spin"></div>
+              <p className="text-xs font-semibold text-slate-600">Loading Platelet-Rich Plasma (PRP) Therapy Guide...</p>
+            </div>
+          </div>
+        }>
+          <PrpInjectionPage 
+            onBook={() => openBookingModal()}
+            onNavigate={handleNavigate}
+          />
+        </React.Suspense>
       ) : CLINICAL_PROCEDURES[currentPage] ? (
         <ClinicalProcedurePage 
           data={CLINICAL_PROCEDURES[currentPage]}
@@ -968,8 +982,9 @@ function App() {
                             : PROCEDURE_RISK_DATA.find(p => p.id === treatment.id);
                           return activeRiskInfo ? (
                             <button
-                              onClick={(e) => {
+                              onClick={async (e) => {
                                 e.stopPropagation();
+                                const { generateProcedureRiskPdf } = await import('./pdfGenerator');
                                 generateProcedureRiskPdf(activeRiskInfo);
                               }}
                               title="Download Official Patient Information Guide & Risks (PDF)"
@@ -1225,7 +1240,10 @@ function App() {
                         View Protocol <ChevronRight size={14} />
                       </button>
                       <button 
-                        onClick={() => generateProtocolPdf(proto)}
+                        onClick={async () => {
+                          const { generateProtocolPdf } = await import('./pdfGenerator');
+                          generateProtocolPdf(proto);
+                        }}
                         className="text-xs font-bold text-[#1B4965] hover:text-[#13364B] flex items-center gap-1 transition-colors"
                       >
                         <Download size={14} /> PDF Guide
@@ -1857,10 +1875,14 @@ function App() {
       </footer>
 
       {/* SECRETARIAL ENQUIRIES MODAL */}
-      <SecretarialPortalModal 
-        isOpen={isSecretarialModalOpen} 
-        onClose={() => setIsSecretarialModalOpen(false)} 
-      />
+      {isSecretarialModalOpen && (
+        <React.Suspense fallback={null}>
+          <SecretarialPortalModal 
+            isOpen={isSecretarialModalOpen} 
+            onClose={() => setIsSecretarialModalOpen(false)} 
+          />
+        </React.Suspense>
+      )}
 
       {/* BOOKING CONSULTATION MODAL */}
       {isModalOpen && (
@@ -2346,7 +2368,10 @@ ${bookingForm.firstName} ${bookingForm.lastName}`
                       </p>
                     </div>
                     <button
-                      onClick={() => generateProcedureRiskPdf(activeRiskInfo)}
+                      onClick={async () => {
+                        const { generateProcedureRiskPdf } = await import('./pdfGenerator');
+                        generateProcedureRiskPdf(activeRiskInfo);
+                      }}
                       className="bg-[#1B4965] hover:bg-[#13364B] text-white px-3.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-colors shadow-xs self-start sm:self-auto"
                     >
                       <Download size={13} />
@@ -2420,7 +2445,10 @@ ${bookingForm.firstName} ${bookingForm.lastName}`
                     : PROCEDURE_RISK_DATA.find(p => p.id === selectedTreatment.id);
                   return activeRiskInfo ? (
                     <button
-                      onClick={() => generateProcedureRiskPdf(activeRiskInfo)}
+                      onClick={async () => {
+                        const { generateProcedureRiskPdf } = await import('./pdfGenerator');
+                        generateProcedureRiskPdf(activeRiskInfo);
+                      }}
                       className="bg-slate-100 hover:bg-slate-200 text-slate-800 px-4 py-2.5 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-colors"
                     >
                       <Download size={13} />
@@ -2509,7 +2537,8 @@ ${bookingForm.firstName} ${bookingForm.lastName}`
                 {selectedProtocol.filename}
               </span>
               <button
-                onClick={() => {
+                onClick={async () => {
+                  const { generateProtocolPdf } = await import('./pdfGenerator');
                   generateProtocolPdf(selectedProtocol);
                 }}
                 className="bg-[#1B4965] hover:bg-[#13364B] text-white px-5 py-2.5 rounded-lg text-xs font-bold flex items-center gap-2 transition-colors shadow-md"

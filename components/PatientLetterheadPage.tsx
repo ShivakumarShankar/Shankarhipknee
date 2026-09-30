@@ -4,7 +4,6 @@ import {
   Sparkles, ExternalLink, ShieldCheck, Mail, Phone, Globe
 } from 'lucide-react';
 import { downloadLetterheadDocx } from '../letterheadDocxGenerator';
-import { generatePatientLetterheadPdf } from '../pdfGenerator';
 
 interface PatientLetterheadPageProps {
   onBack?: () => void;
@@ -64,9 +63,10 @@ export const PatientLetterheadPage: React.FC<PatientLetterheadPageProps> = ({ on
     }
   };
 
-  const handleDownloadPdf = () => {
+  const handleDownloadPdf = async () => {
     setIsGeneratingPdf(true);
     try {
+      const { generatePatientLetterheadPdf } = await import('../pdfGenerator');
       generatePatientLetterheadPdf({
         date,
         patientName,
