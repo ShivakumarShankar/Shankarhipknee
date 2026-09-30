@@ -107,7 +107,7 @@ const MENU_PAGES: NavMenuItem[] = [
       },
       {
         name: 'Robotic Hip Replacement',
-        description: 'Mako robotic arm-assisted precision with 3D CT modeling',
+        description: 'Mako robotic arm-assisted precision with 3D CT modelling',
         href: 'robotic-hip-replacement'
       },
       {

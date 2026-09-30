@@ -133,10 +133,10 @@ export const ReviewsPage: React.FC<ReviewsPageProps> = ({
                 Patient Experiences
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mt-1">
-                Verified Surgical Outcomes & Feedback
+                Patient Feedback & Reviews
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 mt-1">
-                Read what patients have to say about their recovery, pain relief, and surgical care.
+                Read independently published patient feedback and reviews about Mr Shankar's care, including experiences of hip and knee surgery and recovery.
               </p>
             </div>
 
@@ -294,7 +294,7 @@ export const ReviewsPage: React.FC<ReviewsPageProps> = ({
                 </div>
                 <h3 className="font-bold text-sm text-white mb-1">Dual Verification</h3>
                 <p className="text-xs text-slate-300 leading-relaxed">
-                  Doctify verifies private surgical outcomes, while iWantGreatCare covers both NHS and independent hospital feedback.
+                  Doctify collects independent private patient feedback, while iWantGreatCare covers both NHS and independent hospital reviews.
                 </p>
               </div>
 

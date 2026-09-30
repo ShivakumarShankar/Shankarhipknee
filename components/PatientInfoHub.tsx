@@ -234,7 +234,7 @@ export const PatientInfoHub: React.FC<PatientInfoHubProps> = ({
                 <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-2">
                   <h3 className="font-bold text-slate-900 text-sm text-[#1B4965]">Restoring Extension (0°)</h3>
                   <p className="text-xs text-slate-600 leading-relaxed">
-                    Straightening the knee completely is the critical early objective. Practice pressing the back of the knee firmly down into the mattress to reactivate the quadriceps.
+                    Straightening the knee completely is the critical early objective. Practise pressing the back of the knee firmly down into the mattress to reactivate the quadriceps.
                   </p>
                 </div>
                 <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-2">

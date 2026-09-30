@@ -254,7 +254,7 @@ export const PROCEDURE_RISK_DATA: ProcedureRiskInfo[] = [
       approachesAndTechnology: [
         "Robotic-assisted and computer-navigated knee arthroplasty (Golden Jubilee Hospital fellowship training)",
         "Dynamic intra-operative soft tissue and ligament balancing",
-        "Sub-millimeter bone resection ensuring correct mechanical axis",
+        "Sub-millimetre bone resection ensuring correct mechanical axis",
         "Premium biocompatible cobalt-chrome or oxidised zirconium implants with high-flexion polyethylene inserts"
       ],
       objectives: [

@@ -256,7 +256,7 @@ Shared on Instagram on 25 September 2026.`,
         role: 'Consultant Orthopaedic Surgeon • BBC LONDON',
         title: 'Surgeon-Controlled Robotic Precision & 3D CT Guidance',
         quote: '“I tell the robot what to do and the robot does and delivers it to us. So the robot is not an automated thing — it gives us ideas based on the 3D CT and all the software to make the operation even more accurate. But it is what I tell the robot to do, makes it.”',
-        description: 'Mr. Shankar demonstrating the interactive digital 3D model of the patient’s knee, ensuring sub-millimetre implant alignment and customized ligament balancing.',
+        description: 'Mr. Shankar demonstrating the interactive digital 3D model of the patient’s knee, ensuring sub-millimetre implant alignment and customised ligament balancing.',
         image: 'https://ichef.bbci.co.uk/ace/standard/960/cpsprodpb/b026/live/529541b0-f6f1-11f0-b385-5f48925de19a.png'
       },
       {

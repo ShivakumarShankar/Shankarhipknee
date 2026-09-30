@@ -127,7 +127,7 @@ export const SecretarialPortalModal: React.FC<SecretarialPortalModalProps> = ({ 
   };
 
   const clearAll = () => {
-    if (window.confirm("Are you sure you want to clear the locally cached consultation inquiries?")) {
+    if (window.confirm("Are you sure you want to clear the locally cached consultation enquiries?")) {
       localStorage.removeItem('shankar_patient_consultations');
       setRecords([]);
     }
@@ -150,7 +150,7 @@ export const SecretarialPortalModal: React.FC<SecretarialPortalModalProps> = ({ 
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h3 className="text-lg font-bold">Secretarial Practice Inquiries Log</h3>
+                <h3 className="text-lg font-bold">Secretarial Practice Enquiries Log</h3>
                 <span className="text-[10px] uppercase font-bold bg-[#E8A24C] text-slate-950 px-2 py-0.5 rounded">
                   {records.length} Total
                 </span>
@@ -165,7 +165,7 @@ export const SecretarialPortalModal: React.FC<SecretarialPortalModalProps> = ({ 
             <button
               onClick={loadRecords}
               className="p-2 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-colors"
-              title="Refresh inquiries list"
+              title="Refresh enquiries list"
             >
               <RefreshCw size={16} className={isLoading ? 'animate-spin' : ''} />
             </button>
@@ -254,7 +254,7 @@ export const SecretarialPortalModal: React.FC<SecretarialPortalModalProps> = ({ 
             </div>
           ) : filteredRecords.length === 0 ? (
             <div className="py-12 text-center text-slate-500 text-xs">
-              No inquiries match "{searchTerm}".
+              No enquiries match "{searchTerm}".
             </div>
           ) : (
             filteredRecords.map((item) => {
@@ -349,7 +349,7 @@ export const SecretarialPortalModal: React.FC<SecretarialPortalModalProps> = ({ 
 
         {/* Footer info */}
         <div className="p-3 bg-slate-100 border-t border-slate-200 text-[11px] text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-2">
-          <span>Inquiries are securely captured into <code>consultations.json</code> on the server and cached in browser storage.</span>
+          <span>Enquiries are securely captured into <code>consultations.json</code> on the server and cached in browser storage.</span>
           <span>Secretary Contact: <strong>{SECRETARY_NAME}</strong> ({EMAIL})</span>
         </div>
 

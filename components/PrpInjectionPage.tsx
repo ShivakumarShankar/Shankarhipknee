@@ -345,7 +345,7 @@ export const PrpInjectionPage: React.FC<PrpInjectionPageProps> = ({
             </h2>
           </div>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Because PRP is prepared from your own blood, adverse allergic or systemic reactions are extraordinarily rare. However, like any interventional needle procedure, recognized potential risks include:
+            Because PRP is prepared from your own blood, adverse allergic or systemic reactions are extraordinarily rare. However, like any interventional needle procedure, recognised potential risks include:
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 pt-1">
             <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200 text-xs">
@@ -393,7 +393,7 @@ export const PrpInjectionPage: React.FC<PrpInjectionPageProps> = ({
                   <strong>Activity Modification &amp; Low-Impact Exercise:</strong> Cycling, swimming, and pacing activities to reduce joint load.
                 </li>
                 <li className="p-3 bg-slate-50 rounded-lg border border-slate-200">
-                  <strong>Targeted Physiotherapy:</strong> Strengthening surrounding quadriceps, hamstrings, and core to stabilize kinematics.
+                  <strong>Targeted Physiotherapy:</strong> Strengthening surrounding quadriceps, hamstrings, and core to stabilise kinematics.
                 </li>
                 <li className="p-3 bg-slate-50 rounded-lg border border-slate-200">
                   <strong>Weight Optimisation:</strong> Reducing body weight meaningfully lowers compressive forces across the weight-bearing joint.
@@ -451,7 +451,7 @@ export const PrpInjectionPage: React.FC<PrpInjectionPageProps> = ({
               <div className="w-8 h-8 rounded-lg bg-[#EAF1F6] text-[#1B4965] flex items-center justify-center font-bold">2</div>
               <h3 className="font-bold text-slate-900">Imaging Review</h3>
               <p className="text-slate-600 leading-relaxed">
-                Review of weight-bearing X-rays to assess joint space loss and MRI scans to evaluate cartilage integrity, bone edema, and menisci.
+                Review of weight-bearing X-rays to assess joint space loss and MRI scans to evaluate cartilage integrity, bone oedema, and menisci.
               </p>
             </div>
 

@@ -107,7 +107,7 @@ export const TREATMENTS: Treatment[] = [
   {
     id: "robotic-hip-replacement",
     title: "Robotic & Computer-Assisted Hip Replacement",
-    subtitle: "Pioneering Sub-Millimeter Precision",
+    subtitle: "Pioneering Navigational Precision",
     category: "robotic",
     procedureRiskId: "total-hip-replacement",
     surgicalApproach: "Robotic-Assisted / Computer Navigation",
@@ -115,7 +115,7 @@ export const TREATMENTS: Treatment[] = [
     description: "Mr Shankar was the first surgeon in Essex and North East London to perform robotic and computer-assisted total hip replacement.",
     keyBenefits: [
       "First in Essex & North East London region to perform this technique",
-      "Sub-millimeter cup positioning and precise inclination/version angles",
+      "Precise execution of planned cup orientation and inclination/version angles",
       "Exact anatomical restoration of femoral offset and leg length",
       "Reduced risk of component impingement and dislocation"
     ],
@@ -191,8 +191,8 @@ export const TREATMENTS: Treatment[] = [
     description: "For patients whose arthritis is predominantly confined to a single compartment, sparing the healthy cartilage, bone, and crucial cruciate ligaments.",
     keyBenefits: [
       "Preserves the anterior and posterior cruciate ligaments (ACL/PCL)",
-      "Feels more like a natural knee with superior proprioception",
-      "Smaller surgical incision with faster return to physical activity",
+      "Designed to preserve more of the native knee anatomy and ligaments, where appropriate.",
+      "Smaller surgical incision supporting a patient-focused recovery",
       "Shorter hospital stay and gentle recovery curve"
     ],
     fullDetails: [
@@ -587,7 +587,7 @@ export const PROTOCOLS: Protocol[] = [
   {
     title: "Partial (Unicompartmental) Knee Protocol",
     joint: "Knee",
-    description: "Accelerated rehabilitation programme taking advantage of preserved cruciate ligaments and minimal muscle disruption.",
+    description: "Structured recovery programme taking advantage of preserved cruciate ligaments and minimal muscle disruption.",
     timeline: "Day 0 to Week 8",
     keyMilestones: [
       "Weight-bearing as tolerated within hours of surgery",
@@ -713,7 +713,7 @@ export const FAQS: FAQ[] = [
   {
     question: "How is my surgery planned?",
     category: "Surgery",
-    answer: "After consultation and review of your diagnostic imaging, Mr Shankar will discuss all management options, from physiotherapy and targeted joint injections to surgical repair or replacement. If surgery is agreed, a convenient date is arranged with the hospital. A pre-operative assessment is completed by the hospital nursing and anaesthetic team to ensure medical readiness, check routine bloods, and review your health history. If robotic-assisted surgery is chosen, specialized 3D CT modeling is obtained prior to surgery to map your individual anatomy. You will also meet your consultant anaesthetist on the day of surgery."
+    answer: "After consultation and review of your diagnostic imaging, Mr Shankar will discuss all management options, from physiotherapy and targeted joint injections to surgical repair or replacement. If surgery is agreed, a convenient date is arranged with the hospital. A pre-operative assessment is completed by the hospital nursing and anaesthetic team to ensure medical readiness, check routine bloods, and review your health history. If robotic-assisted surgery is chosen, specialised 3D CT modelling is obtained prior to surgery to map your individual anatomy. You will also meet your consultant anaesthetist on the day of surgery."
   },
   {
     question: "Who actually performs the surgery?",
@@ -728,19 +728,19 @@ export const FAQS: FAQ[] = [
   {
     question: "Will I have scars after surgery?",
     category: "Surgery",
-    answer: "Joint replacement and keyhole surgery do require skin incisions, but Mr Shankar utilizes refined minimally invasive and muscle-sparing approaches designed to keep surgical incisions as neat and small as safely possible. Wounds are meticulously closed using subcuticular (under-the-skin) dissolvable sutures and modern surgical adhesives where appropriate, avoiding external clips or stitches that need painful removal. Waterproof dressings protect the incision while showering, and clear advice on wound care, scar massage, and healing is provided before discharge."
+    answer: "Joint replacement and keyhole surgery do require skin incisions, but Mr Shankar utilises refined minimally invasive and muscle-sparing approaches designed to keep surgical incisions as neat and small as safely possible. Wounds are meticulously closed using subcuticular (under-the-skin) dissolvable sutures and modern surgical adhesives where appropriate, avoiding external clips or stitches that need painful removal. Waterproof dressings protect the incision while showering, and clear advice on wound care, scar massage, and healing is provided before discharge."
   },
   {
     question: "What are the risks of surgery?",
     category: "Surgery",
-    answer: "All surgical procedures carry potential risks, which Mr Shankar discusses thoroughly and candidly with you as part of informed consent. While modern joint replacement and arthroscopy are among the most successful, life-transforming operations in modern medicine, potential risks include infection, blood clots (deep vein thrombosis / pulmonary embolism), nerve or blood vessel injury, stiffness, bleeding, or component loosening over the longer term. Serious complications are uncommon, and rigorous protocols—including ultra-clean laminar airflow theatres, antibiotic prophylaxis, mechanical calf pumps, and chemical blood-thinners—are routinely implemented to minimize risk."
+    answer: "All surgical procedures carry potential risks, which Mr Shankar discusses thoroughly and candidly with you as part of informed consent. While modern joint replacement and arthroscopy are among the most successful, life-transforming operations in modern medicine, potential risks include infection, blood clots (deep vein thrombosis / pulmonary embolism), nerve or blood vessel injury, stiffness, bleeding, or component loosening over the longer term. Serious complications are uncommon, and rigorous protocols—including ultra-clean laminar airflow theatres, antibiotic prophylaxis, mechanical calf pumps, and chemical blood-thinners—are routinely implemented to minimise risk."
   },
 
   // --- Recovery, Lifestyle & Aftercare ---
   {
     question: "What happens after surgery and during hospital recovery?",
     category: "Recovery",
-    answer: "Immediately after your procedure, you will be cared for in the recovery suite before returning to your private room. Under modern Enhanced Recovery After Surgery (ERAS) protocols, early mobilization is encouraged: our dedicated orthopaedic physiotherapist will help you stand and take your first steps—often on the day of surgery or early the following morning. You will be given clear written aftercare instructions, pain relief medication, and home exercise plans before discharge. If you have any questions after returning home, 24/7 ward telephone support is available directly from the hospital, alongside ongoing support from Mr Shankar's secretary."
+    answer: "Immediately after your procedure, you will be cared for in the recovery suite before returning to your private room. Under modern Enhanced Recovery After Surgery (ERAS) protocols, early mobilisation is encouraged: our dedicated orthopaedic physiotherapist will help you stand and take your first steps—often on the day of surgery or early the following morning. You will be given clear written aftercare instructions, pain relief medication, and home exercise plans before discharge. If you have any questions after returning home, 24/7 ward telephone support is available directly from the hospital, alongside ongoing support from Mr Shankar's secretary."
   },
   {
     question: "How much time do I need off work and driving?",
@@ -757,7 +757,7 @@ export const FAQS: FAQ[] = [
   {
     question: "What is the difference between robotic-assisted surgery and conventional joint replacement?",
     category: "Robotics",
-    answer: "Robotic technology does not replace the surgeon; rather, it serves as a precision navigational instrument guided by Mr Shankar. It uses pre-operative 3D CT modeling and intra-operative sensory mapping to position implants with sub-millimeter precision, balance soft tissues throughout full movement, and preserve bone."
+    answer: "Robotic technology does not replace the surgeon; rather, it serves as a precision navigational instrument guided by Mr Shankar. It uses pre-operative 3D CT modelling and intra-operative sensory mapping to support precise execution of the planned implant position, balance soft tissues throughout full movement, and preserve bone."
   },
   {
     question: "Why was Mr Shankar's robotic hip surgery recognised as a regional first?",
@@ -772,6 +772,6 @@ export const FAQS: FAQ[] = [
   {
     question: "How do I know if I need a Total Knee Replacement or a Partial Knee Replacement?",
     category: "Knee",
-    answer: "If arthritis is confined strictly to one compartment of your knee (such as the medial inside or patellofemoral kneecap) and your cruciate ligaments are healthy, you may be an excellent candidate for a partial (unicompartmental) knee replacement. If multiple compartments are arthritic, a total knee replacement provides the most reliable and durable pain relief. Mr Shankar conducts careful clinical examination and specialized weight-bearing imaging to recommend the ideal solution."
+    answer: "If arthritis is confined strictly to one compartment of your knee (such as the medial inside or patellofemoral kneecap) and your cruciate ligaments are healthy, you may be an excellent candidate for a partial (unicompartmental) knee replacement. If multiple compartments are arthritic, a total knee replacement provides the most reliable and durable pain relief. Mr Shankar conducts careful clinical examination and specialised weight-bearing imaging to recommend the ideal solution."
   }
 ];

@@ -159,7 +159,7 @@ const PAGE_METADATA: Record<string, { title: string; desc: string; canonical: st
   },
   'minimally-invasive-hip-replacement': {
     title: 'Minimally Invasive Hip Surgery | Rottinger & Anterior Approaches',
-    desc: 'Tissue-sparing Rottinger and muscle-preserving hip arthroplasty techniques accelerating post-operative mobilization and functional rehabilitation.',
+    desc: 'Tissue-sparing Rottinger and muscle-preserving hip arthroplasty techniques supporting post-operative mobilisation and functional rehabilitation.',
     canonical: 'https://www.shivakumarshankar.co.uk/minimally-invasive-hip-replacement'
   },
   'knee-replacement': {
@@ -169,7 +169,7 @@ const PAGE_METADATA: Record<string, { title: string; desc: string; canonical: st
   },
   'robotic-knee-replacement': {
     title: 'Robotic Knee Replacement London & Essex | Mako Arthroplasty',
-    desc: 'Mako robotic-assisted total and partial knee replacement with real-time dynamic ligament balancing and sub-millimeter bony resection accuracy.',
+    desc: 'Mako robotic-assisted total and partial knee replacement with real-time dynamic ligament balancing and high-precision bony resection guidance.',
     canonical: 'https://www.shivakumarshankar.co.uk/robotic-knee-replacement'
   },
   'computer-assisted-knee-replacement': {
@@ -194,12 +194,12 @@ const PAGE_METADATA: Record<string, { title: string; desc: string; canonical: st
   },
   'robotic-surgery': {
     title: 'Robotic & Computer-Assisted Hip & Knee Surgery | Essex & London',
-    desc: 'Pioneering robotic & computer-assisted joint replacement by Mr Shivakumar Shankar. Sub-millimeter implant accuracy and personalised soft-tissue balancing.',
+    desc: 'Pioneering robotic & computer-assisted joint replacement by Mr Shivakumar Shankar. Navigational precision and personalised soft-tissue balancing.',
     canonical: 'https://www.shivakumarshankar.co.uk/robotic-computer-assisted-surgery'
   },
   'robotic-computer-assisted-surgery': {
     title: 'Robotic & Computer-Assisted Hip & Knee Surgery | Essex & London',
-    desc: 'Pioneering robotic & computer-assisted joint replacement by Mr Shivakumar Shankar. Sub-millimeter implant accuracy and personalised soft-tissue balancing.',
+    desc: 'Pioneering robotic & computer-assisted joint replacement by Mr Shivakumar Shankar. Navigational precision and personalised soft-tissue balancing.',
     canonical: 'https://www.shivakumarshankar.co.uk/robotic-computer-assisted-surgery'
   },
   'conventional-vs-computer-assisted-vs-robotic-surgery': {
@@ -294,7 +294,7 @@ const PAGE_METADATA: Record<string, { title: string; desc: string; canonical: st
   },
   '404': {
     title: 'Page Not Found (404) | Mr Shivakumar Shankar',
-    desc: 'The requested page could not be found. Return to Mr Shivakumar Shankar\'s official orthopedic surgery website for hip and knee care in London and Essex.',
+    desc: 'The requested page could not be found. Return to Mr Shivakumar Shankar\'s official orthopaedic surgery website for hip and knee care in London and Essex.',
     canonical: ''
   }
 };
@@ -825,7 +825,7 @@ function App() {
                   </div>
                   <div>
                     <h4 className="font-bold text-sm text-slate-900">Robotic & Navigation Pioneer</h4>
-                    <p className="text-xs text-slate-500">Sub-millimeter component precision</p>
+                    <p className="text-xs text-slate-500">Precision planning & execution</p>
                   </div>
                 </div>
 
@@ -1019,7 +1019,7 @@ function App() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                     <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-xs">
                       <h4 className="font-bold text-slate-900 text-sm flex items-center gap-2 mb-1.5">
-                        <Navigation size={16} className="text-[#1B4965]" /> Hip Sub-Millimeter Accuracy
+                        <Navigation size={16} className="text-[#1B4965]" /> Hip Component Alignment Precision
                       </h4>
                       <p className="text-xs text-slate-600 leading-relaxed">
                         Precision assessment of component positioning, acetabular inclination, anteversion, femoral offset, leg length restoration, and centre of rotation.
@@ -1249,10 +1249,10 @@ function App() {
               <div className="text-center max-w-3xl mx-auto mb-12">
                 <span className="text-[#1B4965] font-bold uppercase tracking-wider text-xs">Patient Feedback</span>
                 <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-1">
-                  Patient Experiences & Verified Reviews
+                  Patient Feedback & Reviews
                 </h2>
                 <p className="text-slate-600 text-sm mt-2">
-                  Hear directly from patients who have undergone joint replacement and keyhole surgery under Mr Shankar's care, with verified ratings from both <strong>Doctify</strong> and <strong>iWantGreatCare</strong>.
+                  Read independently published patient feedback and reviews about Mr Shankar's care, including experiences of hip and knee surgery and recovery.
                 </p>
               </div>
 
@@ -1848,15 +1848,15 @@ function App() {
             <button
               onClick={() => setIsSecretarialModalOpen(true)}
               className="font-bold text-[#1B4965] hover:underline flex items-center gap-1 bg-[#EAF1F6] px-2.5 py-1 rounded"
-              title="Open practice inquiries and consultation requests log"
+              title="Open practice enquiries and consultation requests log"
             >
-              Secretary Inquiries Portal
+              Secretary Enquiries Portal
             </button>
           </div>
         </div>
       </footer>
 
-      {/* SECRETARIAL INQUIRIES MODAL */}
+      {/* SECRETARIAL ENQUIRIES MODAL */}
       <SecretarialPortalModal 
         isOpen={isSecretarialModalOpen} 
         onClose={() => setIsSecretarialModalOpen(false)} 

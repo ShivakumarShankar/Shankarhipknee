@@ -178,15 +178,15 @@ const pageDefinitions = [
       ${renderCardGrid([
         {
           title: 'Regional Robotic Pioneer',
-          desc: 'Mr Shankar was the first surgeon to perform computer-assisted and robotic total hip replacement in Essex and North East London, delivering sub-millimeter component alignment.'
+          desc: 'Mr Shankar was the first surgeon to perform computer-assisted and robotic total hip replacement in Essex and North East London, supporting precise execution of the planned implant position.'
         },
         {
           title: 'Minimally Invasive Joint Care',
-          desc: 'Specialist expertise in tissue-sparing Rottinger anterior hip surgery and keyhole knee arthroscopy preserving vital soft tissues for accelerated rehabilitation.'
+          desc: 'Specialist expertise in tissue-sparing Rottinger anterior hip surgery and keyhole knee arthroscopy preserving vital soft tissues, supporting a patient-focused approach to recovery and rehabilitation.'
         },
         {
-          title: 'Verified 5-Star Outcomes',
-          desc: 'Hundreds of independently verified patient reviews on Doctify and iWantGreatCare praising clinical excellence, bedside manner, and rapid recovery.'
+          title: 'Patient Feedback & Reviews',
+          desc: 'Read independently published patient feedback and reviews about Mr Shankar\'s care, including experiences of hip and knee surgery and recovery.'
         }
       ])}
 
@@ -415,12 +415,12 @@ const pageDefinitions = [
         {
           title: 'Robotic & Navigated Hip Surgery',
           desc: 'Intra-operative real-time tracking of cup inclination and anteversion angles to prevent component malpositioning and minimise dislocation risks.',
-          bullets: ['Sub-millimeter cup orientation', 'Dynamic spinopelvic assessment', 'Reduced risk of impingement']
+          bullets: ['Precise cup orientation', 'Dynamic spinopelvic assessment', 'Reduced risk of impingement']
         },
         {
           title: 'Minimally Invasive Techniques',
-          desc: 'Muscle-preserving Rottinger and anterior tissue-sparing approaches designed to protect key stabilizing muscles and accelerate return to walking.',
-          bullets: ['Less post-operative discomfort', 'Early hospital discharge', 'Rapid functional rehab']
+          desc: 'Muscle-preserving Rottinger and anterior tissue-sparing approaches designed to protect key stabilising muscles and support return to walking.',
+          bullets: ['Less post-operative discomfort', 'Early hospital discharge', 'Patient-focused rehab']
         }
       ])}
       `
@@ -437,7 +437,7 @@ const pageDefinitions = [
       'robotic-hip-replacement',
       'Robotic Arthroplasty • Mako Precision',
       'Robotic-Assisted Total Hip Replacement',
-      'Mako robotic-assisted total hip replacement utilizes pre-operative 3D CT modeling, dynamic virtual planning, and active haptic boundary guidance to optimize acetabular cup orientation and femoral biomechanics.',
+      'Mako robotic-assisted total hip replacement utilises pre-operative 3D CT modelling, dynamic virtual planning, and active haptic boundary guidance to optimise acetabular cup orientation and femoral biomechanics.',
       `
       ${renderCardGrid([
         {
@@ -491,7 +491,7 @@ const pageDefinitions = [
   {
     path: 'minimally-invasive-hip-replacement',
     title: 'Minimally Invasive Hip Surgery | Rottinger & Anterior Approaches',
-    description: 'Tissue-sparing Rottinger and muscle-preserving hip arthroplasty techniques accelerating post-operative mobilization and functional rehabilitation.',
+    description: 'Tissue-sparing Rottinger and muscle-preserving hip arthroplasty techniques supporting post-operative mobilisation and functional recovery.',
     canonical: 'https://www.shivakumarshankar.co.uk/minimally-invasive-hip-replacement',
     bodyHtml: renderPageShell(
       'minimally-invasive-hip-replacement',
@@ -506,7 +506,7 @@ const pageDefinitions = [
         },
         {
           title: 'Faster Mobilisation',
-          desc: 'Reduced soft tissue trauma facilitates earlier unassisted walking and shorter inpatient hospitalization.'
+          desc: 'Reduced soft tissue trauma facilitates earlier unassisted walking and shorter inpatient hospitalisation.'
         },
         {
           title: 'Specialised International Training',
@@ -551,13 +551,13 @@ const pageDefinitions = [
   {
     path: 'robotic-knee-replacement',
     title: 'Robotic Knee Replacement London & Essex | Mako Arthroplasty',
-    description: 'Mako robotic-assisted total and partial knee replacement with real-time dynamic ligament balancing and sub-millimeter bony resection accuracy.',
+    description: 'Mako robotic-assisted total and partial knee replacement with real-time dynamic ligament balancing and high-precision bony resection guidance.',
     canonical: 'https://www.shivakumarshankar.co.uk/robotic-knee-replacement',
     bodyHtml: renderPageShell(
       'robotic-knee-replacement',
       'Robotic Knee Arthroplasty • Mako System',
       'Robotic-Assisted Knee Replacement Surgery',
-      'Robotic-assisted knee replacement with the Mako system provides 3D CT virtual modeling, dynamic ligament tension assessment, and stereotactic bone resection boundaries.',
+      'Robotic-assisted knee replacement with the Mako system provides 3D CT virtual modelling, dynamic ligament tension assessment, and stereotactic bone resection boundaries.',
       `
       ${renderCardGrid([
         {
@@ -565,7 +565,7 @@ const pageDefinitions = [
           desc: 'Assesses ligament laxity across the entire range of motion before any bone cuts are made.'
         },
         {
-          title: 'Sub-Millimeter Resection',
+          title: 'High-Precision Resection',
           desc: 'Robotic arm physically guides the saw blade strictly within pre-planned safety boundaries.'
         },
         {
@@ -596,11 +596,11 @@ const pageDefinitions = [
         },
         {
           title: 'Gap Balancing Verification',
-          desc: 'Quantifies flexion and extension spaces in millimeters to achieve equal soft-tissue tension.'
+          desc: 'Quantifies flexion and extension spaces in millimetres to achieve equal soft-tissue tension.'
         },
         {
           title: '9 Years Navigation Experience',
-          desc: 'Extensive track record utilizing computer navigation systems in routine and complex cases.'
+          desc: 'Extensive track record utilising computer navigation systems in routine and complex cases.'
         }
       ])}
       `
@@ -660,7 +660,7 @@ const pageDefinitions = [
         },
         {
           title: 'Day-Case Discharge',
-          desc: 'Small puncture incisions enable immediate mobilization and safe same-day hospital discharge.'
+          desc: 'Small puncture incisions enable immediate mobilisation and safe same-day hospital discharge.'
         }
       ])}
       `
@@ -731,7 +731,7 @@ const pageDefinitions = [
       <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs mb-8 space-y-4">
         <h2 class="text-2xl font-bold text-slate-900">Risks and Side Effects</h2>
         <p class="text-sm text-slate-700 leading-relaxed">
-          PRP is generally well-tolerated. Recognized potential side effects include temporary soreness or discomfort following treatment, mild swelling, localized bruising, an extremely rare risk of infection, and the possibility that response varies between individuals.
+          PRP is generally well-tolerated. Recognised potential side effects include temporary soreness or discomfort following treatment, mild swelling, localised bruising, an extremely rare risk of infection, and the possibility that response varies between individuals.
         </p>
       </section>
 
@@ -832,7 +832,7 @@ const pageDefinitions = [
   {
     path: 'robotic-computer-assisted-surgery',
     title: 'Robotic & Computer-Assisted Hip & Knee Surgery | Essex & London',
-    description: 'Pioneering robotic & computer-assisted joint replacement by Mr Shivakumar Shankar. Sub-millimeter implant accuracy and personalised soft-tissue balancing.',
+    description: 'Pioneering robotic & computer-assisted joint replacement by Mr Shivakumar Shankar. Navigational precision and personalised soft-tissue balancing.',
     canonical: 'https://www.shivakumarshankar.co.uk/robotic-computer-assisted-surgery',
     bodyHtml: renderPageShell(
       'robotic-surgery',
@@ -846,7 +846,7 @@ const pageDefinitions = [
           desc: 'The robot never acts autonomously. It operates as an assistive precision tool with active safety boundaries controlled by Mr Shankar.'
         },
         {
-          title: '3D Virtual Modeling',
+          title: '3D Virtual Modelling',
           desc: 'Pre-operative CT planning provides detailed anatomical templating matched specifically to individual bone geometry.'
         },
         {
@@ -862,7 +862,7 @@ const pageDefinitions = [
   {
     path: 'robotic-surgery',
     title: 'Robotic & Computer-Assisted Hip & Knee Surgery | Essex & London',
-    description: 'Pioneering robotic & computer-assisted joint replacement by Mr Shivakumar Shankar. Sub-millimeter implant accuracy and personalised soft-tissue balancing.',
+    description: 'Pioneering robotic & computer-assisted joint replacement by Mr Shivakumar Shankar. Navigational precision and personalised soft-tissue balancing.',
     canonical: 'https://www.shivakumarshankar.co.uk/robotic-computer-assisted-surgery',
     bodyHtml: renderPageShell(
       'robotic-surgery',
@@ -872,8 +872,8 @@ const pageDefinitions = [
       `
       ${renderCardGrid([
         {
-          title: 'Sub-Millimeter Precision',
-          desc: 'Delivers sub-millimeter component alignment and soft-tissue balance tailored to patient anatomy.'
+          title: 'Precision Implant Alignment',
+          desc: 'Supports precise execution of the planned implant position and soft-tissue balance tailored to patient anatomy.'
         },
         {
           title: 'Clinical Experience',
@@ -911,7 +911,7 @@ const pageDefinitions = [
         },
         {
           title: 'Robotic-Assisted Surgery',
-          desc: 'Combines pre-operative 3D CT modeling with active haptic stereotactic boundary guidance and dynamic soft-tissue tension mapping.'
+          desc: 'Combines pre-operative 3D CT modelling with active haptic stereotactic boundary guidance and dynamic soft-tissue tension mapping.'
         }
       ])}
       `
@@ -1057,7 +1057,7 @@ const pageDefinitions = [
         },
         {
           title: 'Home Preparation',
-          desc: 'Clear pathways, remove loose rugs, arrange ground-floor recovery sleeping if stairs are difficult, and organize assistance.'
+          desc: 'Clear pathways, remove loose rugs, arrange ground-floor recovery sleeping if stairs are difficult, and organise assistance.'
         },
         {
           title: 'Hospital Bag Checklist',
@@ -1083,7 +1083,7 @@ const pageDefinitions = [
       ${renderCardGrid([
         {
           title: 'Private Health Insurance',
-          desc: 'Mr Shankar is recognized by all major UK medical insurers including Bupa, AXA Health, Aviva, Vitality, and WPA.'
+          desc: 'Mr Shankar is recognised by all major UK medical insurers including Bupa, AXA Health, Aviva, Vitality, and WPA.'
         },
         {
           title: 'Self-Pay Package Quotes',
@@ -1108,7 +1108,7 @@ const pageDefinitions = [
       'physiotherapy',
       'Downloadable PDF Protocols • Rehabilitation',
       'Physiotherapy Protocols &amp; Rehabilitation Guidelines',
-      'Downloadable step-by-step physiotherapy protocols authored by Mr Shivakumar Shankar to guide your post-operative recovery and optimize joint range of motion.',
+      'Downloadable step-by-step physiotherapy protocols authored by Mr Shivakumar Shankar to guide your post-operative recovery and optimise joint range of motion.',
       `
       ${renderCardGrid([
         {
@@ -1211,7 +1211,7 @@ const pageDefinitions = [
         },
         {
           title: 'Insured & Self-Pay Welcome',
-          desc: 'Recognized by all UK private insurers with transparent fixed-price self-pay options.'
+          desc: 'Recognised by all UK private insurers with transparent fixed-price self-pay options.'
         }
       ])}
       `
@@ -1323,7 +1323,7 @@ const pageDefinitions = [
       ${renderCardGrid([
         {
           title: 'Elective Arthroplasty Unit',
-          desc: 'Specialised protected elective orthopaedic surgical suites minimizing operation cancellation risks.'
+          desc: 'Specialised protected elective orthopaedic surgical suites minimising operation cancellation risks.'
         },
         {
           title: 'NHS Referral Pathway',
@@ -1347,8 +1347,8 @@ const pageDefinitions = [
     bodyHtml: renderPageShell(
       'patient-reviews',
       'Verified Feedback • Doctify & iWantGreatCare',
-      'Verified Patient Reviews &amp; Clinical Outcomes',
-      'Transparency and clinical excellence define Mr Shivakumar Shankar\'s practice. With hundreds of independently verified 5-star patient reviews on leading healthcare rating platforms, patients consistently highlight his expertise and care.',
+      'Patient Feedback &amp; Reviews',
+      'Transparency and clinical excellence define Mr Shivakumar Shankar\'s practice. Read independently published patient feedback and reviews about Mr Shankar\'s care on leading healthcare rating platforms including Doctify and iWantGreatCare, reflecting experiences of hip and knee surgery and recovery.',
       `
       ${renderCardGrid([
         {
@@ -1377,8 +1377,8 @@ const pageDefinitions = [
     bodyHtml: renderPageShell(
       'patient-reviews',
       'Verified Feedback • Doctify & iWantGreatCare',
-      'Verified Patient Reviews &amp; Clinical Outcomes',
-      'Read verified patient testimonials, surgical outcomes, and ratings from Doctify and iWantGreatCare praising Mr Shankar\'s robotic precision and patient care.',
+      'Patient Feedback &amp; Reviews',
+      'Read independently published patient testimonials, reviews, and ratings from Doctify and iWantGreatCare reflecting patient experiences of Mr Shankar\'s hip and knee care.',
       `
       ${renderCardGrid([
         {
@@ -1387,11 +1387,11 @@ const pageDefinitions = [
         },
         {
           title: 'National Joint Registry (NJR)',
-          desc: 'Routine submission of all arthroplasty data ensuring transparency and superior implant survivorship.'
+          desc: 'Routine submission of all arthroplasty data ensuring transparency and rigorous tracking of implant performance and safety.'
         },
         {
           title: 'Care Quality Commission',
-          desc: 'Practicing exclusively in CQC-inspected hospital facilities in Brentwood, Romford, and Goodmayes.'
+          desc: 'Practising exclusively in CQC-inspected hospital facilities in Brentwood, Romford, and Goodmayes.'
         }
       ])}
       `

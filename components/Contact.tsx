@@ -302,7 +302,7 @@ const Contact: React.FC<ContactProps> = ({ onBook }) => {
                     {EMAIL}
                   </p>
                   <p className="text-[11px] text-slate-500 mt-2 leading-tight">
-                    For referrals, pre-authorisations & inquiries
+                    For referrals, pre-authorisations & enquiries
                   </p>
                 </div>
 
@@ -358,7 +358,7 @@ const Contact: React.FC<ContactProps> = ({ onBook }) => {
                     <ShieldCheck size={14} /> Logged with Medical Secretary ({SECRETARY_NAME})
                   </p>
                   <p>Remya will review your enquiry regarding <strong>{contactForm.enquiryType}</strong> ({contactForm.hospital}) and reply to <strong>{contactForm.phone || contactForm.email}</strong> during working hours.</p>
-                  <p className="text-slate-500 pt-1">For urgent consultation inquiries, you can also connect directly:</p>
+                  <p className="text-slate-500 pt-1">For urgent consultation enquiries, you can also connect directly:</p>
                 </div>
 
                 {/* Direct Action Options */}

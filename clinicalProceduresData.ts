@@ -42,7 +42,7 @@ export const CLINICAL_PROCEDURES: Record<string, ProcedurePageData> = {
       points: [
         { label: 'Conventional Arthroplasty', detail: 'Proven worldwide over decades using mechanical alignment instruments and surgeon tactile feedback.' },
         { label: 'Computer Navigation', detail: 'Provides real-time optical verification of acetabular cup inclination and anteversion angles during impaction.' },
-        { label: 'Robotic-Assisted (Mako)', detail: 'Uses pre-operative 3D CT modeling and tactile haptic boundaries to achieve precise component orientation.' },
+        { label: 'Robotic-Assisted (Mako)', detail: 'Uses pre-operative 3D CT modelling and tactile haptic boundaries to achieve precise component orientation.' },
         { label: 'Tailored Approach', detail: 'Technique is chosen based on pelvic tilt, bone stock, spinopelvic mobility, and individual deformity.' }
       ]
     },
@@ -104,9 +104,9 @@ export const CLINICAL_PROCEDURES: Record<string, ProcedurePageData> = {
     slug: 'robotic-hip-replacement',
     badge: 'Robotic Arthroplasty',
     h1: 'Robotic-Assisted Hip Replacement Surgery',
-    leadParagraph: 'Advanced robotic-assisted total hip replacement utilising pre-operative 3D CT planning and Mako robotic haptic arm guidance to achieve sub-millimeter component alignment.',
+    leadParagraph: 'Advanced robotic-assisted total hip replacement utilising pre-operative 3D CT planning and Mako robotic haptic arm guidance to achieve sub-millimetre component alignment.',
     overview: [
-      'Robotic-assisted total hip replacement combines individualised 3D computed tomography (CT) modeling with tactile robotic arm technology. Mr Shivakumar Shankar has stated that he was the first surgeon to perform computer-assisted and robotic total hip replacement in Essex and North East London.',
+      'Robotic-assisted total hip replacement combines individualised 3D computed tomography (CT) modelling with tactile robotic arm technology. Mr Shivakumar Shankar has stated that he was the first surgeon to perform computer-assisted and robotic total hip replacement in Essex and North East London.',
       'The robotic system acts as a precision navigational tool under complete surgeon control. It enables virtual pre-operative sizing, dynamic assessment of spinopelvic mobility, and tactile boundaries that protect critical soft tissues during acetabular reaming.'
     ],
     whoMayBenefit: [
@@ -136,7 +136,7 @@ export const CLINICAL_PROCEDURES: Record<string, ProcedurePageData> = {
       title: 'Robotic Guidance vs Conventional Methods',
       description: 'Robotic assistance is designed to reduce orientation outliers while keeping the surgeon entirely in control.',
       points: [
-        { label: 'Sub-Millimeter Accuracy', detail: 'Enforces component inclination and anteversion within strict planned target zones.' },
+        { label: 'Sub-Millimetre Accuracy', detail: 'Enforces component inclination and anteversion within strict planned target zones.' },
         { label: 'Haptic Soft-Tissue Shield', detail: 'Robotic feedback prevents reamers from extending beyond defined bony margins.' },
         { label: 'Surgeon Driven', detail: 'The robot never acts independently or makes decisions; it executes the surgeon\'s plan.' },
         { label: 'Balanced Evidence', detail: 'Robotic assistance reduces alignment outliers; long-term clinical outcome comparisons remain an active area of ongoing registry research.' }
@@ -251,7 +251,7 @@ export const CLINICAL_PROCEDURES: Record<string, ProcedurePageData> = {
     ],
     relatedLinks: [
       { title: 'Total Hip Replacement', href: '/hip-replacement/', description: 'Primary hip replacement surgery overview.' },
-      { title: 'Robotic Hip Replacement', href: '/robotic-hip-replacement/', description: 'Mako robotic guidance with 3D CT modeling.' }
+      { title: 'Robotic Hip Replacement', href: '/robotic-hip-replacement/', description: 'Mako robotic guidance with 3D CT modelling.' }
     ]
   },
 
@@ -262,11 +262,11 @@ export const CLINICAL_PROCEDURES: Record<string, ProcedurePageData> = {
     leadParagraph: 'Muscle-sparing hip replacement techniques, including the Rottinger and Direct Anterior approaches, designed to access the hip joint along natural muscle planes without detaching major tendons.',
     overview: [
       'Minimally invasive and muscle-sparing hip replacement aims to replace the damaged joint surfaces while minimising trauma to the surrounding musculature. Rather than detaching the gluteal abductors or major posterior rotators, these approaches work through natural inter-muscular intervals.',
-      'Mr Shivakumar Shankar has completed specialized international training in muscle-sparing techniques, including the Rottinger approach at the Centre Hospitalier de Haguenau in France and the Direct Anterior Approach with Professor Wagner\'s unit in Germany.'
+      'Mr Shivakumar Shankar has completed specialised international training in muscle-sparing techniques, including the Rottinger approach at the Centre Hospitalier de Haguenau in France and the Direct Anterior Approach with Professor Wagner\'s unit in Germany.'
     ],
     whoMayBenefit: [
       'Patients seeking tissue-sparing hip surgery with accelerated early functional recovery.',
-      'Active individuals who wish to preserve muscle architecture and minimize post-operative limp.',
+      'Active individuals who wish to preserve muscle architecture and minimise post-operative limp.',
       'Patients with suitable bone morphology and body habitus for anterior or anterolateral exposure.'
     ],
     symptomsTreated: [
@@ -276,7 +276,7 @@ export const CLINICAL_PROCEDURES: Record<string, ProcedurePageData> = {
     ],
     procedureExplanation: {
       title: 'The Muscle-Sparing Surgical Approach',
-      description: 'Working between natural anatomical intervals allows access to the hip capsule without cutting key stabilizing tendons.',
+      description: 'Working between natural anatomical intervals allows access to the hip capsule without cutting key stabilising tendons.',
       steps: [
         'Anterolateral / Anterior Interval: The surgeon enters along the natural inter-muscular plane between the tensor fasciae latae and gluteus medius.',
         'Capsular Exposure: The anterior hip capsule is opened, exposing the arthritic femoral head and acetabulum.',
@@ -360,7 +360,7 @@ export const CLINICAL_PROCEDURES: Record<string, ProcedurePageData> = {
       points: [
         { label: 'Conventional Arthroplasty', detail: 'Uses intramedullary rods and mechanical cutting jigs to establish neutral mechanical alignment.' },
         { label: 'Computer Navigation', detail: 'Provides live digital angular readouts of bone resections and ligament tensioning.' },
-        { label: 'Robotic-Assisted (Mako)', detail: 'Employs 3D CT modeling and robotic arm haptic boundaries for sub-millimeter bony resections.' },
+        { label: 'Robotic-Assisted (Mako)', detail: 'Employs 3D CT modelling and robotic arm haptic boundaries for sub-millimetre bony resections.' },
         { label: 'Kinematic & Functional Alignment', detail: 'Respects individual pre-arthritic joint line obliquity and natural constitutional alignment.' }
       ]
     },
@@ -417,15 +417,15 @@ export const CLINICAL_PROCEDURES: Record<string, ProcedurePageData> = {
     slug: 'robotic-knee-replacement',
     badge: 'Robotic Arthroplasty',
     h1: 'Robotic-Assisted Knee Replacement (Mako)',
-    leadParagraph: 'Advanced robotic-assisted total knee replacement combining pre-operative 3D CT planning, dynamic ligament balancing, and haptic robotic arm guidance to optimize joint kinematics.',
+    leadParagraph: 'Advanced robotic-assisted total knee replacement combining pre-operative 3D CT planning, dynamic ligament balancing, and haptic robotic arm guidance to optimise joint kinematics.',
     overview: [
-      'Robotic-assisted knee replacement utilizing the Stryker Mako robotic system provides an exceptional level of precision in bone preparation and component alignment. Mr Shivakumar Shankar has extensive experience in robotic joint arthroplasty, performing robotic hip and knee surgery across London and Essex.',
-      'The technology integrates an individualized 3D CT scan with intra-operative dynamic tension mapping, enabling the surgeon to fine-tune implant positioning to the patient\'s unique soft-tissue tension before making a single bone cut.'
+      'Robotic-assisted knee replacement utilising the Stryker Mako robotic system provides an exceptional level of precision in bone preparation and component alignment. Mr Shivakumar Shankar has extensive experience in robotic joint arthroplasty, performing robotic hip and knee surgery across London and Essex.',
+      'The technology integrates an individualised 3D CT scan with intra-operative dynamic tension mapping, enabling the surgeon to fine-tune implant positioning to the patient\'s unique soft-tissue tension before making a single bone cut.'
     ],
     whoMayBenefit: [
-      'Patients with advanced knee osteoarthritis seeking sub-millimeter component alignment.',
+      'Patients with advanced knee osteoarthritis seeking sub-millimetre component alignment.',
       'Individuals with complex constitutional knee alignment or significant deformity.',
-      'Patients desiring customized ligament balancing throughout the complete range of motion.'
+      'Patients desiring customised ligament balancing throughout the complete range of motion.'
     ],
     symptomsTreated: [
       'Disabling knee pain from tricompartmental or bicompartmental arthritis.',
@@ -434,9 +434,9 @@ export const CLINICAL_PROCEDURES: Record<string, ProcedurePageData> = {
     ],
     procedureExplanation: {
       title: 'The Robotic Knee Arthroplasty Sequence',
-      description: 'How 3D CT modeling and robotic guidance operate during surgery.',
+      description: 'How 3D CT modelling and robotic guidance operate during surgery.',
       steps: [
-        'Pre-Op 3D CT Modeling: A dedicated CT scan generates an exact virtual 3D replica of the patient\'s knee.',
+        'Pre-Op 3D CT Modelling: A dedicated CT scan generates an exact virtual 3D replica of the patient\'s knee.',
         'Virtual Dynamic Balancing: Intra-operatively, the knee is taken through its full arc of motion while sensors measure ligament tension in flexion and extension.',
         'Plan Adjustment: Mr Shankar fine-tunes implant sizing and rotation digitally to achieve balanced joint gaps.',
         'Robotic Haptic Resection: The robotic arm guides the saw blade within predefined boundaries, protecting the posterior cruciate and collateral ligaments.'
@@ -446,8 +446,8 @@ export const CLINICAL_PROCEDURES: Record<string, ProcedurePageData> = {
       title: 'Robotic Guidance vs Conventional Alignment',
       description: 'A balanced look at what robotic technology offers.',
       points: [
-        { label: 'Sub-Millimeter Accuracy', detail: 'Bone cuts correspond precisely to the pre-planned digital template.' },
-        { label: 'Dynamic Ligament Tensioning', detail: 'Soft tissues are balanced virtually before bone cuts are finalized.' },
+        { label: 'Sub-Millimetre Accuracy', detail: 'Bone cuts correspond precisely to the pre-planned digital template.' },
+        { label: 'Dynamic Ligament Tensioning', detail: 'Soft tissues are balanced virtually before bone cuts are finalised.' },
         { label: 'Haptic Boundary Protection', detail: 'Prevents saw excursion into posterior neurovascular or collateral structures.' },
         { label: 'Evidence Perspective', detail: 'Robotic assistance reduces alignment outliers; clinical recovery remains dependent on dedicated physiotherapy.' }
       ]
@@ -495,7 +495,7 @@ export const CLINICAL_PROCEDURES: Record<string, ProcedurePageData> = {
     h1: 'Computer-Assisted Knee Replacement Surgery',
     leadParagraph: 'Real-time computer navigation providing intra-operative digital tracking of alignment, mechanical axis, and joint gaps during knee replacement surgery.',
     overview: [
-      'Computer-assisted knee surgery utilises optical tracking sensors to measure femoral and tibial bone resection angles with continuous digital feedback on an operating room monitor. Mr Shankar has utilized computer-navigated knee replacement for approximately 9 years in his arthroplasty practice.',
+      'Computer-assisted knee surgery utilises optical tracking sensors to measure femoral and tibial bone resection angles with continuous digital feedback on an operating theatre monitor. Mr Shankar has utilised computer-navigated knee replacement for approximately 9 years in his arthroplasty practice.',
       'Navigation provides real-time verification of the mechanical axis without requiring pre-operative CT radiation, making it an excellent option for patients with femoral or tibial deformities.'
     ],
     whoMayBenefit: [
@@ -516,7 +516,7 @@ export const CLINICAL_PROCEDURES: Record<string, ProcedurePageData> = {
     },
     benefitsAndLimitations: {
       benefits: [
-        'Eliminates the need for long intramedullary alignment rods in the femoral canal, reducing fat embolization risk.',
+        'Eliminates the need for long intramedullary alignment rods in the femoral canal, reducing fat embolisation risk.',
         'Reduces alignment outliers.',
         'No pre-operative CT scan radiation required.'
       ],
@@ -563,7 +563,7 @@ export const CLINICAL_PROCEDURES: Record<string, ProcedurePageData> = {
       'Patients with a stable knee joint and correctable deformity.'
     ],
     symptomsTreated: [
-      'Pain localized specifically to the inner side of the knee joint.',
+      'Pain localised specifically to the inner side of the knee joint.',
       'Pain when rising from a chair or descending stairs while other parts of the knee feel normal.',
       'Absence of widespread lateral or patellofemoral joint pain.'
     ],
@@ -623,7 +623,7 @@ export const CLINICAL_PROCEDURES: Record<string, ProcedurePageData> = {
     leadParagraph: 'Minimally invasive keyhole knee surgery for torn meniscal cartilage, cartilage preservation, and joint debridement in London and Essex.',
     overview: [
       'Knee arthroscopy is a minimally invasive keyhole procedure performed through two small puncture incisions. A miniature camera (arthroscope) illuminates the interior of the knee, allowing Mr Shankar to inspect, repair, or trim damaged tissues with micro-surgical instruments.',
-      'Mr Shankar has performed more than 1,200 knee arthroscopies. His surgical priority is always joint and tissue preservation: wherever biologically feasible, torn meniscal cartilage is repaired using specialized suture implants rather than removed, preserving natural shock absorption.'
+      'Mr Shankar has performed more than 1,200 knee arthroscopies. His surgical priority is always joint and tissue preservation: wherever biologically feasible, torn meniscal cartilage is repaired using specialised suture implants rather than removed, preserving natural shock absorption.'
     ],
     whoMayBenefit: [
       'Patients with symptomatic, mechanically locking meniscal tears unresponsive to conservative physiotherapy.',
@@ -673,7 +673,7 @@ export const CLINICAL_PROCEDURES: Record<string, ProcedurePageData> = {
     faqs: [
       {
         question: 'Will knee arthroscopy cure my arthritis?',
-        answer: 'Arthroscopy is primarily effective for mechanical problems like torn cartilage, locking, or loose bodies. It does not reverse generalized arthritis; where arthritis is advanced, joint replacement is more appropriate.'
+        answer: 'Arthroscopy is primarily effective for mechanical problems like torn cartilage, locking, or loose bodies. It does not reverse generalised arthritis; where arthritis is advanced, joint replacement is more appropriate.'
       }
     ],
     relatedLinks: [

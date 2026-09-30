@@ -109,7 +109,7 @@ export const RoboticComparisonPage: React.FC<RoboticComparisonPageProps> = ({
                       <Cpu size={18} /> Robotic-Assisted Surgery (Mako)
                     </h3>
                     <p className="text-xs text-slate-600 leading-relaxed">
-                      Combines pre-operative 3D CT modeling with a surgeon-controlled robotic arm. The robotic guidance system enforces haptic boundaries to guide bone preparation strictly within the pre-planned zone, preventing deviation.
+                      Combines pre-operative 3D CT modelling with a surgeon-controlled robotic arm. The robotic guidance system enforces haptic boundaries to guide bone preparation strictly within the pre-planned zone, preventing deviation.
                     </p>
                   </div>
                 </div>
@@ -140,7 +140,7 @@ export const RoboticComparisonPage: React.FC<RoboticComparisonPageProps> = ({
                       <td className="p-3.5 font-bold text-slate-900">Component Positioning</td>
                       <td className="p-3.5">Mechanical alignment jigs &amp; surgeon visual assessment</td>
                       <td className="p-3.5">Digital real-time angular feedback on screen</td>
-                      <td className="p-3.5">Sub-millimeter tactile robotic arm boundaries</td>
+                      <td className="p-3.5">Sub-millimetre tactile robotic arm boundaries</td>
                     </tr>
                     <tr className="hover:bg-slate-50">
                       <td className="p-3.5 font-bold text-slate-900">Surgeon Control</td>
@@ -190,7 +190,7 @@ export const RoboticComparisonPage: React.FC<RoboticComparisonPageProps> = ({
 
               {/* Medical Disclaimer */}
               <div className="p-4 bg-slate-100 rounded-xl border border-slate-200 text-xs text-slate-600 leading-relaxed">
-                <strong>Educational Disclaimer:</strong> This comparison is intended to inform patients about surgical options and does not represent an endorsement of one technique over another for every patient. Treatment decisions must be made after an individualized clinical consultation and radiological evaluation with Mr Shivakumar Shankar.
+                <strong>Educational Disclaimer:</strong> This comparison is intended to inform patients about surgical options and does not represent an endorsement of one technique over another for every patient. Treatment decisions must be made after an individualised clinical consultation and radiological evaluation with Mr Shivakumar Shankar.
               </div>
             </div>
 
