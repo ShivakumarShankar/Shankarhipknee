@@ -81,9 +81,9 @@ const DEFAULT_MEDIA: MediaItem[] = [
     type: 'social',
     title: 'MAKO Robotic-Assisted Joint Replacement Introduced to Private Practice in Brentwood',
     category: 'Robotic Surgery',
-    src: '/nuffield-brentwood-mako-2026.jpg',
-    thumbnail: '/nuffield-brentwood-mako-2026.jpg',
-    altText: 'Mr Shivakumar Shankar with the clinical team following a MAKO robotic-assisted joint replacement at Nuffield Health Brentwood Hospital',
+    src: '/nuffield-brentwood-mako-2026-v1.jpg',
+    thumbnail: '/nuffield-brentwood-mako-2026-v1.jpg',
+    altText: 'Mr Shivakumar Shankar with the Stryker specialist and surgical scrub team following the first MAKO robotic-assisted joint replacement at Nuffield Health Brentwood Hospital',
     platform: 'instagram',
     socialHandle: '@shivakumarshankar',
     authorName: 'Mr Shivakumar Shankar',
@@ -276,8 +276,8 @@ Shared on Instagram on 25 September 2026.`,
     type: 'social',
     title: 'BHRUT NHS Trust: 100th Robotic Joint Replacement Milestone (Catherine’s Story)',
     category: 'Robotic Surgery',
-    src: './Shankar MAKO picture.JPG',
-    thumbnail: './Shankar MAKO picture.JPG',
+    src: '/bhrut-100th-robotic-joint-2023.jpg',
+    thumbnail: '/bhrut-100th-robotic-joint-2023.jpg',
     altText: 'BHRUT NHS Trust marking the 100th patient robotic joint replacement at King George Hospital',
     platform: 'bhrut',
     socialHandle: 'BHRUT NHS Trust',
@@ -1016,7 +1016,9 @@ export const MediaGalleryHub: React.FC<MediaGalleryHubProps> = ({ onOpenBooking 
                         src={item.thumbnail}
                         alt={item.altText || item.title}
                         className={`w-full h-full transition-transform duration-300 group-hover:scale-105 ${
-                          item.platform === 'njr' ? 'object-contain p-4 bg-white' : 'object-cover'
+                          item.platform === 'njr'
+                            ? 'object-contain p-4 bg-white'
+                            : 'object-cover'
                         }`}
                         loading="lazy"
                         referrerPolicy="no-referrer"

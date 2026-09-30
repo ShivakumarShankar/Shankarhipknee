@@ -226,7 +226,7 @@ const pageDefinitions = [
           <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-xs flex flex-col justify-between overflow-hidden">
             <div>
               <div class="relative aspect-video w-full bg-slate-900 overflow-hidden rounded-lg mb-3">
-                <img src="/nuffield-brentwood-mako-2026.jpg" alt="Mr Shivakumar Shankar with the clinical team following a MAKO robotic-assisted joint replacement at Nuffield Health Brentwood Hospital" class="w-full h-full object-cover" width="600" height="338" loading="lazy" />
+                <img src="/nuffield-brentwood-mako-2026-v1.jpg" alt="Mr Shivakumar Shankar with the Stryker specialist and surgical scrub team following the first MAKO robotic-assisted joint replacement at Nuffield Health Brentwood Hospital" class="w-full h-full object-cover" width="600" height="338" loading="lazy" />
               </div>
               <div class="flex items-center justify-between text-[11px] text-slate-500 mb-2">
                 <span class="font-bold text-[#00703C] uppercase tracking-wider text-[10px]">Robotic Surgery &bull; Nuffield Brentwood</span>
@@ -264,7 +264,7 @@ const pageDefinitions = [
           <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-xs flex flex-col justify-between overflow-hidden">
             <div>
               <div class="relative aspect-video w-full bg-slate-900 overflow-hidden rounded-lg mb-3">
-                <img src="/Shankar MAKO picture.JPG" alt="BHRUT NHS Trust marking the 100th patient robotic joint replacement at King George Hospital" class="w-full h-full object-cover" width="600" height="338" loading="lazy" />
+                <img src="/bhrut-100th-robotic-joint-2023.jpg" alt="BHRUT NHS Trust marking the 100th patient robotic joint replacement at King George Hospital" class="w-full h-full object-cover" width="600" height="338" loading="lazy" />
               </div>
               <div class="flex items-center justify-between text-[11px] text-slate-500 mb-2">
                 <span class="text-[10px] font-bold text-amber-700 uppercase tracking-wider">BHRUT Departmental Milestone</span>
