@@ -316,7 +316,7 @@ const pageDefinitions = [
           <article data-carousel-card class="p-5 bg-white rounded-xl border border-slate-200 shadow-xs flex flex-col justify-between overflow-hidden">
             <div>
               <div class="relative aspect-16/10 w-full bg-slate-900 overflow-hidden rounded-lg mb-3">
-                <img src="./King George Hospital entrance.webp" alt="King George Hospital Elective Surgical Hub" class="w-full h-full object-cover" width="600" height="375" loading="lazy" />
+                <img src="./King George Hospital entrance.jpeg" alt="King George Hospital Elective Surgical Hub" class="w-full h-full object-cover" width="600" height="375" loading="lazy" />
               </div>
               <div class="flex items-center justify-between text-[11px] text-slate-500 mb-2">
                 <span class="font-bold text-[#1B4965] uppercase tracking-wider text-[10px] bg-[#EAF1F6] px-2 py-0.5 rounded">Clinical Education</span>
@@ -1731,7 +1731,7 @@ if (fs.existsSync(rootIndexPath)) {
               <p>Fitness manager Catherine O'Brien-Passfield becomes the 100th patient to receive a robotic-assisted joint replacement at Barking, Havering and Redbridge University Hospitals NHS Trust, performed by Mr Shivakumar Shankar.</p>
             </div>
             <div data-carousel-card>
-              <img src="./King George Hospital entrance.webp" alt="King George Hospital Elective Surgical Hub" width="600" height="338" loading="lazy" />
+              <img src="./King George Hospital entrance.jpeg" alt="King George Hospital Elective Surgical Hub" width="600" height="338" loading="lazy" />
               <h4>16 August 2021: BHR Hospitals: ‘From Bones R Us to Back2Backs’ — 51 Hip &amp; Knee Replacements in 5 Days</h4>
               <p>Consultant Shivakumar Shankar specifically named in the Trust's elective recovery programme, achieving 51 hip and knee replacements in five days through focused surgical sprints.</p>
             </div>
