@@ -49,6 +49,7 @@ import { CombinedReviewHub } from './components/CombinedReviewHub';
 import { ReviewsPage } from './components/ReviewsPage';
 import { PatientGuidesHub } from './components/PatientGuidesHub';
 import { MediaGalleryHub } from './components/MediaGalleryHub';
+import { HomepageMediaCarousel } from './components/HomepageMediaCarousel';
 import { PROCEDURE_RISK_DATA } from './patientInfoData';
 import { ClinicalProcedurePage } from './components/ClinicalProcedurePage';
 import { CLINICAL_PROCEDURES } from './clinicalProceduresData';
@@ -68,6 +69,7 @@ const PrpInjectionPage = React.lazy(() =>
 export type AppPage = 
   | 'home' 
   | 'about' 
+  | 'media-social'
   | 'reviews' 
   | 'hip-replacement' 
   | 'robotic-hip-replacement'
@@ -132,7 +134,7 @@ export const getPageFromPath = (path: string): AppPage => {
   if (clean === '/king-george-hospital-goodmayes') return 'king-george-hospital-goodmayes';
   if (clean === '/contact' || clean === '/contact-consultation') return 'contact';
   if (clean === '/book-consultation' || clean === '/book') return 'book-consultation';
-  if (clean === '/media' || clean === '/media-social' || clean === '/social' || clean === '/news') return 'home';
+  if (clean === '/media' || clean === '/media-social' || clean === '/social' || clean === '/news') return 'media-social';
   return '404';
 };
 
@@ -146,6 +148,11 @@ const PAGE_METADATA: Record<string, { title: string; desc: string; canonical: st
     title: 'About Mr Shivakumar Shankar | Consultant Hip & Knee Surgeon',
     desc: 'Biography, credentials, and surgical training of Mr Shivakumar Shankar, NHS Clinical Lead & Consultant Orthopaedic Surgeon at Spire and Nuffield Hospitals.',
     canonical: 'https://www.shivakumarshankar.co.uk/about-mr-shivakumar-shankar'
+  },
+  'media-social': {
+    title: 'Media & Social | Mr Shivakumar Shankar | Robotic Hip & Knee Surgeon',
+    desc: 'Latest professional news, BBC features, NHS surgical milestones, and clinical video updates from Mr Shivakumar Shankar.',
+    canonical: 'https://www.shivakumarshankar.co.uk/media-social'
   },
   'hip-replacement': {
     title: 'Hip Replacement Surgery London & Essex | Mr Shivakumar Shankar',
@@ -264,7 +271,7 @@ const PAGE_METADATA: Record<string, { title: string; desc: string; canonical: st
   },
   'spire-hartswood-hospital': {
     title: 'Spire Hartswood Hospital Consultations | Brentwood, Essex',
-    desc: 'Private hip and knee consultations and robotic surgery with Mr Shivakumar Shankar at Spire Hartswood Hospital in Brentwood, Essex.',
+    desc: 'Private hip and knee consultations, conventional and computer-navigated joint replacement with Mr Shivakumar Shankar at Spire Hartswood Hospital in Brentwood, Essex.',
     canonical: 'https://www.shivakumarshankar.co.uk/spire-hartswood-hospital'
   },
   'nuffield-brentwood-hospital': {
@@ -405,12 +412,11 @@ function App() {
     const rawPath = window.location.pathname;
     if (rawPath === '/home' || rawPath === '/home/' || rawPath === '/index.html' || rawPath === '/index') {
       window.history.replaceState({}, '', '/');
-    } else if (rawPath === '/media' || rawPath === '/media-social' || rawPath === '/social' || rawPath === '/news') {
-      window.history.replaceState({}, '', '/#media');
-      setTimeout(() => {
-        const el = document.querySelector('#media');
-        el?.scrollIntoView({ behavior: 'smooth' });
-      }, 150);
+    } else if (rawPath === '/media' || rawPath === '/social' || rawPath === '/news') {
+      window.history.replaceState({}, '', '/media-social');
+      setCurrentPage('media-social');
+    } else if (rawPath === '/media-social') {
+      setCurrentPage('media-social');
     } else if (rawPath.endsWith('.html') || (rawPath.endsWith('/') && rawPath.length > 1)) {
       const clean = rawPath.replace(/\.html$/, '').replace(/\/$/, '') || '/';
       window.history.replaceState({}, '', clean);
@@ -537,6 +543,23 @@ function App() {
           onBook={() => openBookingModal()} 
           onNavigateHome={() => handleNavigate('home')} 
         />
+      ) : currentPage === 'media-social' ? (
+        <div className="pt-28 md:pt-36 bg-slate-50 min-h-screen">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200 text-xs">
+              <button 
+                onClick={() => handleNavigate('home')} 
+                className="inline-flex items-center gap-1.5 font-bold text-[#1B4965] hover:text-[#13364B] cursor-pointer"
+              >
+                <ArrowLeft size={15} /> Back to Home
+              </button>
+              <div className="text-slate-500">
+                <span className="cursor-pointer hover:underline" onClick={() => handleNavigate('home')}>Home</span> / <span className="font-semibold text-slate-800">Media &amp; Social</span>
+              </div>
+            </div>
+          </div>
+          <MediaGalleryHub onOpenBooking={() => openBookingModal()} />
+        </div>
       ) : currentPage === 'contact' ? (
         <div className="pt-28 md:pt-36 bg-[#F8FAFC]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4">
@@ -791,7 +814,7 @@ function App() {
                 {SURGICAL_STATS.map((stat, idx) => (
                   <div 
                     key={idx} 
-                    className="p-5 rounded-xl bg-white border border-slate-200 shadow-xs hover:border-[#1B4965] hover:shadow-sm transition-all"
+                    className="p-3.5 sm:p-5 rounded-xl bg-white border border-slate-200 shadow-xs hover:border-[#1B4965] hover:shadow-sm transition-all"
                   >
                     <p className="text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
                       {stat.value}
@@ -1337,8 +1360,8 @@ function App() {
             </div>
           </section>
 
-          {/* OFFICIAL MEDIA & SOCIAL MEDIA HUB */}
-          <MediaGalleryHub onOpenBooking={() => openBookingModal()} />
+          {/* LATEST NEWS & PROFESSIONAL UPDATES (CAROUSEL) */}
+          <HomepageMediaCarousel onViewAllMedia={() => handleNavigate('media-social')} />
 
           {/* PRIVATE HOSPITALS & CLINIC LOCATIONS */}
           <section id="locations" className="py-20 bg-[#F8FAFC] border-b border-slate-200">
@@ -1808,7 +1831,7 @@ function App() {
               <li><a href="/patient-guides" onClick={(e) => { e.preventDefault(); handleNavigate('patient-guides'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Patient Guides &amp; Risks</a></li>
               <li><a href="/reviews" onClick={(e) => { e.preventDefault(); handleNavigate('reviews'); }} className="text-[#1B4965] font-bold hover:underline transition-colors block">Patient Reviews (Doctify &amp; IWGC)</a></li>
               <li><a href="/contact" onClick={(e) => { e.preventDefault(); handleNavigate('contact'); }} className="text-[#1B4965] font-bold hover:text-[#13364B] transition-colors block">Contact Practice Secretary</a></li>
-              <li><a href="#media" onClick={(e) => { e.preventDefault(); handleNavigate('#media'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Media &amp; Social</a></li>
+              <li><a href="/media-social" onClick={(e) => { e.preventDefault(); handleNavigate('media-social'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Media &amp; Social</a></li>
               <li><a href="#faq" onClick={(e) => { e.preventDefault(); handleNavigate('#faq'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Patient FAQs</a></li>
             </ul>
           </div>

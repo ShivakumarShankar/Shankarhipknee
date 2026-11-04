@@ -342,7 +342,7 @@ const Header: React.FC<HeaderProps> = ({ onBook, onNavigate, currentPage }) => {
                 <span id="header-surgeon-role" className="text-[11px] sm:text-xs md:text-sm font-bold text-[#1B4965] tracking-tight sm:tracking-normal leading-snug">
                   {SURGEON_ROLE}
                 </span>
-                <span className="text-[10px] text-slate-500 font-medium hidden lg:inline">
+                <span className="text-[10px] text-slate-500 font-medium hidden xl:inline">
                   Spire Hartswood Hospital &bull; Nuffield Health Brentwood Hospital &bull; Queen's Hospital
                 </span>
               </div>
@@ -352,7 +352,7 @@ const Header: React.FC<HeaderProps> = ({ onBook, onNavigate, currentPage }) => {
             <div className="flex items-center gap-3 sm:gap-5">
               
               {/* 3 Contact Headings: Mobile, Landline, Email */}
-              <div className="hidden lg:flex flex-col items-end text-right gap-0.5 text-xs">
+              <div className="hidden xl:flex flex-col items-end text-right gap-0.5 text-xs">
                 <div className="flex items-center gap-1.5 leading-tight">
                   <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Mobile:</span>
                   <a 
@@ -394,7 +394,7 @@ const Header: React.FC<HeaderProps> = ({ onBook, onNavigate, currentPage }) => {
               {/* Mobile Menu Toggle Button */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="lg:hidden p-2 text-slate-700 hover:bg-[#F8FAFC] rounded-lg transition-colors border border-slate-200"
+                className="xl:hidden p-2 text-slate-700 hover:bg-[#F8FAFC] rounded-lg transition-colors border border-slate-200"
                 aria-label="Toggle menu"
               >
                 {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -405,7 +405,7 @@ const Header: React.FC<HeaderProps> = ({ onBook, onNavigate, currentPage }) => {
         </div>
 
         {/* Bottom Menu Bar with Individual Pages & Dropdowns (Deep Navy #1B4965) */}
-        <div className="hidden lg:block bg-[#1B4965] border-t border-[#13364B] shadow-sm">
+        <div className="hidden xl:block bg-[#1B4965] border-t border-[#13364B] shadow-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <nav className="flex items-center justify-between">
               
@@ -489,7 +489,7 @@ const Header: React.FC<HeaderProps> = ({ onBook, onNavigate, currentPage }) => {
 
         {/* Mobile Dropdown Menu with Accordion Sub-pages */}
         {isMenuOpen && (
-          <div className="lg:hidden bg-white border-t border-slate-200 shadow-xl animate-fade-in max-h-[80vh] overflow-y-auto">
+          <div className="xl:hidden bg-white border-t border-slate-200 shadow-xl animate-fade-in max-h-[80vh] overflow-y-auto">
             <div className="max-w-7xl mx-auto px-4 py-4 space-y-2">
               <div className="p-3 bg-[#F8FAFC] rounded-xl border border-slate-200 flex items-center gap-3 mb-3">
                 <img 
@@ -577,7 +577,7 @@ const Header: React.FC<HeaderProps> = ({ onBook, onNavigate, currentPage }) => {
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="font-bold text-slate-500 text-[11px] uppercase">Email:</span>
-                    <a href={`mailto:${EMAIL}`} className="font-medium text-[#1B4965] truncate max-w-[210px]">{EMAIL}</a>
+                    <a href={`mailto:${EMAIL}`} className="font-medium text-[#1B4965] truncate max-w-[210px] sm:max-w-none">{EMAIL}</a>
                   </div>
                 </div>
 
@@ -586,7 +586,7 @@ const Header: React.FC<HeaderProps> = ({ onBook, onNavigate, currentPage }) => {
                   <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1.5">
                     Official Socials ({SOCIAL_HANDLE})
                   </span>
-                  <div className="grid grid-cols-4 gap-2">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                     <a
                       href={SOCIAL_LINKS.instagram}
                       target="_blank"

@@ -75,7 +75,7 @@ export interface MediaItem {
   broadcastScenes?: BroadcastScene[];
 }
 
-const DEFAULT_MEDIA: MediaItem[] = [
+export const DEFAULT_MEDIA: MediaItem[] = [
   {
     id: 'post-nuffield-brentwood-mako-2026',
     type: 'social',
@@ -1464,7 +1464,7 @@ export const MediaGalleryHub: React.FC<MediaGalleryHubProps> = ({ onOpenBooking 
 
                   {/* Timeline & Player Bar */}
                   <div className="p-3 bg-slate-900 border-t border-slate-800 flex flex-col gap-2">
-                    <div className="flex items-center justify-between text-xs text-slate-300">
+                    <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-slate-300">
                       <div className="flex items-center gap-2">
                         <button
                           onClick={() => setIsPlayingBroadcast(!isPlayingBroadcast)}

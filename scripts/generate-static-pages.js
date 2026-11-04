@@ -161,6 +161,52 @@ const renderCardGrid = (cards) => `
   </section>
 `;
 
+// Extract all 19 media items from MediaGalleryHub.tsx to ensure 100% data fidelity without manual duplication
+const hubFilePath = path.resolve(__dirname, '../components/MediaGalleryHub.tsx');
+let mediaArchiveHtml = '';
+try {
+  const hubContent = fs.readFileSync(hubFilePath, 'utf8');
+  const start = hubContent.indexOf('export const DEFAULT_MEDIA: MediaItem[] = [');
+  const end = hubContent.indexOf('];\n\n// Helper to extract');
+  if (start !== -1 && end !== -1) {
+    const raw = hubContent.substring(start, end);
+    const items = raw.split(/\n  \{\n/).slice(1).map(b => {
+      const getF = (f) => {
+        const m = b.match(new RegExp(f + ":\\s*['\"`]([^'\"`]+)['\"`]"));
+        return m ? m[1] : '';
+      };
+      const id = getF('id');
+      const title = getF('title');
+      const category = getF('category');
+      const date = getF('date');
+      const src = (b.match(/(?:src|thumbnail):\s*['"]([^'"]+)['"]/) || [])[1] || './profile.jpg';
+      const externalUrl = getF('externalUrl');
+      const descM = b.match(/description:\s*(?:`([^`]+)`|'([^']+)'|"([^"]+)")/);
+      const description = descM ? (descM[1] || descM[2] || descM[3]).trim().replace(/\n+/g, ' ') : '';
+      return { id, title, category, date, src, externalUrl, description };
+    });
+
+    mediaArchiveHtml = items.map(item => `
+        <article class="p-5 bg-white rounded-xl border border-slate-200 shadow-xs flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="relative aspect-16/10 w-full bg-slate-900 overflow-hidden rounded-lg mb-3">
+              <img src="${item.src}" alt="${item.title.replace(/"/g, '&quot;')}" class="w-full h-full object-cover" width="600" height="375" loading="lazy" />
+            </div>
+            <div class="flex items-center justify-between text-[11px] text-slate-500 mb-2">
+              <span class="font-bold text-[#1B4965] uppercase tracking-wider text-[10px] bg-[#EAF1F6] px-2 py-0.5 rounded">${item.category}</span>
+              ${item.date ? `<span class="font-semibold text-slate-700">${item.date}</span>` : ''}
+            </div>
+            <h2 class="font-bold text-slate-900 text-sm mb-2 line-clamp-2">${item.title}</h2>
+            <p class="text-xs text-slate-600 leading-relaxed line-clamp-3">${item.description.replace(/"/g, '&quot;')}</p>
+          </div>
+          ${item.externalUrl ? `<a href="${item.externalUrl}" target="_blank" rel="noopener noreferrer" class="mt-4 text-xs font-bold text-[#1B4965] hover:underline flex items-center gap-1">View Publication &rarr;</a>` : ''}
+        </article>
+    `).join('');
+  }
+} catch (e) {
+  console.error('Warning: could not parse media items for static rendering', e);
+}
+
 // Complete Page Definitions for all indexable canonical routes
 const pageDefinitions = [
   // 1. Home
@@ -190,126 +236,162 @@ const pageDefinitions = [
         }
       ])}
 
-      <!-- Media & Social Section -->
-      <section id="media" class="py-12 border-t border-slate-200 bg-slate-50 rounded-2xl p-6 sm:p-8 mb-12">
+      <!-- Media & Social Carousel Section -->
+      <section id="media" class="py-16 border-t border-slate-200 bg-slate-50 rounded-2xl p-6 sm:p-8 mb-12">
         <div class="text-center max-w-3xl mx-auto mb-8">
           <span class="inline-block px-3 py-1 rounded-full bg-white border border-slate-200 text-[#1B4965] text-xs font-bold uppercase tracking-wider mb-2">
             Professional News &amp; Updates
           </span>
           <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-            Media &amp; Social
+            Latest News &amp; Professional Updates
           </h2>
           <p class="text-slate-600 text-xs sm:text-sm mt-2 leading-relaxed">
             Follow Mr Shivakumar Shankar for professional updates, patient education and information about developments in hip and knee surgery.
           </p>
         </div>
 
-        <!-- Social Channels (@ShankarHipKnee) -->
-        <div class="bg-white rounded-xl p-5 border border-slate-200 shadow-xs mb-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div>
-            <span class="text-[11px] font-bold uppercase tracking-wider text-[#1B4965]">Professional Channels</span>
-            <h3 class="text-base font-bold text-slate-900">Follow @ShankarHipKnee</h3>
-            <p class="text-xs text-slate-600">Educational video walkthroughs, joint surgery updates, and patient recovery insights.</p>
-          </div>
-          <div class="flex items-center gap-2 flex-wrap">
-            <a href="https://www.linkedin.com/in/shivakumar-shankar-25758026/recent-activity/all/" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-[#0A66C2] text-white text-xs font-bold hover:bg-[#004182] transition-colors">LinkedIn</a>
-            <a href="https://x.com/ShankarHipKnee" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-black text-white text-xs font-bold hover:bg-slate-800 transition-colors">X (@ShankarHipKnee)</a>
-            <a href="https://www.youtube.com/@ShankarHipKnee" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-red-600 text-white text-xs font-bold hover:bg-red-700 transition-colors">YouTube</a>
-            <a href="https://www.instagram.com/ShankarHipKnee" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-gradient-to-r from-amber-500 to-pink-600 text-white text-xs font-bold hover:opacity-90 transition-opacity">Instagram</a>
-            <a href="https://www.tiktok.com/@ShankarHipKnee" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-slate-900 text-white text-xs font-bold hover:bg-black transition-colors">TikTok</a>
-            <a href="https://finder.bupa.co.uk/Consultant/mr-shivakumar-shankar-orthopaedic-surgery-brentwood-romford" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-[#0079C8] text-white text-xs font-bold hover:bg-[#005a96] transition-colors">Bupa Profile</a>
-          </div>
-        </div>
-
-        <!-- Featured Media & Milestones Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-xs flex flex-col justify-between overflow-hidden">
+        <!-- Carousel Cards Container (Responsive & Accessible Static Representation) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <!-- Card 1: 29 September 2026 -->
+          <article data-carousel-card class="p-5 bg-white rounded-xl border border-slate-200 shadow-xs flex flex-col justify-between overflow-hidden">
             <div>
-              <div class="relative aspect-video w-full bg-slate-900 overflow-hidden rounded-lg mb-3">
-                <img src="/nuffield-brentwood-mako-2026-v1.jpg" alt="Mr Shivakumar Shankar with the Stryker specialist and surgical scrub team following the first MAKO robotic-assisted joint replacement at Nuffield Health Brentwood Hospital" class="w-full h-full object-cover" width="600" height="338" loading="lazy" />
+              <div class="relative aspect-16/10 w-full bg-slate-900 overflow-hidden rounded-lg mb-3">
+                <img src="/nuffield-brentwood-mako-2026-v1.jpg" alt="Mr Shivakumar Shankar with the Stryker specialist and surgical scrub team following the first MAKO robotic-assisted joint replacement at Nuffield Health Brentwood Hospital" class="w-full h-full object-cover" width="600" height="375" loading="lazy" />
               </div>
               <div class="flex items-center justify-between text-[11px] text-slate-500 mb-2">
-                <span class="font-bold text-[#00703C] uppercase tracking-wider text-[10px]">Robotic Surgery &bull; Nuffield Brentwood</span>
+                <span class="font-bold text-[#1B4965] uppercase tracking-wider text-[10px] bg-[#EAF1F6] px-2 py-0.5 rounded">Robotic Surgery</span>
                 <span class="font-semibold text-slate-700">29 September 2026</span>
               </div>
-              <h3 class="font-bold text-slate-900 text-sm mb-2">MAKO Robotic-Assisted Joint Replacement Introduced to Private Practice in Brentwood</h3>
-              <p class="text-xs text-slate-600 leading-relaxed">
+              <h3 class="font-bold text-slate-900 text-sm mb-2 line-clamp-2">MAKO Robotic-Assisted Joint Replacement Introduced to Private Practice in Brentwood</h3>
+              <p class="text-xs text-slate-600 leading-relaxed line-clamp-2">
                 On 29 September 2026, Mr Shivakumar Shankar performed his first MAKO robotic-assisted joint replacement at Nuffield Health Brentwood Hospital, marking an important development in his private hip and knee practice.
               </p>
             </div>
             <a href="https://www.instagram.com/shivakumarshankar/" target="_blank" rel="noopener noreferrer" class="mt-4 text-xs font-bold text-[#1B4965] hover:underline flex items-center gap-1">
-              View on Instagram (@shivakumarshankar) &rarr;
+              Read more &rarr;
             </a>
-          </div>
+          </article>
 
-          <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-xs flex flex-col justify-between overflow-hidden">
+          <!-- Card 2: 24 September 2026 -->
+          <article data-carousel-card class="p-5 bg-white rounded-xl border border-slate-200 shadow-xs flex flex-col justify-between overflow-hidden">
             <div>
-              <div class="relative aspect-video w-full bg-slate-900 overflow-hidden rounded-lg mb-3">
-                <img src="/shankar-personal-100-mako-2026.jpg" alt="Mr Shivakumar Shankar marking his personal milestone of 100 MAKO robotic-assisted joint replacement procedures at BHRUT" class="w-full h-full object-cover" width="600" height="338" loading="lazy" />
+              <div class="relative aspect-16/10 w-full bg-slate-900 overflow-hidden rounded-lg mb-3">
+                <img src="/shankar-personal-100-mako-2026.jpg" alt="Mr Shivakumar Shankar marking his personal milestone of 100 MAKO robotic-assisted joint replacement procedures at BHRUT" class="w-full h-full object-cover" width="600" height="375" loading="lazy" />
               </div>
               <div class="flex items-center justify-between text-[11px] text-slate-500 mb-2">
-                <span class="font-bold text-[#1B4965] uppercase tracking-wider text-[10px]">Robotic Surgery &bull; BHRUT Milestone</span>
+                <span class="font-bold text-[#1B4965] uppercase tracking-wider text-[10px] bg-[#EAF1F6] px-2 py-0.5 rounded">Robotic Surgery</span>
                 <span class="font-semibold text-slate-700">24 September 2026</span>
               </div>
-              <h3 class="font-bold text-slate-900 text-sm mb-2">100 MAKO Robotic-Assisted Joint Replacements — A Personal Milestone at BHRUT</h3>
-              <p class="text-xs text-slate-600 leading-relaxed">
+              <h3 class="font-bold text-slate-900 text-sm mb-2 line-clamp-2">100 MAKO Robotic-Assisted Joint Replacements — A Personal Milestone at BHRUT</h3>
+              <p class="text-xs text-slate-600 leading-relaxed line-clamp-2">
                 On 24 September 2026, Mr Shivakumar Shankar reached a personal milestone of completing 100 MAKO robotic-assisted joint replacement procedures at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT).
               </p>
             </div>
             <a href="https://www.instagram.com/shivakumarshankar/" target="_blank" rel="noopener noreferrer" class="mt-4 text-xs font-bold text-[#1B4965] hover:underline flex items-center gap-1">
-              View on Instagram (@shivakumarshankar) &rarr;
+              Read more &rarr;
             </a>
-          </div>
+          </article>
 
-          <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-xs flex flex-col justify-between overflow-hidden">
+          <!-- Card 3: 18 January 2023 -->
+          <article data-carousel-card class="p-5 bg-white rounded-xl border border-slate-200 shadow-xs flex flex-col justify-between overflow-hidden">
             <div>
-              <div class="relative aspect-video w-full bg-slate-900 overflow-hidden rounded-lg mb-3">
-                <img src="/bhrut-100th-robotic-joint-2023.jpg" alt="BHRUT NHS Trust marking the 100th patient robotic joint replacement at King George Hospital" class="w-full h-full object-cover" width="600" height="338" loading="lazy" />
+              <div class="relative aspect-16/10 w-full bg-slate-900 overflow-hidden rounded-lg mb-3">
+                <img src="/bhrut-100th-robotic-joint-2023.jpg" alt="BHRUT NHS Trust marking the 100th patient robotic joint replacement at King George Hospital" class="w-full h-full object-cover" width="600" height="375" loading="lazy" />
               </div>
               <div class="flex items-center justify-between text-[11px] text-slate-500 mb-2">
-                <span class="text-[10px] font-bold text-amber-700 uppercase tracking-wider">BHRUT Departmental Milestone</span>
+                <span class="font-bold text-[#1B4965] uppercase tracking-wider text-[10px] bg-[#EAF1F6] px-2 py-0.5 rounded">Robotic Surgery</span>
                 <span class="font-semibold text-slate-700">18 January 2023</span>
               </div>
-              <h3 class="font-bold text-slate-900 text-sm mb-2">BHRUT NHS Trust: 100th Robotic Joint Replacement Milestone (Catherine’s Story)</h3>
-              <p class="text-xs text-slate-600 leading-relaxed">
+              <h3 class="font-bold text-slate-900 text-sm mb-2 line-clamp-2">BHRUT NHS Trust: 100th Robotic Joint Replacement Milestone (Catherine’s Story)</h3>
+              <p class="text-xs text-slate-600 leading-relaxed line-clamp-2">
                 Fitness manager Catherine O'Brien-Passfield becomes the 100th patient to receive a robotic-assisted joint replacement at Barking, Havering and Redbridge University Hospitals NHS Trust, performed by Mr Shivakumar Shankar.
               </p>
             </div>
             <a href="https://www.bhrhospitals.nhs.uk/news/fitness-manager-catherine-gets-a-whole-new-lease-of-life-after-being-the-100th-patient-to-have-a-robotic-joint-replacement-5735" target="_blank" rel="noopener noreferrer" class="mt-4 text-xs font-bold text-[#1B4965] hover:underline flex items-center gap-1">
-              Read BHRUT NHS Report &rarr;
+              Read more &rarr;
             </a>
-          </div>
+          </article>
 
-          <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-xs flex flex-col justify-between overflow-hidden">
+          <!-- Card 4: 16 August 2021 -->
+          <article data-carousel-card class="p-5 bg-white rounded-xl border border-slate-200 shadow-xs flex flex-col justify-between overflow-hidden">
             <div>
-              <div class="relative aspect-video w-full bg-slate-900 overflow-hidden rounded-lg mb-3">
-                <img src="https://ichef.bbci.co.uk/ace/standard/960/cpsprodpb/b026/live/529541b0-f6f1-11f0-b385-5f48925de19a.png" alt="BBC News: Robotic Joint Replacement at Elective Surgical Hub" class="w-full h-full object-cover" width="600" height="338" loading="lazy" />
+              <div class="relative aspect-16/10 w-full bg-slate-900 overflow-hidden rounded-lg mb-3">
+                <img src="./King George Hospital entrance.webp" alt="King George Hospital Elective Surgical Hub" class="w-full h-full object-cover" width="600" height="375" loading="lazy" />
               </div>
-              <span class="text-[10px] font-bold text-red-700 uppercase tracking-wider block mb-1">BBC London Broadcast</span>
-              <h3 class="font-bold text-slate-900 text-sm mb-2">BBC News: Robotic Joint Replacement at Elective Surgical Hub</h3>
-              <p class="text-xs text-slate-600 leading-relaxed">
-                Featured on BBC London News demonstrating how robotic 3D CT guidance and dedicated ring-fenced theatres protect planned operations from emergency winter delays.
+              <div class="flex items-center justify-between text-[11px] text-slate-500 mb-2">
+                <span class="font-bold text-[#1B4965] uppercase tracking-wider text-[10px] bg-[#EAF1F6] px-2 py-0.5 rounded">Clinical Education</span>
+                <span class="font-semibold text-slate-700">16 August 2021</span>
+              </div>
+              <h3 class="font-bold text-slate-900 text-sm mb-2 line-clamp-2">BHR Hospitals: ‘From Bones R Us to Back2Backs’ — 51 Hip &amp; Knee Replacements in 5 Days</h3>
+              <p class="text-xs text-slate-600 leading-relaxed line-clamp-2">
+                Consultant Shivakumar Shankar specifically named in the Trust's elective recovery programme, achieving 51 hip and knee replacements in five days through focused surgical sprints.
               </p>
             </div>
-            <a href="https://www.bbc.co.uk/news/articles/c5ydj10l0k3o" target="_blank" rel="noopener noreferrer" class="mt-4 text-xs font-bold text-[#1B4965] hover:underline flex items-center gap-1">
-              Read BBC News Feature &rarr;
+            <a href="https://www.bhrhospitals.nhs.uk/news/from-bones-r-us-to-back2backs-51-hip-and-knee-replacements-in-five-days-4933" target="_blank" rel="noopener noreferrer" class="mt-4 text-xs font-bold text-[#1B4965] hover:underline flex items-center gap-1">
+              Read more &rarr;
             </a>
-          </div>
+          </article>
 
-          <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-xs flex flex-col justify-between overflow-hidden">
+          <!-- Card 5: 13 July 2021 -->
+          <article data-carousel-card class="p-5 bg-white rounded-xl border border-slate-200 shadow-xs flex flex-col justify-between overflow-hidden">
             <div>
-              <div class="relative aspect-video w-full bg-slate-900 overflow-hidden rounded-lg mb-3">
-                <img src="https://img.youtube.com/vi/QHnGZWrE3fU/hqdefault.jpg" alt="Home Exercises for Hip &amp; Knee Arthritis" class="w-full h-full object-cover" width="600" height="338" loading="lazy" />
+              <div class="relative aspect-16/10 w-full bg-slate-900 overflow-hidden rounded-lg mb-3">
+                <img src="./Queens Hospital.jpg" alt="Queen's Hospital Romford" class="w-full h-full object-cover" width="600" height="375" loading="lazy" />
               </div>
-              <span class="text-[10px] font-bold text-red-600 uppercase tracking-wider block mb-1">Patient Education Videos</span>
-              <h3 class="font-bold text-slate-900 text-sm mb-2">Home Exercises for Hip &amp; Knee Arthritis</h3>
-              <p class="text-xs text-slate-600 leading-relaxed">
-                Consultant-guided 5-minute video tutorials demonstrating evidence-based strengthening and range-of-motion routines for patients managing joint symptoms.
+              <div class="flex items-center justify-between text-[11px] text-slate-500 mb-2">
+                <span class="font-bold text-[#1B4965] uppercase tracking-wider text-[10px] bg-[#EAF1F6] px-2 py-0.5 rounded">Clinical Education</span>
+                <span class="font-semibold text-slate-700">13 July 2021</span>
+              </div>
+              <h3 class="font-bold text-slate-900 text-sm mb-2 line-clamp-2">BHR Hospitals: ‘Super’ Clinics Led by Mr Shankar Tackle Waiting Lists (260 Outpatients in 2 Days)</h3>
+              <p class="text-xs text-slate-600 leading-relaxed line-clamp-2">
+                Mr Shankar led high-volume weekend outpatient recovery clinics at Barking, Havering and Redbridge University Hospitals NHS Trust, assessing 260 patients across two days to accelerate specialist care.
               </p>
             </div>
-            <a href="https://www.youtube.com/@ShankarHipKnee" target="_blank" rel="noopener noreferrer" class="mt-4 text-xs font-bold text-[#1B4965] hover:underline flex items-center gap-1">
-              Watch on YouTube &rarr;
+            <a href="https://www.bhrhospitals.nhs.uk/news/super-clinics-to-help-reduce-waiting-times-4886" target="_blank" rel="noopener noreferrer" class="mt-4 text-xs font-bold text-[#1B4965] hover:underline flex items-center gap-1">
+              Read more &rarr;
             </a>
+          </article>
+
+          <!-- Card 6: 30 July 2020 -->
+          <article data-carousel-card class="p-5 bg-white rounded-xl border border-slate-200 shadow-xs flex flex-col justify-between overflow-hidden">
+            <div>
+              <div class="relative aspect-16/10 w-full bg-slate-900 overflow-hidden rounded-lg mb-3">
+                <img src="./Attend anywhere virtual clinic.png" alt="Attend Anywhere Virtual Orthopaedic Clinic" class="w-full h-full object-cover" width="600" height="375" loading="lazy" />
+              </div>
+              <div class="flex items-center justify-between text-[11px] text-slate-500 mb-2">
+                <span class="font-bold text-[#1B4965] uppercase tracking-wider text-[10px] bg-[#EAF1F6] px-2 py-0.5 rounded">Clinical Education</span>
+                <span class="font-semibold text-slate-700">30 July 2020</span>
+              </div>
+              <h3 class="font-bold text-slate-900 text-sm mb-2 line-clamp-2">BHR Hospitals: Pioneering ‘Attend Anywhere’ Virtual Consultations During COVID-19</h3>
+              <p class="text-xs text-slate-600 leading-relaxed line-clamp-2">
+                Pioneering remote digital video clinics at BHR Hospitals during lockdown, ensuring vulnerable joint patients received expert orthopaedic triage, rehabilitation guidance, and continuous clinical support.
+              </p>
+            </div>
+            <a href="https://www.bhrhospitals.nhs.uk/news/video-consultations-now-available-at-our-hospitals-3855" target="_blank" rel="noopener noreferrer" class="mt-4 text-xs font-bold text-[#1B4965] hover:underline flex items-center gap-1">
+              Read more &rarr;
+            </a>
+          </article>
+        </div>
+
+        <!-- View all Media & Social link/button -->
+        <div class="mt-8 text-center">
+          <a href="/media-social" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-white border border-slate-300 hover:border-[#1B4965] text-[#1B4965] hover:text-[#13364B] text-xs font-bold uppercase tracking-wider transition-all shadow-2xs">
+            View all Media &amp; Social &rarr;
+          </a>
+        </div>
+
+        <!-- Social Channels (@ShankarHipKnee) -->
+        <div class="mt-8 pt-8 border-t border-slate-200 text-center">
+          <p class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">
+            Follow Mr Shivakumar Shankar
+          </p>
+          <div class="flex items-center justify-center gap-2 sm:gap-3 flex-wrap">
+            <a href="https://www.linkedin.com/in/shivakumar-shankar-25758026/recent-activity/all/" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-md bg-white border border-slate-200 text-slate-700 hover:text-[#1B4965] hover:border-slate-300 text-xs font-semibold shadow-2xs transition-colors">LinkedIn</a>
+            <a href="https://x.com/ShankarHipKnee" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-md bg-white border border-slate-200 text-slate-700 hover:text-[#1B4965] hover:border-slate-300 text-xs font-semibold shadow-2xs transition-colors">X (@ShankarHipKnee)</a>
+            <a href="https://www.youtube.com/@ShankarHipKnee" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-md bg-white border border-slate-200 text-slate-700 hover:text-[#1B4965] hover:border-slate-300 text-xs font-semibold shadow-2xs transition-colors">YouTube</a>
+            <a href="https://www.instagram.com/ShankarHipKnee" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-md bg-white border border-slate-200 text-slate-700 hover:text-[#1B4965] hover:border-slate-300 text-xs font-semibold shadow-2xs transition-colors">Instagram</a>
+            <a href="https://www.tiktok.com/@ShankarHipKnee" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-md bg-white border border-slate-200 text-slate-700 hover:text-[#1B4965] hover:border-slate-300 text-xs font-semibold shadow-2xs transition-colors">TikTok</a>
+            <a href="https://finder.bupa.co.uk/Consultant/mr-shivakumar-shankar-orthopaedic-surgery-brentwood-romford" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-md bg-white border border-slate-200 text-slate-700 hover:text-[#1B4965] hover:border-slate-300 text-xs font-semibold shadow-2xs transition-colors">Bupa Profile</a>
           </div>
         </div>
       </section>
@@ -881,7 +963,7 @@ const pageDefinitions = [
         },
         {
           title: 'Available Locations',
-          desc: 'Private robotic joint replacement available at Spire Hartswood and Nuffield Health Brentwood hospitals.'
+          desc: 'MAKO robotic-assisted joint replacement is available at Nuffield Health Brentwood Hospital, with robotic services also at BHRUT NHS hospitals, alongside conventional and computer-navigated surgery at Spire Hartswood.'
         }
       ])}
       `
@@ -1198,7 +1280,7 @@ const pageDefinitions = [
       'essex-practice',
       'Consultant Orthopaedic Care • Essex Practice',
       'Hip and Knee Surgeon in Essex',
-      'Specialist hip and knee arthroplasty, robotic surgery, and joint preservation care for Essex patients. Private consultations at Spire Hartswood and Nuffield Health Brentwood.',
+      'Specialist hip and knee arthroplasty, computer-navigated surgery, and joint preservation care for Essex patients. Private consultations and surgery at Spire Hartswood (conventional & computer-navigated) and Nuffield Health Brentwood (MAKO robotic-assisted), alongside NHS robotic services at BHRUT.',
       `
       ${renderCardGrid([
         {
@@ -1222,7 +1304,7 @@ const pageDefinitions = [
   {
     path: 'spire-hartswood-hospital',
     title: 'Spire Hartswood Hospital Consultations | Brentwood, Essex',
-    description: 'Private hip and knee consultations and robotic surgery with Mr Shivakumar Shankar at Spire Hartswood Hospital in Brentwood, Essex.',
+    description: 'Private hip and knee consultations, conventional and computer-navigated joint replacement with Mr Shivakumar Shankar at Spire Hartswood Hospital in Brentwood, Essex.',
     canonical: 'https://www.shivakumarshankar.co.uk/spire-hartswood-hospital',
     bodyHtml: renderPageShell(
       'spire-hartswood',
@@ -1237,7 +1319,7 @@ const pageDefinitions = [
         },
         {
           title: 'Clinical Services',
-          desc: 'Outpatient consultation clinics, robotic joint replacement, rapid-access joint injections, and physiotherapy.'
+          desc: 'Outpatient consultation clinics, conventional and computer-navigated joint replacement, rapid-access joint injections, and physiotherapy.'
         },
         {
           title: 'Hospital Appointments',
@@ -1493,6 +1575,49 @@ const pageDefinitions = [
       </section>
       `
     )
+  },
+
+  // 35. Media & Social Complete Archive
+  {
+    path: 'media-social',
+    title: 'Media & Social | Mr Shivakumar Shankar | Robotic Hip & Knee Surgeon',
+    description: 'Latest professional news, BBC features, NHS surgical milestones, and clinical video updates from Mr Shivakumar Shankar.',
+    canonical: 'https://www.shivakumarshankar.co.uk/media-social',
+    bodyHtml: renderPageShell(
+      'media-social',
+      'Professional Media, Broadcasts &amp; Social Archive',
+      'Media &amp; Social',
+      'Follow Mr Shivakumar Shankar for professional updates, patient education, broadcast features, and clinical milestones in robotic hip and knee surgery across London and Essex.',
+      `
+      <!-- Official Social Channels Bar -->
+      <section class="mb-10 bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
+          <div>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-[#1B4965] bg-[#EAF1F6] px-3 py-1 rounded-full inline-block mb-2">
+              Official Social Channels
+            </span>
+            <h2 class="text-xl font-extrabold text-slate-900">Follow @ShankarHipKnee</h2>
+            <p class="text-xs text-slate-600 mt-1 max-w-xl">
+              Professional updates, surgical robotics milestones, patient recovery videos, and orthopaedic clinical education.
+            </p>
+          </div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <a href="https://www.linkedin.com/in/shivakumar-shankar-25758026/recent-activity/all/" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 rounded-lg bg-white border border-slate-200 text-slate-700 hover:text-[#1B4965] hover:border-slate-300 text-xs font-semibold shadow-2xs transition-colors">LinkedIn</a>
+            <a href="https://x.com/ShankarHipKnee" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 rounded-lg bg-white border border-slate-200 text-slate-700 hover:text-[#1B4965] hover:border-slate-300 text-xs font-semibold shadow-2xs transition-colors">X (@ShankarHipKnee)</a>
+            <a href="https://www.youtube.com/@ShankarHipKnee" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 rounded-lg bg-white border border-slate-200 text-slate-700 hover:text-[#1B4965] hover:border-slate-300 text-xs font-semibold shadow-2xs transition-colors">YouTube</a>
+            <a href="https://www.instagram.com/ShankarHipKnee" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 rounded-lg bg-white border border-slate-200 text-slate-700 hover:text-[#1B4965] hover:border-slate-300 text-xs font-semibold shadow-2xs transition-colors">Instagram</a>
+            <a href="https://www.tiktok.com/@ShankarHipKnee" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 rounded-lg bg-white border border-slate-200 text-slate-700 hover:text-[#1B4965] hover:border-slate-300 text-xs font-semibold shadow-2xs transition-colors">TikTok</a>
+            <a href="https://finder.bupa.co.uk/Consultant/mr-shivakumar-shankar-orthopaedic-surgery-brentwood-romford" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 rounded-lg bg-white border border-slate-200 text-slate-700 hover:text-[#1B4965] hover:border-slate-300 text-xs font-semibold shadow-2xs transition-colors">Bupa Finder</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Complete Media Archive Grid (all 19 items) -->
+      <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        ${mediaArchiveHtml}
+      </section>
+      `
+    )
   }
 ];
 
@@ -1580,3 +1705,54 @@ pageDefinitions.forEach(page => {
 });
 
 console.log('All static pages successfully generated with unique crawlable HTML body content.');
+
+// Synchronise homepage media fallback in root index.html to keep source fallback and generated HTML consistent
+const rootIndexPath = path.resolve(__dirname, '../index.html');
+if (fs.existsSync(rootIndexPath)) {
+  let rootHtml = fs.readFileSync(rootIndexPath, 'utf8');
+  const mediaSectionRegex = /<section id="media">[\s\S]*?<\/section>/;
+  const targetFallback = `          <section id="media">
+            <h3>Latest News &amp; Professional Updates</h3>
+            <p>Follow Mr Shivakumar Shankar for professional updates, patient education and information about developments in hip and knee surgery.</p>
+            <p>Official channels: @ShankarHipKnee on LinkedIn, X, YouTube, Instagram, and TikTok.</p>
+            <div data-carousel-card>
+              <img src="/nuffield-brentwood-mako-2026-v1.jpg" alt="Mr Shivakumar Shankar with the Stryker specialist and surgical scrub team following the first MAKO robotic-assisted joint replacement at Nuffield Health Brentwood Hospital" width="600" height="338" loading="lazy" />
+              <h4>29 September 2026: MAKO Robotic-Assisted Joint Replacement Introduced to Private Practice in Brentwood</h4>
+              <p>On 29 September 2026, Mr Shivakumar Shankar performed his first MAKO robotic-assisted joint replacement at Nuffield Health Brentwood Hospital, marking an important development in his private hip and knee practice.</p>
+            </div>
+            <div data-carousel-card>
+              <img src="/shankar-personal-100-mako-2026.jpg" alt="Mr Shivakumar Shankar marking his personal milestone of 100 MAKO robotic-assisted joint replacement procedures at BHRUT" width="600" height="338" loading="lazy" />
+              <h4>24 September 2026: 100 MAKO Robotic-Assisted Joint Replacements — A Personal Milestone at BHRUT</h4>
+              <p>On 24 September 2026, Mr Shivakumar Shankar reached a personal milestone of completing 100 MAKO robotic-assisted joint replacement procedures at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT).</p>
+            </div>
+            <div data-carousel-card>
+              <img src="/bhrut-100th-robotic-joint-2023.jpg" alt="BHRUT NHS Trust marking the 100th patient robotic joint replacement at King George Hospital" width="600" height="338" loading="lazy" />
+              <h4>18 January 2023: BHRUT NHS Trust: 100th Robotic Joint Replacement Milestone (Catherine’s Story)</h4>
+              <p>Fitness manager Catherine O'Brien-Passfield becomes the 100th patient to receive a robotic-assisted joint replacement at Barking, Havering and Redbridge University Hospitals NHS Trust, performed by Mr Shivakumar Shankar.</p>
+            </div>
+            <div data-carousel-card>
+              <img src="./King George Hospital entrance.webp" alt="King George Hospital Elective Surgical Hub" width="600" height="338" loading="lazy" />
+              <h4>16 August 2021: BHR Hospitals: ‘From Bones R Us to Back2Backs’ — 51 Hip &amp; Knee Replacements in 5 Days</h4>
+              <p>Consultant Shivakumar Shankar specifically named in the Trust's elective recovery programme, achieving 51 hip and knee replacements in five days through focused surgical sprints.</p>
+            </div>
+            <div data-carousel-card>
+              <img src="./Queens Hospital.jpg" alt="Queen's Hospital Romford" width="600" height="338" loading="lazy" />
+              <h4>13 July 2021: BHR Hospitals: ‘Super’ Clinics Led by Mr Shankar Tackle Waiting Lists (260 Outpatients in 2 Days)</h4>
+              <p>Mr Shankar led high-volume weekend outpatient recovery clinics at Barking, Havering and Redbridge University Hospitals NHS Trust, assessing 260 patients across two days to accelerate specialist care.</p>
+            </div>
+            <div data-carousel-card>
+              <img src="./Attend anywhere virtual clinic.png" alt="Attend Anywhere Virtual Orthopaedic Clinic" width="600" height="338" loading="lazy" />
+              <h4>30 July 2020: BHR Hospitals: Pioneering ‘Attend Anywhere’ Virtual Consultations During COVID-19</h4>
+              <p>Pioneering remote digital video clinics at BHR Hospitals during lockdown, ensuring vulnerable joint patients received expert orthopaedic triage, rehabilitation guidance, and continuous clinical support.</p>
+            </div>
+            <p><a href="/media-social">View all Media &amp; Social &rarr;</a></p>
+          </section>`;
+  if (mediaSectionRegex.test(rootHtml)) {
+    const currentFallback = rootHtml.match(mediaSectionRegex)[0];
+    if (currentFallback.trim() !== targetFallback.trim()) {
+      rootHtml = rootHtml.replace(mediaSectionRegex, targetFallback);
+      fs.writeFileSync(rootIndexPath, rootHtml, 'utf8');
+      console.log('✓ Synchronised root index.html media fallback with homepage carousel');
+    }
+  }
+}

@@ -203,11 +203,12 @@ export const SecretarialPortalModal: React.FC<SecretarialPortalModalProps> = ({ 
               <Download size={12} /> PDF (.pdf)
             </a>
             <a
-              href="/patient-letterhead"
-              onClick={onClose}
+              href="/Mr_Shivakumar_Shankar_Patient_Letterhead.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-[#1B4965] hover:bg-[#15384F] text-white px-2.5 py-1.5 rounded-md font-bold shadow-2xs inline-flex items-center gap-1"
             >
-              Open Letterhead
+              View Letterhead PDF
             </a>
           </div>
         </div>

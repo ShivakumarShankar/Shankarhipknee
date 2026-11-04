@@ -48,7 +48,7 @@ export const LocationsHub: React.FC<LocationsHubProps> = ({
         return {
           badge: 'Essex Practice',
           h1: 'Hip and Knee Surgeon in Essex',
-          lead: 'Specialist hip and knee arthroplasty, robotic surgery, and sports joint care for Essex patients. Private consultations and surgery at Spire Hartswood Hospital and Nuffield Health Brentwood Hospital, with NHS services across BHRUT.',
+          lead: 'Specialist hip and knee arthroplasty, computer-navigated surgery, and sports joint care for Essex patients. Private consultations and surgery at Spire Hartswood Hospital (conventional & computer-navigated) and Nuffield Health Brentwood Hospital (MAKO robotic-assisted), alongside NHS robotic services across BHRUT.',
           isPrivate: true,
           isNHS: false
         };

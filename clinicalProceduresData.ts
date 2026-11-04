@@ -329,7 +329,7 @@ export const CLINICAL_PROCEDURES: Record<string, ProcedurePageData> = {
     leadParagraph: 'Consultant-led total knee replacement, robotic-assisted Mako arthroplasty, and unicompartmental partial knee replacement engineered to relieve knee arthritis and restore stable limb alignment.',
     overview: [
       'Knee replacement surgery restores joint function and eliminates severe arthritis pain when non-operative treatments—such as weight management, physiotherapy, supportive braces, and intra-articular injections—no longer manage symptoms effectively.',
-      'Mr Shivakumar Shankar is a specialist hip and knee surgeon appointed as NHS Consultant at BHRUT and providing private care at Spire Hartswood and Nuffield Health Brentwood Hospitals. His practice encompasses conventional knee replacement, computer-navigated alignment, and Mako robotic-assisted arthroplasty.'
+      'Mr Shivakumar Shankar is a specialist hip and knee surgeon appointed as NHS Consultant at BHRUT and providing private care at Spire Hartswood and Nuffield Health Brentwood Hospitals. His practice encompasses conventional knee replacement and computer-navigated alignment at Spire Hartswood, and Mako robotic-assisted arthroplasty at Nuffield Health Brentwood and BHRUT NHS hospitals.'
     ],
     whoMayBenefit: [
       'Patients with advanced osteoarthritis, rheumatoid arthritis, or post-traumatic arthritis of the knee.',

@@ -175,7 +175,7 @@ export const PatientInfoHub: React.FC<PatientInfoHubProps> = ({
                 key={idx}
                 href={btn.href}
                 onClick={(e) => { e.preventDefault(); onNavigate(btn.href); }}
-                className={`p-3.5 rounded-xl border text-center text-xs font-bold transition-all ${
+                className={`p-3.5 rounded-xl border text-center text-xs font-bold transition-all last:col-span-2 sm:last:col-span-1 ${
                   mode === btn.modeKey 
                     ? 'bg-[#1B4965] text-white border-[#1B4965] shadow-xs' 
                     : 'bg-white hover:bg-slate-50 text-slate-800 border-slate-200'

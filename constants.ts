@@ -706,7 +706,7 @@ export const FAQS: FAQ[] = [
   {
     question: "I do not have private medical insurance but would like private care (Self-funding options)?",
     category: "Insurance",
-    answer: "Self-funded appointments and treatments are warmly welcomed. Outpatient consultations are fixed at £250 for your first visit and £200 for follow-up appointments. For surgical procedures—such as total hip replacement, robotic joint replacement, partial knee replacement, or knee arthroscopy—both Spire Hartswood and Nuffield Brentwood provide transparent 'fixed-price packages'. These packages bundle the consultant surgeon fee, anaesthetist fee, hospital stay, implants, drugs, standard aftercare, and follow-up with no unexpected surprises. Both hospitals also offer flexible finance options to spread hospital charges over time (subject to status)."
+    answer: "Self-funded appointments and treatments are warmly welcomed. Outpatient consultations are fixed at £250 for your first visit and £200 for follow-up appointments. For surgical procedures—such as conventional and computer-navigated joint replacement at Spire Hartswood, or MAKO robotic-assisted joint replacement at Nuffield Brentwood, as well as partial knee replacement and knee arthroscopy—both hospitals provide transparent 'fixed-price packages'. These packages bundle the consultant surgeon fee, anaesthetist fee, hospital stay, implants, drugs, standard aftercare, and follow-up with no unexpected surprises. Both hospitals also offer flexible finance options to spread hospital charges over time (subject to status)."
   },
 
   // --- Surgery, Hospital Stay & Planning ---
