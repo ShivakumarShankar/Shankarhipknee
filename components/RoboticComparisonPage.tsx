@@ -85,7 +85,7 @@ export const RoboticComparisonPage: React.FC<RoboticComparisonPageProps> = ({
                   Regional Pioneering Experience
                 </span>
                 <p className="text-sm text-slate-800 leading-relaxed">
-                  Mr Shivakumar Shankar has <strong className="font-bold text-slate-900">personally completed more than 100 robotic hip and knee replacement surgeries</strong>, and was the first surgeon to perform computer-assisted and robotic total hip replacement in Essex and North East London. He has performed manual, computer-assisted, and robotic joint replacement surgery for over 9 years, incorporating advanced MAKO robotic-assisted precision into his high-volume arthroplasty practice.
+                  Mr Shivakumar Shankar has <strong className="font-bold text-slate-900">personally completed more than 100 MAKO robotic hip and knee replacement surgeries</strong> (representing his individual surgical series, rather than a trust total), and was the first surgeon to perform computer-assisted and robotic total hip replacement in Essex and North East London. He has performed conventional manual and computer-assisted joint replacement surgery for approximately 9 years in consultant and senior practice, more recently integrating advanced MAKO robotic-assisted precision into his high-volume arthroplasty practice.
                 </p>
               </div>
 
@@ -140,7 +140,7 @@ export const RoboticComparisonPage: React.FC<RoboticComparisonPageProps> = ({
                       <td className="p-3.5 font-bold text-slate-900">Component Positioning</td>
                       <td className="p-3.5">Mechanical alignment jigs &amp; surgeon visual assessment</td>
                       <td className="p-3.5">Digital real-time angular feedback on screen</td>
-                      <td className="p-3.5">Sub-millimetre tactile robotic arm boundaries</td>
+                      <td className="p-3.5">Tactile robotic arm stereotactic haptic boundaries</td>
                     </tr>
                     <tr className="hover:bg-slate-50">
                       <td className="p-3.5 font-bold text-slate-900">Surgeon Control</td>

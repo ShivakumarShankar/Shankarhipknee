@@ -36,6 +36,10 @@ export const X_URL = "https://x.com/ShankarHipKnee";
 export const BUPA_PROFILE_URL = "https://finder.bupa.co.uk/Consultant/mr-shivakumar-shankar-orthopaedic-surgery-brentwood-romford";
 export const SPIRE_HARTSWOOD_BOOKING_URL = "https://appointments.spirehealthcare.com/?c=C6038414";
 export const NUFFIELD_BRENTWOOD_BOOKING_URL = "https://www.nuffieldhealth.com/consultants/mr-shivakumar-shankar#book";
+export const GMC_REGISTER_URL = "https://www.gmc-uk.org/registrants/6038414";
+export const SPIRE_PROFILE_URL = "https://www.spirehealthcare.com/consultant-profiles/mr-shivakumar-shankar-c6038414/";
+export const DOCTIFY_PROFILE_URL = "https://www.doctify.com/en-gb/specialist/shivakumar-shankar";
+export const IWGC_PROFILE_URL = "https://www.iwantgreatcare.org/doctors/mr-shivakumar-shankar";
 
 export const SOCIAL_LINKS = {
   handle: "@ShankarHipKnee",
@@ -43,6 +47,11 @@ export const SOCIAL_LINKS = {
   twitter: "https://x.com/ShankarHipKnee",
   linkedin: "https://www.linkedin.com/in/shivakumar-shankar-25758026/recent-activity/all/",
   bupa: "https://finder.bupa.co.uk/Consultant/mr-shivakumar-shankar-orthopaedic-surgery-brentwood-romford",
+  gmc: "https://www.gmc-uk.org/registrants/6038414",
+  spire: "https://www.spirehealthcare.com/consultant-profiles/mr-shivakumar-shankar-c6038414/",
+  nuffield: "https://www.nuffieldhealth.com/consultants/mr-shivakumar-shankar",
+  doctify: "https://www.doctify.com/en-gb/specialist/shivakumar-shankar",
+  iwgc: "https://www.iwantgreatcare.org/doctors/mr-shivakumar-shankar",
   instagram: "https://www.instagram.com/ShankarHipKnee",
   tiktok: "https://www.tiktok.com/@ShankarHipKnee",
   youtube: "https://www.youtube.com/@ShankarHipKnee",
@@ -65,7 +74,7 @@ export const SURGICAL_STATS: SurgicalStat[] = [
   {
     value: "9+ Years",
     label: "Arthroplasty Experience",
-    detail: "Extensive experience performing manual and computer-assisted hip and knee replacement surgery for approximately 9 years, incorporating MAKO robotic-assisted surgery."
+    detail: "Extensive experience performing manual and computer-assisted hip and knee replacement surgery for approximately 9 years, alongside his more recent adoption of MAKO robotic-assisted surgery."
   },
   {
     value: "3,000+",
@@ -80,7 +89,7 @@ export const SURGICAL_STATS: SurgicalStat[] = [
   {
     value: "100+",
     label: "Robotic Joint Surgeries",
-    detail: "Personally completed more than 100 robotic hip and knee replacement surgeries, and was the first surgeon to perform computer-assisted and robotic total hip replacement in Essex and North East London."
+    detail: "More than 100 MAKO robotic hip and knee replacements personally performed by Mr Shankar (representing his personal surgical series, rather than a trust total), building on his regional leadership as the first surgeon to perform computer-assisted and robotic total hip replacement in Essex and North East London."
   }
 ];
 
@@ -455,16 +464,17 @@ export const LOCATIONS: Location[] = [
     area: "Brentwood, Essex",
     address: "Eagle Way, Great Warley, Brentwood",
     postcode: "CM13 3LE",
-    phone: "01277 695 695",
+    phone: "01277 266 766",
     email: "hip.knee_specialist@yahoo.com",
     consultationDays: "Regular outpatient clinics & dedicated operating lists",
     facilities: [
-      "State-of-the-art laminar flow orthopaedic theatres",
-      "On-site MRI, CT, and digital weight-bearing X-ray",
-      "Dedicated inpatient physiotherapy and hydrotherapy",
-      "Private en-suite recovery rooms"
+      "Ultra-clean laminar airflow orthopaedic operating theatres",
+      "Optical computer-navigated knee replacement suite (MAKO robotics not offered at Spire)",
+      "On-site MRI, CT, and digital weight-bearing X-ray diagnostics",
+      "Dedicated inpatient physiotherapy and outpatient rehabilitation gym",
+      "Private en-suite patient bedrooms with 24/7 nursing care"
     ],
-    transport: "Conveniently located just off the M25 (J28/J29) and A12. 5 minutes from Brentwood Station (Elizabeth Line). Free on-site parking.",
+    transport: "Conveniently located just off the M25 (J28/J29) and A12 on Eagle Way, Great Warley. 5 minutes from Brentwood Station (Elizabeth Line). Free on-site visitor parking.",
     mapQuery: "Spire Hartswood Hospital, Eagle Way, Brentwood",
     bookingUrl: SPIRE_HARTSWOOD_BOOKING_URL
   },
@@ -475,16 +485,17 @@ export const LOCATIONS: Location[] = [
     area: "Brentwood, Essex",
     address: "Shenfield Road, Brentwood",
     postcode: "CM15 8EH",
-    phone: "01277 263 263",
+    phone: "01277 695 695",
     email: "hip.knee_specialist@yahoo.com",
     consultationDays: "Evening & weekend consultation appointments available",
     facilities: [
-      "Advanced robotic and computer-navigated surgical suite",
-      "Fast-track diagnostic imaging suite",
-      "Comprehensive post-operative rehabilitation gymnasium",
-      "Recognised by all major private medical insurers"
+      "MAKO robotic arm-assisted arthroplasty suite (Total Hip, Total Knee & Partial Knee)",
+      "On-site 3D CT scanner for pre-operative robotic joint templating & MRI",
+      "Enhanced recovery orthopaedic physiotherapy and rehabilitation gymnasium",
+      "Private en-suite patient bedrooms with dedicated orthopaedic nursing",
+      "Recognised by all major UK private medical insurers and transparent self-pay packages"
     ],
-    transport: "Located on Shenfield Road, easily reachable from Shenfield Station (Elizabeth Line & mainline) and Brentwood town centre. Free patient parking.",
+    transport: "Located on Shenfield Road, easily reachable from Shenfield Station (Elizabeth Line & Greater Anglia mainline) and Brentwood town centre. Free on-site patient parking.",
     mapQuery: "Nuffield Health Brentwood Hospital, Shenfield Road, Brentwood",
     bookingUrl: NUFFIELD_BRENTWOOD_BOOKING_URL
   },
@@ -775,3 +786,42 @@ export const FAQS: FAQ[] = [
     answer: "If arthritis is confined strictly to one compartment of your knee (such as the medial inside or patellofemoral kneecap) and your cruciate ligaments are healthy, you may be an excellent candidate for a partial (unicompartmental) knee replacement. If multiple compartments are arthritic, a total knee replacement provides the most reliable and durable pain relief. Mr Shankar conducts careful clinical examination and specialised weight-bearing imaging to recommend the ideal solution."
   }
 ];
+
+export const ABOUT_PAGE_FAQS: FAQ[] = [
+  {
+    question: "What are Mr Shankar's medical qualifications and specialist credentials?",
+    category: "Credentials",
+    answer: "Mr Shivakumar Shankar is a Consultant Orthopaedic Surgeon specialising in hip and knee surgery. He holds MBBS, DHA, MRCSEd, MSc in Trauma & Orthopaedics from University College London (UCL), and FRCSEd (Tr & Orth) from the Royal College of Surgeons of Edinburgh. He holds a specialist Postgraduate Diploma in Principles of Computer-Assisted and Robotic Orthopaedic Surgery and was awarded his Certificate of Completion of Training (CCT) in October 2016. He is fully registered on the GMC Specialist Register (GMC reference: 6038414)."
+  },
+  {
+    question: "How much surgical experience does Mr Shankar have in joint replacement?",
+    category: "Experience",
+    answer: "Mr Shankar has performed manual and computer-assisted hip and knee replacement surgery for approximately 9 years in consultant and senior arthroplasty practice, completing over 3,000 hip and knee replacements and more than 1,200 knee arthroscopies. Building upon this extensive conventional and computer-assisted foundation, Mr Shankar more recently adopted MAKO robotic-assisted surgery and has personally performed more than 100 MAKO robotic joint replacements—a milestone reflecting his individual surgical caseload rather than the total performed by BHRUT NHS Trust."
+  },
+  {
+    question: "What is the difference between robotic surgery at Nuffield Brentwood and computer navigation at Spire Hartswood?",
+    category: "Technology",
+    answer: "Mr Shankar offers distinct, advanced technologies depending on the hospital facility: At Nuffield Health Brentwood Hospital, he provides MAKO robotic-assisted total hip, total knee, and partial knee replacements utilizing pre-operative 3D CT virtual planning and haptic robotic boundary protection. At Spire Hartswood Hospital in Brentwood, he provides conventional and computer-navigated hip and knee replacements using optical infra-red tracking for real-time limb alignment. Spire Hartswood does not operate a MAKO robotic system; patients specifically seeking MAKO robotic joint replacement are seen for surgery at Nuffield Health Brentwood Hospital or within his NHS practice at BHRUT."
+  },
+  {
+    question: "What minimally invasive approaches does Mr Shankar use for hip replacement?",
+    category: "Hip",
+    answer: "Mr Shankar has completed specialist international fellowship training in muscle-sparing hip arthroplasty. He utilises the true muscle-preserving Rottinger approach (trained at CABPS Centre, Centre Hospitalier de Haguenau, France) and the direct anterior approach (trained at Rummelsberg Hospital, Germany). These approaches work through natural inter-muscular and inter-nervous planes without detaching key abductor or posterior stabilizing muscles, promoting reduced post-operative discomfort, less soft-tissue trauma, and accelerated early rehabilitation."
+  },
+  {
+    question: "What NHS appointments and clinical leadership roles does Mr Shankar hold?",
+    category: "Leadership",
+    answer: "Mr Shankar holds a substantive NHS Consultant appointment at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT), operating at Queen's Hospital in Romford and King George Hospital in Goodmayes. He has served as the NHS Clinical Lead and Clinical Director for Trauma and Orthopaedics, Clinical Lead for Femur Fracture Management, Clinical Audit Lead, and Lead for Infection Control within the department. He also leads high-efficiency joint replacement throughput at the trust's Elective Surgical Hub (HULK-10 initiative)."
+  },
+  {
+    question: "Which private hospitals does Mr Shankar consult and operate at?",
+    category: "Hospitals",
+    answer: "Mr Shankar conducts private consultations and elective operating lists in Brentwood, Essex at two premier facilities: Nuffield Health Brentwood Hospital (Shenfield Road, Brentwood, CM15 8EH) and Spire Hartswood Hospital (Eagle Way, Great Warley, Brentwood, CM13 3LE). Both hospitals feature laminar-flow ultra-clean theatres, on-site MRI/CT diagnostics, dedicated inpatient physiotherapy, and private en-suite recovery rooms."
+  },
+  {
+    question: "How can I book a private consultation, and is health insurance accepted?",
+    category: "Appointments",
+    answer: "Private appointments can be booked directly online via Spire Healthcare or Nuffield Health booking portals, or by contacting Mr Shankar's private medical secretary on 07587 765888 or 020 3523 0621 (email: hip.knee_specialist@yahoo.com). Mr Shankar is fee-assured and recognised by all major UK private medical insurers including Bupa, AXA Health, Aviva, Vitality, WPA, and Cigna. Self-funding patients are also welcomed, with transparent consultation fees (£250 initial consultation, £200 follow-up)."
+  }
+];
+

@@ -161,7 +161,7 @@ const PAGE_METADATA: Record<string, { title: string; desc: string; canonical: st
   },
   'robotic-hip-replacement': {
     title: 'Robotic Hip Replacement London & Essex | Mr Shivakumar Shankar',
-    desc: 'Mako robotic-assisted total hip replacement with 3D CT virtual planning and haptic precision for optimal implant alignment and stability.',
+    desc: 'Consultant-led Mako robotic total hip replacement in London and Essex with Mr Shivakumar Shankar. 3D CT planning, spinopelvic kinematic analysis, and haptic robotic guidance in Brentwood & Romford.',
     canonical: 'https://www.shivakumarshankar.co.uk/robotic-hip-replacement'
   },
   'computer-assisted-hip-replacement': {
@@ -170,8 +170,8 @@ const PAGE_METADATA: Record<string, { title: string; desc: string; canonical: st
     canonical: 'https://www.shivakumarshankar.co.uk/computer-assisted-hip-replacement'
   },
   'minimally-invasive-hip-replacement': {
-    title: 'Minimally Invasive Hip Surgery | Rottinger & Anterior Approaches',
-    desc: 'Tissue-sparing Rottinger and muscle-preserving hip arthroplasty techniques supporting post-operative mobilisation and functional rehabilitation.',
+    title: 'Minimally Invasive Hip Replacement Essex & London | Mr Shivakumar Shankar',
+    desc: 'Specialist minimally invasive & muscle-sparing hip replacement in Essex and London with Mr Shivakumar Shankar. Rottinger and direct anterior approaches in Brentwood & Romford.',
     canonical: 'https://www.shivakumarshankar.co.uk/minimally-invasive-hip-replacement'
   },
   'knee-replacement': {
@@ -185,8 +185,8 @@ const PAGE_METADATA: Record<string, { title: string; desc: string; canonical: st
     canonical: 'https://www.shivakumarshankar.co.uk/robotic-knee-replacement'
   },
   'computer-assisted-knee-replacement': {
-    title: 'Computer-Assisted Knee Replacement | Mr Shivakumar Shankar',
-    desc: 'Intra-operative optical navigation restoring mechanical alignment axes and dynamic joint stability during total knee arthroplasty.',
+    title: 'Computer-Navigated Knee Replacement Essex & London | Mr Shivakumar Shankar',
+    desc: 'Specialist computer-assisted and navigated total knee replacement in Essex and London with Mr Shivakumar Shankar. Optical infrared tracking and mechanical axis alignment at Spire Hartswood Hospital, Brentwood.',
     canonical: 'https://www.shivakumarshankar.co.uk/computer-assisted-knee-replacement'
   },
   'partial-knee-replacement': {
@@ -270,13 +270,13 @@ const PAGE_METADATA: Record<string, { title: string; desc: string; canonical: st
     canonical: 'https://www.shivakumarshankar.co.uk/essex-hip-knee-surgeon'
   },
   'spire-hartswood-hospital': {
-    title: 'Spire Hartswood Hospital Consultations | Brentwood, Essex',
-    desc: 'Private hip and knee consultations, conventional and computer-navigated joint replacement with Mr Shivakumar Shankar at Spire Hartswood Hospital in Brentwood, Essex.',
+    title: 'Spire Hartswood Hospital | Mr Shivakumar Shankar | Navigated Knee & Hip Surgeon',
+    desc: 'Private orthopaedic consultations with Mr Shivakumar Shankar at Spire Hartswood Hospital, Brentwood, Essex. Computer-navigated knee surgery, hip replacement, and specialist joint care.',
     canonical: 'https://www.shivakumarshankar.co.uk/spire-hartswood-hospital'
   },
   'nuffield-brentwood-hospital': {
-    title: 'Nuffield Health Brentwood Hospital | Mr Shivakumar Shankar',
-    desc: 'Private orthopaedic consultations and joint replacement surgery at Nuffield Health Brentwood Hospital, Essex.',
+    title: 'Nuffield Health Brentwood Hospital | Mr Shivakumar Shankar | Robotic Hip & Knee Surgeon',
+    desc: 'Private orthopaedic consultations with Mr Shivakumar Shankar at Nuffield Health Brentwood Hospital, Essex. Specialist MAKO robotic hip and knee surgery, 3D CT planning, and joint care.',
     canonical: 'https://www.shivakumarshankar.co.uk/nuffield-brentwood-hospital'
   },
   'queens-hospital-romford': {

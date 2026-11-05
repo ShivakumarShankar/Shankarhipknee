@@ -6,18 +6,16 @@ interface SurgeonPortraitProps {
   alt?: string;
 }
 
-// Ordered list of candidate image sources to check
+// Ordered list of candidate image sources to check (prioritising canonical /profile.jpg)
 const CANDIDATE_SOURCES = [
+  '/profile.jpg',
+  './profile.jpg',
   './Shankar%20Profile%20picture%20Final.jpg',
   './Shankar Profile picture Final.jpg',
   './Shankar%20Profile%20picture%20Final.jpeg',
   './Shankar Profile picture Final.jpeg',
-  './ShankarProfilepictureFinal.jpg',
-  './shankar_profile_picture_final.jpg',
-  './profile.jpg',
-  './profile.png',
   './profile.jpeg',
-  './shankar_profile.png',
+  './profile.png',
   './hero_image.png',
   './hero_image.jpg',
 ];

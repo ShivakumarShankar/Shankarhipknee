@@ -42,7 +42,7 @@ export const CLINICAL_PROCEDURES = {
       points: [
         { label: 'Conventional Arthroplasty', detail: 'Tried and proven worldwide over five decades using precision mechanical alignment guides and surgeon tactile judgment, delivering excellent National Joint Registry survivorship.' },
         { label: 'Computer-Assisted Navigation', detail: 'Provides real-time optical intra-operative tracking of acetabular cup inclination and anteversion without pre-operative CT radiation, reducing orientation outliers.' },
-        { label: 'Mako Robotic-Assisted Surgery', detail: 'Combines pre-operative 3D CT virtual planning with tactile robotic arm haptic boundaries for sub-millimetre component positioning, available at Nuffield Health Brentwood Hospital and BHRUT NHS hospitals.' },
+        { label: 'Mako Robotic-Assisted Surgery', detail: 'Combines pre-operative 3D CT virtual planning with tactile robotic arm haptic boundaries to guide component positioning and bone preparation within pre-planned stereotactic margins, available at Nuffield Health Brentwood Hospital and BHRUT NHS hospitals.' },
         { label: 'Tissue-Sparing Approaches', detail: 'Specialist European-trained muscle-sparing techniques (such as the Rottinger anterolateral approach) preserve muscular continuity, promoting early joint stability and reducing dislocation risk.' }
       ]
     },
@@ -100,7 +100,7 @@ export const CLINICAL_PROCEDURES = {
       },
       {
         question: 'What is the difference between conventional, navigated, and robotic hip surgery?',
-        answer: 'Conventional hip replacement relies on proven mechanical guides and the surgeon\'s clinical experience to position implants. Computer-assisted navigation introduces optical trackers in theatre to provide real-time digital readouts of cup inclination and anteversion angles. Robotic-assisted (Stryker MAKO) surgery incorporates a pre-operative 3D CT scan and haptic robotic arm guidance to prepare the bone within sub-millimetre pre-planned boundaries. Mr Shankar offers robotic hip replacement at Nuffield Health Brentwood Hospital and BHRUT NHS hospitals, and computer-navigated and conventional surgery at Spire Hartswood Hospital.'
+        answer: 'Conventional hip replacement relies on proven mechanical guides and the surgeon\'s clinical experience to position implants. Computer-assisted navigation introduces optical trackers in theatre to provide real-time digital readouts of cup inclination and anteversion angles. Robotic-assisted (Stryker MAKO) surgery incorporates a pre-operative 3D CT scan and haptic robotic arm guidance to prepare bone within pre-planned stereotactic boundaries. Mr Shankar offers robotic hip replacement at Nuffield Health Brentwood Hospital and BHRUT NHS hospitals, and computer-navigated and conventional surgery at Spire Hartswood Hospital.'
       },
       {
         question: 'How is leg length equality managed during the operation?',
@@ -124,89 +124,188 @@ export const CLINICAL_PROCEDURES = {
 
   'robotic-hip-replacement': {
     slug: 'robotic-hip-replacement',
-    badge: 'Robotic Arthroplasty',
-    h1: 'Robotic-Assisted Hip Replacement Surgery',
-    leadParagraph: 'Advanced robotic-assisted total hip replacement utilising pre-operative 3D CT planning and Mako robotic haptic arm guidance to achieve sub-millimetre component alignment.',
+    badge: 'Robotic Arthroplasty • Mako™ System',
+    h1: 'Robotic Hip Replacement Surgery in London & Essex',
+    leadParagraph: 'Consultant-led Mako robotic-assisted total hip replacement in London and Essex with Mr Shivakumar Shankar. Combining patient-specific 3D CT planning, dynamic spinopelvic assessment, and stereotactic haptic guidance to achieve precision acetabular cup orientation and anatomical reconstruction in Brentwood, Romford, and surrounding areas.',
     overview: [
-      'Robotic-assisted total hip replacement combines individualised 3D computed tomography (CT) modelling with tactile robotic arm technology. Mr Shivakumar Shankar has extensive experience in computer-assisted and robotic joint replacement across Essex and North East London.',
-      'The robotic system acts as a precision navigational tool under complete surgeon control. It enables virtual pre-operative sizing, dynamic assessment of spinopelvic mobility, and tactile boundaries that protect critical soft tissues during acetabular reaming.'
+      'Total hip replacement is among the most successful and reliable operations in modern orthopaedic surgery, restoring pain-free mobility and quality of life to patients debilitated by advanced hip osteoarthritis, avascular necrosis, or severe joint degeneration. While conventional total hip replacement achieves excellent outcomes in experienced hands, achieving the exact planned orientation of the acetabular cup (socket) and restoring equal leg lengths and femoral offset can be technically challenging due to individual anatomical variations in pelvic tilt and anatomy.',
+      'MAKO robotic-assisted total hip replacement (Stryker) represents an advanced technological development in joint reconstruction. It combines high-resolution pre-operative computed tomography (CT) imaging with dynamic computer software and a surgeon-guided robotic arm equipped with active haptic (tactile) boundaries. Crucially, the robotic arm does not operate independently or perform surgical cuts autonomously. Mr Shivakumar Shankar holds and guides the surgical instrumentation at every moment of the procedure; the robot functions as a high-precision assistive tool that enforces the pre-planned safety boundaries and provides real-time numerical validation of implant positioning.',
+      'A fundamental advantage of the Mako robotic system in hip arthroplasty is patient-specific 3D pre-operative planning. Before entering the operating theatre, a dedicated low-dose CT scan creates a virtual three-dimensional model of the patient\'s unique pelvic and femoral geometry. This allows Mr Shankar to pre-determine the ideal acetabular cup size, depth, inclination angle, and anteversion angle, and to model dynamic spinopelvic changes—how the pelvis naturally tilts between standing and sitting postures. By tailoring cup placement to individual functional pelvic kinetics, the technology is designed to minimise edge-loading, optimise range of motion, and reduce the risk of prosthetic impingement.',
+      'During surgery, optical tracking arrays attached to the pelvis communicate with infrared theatre cameras to match the patient\'s live skeletal anatomy with the 3D CT plan. When reaming the acetabular socket, the robotic arm provides stereotactic haptic guidance, physically preventing the reamer from deviating outside the planned bone envelope. This preserves vital healthy host bone stock, prevents eccentric reaming, and helps protect adjacent soft-tissue structures, including the femoral and sciatic nerves. The robotic arm then assists the surgeon in orienting the uncemented acetabular shell according to the pre-operative plan, providing real-time angular verification for inclination and anteversion under direct surgical control.',
+      'Mr Shivakumar Shankar is a fellowship-trained Consultant Orthopaedic Hip and Knee Surgeon holding a substantive NHS consultant appointment and clinical leadership roles at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT). Having completed higher surgical training within the London Deanery and subspecialist fellowships at the Royal National Orthopaedic Hospital (RNOH) Stanmore, the Golden Jubilee National Hospital in Glasgow, and European centres in France and Germany, Mr Shankar holds a Postgraduate Diploma in Computer and Robot-Assisted Orthopaedic Surgery alongside his specialist GMC registration (GMC Number: 6038414). Over his surgical career, Mr Shankar has performed more than 3,000 hip and knee replacements, with approximately nine years of extensive conventional and computer-assisted joint replacement experience. More recently adopting MAKO robotic technology, he has personally performed over 100 MAKO robotic-assisted joint replacements—a clinical milestone representing his individual surgical series, rather than a trust total.',
+      'Hospital Technology Availability: Mr Shankar provides MAKO robotic-assisted total hip and knee replacement surgery for private patients (both insured and self-funding) at Nuffield Health Brentwood Hospital in Brentwood, Essex, which is equipped with the dedicated Stryker MAKO robotic suite. At Spire Hartswood Hospital in Brentwood, Mr Shankar provides conventional manual and computer-navigated hip and knee replacement surgery; MAKO robotic surgery is not currently available at Spire Hartswood. Within the NHS, robotic-assisted joint replacement services are undertaken at BHRUT NHS Trust (including the King George Hospital Elective Surgical Hub), subject to clinical assessment and local pathway availability. Patients considering joint replacement receive balanced, evidence-based guidance, as robotic assistance is an adjunct to, rather than a replacement for, meticulous surgical technique and comprehensive rehabilitation.'
     ],
     whoMayBenefit: [
-      'Patients with primary hip osteoarthritis seeking precise component orientation.',
-      'Individuals with complex hip anatomy, dysplastic acetabular sockets, or previous trauma.',
-      'Patients with altered spinal alignment or prior spinal fusion where pelvic tilt alters functional cup coverage.',
-      'Active patients wanting optimised leg length equality and femoral offset restoration.'
+      'Patients with advanced primary osteoarthritis of the hip with severe cartilage loss, bone spurs (osteophytes), and chronic daily pain that has not responded to conservative care.',
+      'Individuals with complex hip anatomy, including mild-to-moderate developmental dysplasia of the hip (DDH), shallow acetabular sockets, or post-traumatic joint deformity.',
+      'Patients with altered spinal alignment, lumbar spinal stiffness, severe scoliosis, or previous lumbar spinal fusion, where abnormal dynamic pelvic tilt increases the risk of component impingement or dislocation.',
+      'Patients with avascular necrosis (osteonecrosis) of the femoral head or secondary osteoarthritis requiring precise reconstruction of joint biomechanics.',
+      'Active individuals seeking meticulous restoration of leg length equality and native femoral offset to optimise post-operative gait and muscle efficiency.',
+      'Prerequisite: Non-operative treatments should always be exhausted first, including structured gluteal and core physiotherapy, activity modification, weight optimisation, walking aids, and targeted image-guided corticosteroid or Platelet-Rich Plasma (PRP) joint injections.'
     ],
     symptomsTreated: [
-      'Severe groin and buttocks pain caused by advanced hip joint cartilage breakdown.',
-      'Restricted hip abduction, internal rotation, and flexion.',
-      'Leg length inequality resulting from femoral head collapse or socket wear.',
-      'Inability to walk extended distances without pain or limp.'
+      'Deep, aching groin or anterior hip pain radiating down the front of the thigh to the knee, exacerbated by walking and weight-bearing activities.',
+      'Persistent night-time pain, throbbing discomfort at rest, and sleep disruption despite regular analgesic medications.',
+      'Severe morning joint stiffness and difficulty initiating movement after sitting, driving, or resting.',
+      'Progressive loss of hip range of movement, causing difficulty putting on socks and shoes, cutting toenails, or bending forward.',
+      'A noticeable antalgic limp, Trendelenburg gait, or pelvic drop caused by abductor muscle inhibition and joint irregularity.',
+      'Apparent or structural leg length discrepancy resulting from femoral head collapse, superior migration, or socket erosion.'
     ],
     procedureExplanation: {
-      title: 'The Robotic Hip Arthroplasty Process',
-      description: 'The operation integrates high-resolution pre-surgical imaging with real-time robotic haptic guidance in the operating theatre.',
+      title: 'How MAKO Robotic-Assisted Hip Replacement is Performed',
+      description: 'MAKO robotic total hip arthroplasty integrates personalised pre-operative 3D CT virtual planning with live optical tracking and tactile robotic arm guidance through four key stages:',
       steps: [
-        'Pre-Operative 3D CT: A specialised low-dose pelvic and hip CT scan generates an exact digital 3D model of your unique bone geometry.',
-        'Personalised Surgical Plan: Mr Shankar creates a pre-operative digital plan, calculating component dimensions, inclination, and anteversion.',
-        'Intra-Operative Registration: Optical tracking arrays calibrate the patient\'s actual anatomy to the digital 3D CT model.',
-        'Robotic-Guided Reaming: The robotic arm holds the reamer within pre-defined boundaries, preventing bone over-resection or angular drift.',
-        'Haptic Component Placement: The acetabular shell is impacted to the exact planned depth and angle with real-time numeric verification.'
+        '1. Pre-Operative 3D CT Virtual Planning: Prior to surgery, a low-dose computed tomography (CT) scan of the pelvis and hip is obtained. Specialised MAKO software converts this into a true three-dimensional anatomical model. Mr Shankar pre-plans the exact acetabular component dimensions, depth, inclination, and anteversion angles, and models dynamic spinopelvic kinematics to accommodate the patient\'s individual pelvic tilt during standing and sitting.',
+        '2. Surgical Exposure & Rigid Optical Tracker Registration: In the operating theatre, under regional spinal or general anaesthesia, Mr Shankar accesses the hip joint using a muscle-sparing or tissue-preserving surgical approach. Rigid optical tracking arrays are secured to the iliac crest (pelvic bone) and femur. An infrared camera continuously monitors these arrays, registering the patient\'s live skeletal position relative to the 3D CT model with high-resolution optical tracking.',
+        '3. Haptic-Guided Stereotactic Acetabular Reaming: Under Mr Shankar\'s direct manual guidance, the MAKO robotic arm positions the acetabular reamer. The system enforces active tactile (haptic) boundary resistance: the high-speed reamer operates exclusively within the pre-planned virtual safety zone. If the instrument approaches the boundary of the planned cup orientation or depth, the robotic arm provides resistance and automatically stops the reamer, conserving healthy bone stock and protecting adjacent nerves and blood vessels.',
+        '4. Real-Time Verified Cup Impaction & Femoral Offset Restoration: The uncemented titanium acetabular shell is mounted on the robotic impactor arm and guided into the socket. The system displays real-time numeric verification of inclination and anteversion angles, ensuring the cup is seated exactly according to plan. The femoral canal is then prepared, an anatomical uncemented stem is inserted, and a high-performance delta ceramic head articulating against a highly cross-linked polyethylene liner is placed. Leg length and femoral offset are digitally verified before wound closure.'
       ]
     },
     technologyComparison: {
-      title: 'Robotic Guidance vs Conventional Methods',
-      description: 'Robotic assistance is designed to reduce orientation outliers while keeping the surgeon entirely in control.',
+      title: 'Conventional vs Computer-Assisted vs Robotic Hip Replacement',
+      description: 'An objective, evidence-grounded comparison of surgical modalities in total hip reconstruction:',
       points: [
-        { label: 'Sub-Millimetre Accuracy', detail: 'Enforces component inclination and anteversion within strict planned target zones.' },
-        { label: 'Haptic Soft-Tissue Shield', detail: 'Robotic feedback prevents reamers from extending beyond defined bony margins.' },
-        { label: 'Surgeon Driven', detail: 'The robot never acts independently or makes decisions; it executes the surgeon\'s plan.' },
-        { label: 'Balanced Evidence', detail: 'Robotic assistance reduces alignment outliers; long-term clinical outcome comparisons remain an active area of ongoing registry research.' }
+        {
+          label: 'Conventional Manual Hip Replacement',
+          detail: 'Relies on standard mechanical cutting blocks, external alignment rods, and the surgeon\'s visual anatomical estimation. Highly proven over decades of clinical use globally, but published literature demonstrates a higher frequency of acetabular cup orientation outliers outside Lewinnek\'s safe zone (up to 20–30% in conventional cohorts).'
+        },
+        {
+          label: 'Computer-Navigated Hip Replacement',
+          detail: 'Uses optical infrared tracking arrays in the operating theatre to provide real-time numerical measurements of cup inclination, anteversion, and leg length without requiring pre-operative CT radiation. Enhances alignment consistency compared to manual surgery, but does not provide tactile robotic resistance or physical boundary protection during bone reaming.'
+        },
+        {
+          label: 'MAKO Robotic-Assisted Hip Replacement',
+          detail: 'Combines pre-operative 3D CT virtual planning, dynamic spinopelvic kinematic modelling, real-time optical tracking, and active haptic robotic arm guidance. Significantly reduces cup orientation outliers (achieving target zones in over 95% of cases in comparative trials) and enables precise bone-sparing reaming under complete surgeon control.'
+        },
+        {
+          label: 'Clinical Evidence & Long-Term Perspective',
+          detail: 'Multiple clinical studies confirm that MAKO robotic assistance improves component placement accuracy, reduces leg length discrepancies, and preserves acetabular bone stock. However, balanced clinical evidence indicates that long-term implant survivorship registry data is ongoing, and enhanced placement accuracy does not automatically guarantee superior 15–20 year survival or faster recovery compared to expertly performed conventional surgery.'
+        }
       ]
     },
     benefitsAndLimitations: {
       benefits: [
-        'Precise reproduction of pre-planned cup inclination and anteversion angles.',
-        'Individualised assessment of pelvic tilt and spinopelvic mechanics.',
-        'Conservation of healthy acetabular bone stock during socket preparation.',
-        'Accurate restoration of natural femoral offset and leg length.'
+        'Degree-level angular verification and stereotactic guidance in achieving pre-planned acetabular cup inclination and anteversion.',
+        'Individualised pre-operative 3D CT assessment accounting for dynamic spinopelvic pelvic tilt and functional posture changes.',
+        'Active haptic boundary protection that prevents over-reaming, preserving valuable pelvic bone stock and protecting adjacent soft tissues.',
+        'Precise digital verification of femoral offset and leg length equality prior to definitive component fixation.',
+        'Surgeon-controlled execution: the robot serves as an assistive navigational guide and never acts autonomously or makes independent cuts.',
+        'High-performance uncemented delta ceramic-on-polyethylene bearing couple engineered for low wear and long-term biological fixation.'
       ],
       limitations: [
-        'Requires a pre-operative CT scan exposing the patient to a modest diagnostic radiation dose.',
-        'Requires fixation of optical tracking pins in the pelvic bone.',
-        'Does not guarantee superior longevity or zero complications compared to well-performed manual surgery.'
+        'Requires a specialised pre-operative low-dose CT scan, exposing the patient to a modest, clinically monitored dose of diagnostic radiation.',
+        'Requires temporary placement of two rigid optical tracking pins in the iliac crest (pelvic wing), creating minor additional pin-site incisions.',
+        'Does not eliminate the standard biological tissue healing timeline, requiring committed post-operative physiotherapy and gradual rehabilitation.',
+        'Does not guarantee immunity from standard surgical complications or ensure that the replaced joint will feel completely identical to a natural hip.',
+        'In rare instances of line-of-sight obstruction or technical software failure, the surgeon must be prepared to seamlessly convert to conventional instrumentation.'
       ]
     },
     risksAndComplications: [
-      'Standard hip arthroplasty risks: infection, blood clots (DVT/PE), bleeding, and dislocation.',
-      'Pin site discomfort or rare stress reaction at temporary pelvic tracking pin locations.',
-      'Software or optical tracker line-of-sight interruption requiring conversion to conventional instruments.'
+      'General joint replacement risks: surgical site infection (less than 1%), deep vein thrombosis (DVT) or pulmonary embolism (PE), post-operative bleeding, and delayed wound healing.',
+      'Hip-specific complications: prosthetic dislocation, leg length inequality, femoral periprosthetic fracture, or temporary sciatic/femoral nerve irritation (causing numbness or weakness).',
+      'Robotic-specific considerations: temporary tenderness, bruising, or rare superficial infection at the iliac crest tracking pin sites; extremely rare stress fracture through a pin site.',
+      'Long-term prosthetic risks: bearing wear, aseptic loosening, or requirement for revision surgery over decades of mechanical use.',
+      'Comprehensive risk mitigation: ultra-clean laminar airflow theatres, pre-operative screening, prophylactic intravenous antibiotics, chemical and mechanical blood-thinning prophylaxis, and early physiotherapist mobilisation.'
     ],
     recoveryTimeline: [
-      { phase: 'Day 0', description: 'Assisted standing and walking using crutches on the afternoon of surgery.' },
-      { phase: 'Weeks 1 to 3', description: 'Home recovery, gentle home exercises, walking with two crutches transitioning to one.' },
-      { phase: 'Weeks 4 to 6', description: 'Unrestricted flat walking, weaning off walking aids, return to driving if emergency stop is safe.' },
-      { phase: 'Weeks 6 to 12', description: 'Progressive return to golf, swimming, cycling, and active daily lifestyle.' }
+      {
+        phase: 'Day 0 (Day of Surgery)',
+        description: 'Under modern Enhanced Recovery After Surgery (ERAS) protocols, you will be assisted to stand and take your first steps with crutches and a dedicated orthopaedic physiotherapist within hours of leaving theatre. Deep breathing and ankle pump exercises begin immediately.'
+      },
+      {
+        phase: 'Days 1 to 2 (Hospital Recovery)',
+        description: 'Inpatient recovery at Nuffield Health Brentwood Hospital or NHS elective unit. Focus on independent transfers, walking confidently with crutches, climbing and descending stairs safely, and managing post-operative swelling with cryotherapy and elevation prior to discharge.'
+      },
+      {
+        phase: 'Weeks 1 to 3 (Early Home Phase)',
+        description: 'Recovery at home with a structured home exercise programme. Gradually increasing indoor and outdoor walking distance. Managing discomfort with multimodal analgesia, maintaining wound dressings clean and dry, and transitioning from two crutches to one crutch or a walking stick as stability improves.'
+      },
+      {
+        phase: 'Weeks 4 to 6 (Functional Progression)',
+        description: 'Outpatient physiotherapy to strengthen the gluteal abductors and core. Weaning off walking aids for flat indoor mobility. Resuming driving once you can perform a rapid emergency brake without pain and have discontinued strong analgesics (typically 6 weeks). Resuming remote or sedentary desk work.'
+      },
+      {
+        phase: 'Weeks 6 to 12 (Active Rehabilitation)',
+        description: 'Consolidation of normal walking gait without a limp. Returning to low-impact recreational activities including outdoor walking, stationary cycling, swimming, and golf. Progressive muscle endurance and joint confidence.'
+      },
+      {
+        phase: 'Months 6 to 12 (Long-Term Consolidation)',
+        description: 'Full recovery milestone with continued soft-tissue remodelling, resolution of residual muscular fatigue, and durable restoration of an active, independent lifestyle.'
+      }
     ],
     rehabilitationMilestones: [
-      'Early activation of hip abductors and gluteal muscles.',
-      'Symmetrical walking gait without trendelenburg limp.',
-      'Return to independent staircase negotiation.'
+      'Early activation of gluteal and quadriceps musculature without significant groin pain.',
+      'Achieving safe, independent transfer from bed, chair, and toilet facilities.',
+      'Competence in negotiating flights of stairs using crutches prior to hospital discharge.',
+      'Elimination of Trendelenburg limp through progressive gluteus medius strengthening.',
+      'Restoration of symmetric step length and normal reciprocal walking pattern.',
+      'Safe return to independent driving, light domestic duties, and active recreational hobbies.'
     ],
     faqs: [
       {
-        question: 'Does the robot perform the surgery by itself?',
-        answer: 'No. The surgeon performs the surgery at all times. The robotic arm is a robotic instrument held and guided by Mr Shankar that prevents deviation outside the planned safety zone.'
+        question: 'What is MAKO robotic-assisted total hip replacement and does the robot perform the operation?',
+        answer: 'MAKO robotic-assisted total hip replacement is a surgeon-controlled advanced technology that combines high-resolution pre-operative 3D CT virtual planning with real-time robotic arm guidance. The robot does not perform the surgery independently, make decisions, or cut bone autonomously. Mr Shivakumar Shankar holds and guides the robotic arm at all times. The system acts as a high-precision stereotactic guide that enforces active tactile (haptic) boundaries, preventing bone cuts outside the pre-planned safety envelope and ensuring the acetabular cup is placed at the exact planned angles of inclination and anteversion.'
       },
       {
-        question: 'Is robotic hip replacement suitable for everyone?',
-        answer: 'Most patients requiring total hip replacement are eligible, though conventional surgery remains an excellent, highly proven option. Mr Shankar will discuss whether robotic planning is beneficial for your specific anatomy.'
+        question: 'How does CT-based 3D pre-operative planning work?',
+        answer: 'Prior to surgery, a dedicated low-dose CT scan of your pelvis and hip is performed. Advanced software transforms these cross-sectional images into a three-dimensional virtual model of your unique skeletal anatomy. Mr Shankar analyses your pelvic architecture, assesses dynamic spinopelvic tilt (how your pelvis rotates between standing and sitting), and pre-determines the optimal component sizing, socket depth, inclination, and anteversion before entering the operating theatre. This eliminates anatomical guesswork and customises the procedure to your personal biomechanics.'
+      },
+      {
+        question: 'Does robotic hip replacement guarantee a faster recovery or better long-term outcomes?',
+        answer: 'Robotic technology significantly improves the precision of component orientation, reduces alignment outliers, and minimises unnecessary bone resection. Evidence confirms that it helps restore leg length equality and femoral offset accurately. However, in keeping with honest clinical evidence, improved mechanical accuracy does not automatically guarantee faster biological healing, eliminate standard surgical risks, or guarantee superior 15-to-20-year implant longevity compared to a well-performed conventional hip replacement. Dedication to post-operative physiotherapy, general health, and careful rehabilitation remain essential to achieving an optimal outcome.'
+      },
+      {
+        question: 'Why are temporary tracking pins placed in the pelvic bone?',
+        answer: 'During surgery, two small temporary pins are placed into the iliac crest (the pelvic wing bone) through small separate puncture incisions. These pins hold an optical tracking array that communicates with infrared theatre cameras, tracking the precise three-dimensional position of your pelvis in real time. This allows the computer to match your physical anatomy with your pre-operative CT model continuously, even as your body naturally shifts during surgery. The pins are removed before wound closure, and the small puncture marks heal alongside your main surgical incision.'
+      },
+      {
+        question: 'How are conventional, computer-assisted, and robotic hip replacements different?',
+        answer: 'Conventional total hip replacement relies on mechanical jigs, external alignment rods, and visual landmarks; while highly successful over decades, it carries a higher rate of component positioning outliers outside safe target zones. Computer-navigated hip replacement uses intra-operative optical trackers to display live digital cup angles without a pre-operative CT scan, but lacks robotic resistance. MAKO robotic-assisted hip replacement combines a pre-operative 3D CT virtual plan, dynamic spinopelvic modelling, and active haptic boundary resistance that physically guides bone preparation, providing the highest level of component positioning accuracy.'
+      },
+      {
+        question: 'Where can I undergo MAKO robotic hip replacement in Essex and London?',
+        answer: 'For private patients (both insured and self-funding), Mr Shankar performs MAKO robotic-assisted hip replacement at Nuffield Health Brentwood Hospital in Brentwood, Essex, which houses a dedicated Stryker MAKO robotic suite. At Spire Hartswood Hospital in Brentwood, Mr Shankar provides conventional manual and computer-navigated hip replacement surgery; please note that Spire Hartswood does not currently offer MAKO robotic surgery. Within the NHS, robotic joint replacement is undertaken at BHRUT NHS Trust (including the King George Hospital Elective Surgical Hub), subject to clinical assessment and local availability.'
+      },
+      {
+        question: 'How much surgical experience does Mr Shivakumar Shankar have?',
+        answer: 'Mr Shivakumar Shankar has completed more than 3,000 hip and knee replacements during his surgical career, with approximately nine years of extensive conventional and computer-assisted joint replacement experience in consultant practice. Building upon this established arthroplasty foundation, he more recently adopted MAKO robotic technology and has personally performed more than 100 MAKO robotic-assisted joint replacements (representing his individual surgical series, rather than a trust total). He holds a specialist Postgraduate Diploma in Principles of Computer-Assisted and Robotic Orthopaedic Surgery and completed prestigious lower limb arthroplasty fellowships at the Royal National Orthopaedic Hospital (RNOH) Stanmore, the Golden Jubilee National Hospital in Glasgow, and specialist centres in France and Germany.'
+      },
+      {
+        question: 'Is robotic hip replacement covered by private medical insurance or available self-funded?',
+        answer: 'Yes. Mr Shankar is fee-assured and recognised by all major UK private health insurers, including Bupa, AXA Health, Aviva, Vitality, WPA, and Cigna. Most insurers cover MAKO robotic hip replacement when clinically indicated, though pre-authorisation should always be confirmed prior to surgery. For self-funding patients, Nuffield Health Brentwood Hospital offers transparent, fixed-price surgical packages that include the surgeon fee, anaesthetist fee, hospital stay, robotic technology, implants, and standard post-operative physiotherapy with no unexpected hidden costs.'
       }
     ],
     relatedLinks: [
-      { title: 'Total Hip Replacement', href: '/hip-replacement', description: 'Overview of primary and complex hip replacement.' },
-      { title: 'Conventional vs Robotic Arthroplasty', href: '/conventional-vs-computer-assisted-vs-robotic-surgery', description: 'Educational breakdown of technologies and clinical evidence.' },
-      { title: 'Computer-Assisted Hip Surgery', href: '/computer-assisted-hip-replacement', description: 'Dynamic optical navigation without robotic arms.' }
+      {
+        title: 'Total Hip Replacement',
+        href: '/hip-replacement',
+        description: 'Comprehensive guide to primary, complex, and revision total hip replacement surgery.'
+      },
+      {
+        title: 'Minimally Invasive Hip Replacement',
+        href: '/minimally-invasive-hip-replacement',
+        description: 'Muscle-sparing Rottinger and direct anterior approaches preserving vital soft tissue.'
+      },
+      {
+        title: 'Conventional vs Robotic Arthroplasty',
+        href: '/conventional-vs-computer-assisted-vs-robotic-surgery',
+        description: 'Detailed, objective breakdown comparing manual, computer-navigated, and robotic joint surgery.'
+      },
+      {
+        title: 'About Mr Shivakumar Shankar',
+        href: '/about-mr-shivakumar-shankar',
+        description: 'Consultant credentials, fellowship training at Stanmore and Glasgow, and NHS clinical leadership.'
+      },
+      {
+        title: 'Nuffield Health Brentwood Hospital',
+        href: '/nuffield-brentwood-hospital',
+        description: 'Private hospital facility details, on-site MAKO robotic suite, and consultation booking information.'
+      },
+      {
+        title: 'Contact Practice Secretary',
+        href: '/contact',
+        description: 'Direct contact with medical secretary Remya Rexlin for private clinic appointments and inquiries.'
+      }
     ]
   },
 
@@ -279,68 +378,146 @@ export const CLINICAL_PROCEDURES = {
 
   'minimally-invasive-hip-replacement': {
     slug: 'minimally-invasive-hip-replacement',
-    badge: 'Tissue-Sparing Arthroplasty',
-    h1: 'Minimally Invasive Hip Replacement Surgery',
-    leadParagraph: 'Muscle-sparing hip replacement techniques, including the Rottinger and Direct Anterior approaches, designed to access the hip joint along natural muscle planes without detaching major tendons.',
+    badge: 'Tissue-Sparing Hip Arthroplasty • Rottinger & Anterior',
+    h1: 'Minimally Invasive & Muscle-Sparing Hip Replacement in Essex & London',
+    leadParagraph: 'Consultant-led minimally invasive and muscle-sparing hip replacement in Essex and London with Mr Shivakumar Shankar. Advanced tissue-sparing Rottinger anterolateral and Direct Anterior techniques designed to preserve native abductor muscles, minimise soft-tissue trauma, and support prompt functional recovery at Nuffield Health Brentwood Hospital and Spire Hartswood Hospital.',
     overview: [
-      'Minimally invasive and muscle-sparing hip replacement aims to replace the damaged joint surfaces while minimising trauma to the surrounding musculature. Rather than detaching the gluteal abductors or major posterior rotators, these approaches work through natural inter-muscular intervals.',
-      'Mr Shivakumar Shankar has completed specialised international training in muscle-sparing techniques, including the Rottinger approach at the Centre Hospitalier de Haguenau in France and the Direct Anterior Approach with Professor Wagner\'s unit in Germany.'
+      'Minimally invasive and muscle-sparing hip replacement represents a refined approach to total hip arthroplasty that prioritises the preservation of natural soft-tissue anatomy. While conventional hip replacement has a five-decade track record of clinical success, traditional surgical exposures frequently require detaching or splitting major muscular envelopes to gain access to the joint capsule. In true minimally invasive hip surgery, the primary objective is not merely cosmetic skin incision length ("mini-incision"), but what happens deep beneath the skin: navigating through natural anatomical intervals (inter-muscular and inter-nervous planes) to access the hip joint without detaching or dividing major muscular tendons from bone.',
+      'The Rottinger Anterolateral Approach: Developed by Dr Heinz Röttinger in Munich, Germany, this specialized technique accesses the hip joint through the interval between the tensor fasciae latae muscle anteriorly and the gluteus medius muscle posteriorly (a modified Watson-Jones interval). Crucially, the insertion of the gluteus medius and gluteus minimus tendons onto the greater trochanter remains completely intact and undisturbed. Furthermore, because the surgical exposure is anterior to the hip joint, the posterior joint capsule and short external rotator muscles (piriformis, obturator internus, and gemelli) are left entirely untouched. Sparing these deep stabilizing structures preserves natural muscular continuity, helps minimise the risk of postoperative abductor weakness and Trendelenburg limp, and supports inherent joint stability.',
+      'The Direct Anterior Approach (DAA): Utilizing the Hueter interval between the tensor fasciae latae (innervated by the superior gluteal nerve) and the sartorius and rectus femoris (innervated by the femoral nerve), the Direct Anterior Approach is a true inter-muscular and inter-nervous plane. Performed with the patient lying supine on a standard operating table or specialized traction extension, the direct anterior approach offers an unobstructed, direct line of sight to the acetabulum (socket). This facilitates precision component placement and intra-operative leg length verification while leaving the entire posterior muscular and capsular envelope uncompromised.',
+      'European Fellowship Training & Surgical Mentorship: Mastering tissue-preserving hip arthroplasty requires extensive subspecialist training, meticulous surgical handling, and dedicated instrumentation. Mr Shivakumar Shankar completed rigorous international fellowship training under leading European pioneers of these approaches. He completed specialized fellowship training in the Rottinger anterolateral muscle-sparing technique at the Centre Hospitalier de Haguenau in Alsace, France, working closely with Dr Luc Favard and Dr Philippe Asencio. He further advanced his training in Direct Anterior Approach techniques at the specialised orthopaedic joint replacement centre in Rummelsberg, Germany, under Professor Zeiler. In his NHS practice, Mr Shankar is Clinical Director of Orthopaedics at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT), and provides private consultations and surgery at Nuffield Health Brentwood Hospital and Spire Hartswood Hospital in Brentwood, Essex.',
+      'Balanced Surgical Philosophy & Long-Term Evidence: Mr Shankar advises patients with clinical candour: the surgical approach is tailored to each individual patient\'s pelvic anatomy, femoral morphology, body habitus, and previous surgical history. While muscle-sparing techniques reduce acute muscular soreness, accelerate early bed-to-chair transfers, and often allow earlier discontinuation of crutches during the initial post-operative weeks, international registries (including the UK National Joint Registry) demonstrate that by 6 to 12 months, functional scores, pain relief, and long-term implant survival are equivalent across expertly executed surgical approaches. The enduring success of hip replacement relies on achieving accurate three-dimensional component orientation, stable biological or cemented fixation, and dedicated post-operative physiotherapy.'
     ],
     whoMayBenefit: [
-      'Patients seeking tissue-sparing hip surgery with accelerated early functional recovery.',
-      'Active individuals who wish to preserve muscle architecture and minimise post-operative limp.',
-      'Patients with suitable bone morphology and body habitus for anterior or anterolateral exposure.'
+      'Active individuals with advanced primary hip osteoarthritis seeking a tissue-sparing approach that avoids detaching the primary pelvic abductor muscles.',
+      'Patients with avascular necrosis (osteonecrosis) of the femoral head or secondary osteoarthritis with well-preserved bone morphology.',
+      'Patients with suitable body habitus and pelvic anatomy where an anterior or anterolateral interval can be accessed safely without excessive soft-tissue retraction.',
+      'Individuals seeking a tissue-preserving approach that often allows a more relaxed postoperative precautions protocol with fewer rigid 90-degree movement restrictions, subject to individual stability assessment, and facilitates a prompt return to unassisted walking.',
+      'Patients seeking enhanced inherent joint stability to minimise the risk of posterior prosthetic dislocation.',
+      'Prerequisite: Non-surgical measures—including structured core and gluteal physical therapy, activity modification, weight optimisation, and targeted image-guided joint injections—must have been evaluated.'
     ],
     symptomsTreated: [
-      'Severe osteoarthritis of the hip with disabling pain and loss of motion.',
-      'Difficulty walking, climbing stairs, and putting on shoes.',
-      'Sleep disturbance due to hip discomfort.'
+      'Severe, debilitating groin pain radiating down the anterior thigh to the knee, exacerbated by walking, weight-bearing, and hip rotation.',
+      'Disabling joint stiffness that impedes everyday tasks such as putting on socks, fastening shoes, or trimming toenails.',
+      'Difficulty standing from low chairs, climbing stairs, or getting in and out of a vehicle.',
+      'Sleep disturbance and chronic resting ache in the hip or buttock that fails to respond to regular anti-inflammatory analgesics.',
+      'Progressive antalgic limp and reduction in walking tolerance that limits recreational and professional activities.'
     ],
     procedureExplanation: {
-      title: 'The Muscle-Sparing Surgical Approach',
-      description: 'Working between natural anatomical intervals allows access to the hip capsule without cutting key stabilising tendons.',
+      title: 'How Minimally Invasive Hip Replacement is Performed',
+      description: 'Minimally invasive and muscle-sparing hip arthroplasty replaces the damaged femoral head and worn acetabular socket through anatomical inter-muscular windows without detaching major muscle tendons from bone:',
       steps: [
-        'Anterolateral / Anterior Interval: The surgeon enters along the natural inter-muscular plane between the tensor fasciae latae and gluteus medius.',
-        'Capsular Exposure: The anterior hip capsule is opened, exposing the arthritic femoral head and acetabulum.',
-        'Precision Joint Replacement: The arthritic bone is prepared and modern implants are seated with meticulous care.',
-        'Tissue Preservation: Muscles remain in continuity, facilitating immediate post-operative stability.'
+        '1. Pre-Operative Digital Templating & Anatomical Planning: High-resolution digital radiographs and calibrated software calculate exact acetabular cup sizing, femoral stem geometry, femoral offset, and leg length equality before entering the operating theatre.',
+        '2. Anaesthesia & Positioning: Administered under regional spinal anaesthesia with light intravenous sedation or general anaesthesia. Dedicated local anaesthetic infiltration (LIA) and intravenous tranexamic acid minimise blood loss and provide immediate post-operative comfort.',
+        '3. Muscle-Sparing Interval Access: Using an oblique skin incision, Mr Shankar enters along the natural inter-muscular plane—either the Rottinger interval (between tensor fasciae latae and gluteus medius) or the Hueter anterior interval (between tensor fasciae latae and sartorius/rectus femoris). Specialized curved retractors expose the anterior hip capsule without cutting or splitting muscle fibres.',
+        '4. Capsulotomy & Femoral Neck Osteotomy: The anterior capsule is carefully opened (and preserved for layered repair at closure). The worn, arthritic femoral head is excised at the pre-templated resection level and removed from the joint.',
+        '5. Precision Acetabular Resurfacing: Using offset reamers designed for tissue-sparing exposures, the acetabular socket is prepared to receive an uncemented titanium shell coated with porous hydroxyapatite for biological bone ingrowth. A high-performance delta ceramic or cross-linked polyethylene liner is locked securely into position.',
+        '6. Femoral Preparation, Trial Reduction & Dynamic Stability Check: The femoral canal is prepared with sequential broaches matching the patient\'s anatomical geometry. An uncemented titanium stem is seated. Modular trial heads verify restoration of femoral offset, leg length equality, and multi-directional stability across full extension, flexion, and external rotation before definitive ceramic head impaction and layered anatomical closure.'
+      ]
+    },
+    technologyComparison: {
+      title: 'Comparison of Surgical Approaches in Total Hip Arthroplasty',
+      description: 'An objective clinical comparison of established surgical approaches for total hip replacement:',
+      points: [
+        {
+          label: 'Rottinger Anterolateral Approach',
+          detail: 'Enters the inter-muscular plane between the tensor fasciae latae and gluteus medius without detaching the abductor tendon insertion or disturbing the posterior capsule. Sparing the abductor tendons helps protect active pelvic stability to reduce the likelihood of postoperative limp, delivers low posterior dislocation rates, and often reduces the need for rigid 90-degree sitting precautions.'
+        },
+        {
+          label: 'Direct Anterior Approach (DAA)',
+          detail: 'Enters a true inter-nervous plane (Hueter interval) between the femoral and superior gluteal nerve supplies in the supine position. Leaves posterior musculature completely intact, accessing the capsule along natural inter-muscular intervals without detaching major muscle tendons. Offers excellent acetabular visualisation, though carries a small risk of temporary sensory numbness over the outer thigh (lateral femoral cutaneous nerve).'
+        },
+        {
+          label: 'Posterior (Moore) Approach',
+          detail: 'The most widely utilised approach globally. Highly versatile and extensible with outstanding femoral visualisation. Requires detaching the short external rotators (piriformis, obturator internus) which are repaired at closure; carries a slightly higher historical risk of posterior dislocation requiring precautions against deep hip flexion in the early weeks.'
+        },
+        {
+          label: 'Direct Lateral (Hardinge) Approach',
+          detail: 'Provides direct access to both cup and femur with an exceptionally low dislocation rate. However, requires splitting the anterior fibres of the gluteus medius tendon, which carries a risk of prolonged abductor muscle weakness, postoperative limp, and lateral trochanteric pain during recovery.'
+        }
       ]
     },
     benefitsAndLimitations: {
       benefits: [
-        'Reduced soft-tissue disruption and lower post-operative muscular soreness.',
-        'Earlier return of independent walking without abductor limp.',
-        'Inherent joint stability with reduced risk of posterior dislocation.',
-        'Shorter hospital stays and rapid return to everyday activities.'
+        'Preservation of primary abductor muscles (gluteus medius and minimus) without tendon detachment, significantly reducing the likelihood of post-operative limp.',
+        'Reduced perioperative muscular trauma and lower acute soft-tissue pain in the immediate post-operative days.',
+        'Accelerated early functional recovery, with many patients transitioning off walking aids earlier than with traditional approaches.',
+        'Enhanced inherent joint stability with a lower risk of posterior dislocation compared to traditional posterior approaches, often reducing the need for rigid 90-degree sitting precautions.',
+        'Shorter hospital stays, with suitable patients eligible for single-night discharge or enhanced day-case pathways.',
+        'High-performance ceramic-on-polyethylene bearing combinations offering ultra-low friction wear and proven multi-decade durability.'
       ],
       limitations: [
-        'Technically demanding surgery requiring specialist training and dedicated instruments.',
-        'Not suitable for all anatomies (e.g. severe obesity, severe joint dysplasia, or complex prior surgeries).',
-        'Potential temporary sensory numbness over the lateral thigh (lateral femoral cutaneous nerve irritation).'
+        'Technically demanding surgery with a steep learning curve requiring specialist fellowship training and dedicated offset surgical instruments.',
+        'Not anatomically suitable for all patients: significant abdominal pannus (high BMI), severe hip dysplasia (Crowe III/IV), or severe femoral retroversion may require conventional exposure.',
+        'Patients with previous pelvic or proximal femoral osteotomies or extensive scarring from prior hip surgery generally require extensile conventional approaches.',
+        'Direct anterior exposures carry a small risk of lateral femoral cutaneous nerve (LFCN) irritation, causing temporary or persistent numbness over the outer thigh.',
+        'While early rehabilitation is often faster, National Joint Registry data confirms that by 6 to 12 months, long-term functional scores and implant survival are equivalent to expertly performed conventional surgery.',
+        'Does not replace the necessity for structured, patient-committed post-operative physiotherapy and gradual cardiovascular conditioning.'
       ]
     },
     risksAndComplications: [
-      'Standard surgical risks: infection, blood clots, fracture, or nerve injury.',
-      'Transient numbness over the outer thigh (typically resolves over weeks to months).'
+      'General joint replacement risks: surgical site infection (less than 1% in clean-air laminar flow theatres), deep vein thrombosis (DVT) or pulmonary embolism (PE), and post-operative haematoma.',
+      'Lateral femoral cutaneous nerve (LFCN) neuropraxia: sensory numbness, tingling, or hypersensitivity over the outer thigh (meralgia paraesthetica), which is typically transient and resolves over months, though can be persistent in a small minority.',
+      'Periprosthetic fracture: intra-operative crack or fracture of the proximal femur during femoral exposure or broaching, managed immediately with cerclage wiring or stem modification.',
+      'Leg length discrepancy: subtle inequality in limb lengths, minimized through pre-operative digital templating and intra-operative anatomical measurement.',
+      'Prosthetic dislocation: although significantly reduced compared to posterior approaches, dislocation remains a recognized surgical risk (less than 1%).',
+      'Long-term risks: polyethylene wear, aseptic component loosening, or rare revision surgery over decades of mechanical use.'
     ],
     recoveryTimeline: [
-      { phase: 'Day 0', description: 'Early bed-to-chair transfer and walking down the ward on the day of surgery.' },
-      { phase: 'Weeks 1 to 3', description: 'Rapid reduction in walking aid dependency, often walking with a single stick by week 2.' },
-      { phase: 'Weeks 4 to 6', description: 'Return to driving and return to desk-based employment.' }
+      { phase: 'Day 0 (Day of Surgery)', description: 'Immediate mobilization with specialist orthopaedic physiotherapists within 3 to 4 hours of surgery once spinal anaesthesia resolves. Standing, transferring to a chair, and walking down the ward with crutches.' },
+      { phase: 'Days 1 to 2 (Hospital Stay)', description: 'Inpatient recovery at Nuffield Health Brentwood or Spire Hartswood Hospital. Independent walking with crutches, stair climbing practice, and discharge home once safety criteria are met.' },
+      { phase: 'Weeks 1 to 3 (Early Recovery)', description: 'Rapid reduction in walking aid dependency; many patients comfortably transition from two crutches to a single walking stick by week 2. Independence with personal care and fewer movement precautions compared to conventional posterior approaches, tailored to individual stability.' },
+      { phase: 'Weeks 4 to 6 (Functional Independence)', description: 'Return to driving once emergency stop reaction time is safe and confirmed (typically 4 to 6 weeks, or earlier for automatic cars with left hip surgery). Resumption of desk-based employment and outdoor walking.' },
+      { phase: 'Months 3 to 6 (Long-Term Consolidation)', description: 'Return to active recreational pursuits: swimming, cycling, golf, gym exercise, and long-distance walking with full restoration of hip mobility and muscle strength.' }
     ],
     rehabilitationMilestones: [
-      'Early independent unassisted walking with minimal limp.',
-      'Rapid recovery of active straight leg raise and hip abduction.'
+      'Early active hip abduction and straight leg raise without significant muscle inhibition.',
+      'Independent unassisted walking indoors without a limp by weeks 3 to 4.',
+      'Smooth negotiation of stairs using alternating feet with good quadriceps and gluteal control.',
+      'Restoration of symmetric walking cadence and comfortable stride length.',
+      'Progressive return to active low-impact sports, hill walking, and recreational hobbies by months 3 to 6.'
     ],
     faqs: [
       {
-        question: 'What is the Rottinger approach?',
-        answer: 'The Rottinger approach is a muscle-sparing anterolateral technique developed in Europe that accesses the hip joint without detaching the gluteal muscles, promoting rapid early stability.'
+        question: 'What is the difference between a minimally invasive hip replacement and a standard hip replacement?',
+        answer: 'The primary difference lies in the preservation of deep muscular and tendon attachments beneath the skin, rather than merely the length of the cosmetic skin incision. Standard hip approaches often require detaching or splitting major muscles—such as the gluteal abductors in a lateral approach or the short external rotators in a posterior approach—which must heal back to bone. In true minimally invasive and muscle-sparing approaches (such as the Rottinger anterolateral or Direct Anterior approaches), the surgeon enters through natural inter-muscular and inter-nervous intervals. Because no major muscles are detached from bone, patients typically experience less acute muscular soreness, retain immediate active hip stability, and can mobilise with walking aids more comfortably in the early post-operative period.'
+      },
+      {
+        question: 'What is the Rottinger approach, and how does it spare the abductor muscles?',
+        answer: 'The Rottinger approach is a muscle-sparing anterolateral technique developed in Munich, Germany, that accesses the hip joint along the interval between the tensor fasciae latae and the gluteus medius. Unlike the traditional Hardinge lateral approach, which splits the gluteus medius muscle and risks prolonged abductor weakness and limp, the Rottinger approach leaves the gluteus medius and gluteus minimus tendon insertions onto the greater trochanter completely intact. Furthermore, because the joint is entered anteriorly, the posterior capsule and external rotators are undisturbed, providing inherent resistance against posterior dislocation and frequently allowing patients to mobilise and sit with fewer rigid 90-degree flexion restrictions, as determined by individual surgical stability.'
+      },
+      {
+        question: 'What is the Direct Anterior Approach (DAA), and how does it work?',
+        answer: 'The Direct Anterior Approach (DAA) utilizes the Hueter interval between the tensor fasciae latae (supplied by the superior gluteal nerve) and the sartorius and rectus femoris (supplied by the femoral nerve). Because it follows a true inter-nervous plane, the joint capsule is accessed without detaching major stabilizing tendons from bone. The procedure is performed with the patient lying flat on their back (supine), providing direct visualisation of the acetabulum for precision cup placement and facilitating accurate leg length comparison during surgery.'
+      },
+      {
+        question: 'Where did Mr Shivakumar Shankar train in these specialised muscle-sparing techniques?',
+        answer: 'Mr Shankar completed extensive European fellowship training to master advanced muscle-sparing hip arthroplasty. He trained in the Rottinger anterolateral approach at the Centre Hospitalier de Haguenau in Alsace, France, under leading pioneers Dr Luc Favard and Dr Philippe Asencio. He further advanced his expertise in Direct Anterior Approach techniques at the specialized orthopaedic arthroplasty unit in Rummelsberg, Germany, under Professor Zeiler. In addition, Mr Shankar completed complex lower limb arthroplasty fellowships at the Golden Jubilee National Hospital in Glasgow and the University Hospital of Wales in Cardiff, holds a Postgraduate Diploma in Computer and Robot-Assisted Orthopaedic Surgery, and serves as Clinical Director of Orthopaedics at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT).'
+      },
+      {
+        question: 'Does a minimally invasive approach mean a smaller scar, and is scar size the main goal?',
+        answer: 'While muscle-sparing approaches typically utilize smaller skin incisions (often 8 to 12 cm, depending on patient body habitus), scar size is never the primary objective of surgery. The true goal of minimally invasive surgery is tissue preservation beneath the skin—protecting muscle bellies, tendon insertions, and stabilizing ligaments. Prioritising an excessively small skin cut at the expense of adequate surgical visualisation can compromise implant alignment or risk stretching the skin edges. Mr Shankar ensures that the incision is appropriately sized to allow meticulous bone preparation and precise component placement while safeguarding deep muscular architecture.'
+      },
+      {
+        question: 'Does a muscle-sparing hip approach eliminate the risk of dislocation and complications?',
+        answer: 'No surgical procedure is entirely free of risk. While anterior and anterolateral approaches provide greater inherent posterior stability and lower dislocation rates compared to traditional posterior approaches (often allowing a more relaxed postoperative precaution protocol without rigid 90-degree sitting restrictions, subject to surgeon assessment), hip dislocation remains a recognized, though rare, possibility. Furthermore, standard surgical risks—such as infection (<1%), deep vein thrombosis (DVT), periprosthetic fracture, leg length discrepancy, and implant wear over decades—still apply. Specific to anterior approaches, there is a recognized risk of temporary numbness or tingling over the outer thigh due to irritation of the lateral femoral cutaneous nerve (LFCN), which typically improves over several months.'
+      },
+      {
+        question: 'How quickly can I walk without crutches and resume driving after muscle-sparing hip surgery?',
+        answer: 'Most patients begin walking with crutches on the day of surgery within 3 to 4 hours of their procedure. Because the abductor muscles are unsevered, patients frequently wean off walking aids faster than with traditional surgery, often transitioning to a single stick by week 2 and walking unassisted indoors between weeks 2 and 4. Return to driving is usually permitted around 4 to 6 weeks post-surgery, provided you are no longer taking strong pain medications and can perform an emergency stop safely without hesitation. For patients who undergo left hip surgery with an automatic vehicle, driving may resume sooner once general recovery is confirmed.'
+      },
+      {
+        question: 'Am I an eligible candidate for minimally invasive or direct anterior hip replacement?',
+        answer: 'Eligibility depends on an individual clinical and radiological assessment. Most patients with primary osteoarthritis, avascular necrosis, or mild joint dysplasia are excellent candidates. However, patients with significant abdominal pannus (higher BMI), severe hip dysplasia (Crowe grade III or IV), marked femoral retroversion, or extensive scarring from prior hip operations may achieve a safer and more predictable result with a conventional approach. During your consultation at Nuffield Health Brentwood Hospital or Spire Hartswood Hospital, Mr Shankar evaluates your hip radiographs, mobility, and medical history to recommend the surgical approach that best guarantees precision, safety, and long-term joint durability.'
       }
     ],
     relatedLinks: [
-      { title: 'Total Hip Replacement', href: '/hip-replacement', description: 'Primary hip arthroplasty overview.' },
-      { title: 'Robotic Hip Surgery', href: '/robotic-hip-replacement', description: 'Mako robotic arm-assisted precision.' }
+      { title: 'Total Hip Replacement', href: '/hip-replacement', description: 'Comprehensive guide to primary hip arthroplasty, implant choices, and outcomes.' },
+      { title: 'Robotic Hip Replacement', href: '/robotic-hip-replacement', description: 'Mako robotic arm-assisted precision hip surgery with 3D CT planning.' },
+      { title: 'About Mr Shivakumar Shankar', href: '/about-mr-shivakumar-shankar', description: 'Consultant orthopaedic surgeon biography, specialist fellowships, and GMC credentials.' },
+      { title: 'Nuffield Health Brentwood Hospital', href: '/nuffield-brentwood-hospital', description: 'Private outpatient consultations and surgical care in Brentwood, Essex.' },
+      { title: 'Spire Hartswood Hospital', href: '/spire-hartswood-hospital', description: 'Private orthopaedic hospital facilities and joint replacement in Brentwood, Essex.' },
+      { title: 'Book a Consultation', href: '/book-consultation', description: 'Schedule an outpatient surgical consultation with Mr Shivakumar Shankar.' }
     ]
   },
 
@@ -386,7 +563,7 @@ export const CLINICAL_PROCEDURES = {
       points: [
         { label: 'Conventional Arthroplasty', detail: 'Uses intramedullary rods and extramedullary cutting jigs to establish neutral mechanical alignment, supported by decades of proven registry success.' },
         { label: 'Computer Navigation', detail: 'Provides live digital angular readouts of bone resections and ligament tensioning without pre-operative CT radiation, ideal when intramedullary rods cannot be used.' },
-        { label: 'Robotic-Assisted (Mako)', detail: 'Employs pre-operative 3D CT virtual planning and robotic arm haptic boundaries for sub-millimetre bony resections, available at Nuffield Health Brentwood and BHRUT NHS hospitals.' },
+        { label: 'Robotic-Assisted (Mako)', detail: 'Employs pre-operative 3D CT virtual planning and robotic arm haptic boundaries to guide bony resections within pre-planned stereotactic margins, available at Nuffield Health Brentwood and BHRUT NHS hospitals.' },
         { label: 'Total vs Partial Arthroplasty', detail: 'Total knee replacement addresses widespread multi-compartmental wear; when arthritis is strictly isolated to the medial or lateral side, partial knee replacement preserves native cruciate ligaments.' }
       ]
     },
@@ -444,7 +621,7 @@ export const CLINICAL_PROCEDURES = {
       },
       {
         question: 'What are the differences between conventional, navigated, and robotic knee surgery?',
-        answer: 'Conventional knee surgery uses mechanical cutting blocks and intramedullary rods to guide alignment. Computer navigation uses optical trackers to display live digital measurements in theatre without pre-op CT scans. Mako robotic surgery uses a pre-operative 3D CT scan and haptic robotic arm guidance to achieve sub-millimetre bone preparation and dynamic ligament balancing. Mr Shankar offers robotic knee surgery at Nuffield Health Brentwood and BHRUT NHS hospitals, and computer-navigated and conventional surgery at Spire Hartswood Hospital.'
+        answer: 'Conventional knee surgery uses mechanical cutting blocks and intramedullary rods to guide alignment. Computer navigation uses optical trackers to display live digital measurements in theatre without pre-op CT scans. Mako robotic surgery uses a pre-operative 3D CT scan and tactile robotic arm guidance to support accurate bone preparation within pre-planned stereotactic boundaries and dynamic ligament balancing. Mr Shankar offers robotic knee surgery at Nuffield Health Brentwood and BHRUT NHS hospitals, and computer-navigated and conventional surgery at Spire Hartswood Hospital.'
       },
       {
         question: 'When can I return to driving after knee replacement surgery?',
@@ -481,7 +658,7 @@ export const CLINICAL_PROCEDURES = {
       'Patients with advanced knee osteoarthritis (tricompartmental or bicompartmental) who have exhausted conservative therapies.',
       'Individuals with isolated medial or lateral compartment osteoarthritis suitable for tissue-preserving Mako partial knee replacement.',
       'Patients with significant constitutional varus (bow-legged) or valgus (knock-kneed) deformity requiring personalised alignment.',
-      'Active patients seeking sub-millimetre implant positioning to optimise stability, balance, and natural range of motion.',
+      'Active patients seeking CT-guided implant positioning and dynamic soft-tissue balancing to optimise joint stability, balance, and functional range of motion.',
       'Conservative alternatives considered first: targeted quadriceps physiotherapy, weight management, unloading braces, and intra-articular steroid or PRP injections.'
     ],
     symptomsTreated: [
@@ -512,7 +689,7 @@ export const CLINICAL_PROCEDURES = {
     },
     benefitsAndLimitations: {
       benefits: [
-        'Sub-millimetre bone preparation accuracy tailored to patient-specific constitutional anatomy.',
+        'CT-guided bone preparation precision tailored to patient-specific constitutional anatomy.',
         'Intra-operative dynamic soft-tissue balancing across the full range of motion before bone cuts.',
         'Haptic boundary protection minimising bone resection and safeguarding adjacent soft-tissue envelopes.',
         'Enables both bone-preserving partial (unicompartmental) and total knee arthroplasty.',
@@ -559,7 +736,7 @@ export const CLINICAL_PROCEDURES = {
       },
       {
         question: 'What are the benefits and limitations of robotic knee replacement?',
-        answer: 'Potential clinical benefits include sub-millimetre bone preparation accuracy, customised implant positioning matching individual constitutional anatomy, real-time dynamic soft-tissue balancing across the entire arc of motion, and protection of surrounding soft tissues via haptic boundary constraints. However, there are limitations: robotic surgery requires a specialised pre-operative CT scan and temporary bone tracking pins in the femur and tibia. Furthermore, improved technical precision does not automatically guarantee superior long-term clinical outcomes or eliminate standard surgical recovery timelines, and individual outcomes remain dependent on dedicated post-operative physiotherapy.'
+        answer: 'Potential clinical benefits include CT-guided bone preparation precision within pre-planned stereotactic boundaries, customised implant positioning matching individual constitutional anatomy, real-time dynamic soft-tissue balancing across the entire arc of motion, and reduced soft-tissue disruption via haptic boundary constraints. However, there are limitations: robotic surgery requires a specialised pre-operative CT scan and temporary bone tracking pins in the femur and tibia. Furthermore, improved technical precision does not automatically guarantee superior long-term clinical outcomes or eliminate standard surgical recovery timelines, and individual outcomes remain dependent on dedicated post-operative physiotherapy.'
       },
       {
         question: 'Is a CT scan required for robotic knee replacement?',
@@ -588,60 +765,147 @@ export const CLINICAL_PROCEDURES = {
 
   'computer-assisted-knee-replacement': {
     slug: 'computer-assisted-knee-replacement',
-    badge: 'Navigated Arthroplasty',
-    h1: 'Computer-Assisted Knee Replacement Surgery',
-    leadParagraph: 'Real-time computer navigation providing intra-operative digital tracking of alignment, mechanical axis, and joint gaps during knee replacement surgery.',
+    badge: 'Computer-Navigated Arthroplasty • Optical Guidance',
+    h1: 'Computer-Navigated Knee Replacement Surgery in Essex & London',
+    leadParagraph: 'Consultant-led computer-assisted and navigated total knee replacement in Essex and London with Mr Shivakumar Shankar. Advanced optical infrared tracking and dynamic mechanical axis restoration at Spire Hartswood Hospital in Brentwood, eliminating alignment outliers without requiring pre-operative CT radiation.',
     overview: [
-      'Computer-assisted knee surgery utilises optical tracking sensors to measure femoral and tibial bone resection angles with continuous digital feedback on an operating theatre monitor. Mr Shankar has utilised computer-navigated knee replacement for approximately 9 years in his arthroplasty practice.',
-      'Navigation provides real-time verification of the mechanical axis without requiring pre-operative CT radiation, making it an excellent option for patients with femoral or tibial deformities.'
+      'Computer-assisted total knee replacement (CAS), commonly termed computer-navigated knee replacement, is an advanced surgical technique where specialised optical tracking technology provides the surgeon with real-time digital measurements of limb alignment, joint gaps, and bone resection levels throughout the operation. In conventional knee replacement, surgeons rely on mechanical cutting blocks and manual visual alignment rods. Computer navigation introduces a high-resolution intra-operative digital tracking system that calculates the patient\'s unique skeletal geometry in real time, assisting the surgeon in achieving balanced joint kinematics. Crucially, the computer navigation system does not perform surgical cuts or operate autonomously; Mr Shivakumar Shankar retains complete manual control and surgical decision-making at every stage of the procedure.',
+      'How Optical Navigation Works in Theatre: During surgery, rigid optical tracking arrays—lightweight frames fitted with reflective infrared tracking spheres—are temporarily secured to the distal femur and proximal tibia via dedicated surgical pins. A dual-camera infrared optical tracking system positioned adjacent to the operating table continuously registers the three-dimensional coordinates of these arrays in space. During the initial anatomical registration sequence, Mr Shankar records essential anatomical landmarks using a wireless pointer: determining the functional centre of the femoral head through gentle kinematic circumduction of the hip, mapping the distal femoral condyles, identifying the femoral mechanical axis, and digitising the tibial plateau and ankle malleoli. The software synthesises these spatial points to calculate the patient\'s true mechanical Hip-Knee-Ankle (HKA) axis on a sterile theatre display.',
+      'Dynamic Gap Balancing & Avoidance of Intramedullary Rods: As the knee is moved through its full arc of motion from full extension (0°) to deep flexion (90°+), the navigation monitor provides instantaneous numerical feedback on coronal alignment (varus or valgus) and joint gap dimensions in millimetres. This allows the surgeon to verify symmetrical flexion and extension gaps and perform fine, measured soft-tissue adjustments before making definitive bone cuts. A technical feature of computer navigation is that it does not require inserting long intramedullary alignment rods into the femoral marrow canal. Avoiding the femoral canal reduces intramedullary pressurisation during surgery, which published orthopaedic literature identifies as potentially decreasing blood loss and marrow fat intravasation compared to conventional intramedullary instrumentation. This approach offers particular anatomical utility for patients with retained femoral hardware (such as plates or intramedullary nails from prior trauma), extra-articular femoral deformities, or marked femoral bowing where standard intramedullary rods cannot be passed safely or accurately.',
+      'Consultant Arthroplasty Expertise & Clinical Leadership: Mr Shivakumar Shankar has approximately nine years of dedicated experience utilising computer-assisted navigation and conventional techniques in complex and routine knee arthroplasty. Over his surgical career, Mr Shankar has performed more than 3,000 hip and knee replacements. Having completed higher surgical training within the London Deanery and subspecialist lower limb fellowships at the Golden Jubilee National Hospital in Glasgow and University Hospital of Wales in Cardiff, Mr Shankar holds a formal Postgraduate Diploma in Computer and Robot-Assisted Orthopaedic Surgery alongside his specialist GMC registration (GMC Number: 6038414). Building on his established conventional and computer-navigated surgical foundation, Mr Shankar more recently integrated MAKO robotic technology into his practice, having personally completed over 100 MAKO robotic-assisted procedures. In the NHS, Mr Shankar serves as Clinical Director of Orthopaedics at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT).',
+      'Hospital Technology Availability & Evidence-Based Care: In his private practice in Brentwood, Essex, Mr Shankar provides computer-navigated total knee replacement at Spire Hartswood Hospital on Eagle Way. Spire Hartswood is equipped with optical computer navigation technology for knee replacement; MAKO robotic surgery is not currently available at Spire Hartswood. Private patients seeking MAKO robotic-assisted surgery can be treated by Mr Shankar at Nuffield Health Brentwood Hospital on Shenfield Road. Within BHRUT NHS Trust, computer-assisted and robotic joint replacement services are available subject to clinical referral criteria and pathway availability. In clinical consultations, Mr Shankar provides balanced, evidence-informed guidance: while clinical trials and systematic reviews confirm that computer navigation consistently reduces coronal alignment outliers, long-term 15- to 20-year implant survivorship and patient-reported functional outcomes are multifactorial, reflecting patient health, implant design, soft-tissue balance, and rehabilitation rather than navigational guidance alone.'
     ],
     whoMayBenefit: [
-      'Patients with knee arthritis seeking precise mechanical alignment verification.',
-      'Individuals with previous retained metalwork, intramedullary canal obstruction, or extra-articular deformity where conventional rods cannot be passed.'
+      'Patients with advanced primary or secondary knee osteoarthritis seeking digital mechanical axis verification without pre-operative CT radiation.',
+      'Individuals with previous fractures or retained metalwork (intramedullary nails, plates, screws) in the femur or tibia where standard intramedullary alignment rods cannot be inserted.',
+      'Patients with extra-articular femoral or tibial bowing or deformities that distort conventional anatomical landmarks.',
+      'Patients with significant constitutional varus (bow-legged) or valgus (knock-kneed) deformity requiring live numeric soft-tissue gap balancing.',
+      'Patients with anatomical variations or medical considerations where avoiding instrument passage through the femoral marrow canal is clinically desirable.',
+      'Prerequisite: Exhaustion of non-surgical measures including targeted quadriceps strengthening, weight management, unloading braces, and therapeutic joint injections.'
     ],
     symptomsTreated: [
-      'Severe knee joint pain, morning stiffness, and difficulty walking.'
+      'Severe, chronic knee pain during standing, walking, and stair negotiation that restricts personal independence.',
+      'Progressive joint deformity (inward bowing or outward knocking) resulting from asymmetrical cartilage loss and bone erosion.',
+      'Morning joint stiffness, painful catching, and crepitus (grinding) during movement.',
+      'Resting and nocturnal knee ache that disturbs sleep despite analgesic medication.',
+      'Progressive reduction in walking distance and inability to participate in everyday occupational or recreational activities.'
     ],
     procedureExplanation: {
-      title: 'Navigation Workflow in Knee Arthroplasty',
-      description: 'Optical arrays attached to the femur and tibia track bone position continuously.',
+      title: 'The Computer-Navigated Total Knee Arthroplasty Sequence',
+      description: 'How intra-operative optical tracking, anatomical landmark registration, and real-time gap balancing operate in theatre:',
       steps: [
-        'Anatomical Mapping: The hip centre, knee centre, and ankle centre are registered to establish the patient\'s true mechanical axis.',
-        'Resection Verification: As cutting jigs are pinned, digital degrees of varus/valgus and slope are confirmed.',
-        'Gap Balancing: Joint gap tension is measured digitally in extension and flexion.'
+        '1. Anaesthesia & Surgical Exposure: Administered under regional spinal anaesthesia with light sedation or general anaesthesia. Dedicated periarticular local anaesthetic infiltration and intravenous tranexamic acid minimise blood loss and provide early post-operative analgesia. An anterior midline incision with a medial parapatellar approach exposes the arthritic joint surfaces.',
+        '2. Rigid Optical Tracker Attachment: Two small, rigid optical tracking arrays with passive infrared reflective markers are secured to the distal femur and proximal tibia using dedicated bicortical pins outside the primary joint capsule.',
+        '3. Anatomical Registration & Kinematic Mapping: Using a tracked wireless pointer, Mr Shankar registers key skeletal landmarks: the centre of the femoral head (calculated kinematically via gentle hip circumduction), distal femoral condyles, femoral mechanical axis, tibial plateau, and medial and lateral malleoli at the ankle. The system constructs a dynamic 3D model of the patient\'s mechanical axis.',
+        '4. Navigated Femoral & Tibial Bone Resections: Resection cutting blocks are positioned under continuous optical guidance. The theatre monitor displays the exact varus/valgus angle, posterior slope, and resection depth in millimetres. Bone cuts are completed with precision without drilling into the femoral intramedullary canal.',
+        '5. Dynamic Gap Balancing & Soft-Tissue Assessment: Modular spacer blocks and tensioners evaluate the medial and lateral joint gaps through full extension (0°) and 90° flexion. The screen displays gap symmetry, allowing Mr Shankar to fine-tune ligament releases or adjust implant rotation before final component seating.',
+        '6. Component Implantation & Final Kinematic Check: Definitive cobalt-chromium femoral and titanium tibial components are cemented securely. A high-performance cross-linked polyethylene bearing insert is locked into place. The final mechanical axis and stability are digitally confirmed across the complete range of motion before tracker removal and layered wound closure.'
+      ]
+    },
+    technologyComparison: {
+      title: 'Comparison of Knee Arthroplasty Technologies',
+      description: 'An objective, clinical appraisal of available surgical modalities in knee reconstruction:',
+      points: [
+        {
+          label: 'Computer-Navigated Arthroplasty (Spire Hartswood & BHRUT NHS)',
+          detail: 'Uses optical infrared cameras and rigid tracking arrays in theatre to calculate live limb mechanical axes and joint gaps. Avoids instrumenting the femoral intramedullary canal and requires no pre-operative CT scan radiation. The surgeon uses manual saws guided by digitally verified cutting blocks. Available for private patients at Spire Hartswood Hospital and NHS patients at BHRUT.'
+        },
+        {
+          label: 'MAKO Robotic-Assisted Surgery (Nuffield Brentwood & BHRUT NHS)',
+          detail: 'Combines a pre-operative 3D CT scan, virtual planning software, and active stereotactic haptic boundaries enforced by a surgeon-guided robotic arm. Crucially, computer navigation and MAKO robotic surgery are NOT interchangeable technologies: navigation provides visual digital feedback without robotic arm actuation or pre-op CT scans, whereas Mako robotics incorporates a pre-op CT scan and physical haptic constraints. Available at Nuffield Health Brentwood Hospital and BHRUT NHS.'
+        },
+        {
+          label: 'Conventional Manual Knee Replacement',
+          detail: 'Relies on mechanical cutting blocks, external alignment rods, and long intramedullary rods passed up the femoral shaft. Highly proven over five decades worldwide, though published literature documents a higher frequency of radiographic alignment outliers outside ±3° of neutral mechanical alignment.'
+        },
+        {
+          label: 'Clinical Evidence & Long-Term Outcomes',
+          detail: 'Both computer navigation and robotic assistance significantly reduce coronal alignment outliers compared to conventional instrumentation. However, large-scale registry analyses and clinical studies indicate that long-term 15- to 20-year implant survivorship and functional scores are primarily governed by implant design, overall alignment within safe thresholds, patient health, and rehabilitation rather than surgical technology in isolation. Advanced guidance assists precise surgical execution, but successful outcomes remain grounded in seasoned surgical judgment and patient dedication to recovery.'
+        }
       ]
     },
     benefitsAndLimitations: {
       benefits: [
-        'Eliminates the need for long intramedullary alignment rods in the femoral canal, reducing fat embolisation risk.',
-        'Reduces alignment outliers.',
-        'No pre-operative CT scan radiation required.'
+        'Significant reduction in coronal alignment outliers, consistently achieving neutral mechanical axis targets.',
+        'Avoidance of femoral intramedullary alignment rods, minimising canal instrumentation and associated intramedullary pressure rises.',
+        'Particularly advantageous for patients with retained hardware, prior femoral fractures, or severe extra-articular bowing.',
+        'Real-time numeric quantification of flexion and extension gaps, guiding accurate soft-tissue balancing across the full range of motion.',
+        'Does not require pre-operative computed tomography (CT) imaging, avoiding exposure to diagnostic ionising radiation.',
+        'High-performance biocompatible prostheses with cross-linked polyethylene bearings engineered for long-term joint durability.'
       ],
       limitations: [
-        'Requires temporary optical tracking pins in the femur and tibia.',
-        'Slightly extends operating time by a few minutes.'
+        'Requires temporary placement of optical tracking pins in the femur and tibia, creating minor additional pin-site incisions.',
+        'Slightly extends operating time by approximately 5 to 10 minutes to complete tracker pinning and anatomical landmark registration.',
+        'Requires an uninterrupted line of sight between the infrared camera unit and the optical tracking arrays throughout the procedure.',
+        'The surgeon remains entirely responsible for manual saw handling, bone preparation, and component impaction; the system does not provide robotic arm haptic boundaries.',
+        'Improved technical alignment does not automatically guarantee superior 15- to 20-year implant survival or eliminate standard surgical recovery timelines.',
+        'Patient outcomes remain dependent on proactive, committed post-operative physical rehabilitation and quadriceps strengthening.'
       ]
     },
     risksAndComplications: [
-      'Standard knee arthroplasty risks: infection, blood clots, stiffness, or loosening.',
-      'Pin site discomfort.'
+      'Standard knee arthroplasty risks: surgical site infection (less than 1% in clean-air laminar flow operating theatres), deep vein thrombosis (DVT) or pulmonary embolism (PE), and joint stiffness.',
+      'Tracking pin site considerations: temporary localised tenderness or minor bruising at the pin insertion sites; stress fracture through a tracker pin site is recognised in the orthopaedic literature as an extremely rare complication.',
+      'Periprosthetic fracture: crack or fracture of the distal femur or proximal tibia during bone preparation or component impaction.',
+      'Residual numbness: sensory numbness adjacent to the surgical scar resulting from minor cutaneous nerve stretching (infrapatellar branch of saphenous nerve).',
+      'System conversion: in rare instances of technical hardware disruption or line-of-sight obstruction, the surgeon must be prepared to seamlessly convert to conventional instrumentation.',
+      'Long-term prosthetic risks: polyethylene bearing wear, aseptic component loosening, or requirement for revision surgery over decades of mechanical use.'
     ],
     recoveryTimeline: [
-      { phase: 'Day 0', description: 'Early mobilisation and straight leg raise exercises.' },
-      { phase: 'Weeks 1 to 6', description: 'Progressive range of motion, swelling control, and walking improvement.' }
+      { phase: 'Day 0 (Day of Surgery)', description: 'Early mobilisation with specialist orthopaedic physiotherapists within hours of surgery; assisted standing, weight-bearing as tolerated with crutches, and gentle ankle pump exercises.' },
+      { phase: 'Days 1 to 2 (Hospital Stay)', description: 'Inpatient recovery at Spire Hartswood Hospital in Brentwood. Focus on achieving full active knee extension (0°), bending past 90°, staircase climbing practice, and independent transfers.' },
+      { phase: 'Weeks 1 to 6 (Early Recovery)', description: 'Transitioning from two crutches to one crutch or walking stick; managing local swelling with ice, compression, and elevation; returning to light sedentary desk employment around weeks 4 to 6.' },
+      { phase: 'Weeks 6 to 12 (Functional Consolidation)', description: 'Resuming driving once safe emergency stopping reflex is confirmed (typically 6 weeks); progressing to low-impact recreational activities including outdoor walking, stationary cycling, swimming, and golf.' },
+      { phase: 'Months 6 to 12 (Long-Term Outcome)', description: 'Gradual resolution of residual joint warmth, progressive quadriceps strength restoration, and consolidation of durable joint function.' }
     ],
     rehabilitationMilestones: [
-      'Full knee extension and progressive flexion to 90°+.'
+      'Achieving full active knee extension (straightening flat to 0°) within the first 2 weeks.',
+      'Active knee flexion reaching 90° to 100° by weeks 3 to 4, progressing toward 110°–120° by week 6.',
+      'Independent indoor and outdoor walking without walking aids between weeks 4 and 6.',
+      'Safe negotiation of stairs using alternating feet with good quadriceps control by weeks 6 to 8.',
+      'Resumption of low-impact recreational activities and daily routines with stable joint kinematics.'
     ],
     faqs: [
       {
-        question: 'Why choose computer-assisted navigation?',
-        answer: 'It provides digital alignment accuracy without requiring pre-operative CT radiation, particularly advantageous if previous hardware blocks the marrow canal.'
+        question: 'What is computer-assisted (navigated) knee replacement?',
+        answer: 'Computer-assisted total knee replacement is an advanced surgical technique where an intra-operative optical tracking system provides real-time digital readouts of bone resection angles, limb alignment, and joint gap balance during surgery. The navigation system functions as an assistive measurement guide: it does not perform cuts or operate autonomously. Mr Shivakumar Shankar maintains full manual control and clinical responsibility throughout the procedure, using the technology to achieve precise mechanical alignment matching the patient\'s anatomy.'
+      },
+      {
+        question: 'How does optical infrared tracking work during the operation?',
+        answer: 'Optical tracking uses lightweight arrays fitted with reflective infrared spheres temporarily pinned to the femur and tibia. An infrared camera unit in the operating theatre continuously tracks these markers in 3D space. By registering key anatomical landmarks—including the hip centre, distal femur, tibial plateau, and ankle—the computer calculates the patient\'s true mechanical axis and displays instantaneous measurements of cutting block angles and gap tension.'
+      },
+      {
+        question: 'What is the difference between computer navigation and MAKO robotic knee surgery?',
+        answer: 'Computer navigation and MAKO robotic surgery are distinct, non-interchangeable technologies. Computer navigation uses optical tracking in the operating theatre without requiring a pre-operative CT scan; it provides visual numerical measurements on screen while the surgeon guides manual instruments. In contrast, MAKO robotic surgery requires a pre-operative 3D CT scan and features a surgeon-guided robotic arm that actively enforces stereotactic haptic boundaries to guide bone preparation. Mr Shankar offers computer-navigated knee replacement at Spire Hartswood Hospital and MAKO robotic knee replacement at Nuffield Health Brentwood Hospital.'
+      },
+      {
+        question: 'Does computer-navigated knee surgery require a pre-operative CT scan?',
+        answer: 'No. Computer navigation registers the patient\'s anatomical landmarks directly in the operating theatre using optical pointers and kinematic tracking. Because it does not rely on pre-operative scans, patients do not receive any diagnostic ionising radiation from a CT scan, which is required for robotic-assisted surgery.'
+      },
+      {
+        question: 'Why is avoiding intramedullary rods in the femur considered an advantage?',
+        answer: 'Conventional total knee replacement typically introduces an alignment rod into the intramedullary canal of the femur to establish the femoral resection angle. Computer navigation references limb geometry externally using optical arrays, avoiding the need to instrument the femoral marrow canal. Surgical literature indicates this approach avoids intramedullary pressure spikes and may reduce perioperative blood loss and fat intravasation. It is especially valuable for patients with prior fractures, retained metal plates or screws, or femoral curvature where passing an intramedullary rod is technically difficult or impossible.'
+      },
+      {
+        question: 'Where does Mr Shankar provide computer-navigated knee replacement?',
+        answer: 'For private patients, Mr Shankar provides computer-navigated knee replacement at Spire Hartswood Hospital on Eagle Way in Brentwood, Essex. Spire Hartswood offers optical navigation and conventional arthroplasty, but does not have a MAKO robotic system. For patients seeking MAKO robotic surgery, Mr Shankar operates at Nuffield Health Brentwood Hospital. Within the NHS, computer-assisted and robotic joint replacement services are undertaken at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT), subject to clinical assessment.'
+      },
+      {
+        question: 'What is Mr Shankar\'s clinical experience with computer-assisted surgery?',
+        answer: 'Mr Shankar has approximately nine years of dedicated experience utilising computer-navigated and conventional joint replacement techniques. Over his surgical career, he has performed more than 3,000 hip and knee replacements. He holds a formal Postgraduate Diploma in Computer and Robot-Assisted Orthopaedic Surgery, completed subspecialist arthroplasty fellowships at the Golden Jubilee National Hospital in Glasgow and University Hospital of Wales in Cardiff, and serves as Clinical Director of Orthopaedics at BHRUT. Building on his conventional and navigation foundation, he more recently adopted MAKO robotics, personally completing over 100 MAKO robotic procedures.'
+      },
+      {
+        question: 'Does computer-navigated surgery guarantee a better outcome or faster recovery?',
+        answer: 'No technology guarantees a specific surgical outcome. Clinical studies confirm that computer navigation significantly reduces coronal alignment outliers and improves component positioning consistency compared to manual instrumentation. However, large-scale registry data and clinical evidence indicate that long-term 15- to 20-year implant survival and overall recovery timelines depend on multifactorial surgical, implant, and patient variables rather than navigational guidance alone. A successful outcome depends on surgical skill, soft-tissue balance, and the patient\'s dedicated participation in post-operative physiotherapy.'
       }
     ],
     relatedLinks: [
-      { title: 'Total Knee Replacement', href: '/knee-replacement', description: 'Primary knee arthroplasty overview.' },
-      { title: 'Robotic Knee Replacement', href: '/robotic-knee-replacement', description: 'Mako robotic technology.' }
+      { title: 'Total Knee Replacement', href: '/knee-replacement', description: 'Comprehensive guide to total knee arthroplasty, kinematics, and implant choices.' },
+      { title: 'Robotic Knee Replacement', href: '/robotic-knee-replacement', description: 'Mako robotic-assisted total and partial knee surgery with 3D CT planning.' },
+      { title: 'Partial Knee Replacement', href: '/partial-knee-replacement', description: 'Preserving natural cruciate ligaments with unicompartmental knee resurfacing.' },
+      { title: 'About Mr Shivakumar Shankar', href: '/about-mr-shivakumar-shankar', description: 'Consultant orthopaedic surgeon biography, specialist fellowships, and GMC credentials.' },
+      { title: 'Spire Hartswood Hospital', href: '/spire-hartswood-hospital', description: 'Private computer-navigated and conventional joint replacement centre in Brentwood, Essex.' },
+      { title: 'Nuffield Health Brentwood Hospital', href: '/nuffield-brentwood-hospital', description: 'Private MAKO robotic-assisted joint replacement centre in Brentwood, Essex.' },
+      { title: 'Book a Consultation', href: '/book-consultation', description: 'Schedule an outpatient surgical consultation with Mr Shivakumar Shankar.' }
     ]
   },
 
@@ -689,7 +953,7 @@ export const CLINICAL_PROCEDURES = {
         { label: 'Cruciate Ligament Preservation', detail: 'Partial knee surgery retains both the ACL and PCL, delivering superior proprioception, more natural joint kinematics, and deeper flexion than total knee arthroplasty.' },
         { label: 'Tissue-Sparing Recovery', detail: 'Smaller incision, minimal bone resection, reduced blood loss with negligible transfusion risk, and faster return to independent walking compared to total knee replacement.' },
         { label: 'Registry Revision Considerations', detail: 'While recovery is faster and patient satisfaction high, National Joint Registry (NJR) data shows a slightly higher long-term revision rate for partial knees compared to total knees, primarily due to potential arthritis progression in the remaining compartments over 10–15+ years. If required, conversion to a standard total knee replacement is straightforward.' },
-        { label: 'Mako Robotic Precision', detail: 'Pre-operative 3D CT virtual planning and robotic arm haptic guidance allow sub-millimetre component positioning and dynamic gap balancing during partial knee resurfacing (available at Nuffield Health Brentwood and BHRUT NHS).' }
+        { label: 'Mako Robotic Guidance', detail: 'Pre-operative 3D CT virtual planning and robotic arm haptic guidance assist with accurate component positioning and dynamic gap balancing during partial knee resurfacing (available at Nuffield Health Brentwood and BHRUT NHS).' }
       ]
     },
     benefitsAndLimitations: {
@@ -746,7 +1010,7 @@ export const CLINICAL_PROCEDURES = {
       },
       {
         question: 'What is MAKO robotic partial knee replacement?',
-        answer: 'MAKO robotic partial knee replacement combines a pre-operative 3D CT scan with intra-operative robotic arm haptic guidance. This technology enables Mr Shankar to model the patient\'s unique joint geometry digitally, plan component sizing and alignment with sub-millimetre precision, and dynamically balance ligament tension before preparing the bone within stereotactic safety boundaries. MAKO robotic partial knee surgery is available for private patients at Nuffield Health Brentwood Hospital and for NHS patients at BHRUT.'
+        answer: 'MAKO robotic partial knee replacement combines a pre-operative 3D CT scan with intra-operative robotic arm haptic guidance. This technology enables Mr Shankar to model the patient\'s unique joint geometry digitally, plan component sizing and alignment with 3D virtual modelling, and dynamically balance ligament tension before preparing the bone within stereotactic safety boundaries. MAKO robotic partial knee surgery is available for private patients at Nuffield Health Brentwood Hospital and for NHS patients at BHRUT.'
       },
       {
         question: 'How quickly can I recover and return to driving after partial knee surgery?',

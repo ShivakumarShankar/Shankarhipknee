@@ -107,21 +107,21 @@ Shared on Instagram on 30 September 2026.`,
   {
     id: 'post-bhrut-personal-100-mako-2026',
     type: 'social',
-    title: '100 MAKO Robotic-Assisted Joint Replacements — A Personal Milestone at BHRUT',
+    title: '100 MAKO Robotic-Assisted Joint Replacements — A Personal Surgical Milestone for Mr Shankar',
     category: 'Robotic Surgery',
     src: '/shankar-personal-100-mako-2026.jpg',
     thumbnail: '/shankar-personal-100-mako-2026.jpg',
-    altText: 'Mr Shivakumar Shankar marking his personal milestone of 100 MAKO robotic-assisted joint replacement procedures at BHRUT',
+    altText: 'Mr Shivakumar Shankar marking his personal milestone of 100 MAKO robotic-assisted joint replacement procedures personally performed by him',
     platform: 'instagram',
     socialHandle: '@shivakumarshankar',
     authorName: 'Mr Shivakumar Shankar',
     authorAvatar: './profile.jpg',
     externalUrl: 'https://www.instagram.com/shivakumarshankar/',
     quote: '“100 procedures represents 100 opportunities to combine technology, precision, experience and teamwork in delivering joint replacement care.”',
-    caption: 'Personal Professional Milestone: On 24 September 2026, Mr Shivakumar Shankar reached a personal milestone of completing 100 MAKO robotic-assisted joint replacement procedures at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT).',
-    description: `On 24 September 2026, Mr Shivakumar Shankar reached a personal milestone of completing 100 MAKO robotic-assisted joint replacement procedures at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT).
+    caption: 'Personal Professional Milestone: On 24 September 2026, Mr Shivakumar Shankar reached an individual surgical milestone of completing 100 MAKO robotic-assisted joint replacement procedures personally performed by him (representing his personal surgical series, rather than a trust total for BHRUT).',
+    description: `On 24 September 2026, Mr Shivakumar Shankar marked a personal surgical milestone of completing 100 MAKO robotic-assisted joint replacement procedures personally performed by him. This milestone represents his individual surgical series rather than the total performed across BHRUT NHS Trust.
 
-The milestone reflects his growing experience with MAKO robotic-assisted hip and knee replacement, building on his previous experience in manual and computer-assisted joint replacement surgery.
+The milestone reflects his more recent adoption and mastery of MAKO robotic-assisted hip and knee replacement, building upon his longstanding experience of approximately 9 years in conventional manual and computer-assisted joint replacement surgery.
 
 Mr Shankar thanked the wider multidisciplinary team involved in delivering joint replacement care, including anaesthetists, nurses, theatre staff, radiographers, physiotherapists and orthopaedic colleagues.
 
@@ -224,7 +224,7 @@ Shared on Instagram on 25 September 2026.`,
     duration: '0:47',
     quote: '“I tell the robot what to do and the robot does and delivers it to us. The robot is not an automated thing — it gives us ideas based on the 3D CT and all the software to make the operation even more accurate.”',
     caption: 'Official BBC London TV report: Consultant Orthopaedic Surgeon Shivakumar Shankar demonstrates robotic-assisted knee surgery and 3D digital planning at King George Hospital’s Elective Surgical Hub, completing over 10,000 operations.',
-    description: 'Broadcast television coverage on BBC London News documenting NHS elective surgical innovation. Patient Stuart Ayris shares his experience preparing for knee surgery to return to playing cricket, while Mr. Shankar explains how 3D digital planning and robotic navigation achieve sub-millimetre implant positioning, cutting waiting times across over 10,000 planned operations.',
+    description: 'Broadcast television coverage on BBC London News documenting NHS elective surgical innovation. Patient Stuart Ayris shares his experience preparing for knee surgery to return to playing cricket, while Mr. Shankar explains how 3D digital planning and robotic navigation achieve high-precision implant positioning, cutting waiting times across over 10,000 planned operations.',
     date: 'BBC London TV Broadcast (0:47)',
     likes: '642',
     shares: '128',
@@ -256,7 +256,7 @@ Shared on Instagram on 25 September 2026.`,
         role: 'Consultant Orthopaedic Surgeon • BBC LONDON',
         title: 'Surgeon-Controlled Robotic Precision & 3D CT Guidance',
         quote: '“I tell the robot what to do and the robot does and delivers it to us. So the robot is not an automated thing — it gives us ideas based on the 3D CT and all the software to make the operation even more accurate. But it is what I tell the robot to do, makes it.”',
-        description: 'Mr. Shankar demonstrating the interactive digital 3D model of the patient’s knee, ensuring sub-millimetre implant alignment and customised ligament balancing.',
+        description: 'Mr. Shankar demonstrating the interactive digital 3D model of the patient’s knee, supporting accurate 3D implant alignment and customised ligament balancing.',
         image: 'https://ichef.bbci.co.uk/ace/standard/960/cpsprodpb/b026/live/529541b0-f6f1-11f0-b385-5f48925de19a.png'
       },
       {
@@ -457,7 +457,7 @@ Shared on Instagram on 25 September 2026.`,
     externalUrl: 'https://x.com/ShankarHipKnee',
     quote: '“Sharing computer navigation and robotic arthroplasty techniques with our surgical trainees. Technology elevates accuracy, but seasoned clinical judgment remains the cornerstone of every successful joint replacement.”',
     caption: 'Mr Shankar (@ShankarHipKnee) discusses surgical training in navigated arthroplasty, leveraging his Postgraduate Diploma in Computer and Robot-Assisted Orthopaedic Surgery.',
-    description: 'Official feed from @ShankarHipKnee: Emphasising surgical mentorship, sub-millimetre implant tracking, and registrar education in complex lower limb reconstruction on the London Deanery.',
+    description: 'Official feed from @ShankarHipKnee: Emphasising surgical mentorship, digital implant tracking, and registrar education in complex lower limb reconstruction on the London Deanery.',
     date: 'Latest Post on X (@ShankarHipKnee)',
     likes: '380',
     shares: '74'
@@ -899,7 +899,7 @@ export const MediaGalleryHub: React.FC<MediaGalleryHubProps> = ({ onOpenBooking 
                 <Building2 size={13} className="text-cyan-400" /> BHR Hospitals (BHRUT)
               </span>
               <span className="bg-white/10 text-amber-200 text-xs font-semibold px-3 py-1.5 rounded-xl border border-white/15 flex items-center gap-1.5 shadow-2xs">
-                <Cpu size={13} className="text-amber-400" /> 100 MAKO Joint Procedures Milestone
+                <Cpu size={13} className="text-amber-400" /> 100+ Personal MAKO Joint Procedures
               </span>
               <span className="bg-white/10 text-emerald-200 text-xs font-semibold px-3 py-1.5 rounded-xl border border-white/15 flex items-center gap-1.5 shadow-2xs">
                 <ShieldCheck size={13} className="text-emerald-400" /> NJR Audited Outcomes

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   Award, GraduationCap, ChevronRight, 
   Shield, CheckCircle, 
   BookOpen, Building, FileCheck, Microscope,
-  ExternalLink, ShieldCheck
+  ExternalLink, ShieldCheck, HelpCircle, ChevronDown, ChevronUp
 } from 'lucide-react';
 import { 
   SURGEON_NAME, 
@@ -22,7 +22,8 @@ import {
   BUPA_PROFILE_URL,
   LINKEDIN_URL,
   X_URL,
-  X_HANDLE
+  X_HANDLE,
+  ABOUT_PAGE_FAQS
 } from '../constants';
 import { SurgeonPortrait, SurgeonPortraitCard } from './SurgeonPortrait';
 
@@ -32,6 +33,12 @@ interface AboutProps {
 }
 
 const About: React.FC<AboutProps> = ({ onBook, onNavigateHome }) => {
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+
+  const toggleFaq = (index: number) => {
+    setOpenFaqIndex(openFaqIndex === index ? null : index);
+  };
+
   return (
     <div className="pt-28 md:pt-36 font-sans text-slate-800 animate-fade-in">
       
@@ -174,8 +181,8 @@ const About: React.FC<AboutProps> = ({ onBook, onNavigateHome }) => {
             <p>
               Mr Shivakumar Shankar is a Consultant Orthopaedic Surgeon specialising in hip and knee surgery, with particular expertise 
               in hip replacement, knee replacement, robotic-assisted surgery and computer-assisted joint replacement. He has performed 
-              manual and computer-assisted hip and knee replacement surgery for approximately 9 years and has more recently incorporated 
-              MAKO robotic-assisted surgery into his practice.
+              manual and computer-assisted hip and knee replacement surgery for approximately 9 years in consultant and senior arthroplasty practice, 
+              establishing an extensive foundation in joint reconstruction before more recently adopting MAKO robotic-assisted surgery into his practice.
             </p>
 
             <p>
@@ -189,10 +196,10 @@ const About: React.FC<AboutProps> = ({ onBook, onNavigateHome }) => {
             <div className="p-6 bg-[#F8FAFC] rounded-xl border border-slate-200 my-8">
               <h3 className="font-bold text-lg text-slate-900 mb-2 flex items-center gap-2">
                 <Shield size={20} className="text-[#1B4965]" />
-                Regional Surgical Innovation
+                Regional Surgical Innovation & Robotic Experience
               </h3>
               <p className="text-sm text-slate-600 leading-relaxed">
-                Mr Shivakumar Shankar has stated that he was the first surgeon to perform computer-assisted and robotic total hip replacement in Essex and North East London. He routinely performs robotic-assisted and computer-navigated knee and hip replacement surgery alongside conventional techniques, enhancing component positioning and joint biomechanics.
+                Mr Shivakumar Shankar was the first surgeon to perform computer-assisted and robotic total hip replacement in Essex and North East London. Building upon his longstanding conventional and computer-assisted surgical background, he has personally performed over 100 MAKO robotic-assisted joint replacements—a personal milestone achieved through his individual surgical series, rather than the total performed by BHRUT NHS Trust. He routinely performs robotic-assisted and computer-navigated knee and hip replacement surgery alongside conventional techniques, enhancing component positioning and joint biomechanics.
               </p>
             </div>
 
@@ -524,8 +531,53 @@ const About: React.FC<AboutProps> = ({ onBook, onNavigateHome }) => {
         </div>
       </section>
 
+      {/* 6B. PATIENT FREQUENTLY ASKED QUESTIONS */}
+      <section className="py-20 bg-white border-b border-slate-200">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <span className="text-[#1B4965] font-bold uppercase tracking-wider text-xs inline-flex items-center gap-1.5">
+              <HelpCircle size={14} /> Patient FAQs
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-slate-600 text-sm mt-3">
+              Clear, evidence-grounded answers to common questions about Mr Shankar's credentials, surgical practice, and hospital technologies.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {ABOUT_PAGE_FAQS.map((faq, idx) => {
+              const isOpen = openFaqIndex === idx;
+              return (
+                <div 
+                  key={idx}
+                  className="rounded-2xl border border-slate-200 bg-slate-50/70 overflow-hidden transition-all duration-200 hover:border-[#1B4965]/40"
+                >
+                  <button
+                    onClick={() => toggleFaq(idx)}
+                    className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 font-bold text-slate-900 text-base sm:text-lg cursor-pointer focus:outline-hidden"
+                    aria-expanded={isOpen}
+                  >
+                    <span>{faq.question}</span>
+                    <span className="text-[#1B4965] flex-shrink-0">
+                      {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                    </span>
+                  </button>
+                  {isOpen && (
+                    <div className="px-5 pb-6 sm:px-6 text-sm sm:text-base text-slate-700 leading-relaxed border-t border-slate-200/80 pt-4 bg-white">
+                      <p>{faq.answer}</p>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* 7. PRIVATE PRACTICE LOCATIONS */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="max-w-3xl mx-auto text-center mb-14">
@@ -542,7 +594,7 @@ const About: React.FC<AboutProps> = ({ onBook, onNavigateHome }) => {
             {LOCATIONS.filter(l => l.type === 'Private Hospital').map((loc, idx) => (
               <div 
                 key={idx} 
-                className="bg-[#F8FAFC] rounded-2xl p-8 border border-slate-200 flex flex-col justify-between hover:border-[#1B4965] transition-colors"
+                className="bg-white rounded-2xl p-8 border border-slate-200 flex flex-col justify-between hover:border-[#1B4965] transition-colors shadow-xs"
               >
                 <div>
                   <div className="flex justify-between items-start mb-4">
@@ -554,6 +606,19 @@ const About: React.FC<AboutProps> = ({ onBook, onNavigateHome }) => {
 
                   <h3 className="text-2xl font-bold text-slate-900 mb-2">{loc.name}</h3>
                   <p className="text-sm text-slate-600 mb-4">{loc.address}, {loc.postcode}</p>
+
+                  {/* Surgical Technology & Robotics Distinction */}
+                  <div className="mb-5 p-4 rounded-xl bg-slate-50 border border-slate-200">
+                    <p className="text-[11px] font-bold text-[#1B4965] uppercase tracking-wider mb-1">
+                      {loc.name.includes('Nuffield') ? 'Robotic Technology Available' : 'Surgical Technology Available'}
+                    </p>
+                    <p className="text-xs text-slate-700 leading-relaxed">
+                      {loc.name.includes('Nuffield') 
+                        ? 'MAKO Robotic-Assisted Surgery (Total Hip, Total Knee & Partial Knee Arthroplasty) with pre-operative 3D CT planning and haptic boundary guidance.'
+                        : 'Conventional and Computer-Navigated Joint Replacement using infra-red optical alignment tracking. (Please note: Spire Hartswood does not operate a MAKO robot; patients seeking MAKO surgery are treated at Nuffield Health Brentwood or BHRUT NHS Trust).'
+                      }
+                    </p>
+                  </div>
 
                   <div className="space-y-2 mb-6">
                     <p className="text-xs font-bold text-slate-700 uppercase tracking-wider">Hospital Facilities:</p>
