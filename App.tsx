@@ -156,7 +156,7 @@ const PAGE_METADATA: Record<string, { title: string; desc: string; canonical: st
   },
   'hip-replacement': {
     title: 'Hip Replacement Surgery London & Essex | Mr Shivakumar Shankar',
-    desc: 'Specialist primary, complex, and minimally invasive hip replacement in London & Essex. Regional pioneer in robotic and computer-assisted hip surgery.',
+    desc: 'Consultant-led total hip replacement in London & Essex with Mr Shivakumar Shankar. Advanced ceramic bearings, computer navigation & muscle-sparing approaches in Brentwood & Romford.',
     canonical: 'https://www.shivakumarshankar.co.uk/hip-replacement'
   },
   'robotic-hip-replacement': {
@@ -175,13 +175,13 @@ const PAGE_METADATA: Record<string, { title: string; desc: string; canonical: st
     canonical: 'https://www.shivakumarshankar.co.uk/minimally-invasive-hip-replacement'
   },
   'knee-replacement': {
-    title: 'Knee Replacement Surgery London & Essex | Mr Shivakumar Shankar',
-    desc: 'Consultant-led total knee replacement, kinematic alignment, and personalised soft-tissue balancing in London, Essex, and Brentwood.',
+    title: 'Total Knee Replacement London & Essex | Mr Shivakumar Shankar',
+    desc: 'Consultant-led total knee replacement in London & Essex with Mr Shivakumar Shankar. Conventional, computer-navigated & Mako robotic knee surgery in Brentwood & Romford.',
     canonical: 'https://www.shivakumarshankar.co.uk/knee-replacement'
   },
   'robotic-knee-replacement': {
-    title: 'Robotic Knee Replacement London & Essex | Mako Arthroplasty',
-    desc: 'Mako robotic-assisted total and partial knee replacement with real-time dynamic ligament balancing and high-precision bony resection guidance.',
+    title: 'Robotic Knee Replacement London & Essex | Mr Shivakumar Shankar',
+    desc: 'Explore MAKO robotic-assisted knee replacement with consultant surgeon Mr Shivakumar Shankar. Private consultations in Brentwood, Essex, serving London.',
     canonical: 'https://www.shivakumarshankar.co.uk/robotic-knee-replacement'
   },
   'computer-assisted-knee-replacement': {
@@ -190,8 +190,8 @@ const PAGE_METADATA: Record<string, { title: string; desc: string; canonical: st
     canonical: 'https://www.shivakumarshankar.co.uk/computer-assisted-knee-replacement'
   },
   'partial-knee-replacement': {
-    title: 'Partial Knee Replacement London & Essex | Unicompartmental Surgery',
-    desc: 'Minimally invasive unicompartmental resurfacing preserving the healthy knee compartments, ACL, and PCL for natural joint kinematics.',
+    title: 'Partial Knee Replacement London & Essex | Mr Shivakumar Shankar',
+    desc: 'Specialist medial & lateral unicompartmental knee replacement in London & Essex with Mr Shivakumar Shankar. Preserving native cruciate ligaments in Brentwood & Romford.',
     canonical: 'https://www.shivakumarshankar.co.uk/partial-knee-replacement'
   },
   'knee-arthroscopy': {

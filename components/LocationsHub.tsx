@@ -105,7 +105,7 @@ export const LocationsHub: React.FC<LocationsHubProps> = ({
           <nav aria-label="Breadcrumb" className="mb-4 flex items-center gap-2 text-xs font-semibold text-slate-500 flex-wrap">
             <a href="/" onClick={(e) => { e.preventDefault(); onNavigate('/'); }} className="hover:text-[#1B4965]">Home</a>
             <span>/</span>
-            <a href="/hospitals-locations/" onClick={(e) => { e.preventDefault(); onNavigate('/hospitals-locations/'); }} className="hover:text-[#1B4965]">Hospitals &amp; Locations</a>
+            <a href="/hospitals-locations" onClick={(e) => { e.preventDefault(); onNavigate('/hospitals-locations'); }} className="hover:text-[#1B4965]">Hospitals &amp; Locations</a>
             {mode !== 'overview' && (
               <>
                 <span>/</span>
@@ -134,8 +134,8 @@ export const LocationsHub: React.FC<LocationsHubProps> = ({
               <Calendar size={16} /> Book Private Consultation
             </button>
             <a
-              href="/contact/"
-              onClick={(e) => { e.preventDefault(); onNavigate('/contact/'); }}
+              href="/contact"
+              onClick={(e) => { e.preventDefault(); onNavigate('/contact'); }}
               className="bg-slate-100 hover:bg-slate-200 text-slate-800 px-5 py-3 rounded-lg font-bold text-sm transition-colors"
             >
               Contact Medical Secretary
@@ -196,8 +196,8 @@ export const LocationsHub: React.FC<LocationsHubProps> = ({
                     </p>
                   </div>
                   <a
-                    href="/spire-hartswood-hospital/"
-                    onClick={(e) => { e.preventDefault(); onNavigate('/spire-hartswood-hospital/'); }}
+                    href="/spire-hartswood-hospital"
+                    onClick={(e) => { e.preventDefault(); onNavigate('/spire-hartswood-hospital'); }}
                     className="text-xs font-bold text-[#1B4965] hover:underline"
                   >
                     View Details →
@@ -239,8 +239,8 @@ export const LocationsHub: React.FC<LocationsHubProps> = ({
                     </p>
                   </div>
                   <a
-                    href="/nuffield-brentwood-hospital/"
-                    onClick={(e) => { e.preventDefault(); onNavigate('/nuffield-brentwood-hospital/'); }}
+                    href="/nuffield-brentwood-hospital"
+                    onClick={(e) => { e.preventDefault(); onNavigate('/nuffield-brentwood-hospital'); }}
                     className="text-xs font-bold text-[#1B4965] hover:underline"
                   >
                     View Details →
@@ -294,8 +294,8 @@ export const LocationsHub: React.FC<LocationsHubProps> = ({
                     </p>
                   </div>
                   <a
-                    href="/queens-hospital-romford/"
-                    onClick={(e) => { e.preventDefault(); onNavigate('/queens-hospital-romford/'); }}
+                    href="/queens-hospital-romford"
+                    onClick={(e) => { e.preventDefault(); onNavigate('/queens-hospital-romford'); }}
                     className="text-xs font-bold text-sky-600 hover:underline"
                   >
                     View Details →
@@ -323,8 +323,8 @@ export const LocationsHub: React.FC<LocationsHubProps> = ({
                     </p>
                   </div>
                   <a
-                    href="/king-george-hospital-goodmayes/"
-                    onClick={(e) => { e.preventDefault(); onNavigate('/king-george-hospital-goodmayes/'); }}
+                    href="/king-george-hospital-goodmayes"
+                    onClick={(e) => { e.preventDefault(); onNavigate('/king-george-hospital-goodmayes'); }}
                     className="text-xs font-bold text-sky-600 hover:underline"
                   >
                     View Details →
@@ -350,29 +350,29 @@ export const LocationsHub: React.FC<LocationsHubProps> = ({
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
               <a
-                href="/london-hip-knee-surgeon/"
-                onClick={(e) => { e.preventDefault(); onNavigate('/london-hip-knee-surgeon/'); }}
+                href="/london-hip-knee-surgeon"
+                onClick={(e) => { e.preventDefault(); onNavigate('/london-hip-knee-surgeon'); }}
                 className="p-3 bg-slate-50 hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors"
               >
                 📍 London Hip &amp; Knee Surgeon
               </a>
               <a
-                href="/essex-hip-knee-surgeon/"
-                onClick={(e) => { e.preventDefault(); onNavigate('/essex-hip-knee-surgeon/'); }}
+                href="/essex-hip-knee-surgeon"
+                onClick={(e) => { e.preventDefault(); onNavigate('/essex-hip-knee-surgeon'); }}
                 className="p-3 bg-slate-50 hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors"
               >
                 📍 Essex Hip &amp; Knee Surgeon
               </a>
               <a
-                href="/spire-hartswood-hospital/"
-                onClick={(e) => { e.preventDefault(); onNavigate('/spire-hartswood-hospital/'); }}
+                href="/spire-hartswood-hospital"
+                onClick={(e) => { e.preventDefault(); onNavigate('/spire-hartswood-hospital'); }}
                 className="p-3 bg-slate-50 hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors"
               >
                 🏥 Spire Hartswood Hospital
               </a>
               <a
-                href="/nuffield-brentwood-hospital/"
-                onClick={(e) => { e.preventDefault(); onNavigate('/nuffield-brentwood-hospital/'); }}
+                href="/nuffield-brentwood-hospital"
+                onClick={(e) => { e.preventDefault(); onNavigate('/nuffield-brentwood-hospital'); }}
                 className="p-3 bg-slate-50 hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors"
               >
                 🏥 Nuffield Health Brentwood

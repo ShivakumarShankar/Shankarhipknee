@@ -232,22 +232,22 @@ export const RoboticComparisonPage: React.FC<RoboticComparisonPageProps> = ({
                     → Robotic Hip Replacement
                   </a>
                   <a
-                    href="/knee-replacement/"
-                    onClick={(e) => { e.preventDefault(); onNavigate('/knee-replacement/'); }}
+                    href="/knee-replacement"
+                    onClick={(e) => { e.preventDefault(); onNavigate('/knee-replacement'); }}
                     className="block p-2.5 rounded-lg bg-slate-50 hover:bg-[#EAF1F6] font-bold text-slate-800 hover:text-[#1B4965] transition-colors"
                   >
                     → Knee Replacement &amp; Arthroplasty
                   </a>
                   <a
-                    href="/robotic-knee-replacement/"
-                    onClick={(e) => { e.preventDefault(); onNavigate('/robotic-knee-replacement/'); }}
+                    href="/robotic-knee-replacement"
+                    onClick={(e) => { e.preventDefault(); onNavigate('/robotic-knee-replacement'); }}
                     className="block p-2.5 rounded-lg bg-slate-50 hover:bg-[#EAF1F6] font-bold text-slate-800 hover:text-[#1B4965] transition-colors"
                   >
                     → Robotic Knee Replacement
                   </a>
                   <a
-                    href="/partial-knee-replacement/"
-                    onClick={(e) => { e.preventDefault(); onNavigate('/partial-knee-replacement/'); }}
+                    href="/partial-knee-replacement"
+                    onClick={(e) => { e.preventDefault(); onNavigate('/partial-knee-replacement'); }}
                     className="block p-2.5 rounded-lg bg-slate-50 hover:bg-[#EAF1F6] font-bold text-slate-800 hover:text-[#1B4965] transition-colors"
                   >
                     → Partial Knee Replacement
