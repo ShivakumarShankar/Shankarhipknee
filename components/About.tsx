@@ -184,13 +184,13 @@ const About: React.FC<AboutProps> = ({ onBook, onNavigateHome }) => {
               manual and computer-assisted hip and knee replacement surgery for approximately 9 years in consultant and senior arthroplasty practice, 
               establishing an extensive foundation in joint reconstruction before more recently adopting MAKO robotic-assisted surgery into his practice.
             </p>
-
             <p>
               His higher surgical training in Trauma &amp; Orthopaedics was completed through the North East Thames and London Deanery, 
               including rotation through the Royal National Orthopaedic Hospital (RNOH), Stanmore. His training experience includes premier 
               institutions including the <strong>Royal National Orthopaedic Hospital (RNOH), Stanmore</strong>, 
               <strong> Great Ormond Street Hospital</strong>, and the <strong>Royal London Hospital</strong>, followed by a specialist 
-              <strong> RNOH lower limb arthroplasty fellowship at Stanmore</strong> and advanced <strong>Rottinger approach training at CABPS, Centre Hospitalier Haguenau, France</strong>.
+              <strong> RNOH lower limb arthroplasty fellowship at Stanmore</strong> and advanced <strong>Rottinger approach training at CABPS, Centre Hospitalier Haguenau, France</strong>. 
+              Drawing on his Stanmore tertiary training, Mr Shankar provides dedicated assessment and reconstruction for patients with failing or painful previous joint replacements (<a href="/revision-hip-replacement" className="text-[#1B4965] font-bold underline hover:text-[#0A192F]">learn about revision hip replacement</a>).
             </p>
 
             <div className="p-6 bg-[#F8FAFC] rounded-xl border border-slate-200 my-8">
@@ -208,6 +208,29 @@ const About: React.FC<AboutProps> = ({ onBook, onNavigateHome }) => {
               based at <strong>Queen's Hospital, Romford</strong> and <strong>King George Hospital, Goodmayes</strong>. 
               His private practice is conducted at <strong>Spire Hartswood Hospital</strong> and <strong>Nuffield Health Brentwood Hospital</strong> in Brentwood, Essex.
             </p>
+
+            <div className="p-6 bg-slate-50 rounded-xl border border-slate-200 my-6">
+              <h3 className="font-bold text-base text-slate-900 mb-2 flex items-center gap-2">
+                <Shield size={18} className="text-[#1B4965]" />
+                Revision Hip Surgery — Scope of Practice Across Private and NHS Settings
+              </h3>
+              <p className="text-sm text-slate-700 leading-relaxed mb-3">
+                Mr Shivakumar Shankar performs revision hip replacement surgery in both private and NHS hospital settings, ensuring each patient is treated in the environment best suited to their clinical complexity:
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-700">
+                <div className="p-3.5 bg-white rounded-lg border border-slate-200 space-y-1">
+                  <strong className="text-slate-900 block text-xs">Private Practice — Nuffield &amp; Spire Brentwood</strong>
+                  Revision hip procedures suitable for the facilities and perioperative support available at private hospitals are undertaken by Mr Shankar following individual clinical assessment and appropriate pre-operative investigations. These may include selected revision hip replacement procedures for implant loosening, wear, instability or other mechanical problems, depending on the complexity of the case and suitability for the hospital.
+                </div>
+                <div className="p-3.5 bg-white rounded-lg border border-slate-200 space-y-1">
+                  <strong className="text-slate-900 block text-xs">NHS Practice — BHRUT</strong>
+                  Mr Shankar also undertakes complex revision hip replacement surgery and complex hip reconstruction within his NHS hospital practice at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT). Complex revision procedures are managed within the appropriate NHS surgical setting, with access to specialist multidisciplinary assessment, complex reconstruction resources and perioperative support as clinically required.
+                </div>
+              </div>
+              <p className="text-xs text-slate-500 mt-3 italic">
+                The decision regarding the appropriate hospital and surgical pathway depends on the complexity of the revision, patient comorbidities, anticipated reconstructive requirements and available hospital resources.
+              </p>
+            </div>
 
             <p>
               Every patient is unique, and surgical approaches are strictly tailored to individual clinical requirements. 
@@ -354,7 +377,7 @@ const About: React.FC<AboutProps> = ({ onBook, onNavigateHome }) => {
                     <h4 className="font-bold text-base text-slate-900">Academic Focus Areas</h4>
                   </div>
                   <p className="text-xs text-slate-700 leading-relaxed">
-                    Primary & revision hip replacement • Robotic-assisted knee arthroplasty • Computer navigation kinetics • Minimally invasive tissue-sparing approaches • Meniscal and biological knee preservation.
+                    Primary & revision hip replacement • Complex revision hip surgery &amp; reconstruction (NHS) • Robotic-assisted knee arthroplasty • Computer navigation kinetics • Minimally invasive tissue-sparing approaches • Meniscal and biological knee preservation.
                   </p>
                 </div>
               </div>

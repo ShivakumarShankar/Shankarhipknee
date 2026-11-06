@@ -119,6 +119,11 @@ const MENU_PAGES: NavMenuItem[] = [
         name: 'Minimally Invasive Hip',
         description: 'Tissue-sparing Rottinger & anterior approaches for rapid recovery',
         href: 'minimally-invasive-hip-replacement'
+      },
+      {
+        name: 'Revision Hip Replacement',
+        description: 'Specialist assessment & surgery for painful or failing hip replacements',
+        href: 'revision-hip-replacement'
       }
     ]
   },

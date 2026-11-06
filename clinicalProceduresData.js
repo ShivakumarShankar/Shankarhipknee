@@ -112,6 +112,7 @@ export const CLINICAL_PROCEDURES = {
       }
     ],
     relatedLinks: [
+      { title: 'Revision Hip Replacement', href: '/revision-hip-replacement', description: 'Specialist surgery for painful, loose, worn, or failing hip replacements.' },
       { title: 'Robotic Hip Replacement', href: '/robotic-hip-replacement', description: 'Mako robotic arm-assisted hip arthroplasty with pre-operative 3D CT planning.' },
       { title: 'Minimally Invasive Hip Surgery', href: '/minimally-invasive-hip-replacement', description: 'Muscle-sparing Rottinger and direct anterior tissue-preserving approaches.' },
       { title: 'Computer-Assisted Hip Surgery', href: '/computer-assisted-hip-replacement', description: 'Real-time optical navigation verifying component angles without pre-op CT scans.' },
@@ -276,6 +277,11 @@ export const CLINICAL_PROCEDURES = {
       }
     ],
     relatedLinks: [
+      {
+        title: 'Revision Hip Replacement',
+        href: '/revision-hip-replacement',
+        description: 'Specialist surgery for painful, loose, worn, or failing hip replacements.'
+      },
       {
         title: 'Total Hip Replacement',
         href: '/hip-replacement',
@@ -512,6 +518,7 @@ export const CLINICAL_PROCEDURES = {
       }
     ],
     relatedLinks: [
+      { title: 'Revision Hip Replacement', href: '/revision-hip-replacement', description: 'Specialist surgery for painful, loose, worn, or failing hip replacements.' },
       { title: 'Total Hip Replacement', href: '/hip-replacement', description: 'Comprehensive guide to primary hip arthroplasty, implant choices, and outcomes.' },
       { title: 'Robotic Hip Replacement', href: '/robotic-hip-replacement', description: 'Mako robotic arm-assisted precision hip surgery with 3D CT planning.' },
       { title: 'About Mr Shivakumar Shankar', href: '/about-mr-shivakumar-shankar', description: 'Consultant orthopaedic surgeon biography, specialist fellowships, and GMC credentials.' },
@@ -1096,5 +1103,141 @@ export const CLINICAL_PROCEDURES = {
       { title: 'Knee Replacement', href: '/knee-replacement', description: 'Solutions for advanced joint arthritis.' },
       { title: 'Partial Knee Replacement', href: '/partial-knee-replacement', description: 'Unicompartmental resurfacing.' }
     ]
+  },
+  'revision-hip-replacement': {
+    slug: 'revision-hip-replacement',
+    badge: 'Revision Arthroplasty • Complex Joint Reconstruction',
+    h1: 'Revision Hip Replacement Surgery in Essex & London — Mr Shivakumar Shankar',
+    leadParagraph: 'Specialist consultant-led revision hip replacement surgery in Essex and London with Mr Shivakumar Shankar. Advanced clinical assessment of painful, loose, unstable, or failing hip replacements, component exchange, complex hip reconstruction, and revision arthroplasty delivered across private hospital facilities in Brentwood and NHS surgical centres at BHRUT.',
+    overview: [
+      'Revision total hip replacement (re-revision or secondary hip arthroplasty) is a specialised surgical procedure performed to remove and replace one, multiple, or all components of an artificial hip joint that has become painful, mechanically loose, structurally damaged, infected, or unstable over time. While modern primary hip replacements reliably provide 15 to 25 or more years of pain relief and restored mobility, prostheses may eventually require surgical revision due to mechanical wear, bone resorption, recurrent dislocation, or trauma.',
+      'Unlike primary hip replacement—where surgical anatomy is largely intact and bone quality is relatively normal—revision hip surgery is inherently more complex. The surgeon must carefully navigate surgical scar tissue, preserve remaining pelvic and femoral host bone, safely extract well-fixed or loosened implants without fracturing surrounding skeletal structures, reconstruct bone deficiencies, and establish stable biological or mechanical fixation using advanced modular prostheses, trabecular metal augments, or bone graft.',
+      'Mr Shivakumar Shankar is a fellowship-trained Consultant Orthopaedic Hip and Knee Surgeon holding substantive NHS consultant appointments at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT)—operating across Queen\'s Hospital in Romford and King George Hospital in Goodmayes—where he has served as Clinical Director and NHS Clinical Lead for Trauma and Orthopaedics. He completed subspecialty tertiary fellowship training in complex hip reconstruction and revision arthroplasty at the prestigious Royal National Orthopaedic Hospital (RNOH) in Stanmore, internationally renowned as a leading tertiary centre for complex bone and joint reconstruction.',
+      'Revision Hip Surgery — Scope of Practice Across Private and NHS Settings: Mr Shankar performs revision hip replacement surgery in both private and NHS hospital settings, ensuring each patient is managed in the surgical environment best aligned with their procedural complexity and perioperative support requirements.',
+      'Private Hospital Practice (Brentwood, Essex): Revision hip procedures suitable for the facilities and perioperative support available at private hospitals are undertaken by Mr Shankar at Nuffield Health Brentwood Hospital and Spire Hartswood Hospital following individual clinical assessment and appropriate pre-operative investigations. These may include selected revision hip replacement procedures for implant loosening, wear, instability or other mechanical problems, depending on the complexity of the case and suitability for the hospital environment. Both facilities provide modern clean-air laminar flow theatres, cross-sectional CT and MRI diagnostics, dedicated inpatient physiotherapy, and en-suite rooms, conveniently accessible from Essex and London.',
+      'NHS Hospital Practice (BHRUT): Mr Shankar also undertakes complex revision hip replacement surgery and complex hip reconstruction within his NHS hospital practice at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT). Complex revision procedures are managed within the appropriate NHS surgical setting, with access to specialist multidisciplinary assessment, complex reconstruction resources and perioperative support as clinically required.',
+      'Surgical Pathways & Decision-Making: The decision regarding the appropriate hospital and surgical pathway depends on the complexity of the revision, patient comorbidities, anticipated reconstructive requirements and available hospital resources. Cases requiring additional subspecialist expertise, such as severe chronic periprosthetic joint infection requiring staged exchange or massive pelvic discontinuity, are coordinated through established multidisciplinary referral pathways to ensure the highest standard of patient safety and clinical governance.'
+    ],
+    whoMayBenefit: [
+      'Patients with confirmed aseptic loosening of the acetabular cup, femoral stem, or both components with progressive groin, buttock, or thigh pain.',
+      'Individuals with severe polyethylene bearing wear, ceramic breakage, or peri-prosthetic osteolysis (progressive bone loss around components).',
+      'Patients suffering from recurrent prosthetic hip dislocations, joint subluxation, or a disabling feeling of joint instability when walking or turning.',
+      'Patients who have sustained a periprosthetic fracture of the femur or acetabulum around an existing artificial hip joint following a fall or trauma.',
+      'Individuals experiencing persistent, unexplained pain, groin aching, start-up stiffness, or worsening limp following a previous hip replacement requiring thorough tertiary assessment.',
+      'Patients seeking an authoritative second opinion regarding whether revision surgery is indicated or whether non-operative management remains appropriate.'
+    ],
+    symptomsTreated: [
+      'Deep groin, buttock, or anterior thigh pain aggravated by weight-bearing, walking, or rising from a chair (start-up pain).',
+      'A pronounced antalgic limp, Trendelenburg gait (pelvic drop), or progressive shortening of the operated leg.',
+      'Mechanical symptoms such as clicking, clunking, grinding, or squeaking sensations from the prosthetic bearing surfaces.',
+      'Episodes of sudden hip giving-way, acute dislocation, or inability to bear weight through the affected extremity.',
+      'Progressive reduction in hip range of motion, severe stiffness, or loss of independent daily mobility.'
+    ],
+    procedureExplanation: {
+      title: 'How Revision Hip Replacement is Evaluated & Performed',
+      description: 'Revision hip arthroplasty is a meticulous, multistage surgical operation tailored to each patient\'s specific anatomical bone loss and implant failure pattern:',
+      steps: [
+        'Comprehensive Diagnostic Evaluation & Surgical History: Mr Shankar reviews the detailed operative record of your primary surgery, original implant specifications, fixation type, serial radiographs, and the chronological evolution of your symptoms.',
+        'Pre-Operative Cross-Sectional Imaging & Laboratory Workup: High-definition low-dose weight-bearing radiographs, inflammatory blood markers (ESR, C-reactive protein) to screen for occult infection, and high-resolution MARS CT (Metal Artefact Reduction Software) scanning to accurately map three-dimensional acetabular and femoral bone defects.',
+        'Diagnostic Joint Aspiration (When Indicated): If infection cannot be definitively excluded, an ultrasound-guided or fluoroscopic needle aspiration of synovial fluid is performed under sterile conditions for microbiological culture and cell count analysis before entering theatre.',
+        'Surgical Exposure & Adhesiolysis: The previous surgical incision is utilised where feasible. Mr Shankar carefully dissects through post-operative scar planes, protecting the sciatic and femoral nerves and preserving the residual gluteal abductor musculature.',
+        'Meticulous Implant Extraction & Bone Preservation: Using specialised extraction instruments, high-speed drills, and ultrasonic tools, the loosened or worn components are extracted with minimal sacrifice of remaining host bone stock.',
+        'Acetabular Reconstruction: The pelvic bone socket is debrided of granulomatous wear debris and classified (Paprosky classification). Cavitary and segmental bone defects are reconstructed using porous trabecular metal titanium/tantalum augments, morcellised bone graft, and multi-hole revision shells to restore the anatomical hip centre of rotation.',
+        'Femoral Stem Revision: The femoral canal is prepared with tapered reamers. Depending on the level of host bone support, modular fluted tapered uncemented revision stems are seated to achieve rigid axial and rotational fixation in healthy distal diaphyseal bone, or cemented revision stems are placed where indicated.',
+        'Modular Soft-Tissue Balancing & Trial Reduction: Modular neck lengths, head offsets, and bearing types (including dual-mobility articulations where instability risk is elevated) are evaluated to ensure complete stability through a functional arc of motion and optimise leg length equality.',
+        'Final Impaction & Layered Anatomical Closure: Definitive implants are locked into position, soft-tissue capsular tension is reconstructed, and deep muscular intervals and skin are closed meticulously over surgical suction drains if required.'
+      ]
+    },
+    technologyComparison: {
+      title: 'Revision Modalities & Specialist Reconstructive Options',
+      description: 'Mr Shankar selects from modern reconstructive techniques based on the exact mode of primary implant failure and bone stock preservation:',
+      points: [
+        { label: 'Isolated Modular Bearing Exchange', detail: 'When acetabular and femoral bone-anchored shells remain solidly well-fixed, well-oriented, and biologically integrated, exchanging only the worn polyethylene liner and modular femoral head avoids destructive bone removal and facilitates faster recovery.' },
+        { label: 'Porous Trabecular Metal Augments', detail: 'Highly porous biomimetic titanium and tantalum structural wedges and buttresses that provide immediate mechanical stability and promote rapid vascular and bone ingrowth in cases of severe acetabular bone loss.' },
+        { label: 'Modular Fluted Tapered Stems', detail: 'Advanced uncemented revision stems with longitudinal splines that bypass damaged, osteolytic proximal femoral bone to achieve robust mechanical anchorage in healthy distal cortex.' },
+        { label: 'Dual-Mobility Bearing Systems', detail: 'Constructs featuring two articulating interfaces that significantly increase the effective head size and jump distance, dramatically reducing dislocation risk in patients with weak abductor muscles or neuromuscular compromise.' },
+        { label: 'Private & NHS Revision Scope', detail: 'Selected revision hip procedures suitable for private hospital facilities (implant loosening, wear, instability or mechanical issues) are undertaken at Nuffield Health Brentwood and Spire Hartswood following clinical assessment. Complex revision procedures requiring specialist multidisciplinary assessment, complex reconstruction resources and perioperative support are undertaken within Mr Shankar\'s NHS practice at BHRUT.' }
+      ]
+    },
+    benefitsAndLimitations: {
+      benefits: [
+        'Substantial, predictable relief from chronic, debilitating mechanical groin and thigh pain caused by loose or worn implants.',
+        'Restoration of pelvic stability and independent walking gait, allowing patients to resume everyday mobility with confidence.',
+        'Reconstruction and preservation of host bone stock, preventing progressive osteolysis, periprosthetic fracture, or catastrophic pelvic collapse.',
+        'Correction of leg length discrepancies and elimination of painful joint clicking, grinding, or recurring dislocations.',
+        'Consultant-delivered continuity of care, with Mr Shankar personally conducting your diagnostic evaluation, surgical procedure, and post-operative follow-up.'
+      ],
+      limitations: [
+        'Revision hip surgery is inherently more complex than a first-time replacement, requiring longer operative time and more measured rehabilitation.',
+        'Full recovery of muscle strength, walking endurance, and joint comfort typically takes 6 to 12 months, with post-operative progress varying according to bone reconstruction extent.',
+        'When significant bone grafting or porous augments are required, a mandatory period of protected partial weight-bearing with crutches (6 to 12 weeks) is required to ensure solid bone osseointegration.',
+        'Pre-existing muscular scarring or long-standing abductor damage may mean maximum hip flexibility remains slightly lower than that of a primary hip arthroplasty.'
+      ]
+    },
+    risksAndComplications: [
+      'Prosthetic dislocation (estimated at approximately 4% to 8% in revision surgery, compared to 1% to 2% in primary procedures; mitigated with careful component orientation, offset restoration, and dual-mobility bearings where appropriate).',
+      'Periprosthetic joint infection (PJI) (approximately 2% to 3% in revision cases; managed with ultra-clean laminar flow operating suites, prophylactic intravenous antibiotics, and rigorous sterile technique).',
+      'Intra-operative fracture of the femur or acetabulum during extraction of well-fixed cement or implants (managed immediately in theatre with cerclage cables, plates, or bypass stems).',
+      'Deep vein thrombosis (DVT) or pulmonary embolism (PE), prevented through early supervised mobilising, calf compression boots, and multimodal chemical anticoagulation.',
+      'Nerve injury (temporary or permanent neuropraxia of the sciatic or femoral nerves, affecting foot sensation or ankle movement, occurring in approx. 1% to 2% of complex revisions due to scar retraction or limb lengthening).',
+      'Residual leg length inequality or persistent mild abductor limp, particularly where long-standing muscular weakness or severe bone deficiency pre-existed.'
+    ],
+    recoveryTimeline: [
+      { phase: 'Days 1 to 4 (Inpatient Care)', description: 'Inpatient recovery at Nuffield Health Brentwood or Spire Hartswood Hospital. Early assisted mobilization with crutches under physiotherapist supervision, multimodal analgesia, check radiographs, and wound inspection before safe discharge home.' },
+      { phase: 'Weeks 1 to 6 (Protected Healing)', description: 'Protected partial or toe-touch weight-bearing with crutches or walking frame according to bone reconstruction stability; daily gentle active range-of-motion and isometric gluteal exercises; antithrombotic medications.' },
+      { phase: 'Weeks 6 to 12 (Progressive Mobilisation)', description: 'Outpatient consultant review with Mr Shankar and repeat pelvis/hip radiographs; progression to full weight-bearing and weaning from two crutches to a single stick as bone ingrowth consolidates.' },
+      { phase: 'Months 3 to 12 (Functional Rebuilding)', description: 'Gradual resumption of independent unassisted walking, driving (once safe emergency braking control is demonstrated), low-impact exercise, and long-term consolidation of abductor muscle endurance.' }
+    ],
+    rehabilitationMilestones: [
+      'Safe, independent bed and chair transfers with physiotherapist guidance within 48 to 72 hours of surgery.',
+      'Confident, safe staircase navigation using crutches and banister rail prior to hospital discharge.',
+      'Radiographic confirmation of stable component alignment and progressive trabecular bone osseointegration at the 6 to 12-week review.',
+      'Transition to unassisted walking without crutches or sticks by 3 to 4 months for the majority of patients with stable reconstructions.'
+    ],
+    faqs: [
+      {
+        question: 'What are the earliest warning signs that a hip replacement may be failing or loose?',
+        answer: 'The most common early symptom of a failing or loose hip replacement is pain—characteristically deep groin pain, buttock aching, or anterior thigh pain that is aggravated by standing up from a chair (start-up pain) or walking. Other warning signs include a progressive limp, feeling that the leg is shortening, a sensation that the hip is unstable or slipping out of place, or mechanical clicking, grinding, or squeaking during joint movement. If you experience new or worsening pain in a previously comfortable hip replacement, a prompt specialist evaluation with up-to-date radiographs is recommended.'
+      },
+      {
+        question: 'What is the difference between aseptic loosening and an infected hip replacement?',
+        answer: 'Aseptic loosening refers to the mechanical detachment or failure of fixation between the implant and host bone without any bacterial infection, typically caused by microscopic wear particles from the bearing surface stimulating an inflammatory response (osteolysis) that dissolves bone over years. In contrast, septic loosening (periprosthetic joint infection or PJI) is caused by bacteria colonising the implant surface and forming a protective biofilm. Distinguishing between the two is vital: aseptic loosening is treated with single-stage revision reconstruction, whereas infection requires specialised multidisciplinary antibiotic therapy and often a staged surgical approach.'
+      },
+      {
+        question: 'Can just the plastic liner or ball be changed without removing the whole hip replacement?',
+        answer: 'Yes, in carefully selected cases where the metal acetabular cup and femoral stem remain solidly fixed into healthy bone and are positioned in correct anatomical orientation, an isolated modular bearing exchange can be performed. In this procedure, only the worn polyethylene liner and the modular femoral head are removed and replaced with a modern highly cross-linked polyethylene liner and new ceramic head. This significantly reduces surgical trauma, preserves host bone stock, and allows a faster post-operative recovery than full component revision.'
+      },
+      {
+        question: 'How long does revision hip replacement surgery take, and how long is the hospital stay?',
+        answer: 'Revision hip surgery typically takes between 2 and 4 hours, depending on whether one or both components require revision, the difficulty of extracting old components, and whether bone grafting or metal augments are required. Following surgery, patients typically stay in hospital for 2 to 4 nights at Nuffield Health Brentwood or Spire Hartswood Hospital, allowing the multidisciplinary clinical team to manage discomfort, oversee early physiotherapy mobilisation with crutches, and ensure safe independence before discharge home.'
+      },
+      {
+        question: 'How does Mr Shankar investigate a painful hip replacement before recommending surgery?',
+        answer: 'Mr Shankar follows a rigorous, systematic diagnostic pathway. This begins with a detailed surgical history and comprehensive clinical examination of your gait, hip mobility, and spine. Investigations include specialized low-dose weight-bearing radiographs of the pelvis and hip to look for radiolucent loosening lines or component migration, blood tests (ESR and C-reactive protein) to rule out occult infection, and high-resolution MARS CT (Metal Artefact Reduction Software) scanning to assess component orientation and 3D bone loss. If infection remains a consideration, sterile image-guided joint aspiration is performed to analyse synovial fluid.'
+      },
+      {
+        question: 'Can revision hip surgery be performed at Nuffield Health Brentwood or Spire Hartswood Hospital?',
+        answer: 'Yes. Mr Shankar performs selected revision hip replacement procedures suitable for the facilities and perioperative support available at private hospitals—including procedures for implant loosening, wear, instability or other mechanical problems—at both Nuffield Health Brentwood Hospital and Spire Hartswood Hospital, following individual clinical assessment and appropriate pre-operative investigations. Mr Shankar also undertakes complex revision hip replacement surgery within his NHS hospital practice at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT), where complex revision cases are managed within an appropriate NHS surgical setting with access to specialist multidisciplinary assessment, complex reconstruction resources and dedicated perioperative support. The decision regarding the appropriate hospital and surgical pathway depends on the complexity of the revision, patient comorbidities, anticipated reconstructive requirements and available hospital resources.'
+      },
+      {
+        question: 'What are the realistic recovery and mobility expectations after revision hip replacement?',
+        answer: 'The primary goal of revision hip surgery is the relief of disabling mechanical pain and the restoration of a stable, functional joint for everyday walking. While recovery is more gradual than after a primary hip replacement, the vast majority of patients achieve substantial pain relief and return to independent mobility, driving, and low-impact leisure activities. When major bone reconstruction or augments are used, patients typically use crutches for 6 to 12 weeks to protect bone healing, with full strength and stamina continuing to improve over 12 months.'
+      },
+      {
+        question: 'How do insured and self-funding patients arrange a revision hip consultation?',
+        answer: 'Consultations can be scheduled directly at Nuffield Health Brentwood Hospital or Spire Hartswood Hospital by contacting Mr Shankar\'s medical secretary (Remya Rexlin on 07587 765888 or 02035230621) or through the hospital booking teams. For self-funding patients, consultation fees are transparent (£250 initial assessment, £200 follow-up), and fixed-price self-pay surgery packages are available following clinical appraisal. Insured patients (Bupa, AXA Health, Aviva, Vitality, WPA) should obtain a GP referral letter and pre-authorisation code from their insurer prior to their appointment.'
+      }
+    ],
+    relatedLinks: [
+      { title: 'Total Hip Replacement', href: '/hip-replacement', description: 'Primary and complex total hip arthroplasty.' },
+      { title: 'Robotic Hip Replacement', href: '/robotic-hip-replacement', description: 'Stryker MAKO robotic-assisted hip arthroplasty with 3D CT virtual templating.' },
+      { title: 'Minimally Invasive Hip Replacement', href: '/minimally-invasive-hip-replacement', description: 'Muscle-sparing Rottinger and Direct Anterior approaches.' },
+      { title: 'Essex Hip & Knee Surgeon', href: '/essex-hip-knee-surgeon', description: 'Consultant orthopaedic services across Brentwood and Essex.' },
+      { title: 'London Hip & Knee Surgeon', href: '/london-hip-knee-surgeon', description: 'Consultant care for London and North East London patients.' },
+      { title: 'Nuffield Health Brentwood Hospital', href: '/nuffield-brentwood-hospital', description: 'Private hospital practice on Shenfield Road, Brentwood.' },
+      { title: 'Spire Hartswood Hospital', href: '/spire-hartswood-hospital', description: 'Private hospital practice on Eagle Way, Great Warley, Brentwood.' },
+      { title: 'About Mr Shivakumar Shankar', href: '/about-mr-shivakumar-shankar', description: 'Consultant biography, fellowships, qualifications, and NHS leadership.' }
+    ]
   }
 };
+

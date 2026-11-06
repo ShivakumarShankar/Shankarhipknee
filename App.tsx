@@ -174,6 +174,11 @@ const PAGE_METADATA: Record<string, { title: string; desc: string; canonical: st
     desc: 'Specialist minimally invasive & muscle-sparing hip replacement in Essex and London with Mr Shivakumar Shankar. Rottinger and direct anterior approaches in Brentwood & Romford.',
     canonical: 'https://www.shivakumarshankar.co.uk/minimally-invasive-hip-replacement'
   },
+  'revision-hip-replacement': {
+    title: 'Revision Hip Replacement Essex & London | Mr Shivakumar Shankar',
+    desc: 'Specialist revision hip surgeon in Essex & London. Mr Shivakumar Shankar undertakes revision hip replacement in Brentwood and complex NHS revision surgery at BHRUT.',
+    canonical: 'https://www.shivakumarshankar.co.uk/revision-hip-replacement'
+  },
   'knee-replacement': {
     title: 'Total Knee Replacement London & Essex | Mr Shivakumar Shankar',
     desc: 'Consultant-led total knee replacement in London & Essex with Mr Shivakumar Shankar. Conventional, computer-navigated & Mako robotic knee surgery in Brentwood & Romford.',
@@ -260,13 +265,13 @@ const PAGE_METADATA: Record<string, { title: string; desc: string; canonical: st
     canonical: 'https://www.shivakumarshankar.co.uk/hospitals-locations'
   },
   'london-hip-knee-surgeon': {
-    title: 'Hip & Knee Surgeon in London & North East London | Mr Shankar',
-    desc: 'Consultant orthopaedic hip and knee surgery for London and North East London patients with substantive NHS and private hospital options.',
+    title: 'London & North East London Hip, Knee & Revision Surgeon | Mr Shankar',
+    desc: 'Consultant orthopaedic hip, knee and revision hip replacement surgeon for London and North East London patients. NHS Clinical Lead at BHRUT and private Brentwood clinics.',
     canonical: 'https://www.shivakumarshankar.co.uk/london-hip-knee-surgeon'
   },
   'essex-hip-knee-surgeon': {
-    title: 'Hip & Knee Surgeon in Essex | Mr Shivakumar Shankar',
-    desc: 'Leading hip and knee arthroplasty specialist in Brentwood and Essex providing robotic-assisted surgery and joint preservation.',
+    title: 'Essex Hip, Knee & Revision Hip Surgeon | Mr Shivakumar Shankar',
+    desc: 'Consultant orthopaedic hip, knee and revision hip surgeon in Essex. Specialist primary and revision joint replacement at Nuffield and Spire Hospitals in Brentwood.',
     canonical: 'https://www.shivakumarshankar.co.uk/essex-hip-knee-surgeon'
   },
   'spire-hartswood-hospital': {
@@ -281,7 +286,7 @@ const PAGE_METADATA: Record<string, { title: string; desc: string; canonical: st
   },
   'queens-hospital-romford': {
     title: 'Queen\'s Hospital Romford (BHRUT NHS Trust) | Mr Shivakumar Shankar',
-    desc: 'NHS Clinical Lead for Orthopaedics at Barking, Havering and Redbridge University Hospitals NHS Trust, operating at Queen\'s Hospital Romford.',
+    desc: 'NHS Consultant Orthopaedic Surgeon at Barking, Havering and Redbridge University Hospitals NHS Trust, undertaking joint replacement and complex revision hip surgery at Queen\'s Hospital Romford.',
     canonical: 'https://www.shivakumarshankar.co.uk/queens-hospital-romford'
   },
   'king-george-hospital-goodmayes': {

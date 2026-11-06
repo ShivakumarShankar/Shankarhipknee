@@ -483,6 +483,9 @@ const renderAboutPageContent = () => `
           <p>
             In addition to major joint replacement surgery, Mr Shankar provides comprehensive assessment for sports knee injuries, persistent groin discomfort, patellofemoral pain and early joint degeneration. Where surgery is not immediately indicated, he champions conservative management strategies including targeted physiotherapy protocols, weight optimisation, image-guided corticosteroid or local anaesthetic injections and autologous Platelet-Rich Plasma (PRP) therapy.
           </p>
+          <p>
+            <strong>Revision Hip Surgery — Private and NHS Scope of Practice:</strong> Mr Shankar performs revision hip replacement surgery across both private and NHS hospital settings. Selected revision hip replacement procedures suitable for the facilities and perioperative support available at private hospitals are undertaken by Mr Shankar at Nuffield Health Brentwood Hospital and Spire Hartswood Hospital following individual clinical assessment and pre-operative investigations (for implant loosening, wear, instability or other mechanical problems). Mr Shankar also undertakes complex revision hip replacement surgery and complex hip reconstruction within his NHS hospital practice at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT), where complex cases have access to specialist multidisciplinary assessment, complex reconstruction resources and dedicated perioperative support.
+          </p>
         </div>
       </section>
 
@@ -500,7 +503,7 @@ const renderAboutPageContent = () => `
             <h3 class="text-base font-bold text-slate-900 mb-1">Lower Limb Arthroplasty Fellowship</h3>
             <p class="text-xs font-semibold text-slate-600 mb-2">Royal National Orthopaedic Hospital (RNOH), Stanmore &amp; St Albans</p>
             <p class="text-xs text-slate-700 leading-relaxed">
-              Advanced fellowship focusing on primary and complex revision hip and knee arthroplasty, severe bone loss reconstruction, custom implant planning and biomechanical limb alignment under internationally eminent joint reconstruction surgeons.
+              Advanced fellowship focusing on primary and complex revision hip and knee arthroplasty, severe bone loss reconstruction, custom implant planning and biomechanical limb alignment under internationally eminent joint reconstruction surgeons (<a href="/revision-hip-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">learn more about revision hip replacement</a>).
             </p>
           </div>
           <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
@@ -714,6 +717,10 @@ const renderAboutPageContent = () => `
           <div class="p-5 rounded-xl bg-slate-50 border border-slate-200">
             <h3 class="text-sm sm:text-base font-bold text-slate-900 mb-2">How can I book a private consultation, and is health insurance accepted?</h3>
             <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">Private appointments can be booked directly online via Spire Healthcare or Nuffield Health booking portals, or by contacting Mr Shankar's private medical secretary on 07587 765888 or 020 3523 0621 (email: hip.knee_specialist@yahoo.com). Mr Shankar is fee-assured and recognised by all major UK private medical insurers including Bupa, AXA Health, Aviva, Vitality, WPA, and Cigna. Self-funding patients are also welcomed, with transparent consultation fees (£250 initial consultation, £200 follow-up).</p>
+          </div>
+          <div class="p-5 rounded-xl bg-slate-50 border border-slate-200">
+            <h3 class="text-sm sm:text-base font-bold text-slate-900 mb-2">Does Mr Shankar perform revision hip replacement surgery?</h3>
+            <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">Yes. Having completed subspecialty fellowship training in complex joint reconstruction at the Royal National Orthopaedic Hospital (RNOH), Stanmore, Mr Shankar performs revision hip replacement surgery across both private and NHS hospital settings. Selected revision hip procedures suitable for the facilities and perioperative support available at private hospitals are undertaken by Mr Shankar at Nuffield Health Brentwood Hospital and Spire Hartswood Hospital following individual clinical assessment (including procedures for implant loosening, wear, instability or other mechanical problems). Mr Shankar also undertakes complex revision hip replacement surgery and complex hip reconstruction within his NHS hospital practice at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT), where complex cases have access to specialist multidisciplinary assessment, complex reconstruction resources and dedicated perioperative support.</p>
           </div>
         </div>
       </section>
@@ -1275,6 +1282,8 @@ try {
   }
 } catch (e) {
   console.error('Warning: could not parse media items for static rendering', e);
+}
+
 // ============================================================================
 // PHASE 2B STAGE 5: BRENTWOOD PRIVATE HOSPITALS STRUCTURED DATA & RENDERERS
 // ============================================================================
@@ -1282,7 +1291,7 @@ try {
 const NUFFIELD_BRENTWOOD_FAQS = [
   {
     question: "What joint replacement procedures does Mr Shankar perform at Nuffield Health Brentwood Hospital?",
-    answer: "At Nuffield Health Brentwood Hospital, Mr Shivakumar Shankar performs Stryker MAKO robotic-arm assisted total hip replacement, MAKO robotic-assisted total knee replacement, and MAKO robotic-assisted partial (unicompartmental) knee replacement. He also provides conventional hip and knee arthroplasty, muscle-sparing hip surgery (direct anterior and Rottinger approaches), diagnostic and therapeutic image-guided joint injections, and keyhole knee arthroscopy. Nuffield Brentwood serves as Mr Shankar's primary private surgical base in Essex for robotic-arm assisted joint reconstruction."
+    answer: "At Nuffield Health Brentwood Hospital, Mr Shivakumar Shankar performs Stryker MAKO robotic-arm assisted total hip replacement, MAKO robotic-assisted total knee replacement, and MAKO robotic-assisted partial (unicompartmental) knee replacement. He also provides selected revision hip replacement procedures suitable for private hospital facilities (for implant loosening, wear, instability or mechanical issues following clinical assessment), conventional hip and knee arthroplasty, muscle-sparing hip surgery (direct anterior and Rottinger approaches), diagnostic and therapeutic image-guided joint injections, and keyhole knee arthroscopy. Nuffield Brentwood serves as Mr Shankar's primary private surgical base in Essex for robotic-arm assisted joint reconstruction."
   },
   {
     question: "Why is Nuffield Health Brentwood Hospital the designated centre for MAKO robotic surgery?",
@@ -1309,7 +1318,7 @@ const NUFFIELD_BRENTWOOD_FAQS = [
 const SPIRE_HARTSWOOD_FAQS = [
   {
     question: "What procedures does Mr Shankar perform at Spire Hartswood Hospital?",
-    answer: "At Spire Hartswood Hospital, Mr Shivakumar Shankar provides outpatient orthopaedic consultations, computer-navigated total knee replacement using optical infrared tracking, conventional total hip replacement, conventional total knee replacement, and unicompartmental partial knee replacement. He also performs day-case knee arthroscopy for meniscal tears and mechanical joint symptoms, as well as fluoroscopic and ultrasound-guided hip and knee joint injections for targeted pain management and diagnostic assessment."
+    answer: "At Spire Hartswood Hospital, Mr Shivakumar Shankar provides outpatient orthopaedic consultations, selected revision hip replacement procedures suitable for private hospital facilities (including procedures for implant loosening, wear, instability or mechanical issues following individual clinical assessment), computer-navigated total knee replacement using optical infrared tracking, conventional total hip replacement, conventional total knee replacement, and unicompartmental partial knee replacement. He also performs day-case knee arthroscopy for meniscal tears and mechanical joint symptoms, as well as fluoroscopic and ultrasound-guided hip and knee joint injections for targeted pain management and diagnostic assessment."
   },
   {
     question: "Is MAKO robotic surgery available at Spire Hartswood Hospital?",
@@ -1351,6 +1360,7 @@ const NUFFIELD_BRENTWOOD_HOSPITAL_DATA = {
     "MAKO Robotic-Assisted Total Hip Replacement",
     "MAKO Robotic-Assisted Total Knee Replacement",
     "MAKO Robotic-Assisted Partial Knee Replacement",
+    "Selected Revision Hip Replacement Surgery",
     "Conventional Total Hip Replacement",
     "Conventional Total Knee Replacement",
     "Muscle-Sparing Hip Surgery",
@@ -1376,6 +1386,7 @@ const SPIRE_HARTSWOOD_HOSPITAL_DATA = {
   },
   availableServices: [
     "Optical Computer-Navigated Total Knee Replacement",
+    "Selected Revision Hip Replacement Surgery",
     "Conventional Total Hip Replacement",
     "Conventional Total Knee Replacement",
     "Unicompartmental Partial Knee Replacement",
@@ -1716,6 +1727,19 @@ const renderNuffieldBrentwoodContent = () => `
             Explore Knee Joint Preservation &rarr;
           </a>
         </div>
+
+        <div class="p-5 rounded-xl border border-slate-200 bg-slate-50/50 space-y-2">
+          <h3 class="text-base font-bold text-slate-900 flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-purple-700"></span>
+            Selected Revision Hip Replacement Surgery
+          </h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Revision hip procedures suitable for the facilities and perioperative support available at private hospitals are undertaken by Mr Shankar following individual clinical assessment and appropriate pre-operative investigations. These may include selected revision hip replacement procedures for implant loosening, wear, instability or other mechanical problems, depending on the complexity of the case and suitability for the hospital.
+          </p>
+          <a href="/revision-hip-replacement" class="text-xs font-bold text-[#1B4965] hover:underline inline-block pt-1">
+            Explore Revision Hip Surgery &rarr;
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -1940,6 +1964,9 @@ const renderNuffieldBrentwoodContent = () => `
       <a href="/partial-knee-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
         Partial Knee Replacement &rarr;
       </a>
+      <a href="/revision-hip-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        Revision Hip Replacement &rarr;
+      </a>
       <a href="/hip-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
         Total Hip Replacement &rarr;
       </a>
@@ -2137,6 +2164,19 @@ const renderSpireHartswoodContent = () => `
           </p>
           <a href="/hip-replacement" class="text-xs font-bold text-[#1B4965] hover:underline inline-block pt-1">
             Explore Joint Injections &rarr;
+          </a>
+        </div>
+
+        <div class="p-5 rounded-xl border border-slate-200 bg-slate-50/50 space-y-2">
+          <h3 class="text-base font-bold text-slate-900 flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-purple-700"></span>
+            Selected Revision Hip Replacement Surgery
+          </h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Revision hip procedures suitable for the facilities and perioperative support available at private hospitals are undertaken by Mr Shankar following individual clinical assessment and appropriate pre-operative investigations. These include selected revision hip replacement procedures for implant loosening, wear, instability or other mechanical problems, depending on the complexity of the case and suitability for the hospital.
+          </p>
+          <a href="/revision-hip-replacement" class="text-xs font-bold text-[#1B4965] hover:underline inline-block pt-1">
+            Explore Revision Hip Surgery &rarr;
           </a>
         </div>
       </div>
@@ -2358,6 +2398,9 @@ const renderSpireHartswoodContent = () => `
       <a href="/computer-assisted-knee-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
         Computer-Navigated Knee &rarr;
       </a>
+      <a href="/revision-hip-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        Revision Hip Replacement &rarr;
+      </a>
       <a href="/hip-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
         Total Hip Replacement &rarr;
       </a>
@@ -2378,6 +2421,1018 @@ const renderSpireHartswoodContent = () => `
       </a>
       <a href="/book-consultation" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-[#1B4965] border border-slate-200 transition-colors">
         Book Private Consultation &rarr;
+      </a>
+    </div>
+  </section>
+`;
+
+// ============================================================================
+// PHASE 2B STAGE 6: ESSEX & LONDON HIP, KNEE & REVISION SURGEON DATA & RENDERERS
+// ============================================================================
+
+const ESSEX_FAQS = [
+  {
+    question: "Where does Mr Shankar provide private hip, knee, and revision hip consultations in Essex?",
+    answer: "Mr Shivakumar Shankar conducts private outpatient consultations and surgery at two leading private hospitals in Brentwood, Essex: Nuffield Health Brentwood Hospital on Shenfield Road (CM15 8EH) and Spire Hartswood Hospital on Eagle Way in Great Warley (CM13 3LE). Both hospitals offer on-site advanced diagnostic imaging, laminar airflow theatres, dedicated inpatient physiotherapy, and comfortable en-suite private rooms. Both locations are easily accessible from Brentwood, Shenfield, Billericay, Romford, Upminster, Chelmsford, and throughout Essex."
+  },
+  {
+    question: "What is revision hip replacement, and when is it indicated?",
+    answer: "Revision total hip replacement is a specialised surgical procedure to remove and replace one or more components of a previously implanted artificial hip that has worn out, become loose, dislocated, or developed complications over time. Common indications include aseptic loosening (breakdown of implant fixation without infection), polyethylene bearing wear and osteolysis (bone loss around the prosthesis), recurrent hip instability or dislocation, periprosthetic fracture following a fall, or persistent joint pain and stiffness requiring comprehensive tertiary assessment."
+  },
+  {
+    question: "How is a painful or loose previous hip replacement evaluated in Essex?",
+    answer: "Mr Shankar carries out a rigorous, systematic diagnostic evaluation for patients with painful or failing hip replacements. This begins with a detailed surgical history and comprehensive clinical gait and abductor examination. Investigations include specialized weight-bearing radiographs of the pelvis and hip, blood inflammatory markers (ESR and C-reactive protein) to screen for occult infection, and high-resolution CT scanning with Metal Artefact Reduction Software (MARS) to accurately quantify bone loss and component orientation. Where infection is suspected, image-guided synovial fluid aspiration is performed under sterile conditions."
+  },
+  {
+    question: "What is the difference between robotic surgery at Nuffield Brentwood and computer navigation at Spire Hartswood?",
+    answer: "Mr Shankar offers distinct technological capabilities across his Essex private hospital locations: At Nuffield Health Brentwood Hospital, he provides Stryker MAKO robotic-arm assisted total hip, total knee, and partial knee replacements utilizing patient-specific 3D CT pre-operative virtual planning and stereotactic haptic guidance. At Spire Hartswood Hospital, he provides optical computer-navigated total knee replacement using intra-operative infrared tracking without pre-operative CT scans. MAKO robotic surgery is not available at Spire Hartswood; private patients seeking robotic joint replacement consult with Mr Shankar at Nuffield Brentwood."
+  },
+  {
+    question: "Do patients from Essex need a GP referral for a private consultation?",
+    answer: "For self-funding patients paying for their own consultations or surgery packages, a GP referral is welcomed but not strictly required—appointments can be arranged directly with Mr Shankar's medical secretary or via hospital online booking portals. For patients utilizing private medical insurance (such as Bupa, AXA Health, Aviva, Vitality, or WPA), insurance providers generally require a formal GP referral letter prior to issuing pre-authorisation for outpatient appointments and diagnostic scans."
+  },
+  {
+    question: "What are the recovery and rehabilitation expectations following revision hip surgery?",
+    answer: "Revision hip replacement is inherently more complex than primary hip arthroplasty, and recovery timelines depend heavily on the extent of reconstruction, residual bone quality, and whether bone grafting or structural augments were required. While early mobilising with inpatient physiotherapists begins within 24 hours of surgery, patients often use crutches or walking aids for 6 to 12 weeks to protect implant osseointegration. A bespoke, structured rehabilitation plan is established to rebuild abductor muscle strength, joint mobility, and walking endurance safely."
+  }
+];
+
+const LONDON_FAQS = [
+  {
+    question: "How can patients from London and North East London access Mr Shankar's orthopaedic services?",
+    answer: "Patients from London and North East London can access Mr Shankar through two established pathways: NHS patients can be referred by their GP via the NHS e-Referral Service (e-RS) to Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT), where Mr Shankar consults and operates at Queen's Hospital in Romford and King George Hospital in Goodmayes. Private patients from London can schedule fast-track outpatient consultations and surgery at Mr Shankar's private hospital locations in Brentwood, Essex (Nuffield Health Brentwood and Spire Hartswood), easily reached via the Elizabeth Line."
+  },
+  {
+    question: "Where does Mr Shankar hold private consultations for London patients?",
+    answer: "Mr Shankar's private outpatient clinics and surgical lists are held at Nuffield Health Brentwood Hospital (Shenfield Road, CM15 8EH) and Spire Hartswood Hospital (Eagle Way, CM13 3LE) in Brentwood, Essex. Rather than operating out of central London consulting rooms, his practice is centred in Brentwood, providing London patients with high-specification laminar airflow surgical facilities, state-of-the-art robotic and navigated technologies, free on-site parking, and rapid transit from central London stations via the Elizabeth Line."
+  },
+  {
+    question: "What is Mr Shankar's experience and NHS leadership background in North East London?",
+    answer: "Mr Shankar has served as a substantive NHS Consultant in Trauma and Orthopaedics at BHRUT since 2017. He has held senior departmental clinical leadership appointments, including Interim & Acting Clinical Lead for Trauma and Orthopaedics, Clinical Director for Trauma and Orthopaedics, and Clinical Lead for Femur Fracture Management. He has led regional elective recovery sprints (including the 'Bones R Us' and HULK-10 initiatives), personally performing high-volume joint replacements and delivering award-winning emergency and elective orthopaedic care for London and Essex communities."
+  },
+  {
+    question: "How are patients with painful or failing hip replacements investigated and treated?",
+    answer: "Drawing on his advanced subspecialty fellowship training at the Royal National Orthopaedic Hospital (RNOH), Stanmore—the UK's premier tertiary orthopaedic centre—Mr Shankar provides comprehensive diagnostic investigation for problematic hip replacements. Patients undergo detailed clinical evaluation, serological inflammatory markers (ESR/CRP), specialized low-dose radiographs, and MARS CT imaging. Depending on the underlying cause (aseptic loosening, polyethylene wear, instability, or bone loss), management ranges from targeted non-surgical measures to modular component exchange or full acetabular and femoral revision reconstruction."
+  },
+  {
+    question: "How do London patients travel to Mr Shankar's private hospitals in Brentwood?",
+    answer: "Both Brentwood private hospitals offer straightforward travel from London. Via rail, Greater Anglia fast trains reach Shenfield from London Liverpool Street in approximately 23 to 25 minutes, while direct Elizabeth Line services connect central London stations (Paddington, Bond Street, Farringdon, Liverpool Street, Whitechapel, and Stratford) directly to Brentwood and Shenfield stations in approximately 35 to 45 minutes, followed by a brief 5-minute taxi to Nuffield Brentwood or Spire Hartswood. By road, both hospitals are situated just off the M25 (Junction 28 and Junction 29) and the A12, featuring generous, complimentary on-site parking."
+  },
+  {
+    question: "What are the differences between NHS referrals and private consultations with Mr Shankar?",
+    answer: "NHS care is provided within BHRUT at Queen's and King George Hospitals, funded by the NHS without direct patient charge, but subject to standard NHS waiting times and e-Referral booking coordination by your GP. Private care at Nuffield Brentwood or Spire Hartswood allows rapid appointment scheduling, consultant-delivered continuity with Mr Shankar personally performing every procedure and follow-up review, private en-suite bedrooms, and transparent self-pay or health insurance funding (Bupa, AXA, Aviva, Vitality, WPA)."
+  }
+];
+
+const generateRegionalPageJsonLd = ({
+  path: pagePath,
+  canonical,
+  title,
+  description,
+  regionName,
+  areaServed = [],
+  faqs = []
+}) => ({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.shivakumarshankar.co.uk/#website",
+      "url": "https://www.shivakumarshankar.co.uk/",
+      "name": "London and Essex Hip and Knee Surgeon",
+      "description": "Official medical practice website of Mr Shivakumar Shankar, Consultant Orthopaedic Hip & Knee Surgeon.",
+      "inLanguage": "en-GB",
+      "publisher": {
+        "@id": "https://www.shivakumarshankar.co.uk/#physician"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonical}#breadcrumbs`,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.shivakumarshankar.co.uk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Hospitals & Locations",
+          "item": "https://www.shivakumarshankar.co.uk/hospitals-locations"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": regionName,
+          "item": canonical
+        }
+      ]
+    },
+    getPhysicianEntity(STANDARD_HOSPITAL_LOCATIONS),
+    {
+      "@type": "MedicalWebPage",
+      "@id": `${canonical}#webpage`,
+      "url": canonical,
+      "name": title,
+      "description": description,
+      "inLanguage": "en-GB",
+      "isPartOf": {
+        "@id": "https://www.shivakumarshankar.co.uk/#website"
+      },
+      "breadcrumb": {
+        "@id": `${canonical}#breadcrumbs`
+      },
+      "primaryImageOfPage": {
+        "@id": "https://www.shivakumarshankar.co.uk/profile.jpg#primaryimage"
+      },
+      "about": [
+        { "@id": "https://www.shivakumarshankar.co.uk/#physician" }
+      ],
+      "mainEntity": {
+        "@id": "https://www.shivakumarshankar.co.uk/#physician"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${canonical}#faqpage`,
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.answer
+        }
+      }))
+    }
+  ]
+});
+
+const renderRegionalPageShell = (path, badge, h1, lead, contentHtml, regionName) => `
+  ${renderHeader(path)}
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 font-sans text-slate-800">
+    <nav aria-label="Breadcrumb" class="text-xs text-slate-500 mb-6 flex items-center gap-1.5 flex-wrap">
+      <a href="/" class="hover:underline hover:text-[#1B4965]">Home</a>
+      <span>&gt;</span>
+      <a href="/hospitals-locations" class="hover:underline hover:text-[#1B4965]">Hospitals &amp; Locations</a>
+      <span>&gt;</span>
+      <span class="font-bold text-slate-800">${regionName}</span>
+    </nav>
+    <section class="mb-10">
+      <span class="inline-block px-3.5 py-1 rounded-full bg-[#EAF1F6] text-[#1B4965] text-xs font-bold uppercase tracking-wider mb-3.5 border border-slate-200">
+        ${badge}
+      </span>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+        ${h1}
+      </h1>
+      <p class="text-base sm:text-lg text-slate-600 mt-4 leading-relaxed max-w-4xl">
+        ${lead}
+      </p>
+    </section>
+    ${contentHtml}
+  </main>
+  ${renderFooter()}
+`;
+
+const renderEssexPageContent = () => `
+  <!-- QUICK CONTACT & LOCATIONS ACTION BAR -->
+  <div class="mb-10 p-6 bg-white rounded-2xl border border-slate-200 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+    <div>
+      <span class="text-xs uppercase font-extrabold text-[#1B4965] tracking-wider block mb-1">
+        Consultant Hip, Knee &amp; Revision Arthroplasty in Essex
+      </span>
+      <h2 class="text-xl font-black text-slate-900">
+        Private Consultations &amp; Surgery in Brentwood, Essex
+      </h2>
+      <p class="text-xs text-slate-600 mt-1 max-w-2xl leading-relaxed">
+        Mr Shankar consults privately at <strong>Nuffield Health Brentwood Hospital</strong> (Shenfield Road: 01277 695 695) and <strong>Spire Hartswood Hospital</strong> (Eagle Way: 01277 266 766). Practice Secretary (Remya Rexlin): <strong>07587 765888</strong>.
+      </p>
+    </div>
+    <div class="flex flex-wrap items-center gap-3 shrink-0">
+      <a
+        href="/book-consultation"
+        class="bg-[#E8A24C] hover:bg-[#D99136] text-white px-5 py-2.5 rounded-lg text-xs font-bold transition-all shadow-xs"
+      >
+        Book Private Consultation
+      </a>
+      <a
+        href="/contact"
+        class="bg-slate-100 hover:bg-slate-200 text-slate-800 px-5 py-2.5 rounded-lg text-xs font-bold transition-colors"
+      >
+        Contact Secretary
+      </a>
+    </div>
+  </div>
+
+  <!-- KEY CLINICAL METRICS GRID -->
+  <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
+    <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-2xs">
+      <div class="text-[11px] font-bold uppercase text-[#1B4965] tracking-wider mb-1">High-Volume Experience</div>
+      <div class="text-base font-black text-slate-900 mb-1">3,000+ Joint Surgeries</div>
+      <p class="text-xs text-slate-600 leading-relaxed">Extensive career arthroplasty caseload across primary total hip, knee, and complex revision reconstruction.</p>
+    </div>
+    <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-2xs">
+      <div class="text-[11px] font-bold uppercase text-emerald-700 tracking-wider mb-1">MAKO Robotic Arthroplasty</div>
+      <div class="text-base font-black text-slate-900 mb-1">100+ Robotic Series</div>
+      <p class="text-xs text-slate-600 leading-relaxed">Personal surgical series of over 100 MAKO robotic-assisted procedures at Nuffield Health Brentwood.</p>
+    </div>
+    <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-2xs">
+      <div class="text-[11px] font-bold uppercase text-[#1B4965] tracking-wider mb-1">Computer Navigation</div>
+      <div class="text-base font-black text-slate-900 mb-1">Spire Hartswood Centre</div>
+      <p class="text-xs text-slate-600 leading-relaxed">Optical infrared navigation for knee replacement avoiding intramedullary rods and CT radiation.</p>
+    </div>
+    <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-2xs">
+      <div class="text-[11px] font-bold uppercase text-purple-700 tracking-wider mb-1">Tertiary Hip Expertise</div>
+      <div class="text-base font-black text-slate-900 mb-1">Revision Hip Arthroplasty</div>
+      <p class="text-xs text-slate-600 leading-relaxed">Fellowship-trained at RNOH Stanmore for the investigation and reconstruction of failing hip replacements.</p>
+    </div>
+  </section>
+
+  <!-- 1. SPECIALIST PRACTICE IN ESSEX -->
+  <section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs mb-10">
+    <div class="max-w-4xl">
+      <span class="text-xs font-bold uppercase tracking-wider text-[#1B4965] bg-[#EAF1F6] px-3 py-1 rounded-full mb-3 inline-block">
+        Regional Clinical Practice
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4 tracking-tight">
+        Specialist Hip &amp; Knee Surgery for Patients Across Essex
+      </h2>
+      <p class="text-sm sm:text-base text-slate-700 leading-relaxed mb-4">
+        Mr Shivakumar Shankar provides consultant-delivered orthopaedic hip, knee, and revision hip care for patients throughout Essex. His private practice is based in Brentwood at Nuffield Health Brentwood Hospital on Shenfield Road and Spire Hartswood Hospital on Eagle Way in Great Warley. These locations provide rapid road and rail access for patients attending from Brentwood, Shenfield, Billericay, Romford, Upminster, Chelmsford, Basildon, Epping, and wider Essex communities.
+      </p>
+      <p class="text-sm sm:text-base text-slate-700 leading-relaxed mb-4">
+        Holding substantive NHS consultant appointments at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT)—operating at Queen's Hospital in Romford and King George Hospital in Goodmayes—Mr Shankar provides seasoned clinical acumen combined with advanced joint reconstruction technology. Whether assessing primary hip and knee osteoarthritis or conducting detailed investigations for patients with painful, failing, or unstable previous joint replacements, care is delivered with strict adherence to evidence-based practice and personalized patient focus.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-slate-100 text-xs text-slate-700">
+        <div class="p-3 bg-slate-50 rounded-lg">
+          <strong class="block text-slate-900 mb-0.5">GMC Specialist Registration</strong>
+          GMC Reference 6038414 &bull; Specialist Register in Trauma &amp; Orthopaedics since 2016.
+        </div>
+        <div class="p-3 bg-slate-50 rounded-lg">
+          <strong class="block text-slate-900 mb-0.5">Dual UK Fellowships</strong>
+          RNOH Stanmore (Lower Limb Arthroplasty &amp; Revision) and Golden Jubilee Glasgow (Robotics &amp; CAOS).
+        </div>
+        <div class="p-3 bg-slate-50 rounded-lg">
+          <strong class="block text-slate-900 mb-0.5">Advanced Surgical Diploma</strong>
+          Postgraduate Diploma in Principles of Computer and Robot-Assisted Orthopaedic Surgery.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. PRIMARY HIP REPLACEMENT IN ESSEX -->
+  <section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs mb-10">
+    <div class="max-w-4xl">
+      <span class="text-xs font-bold uppercase tracking-wider text-[#1B4965] bg-[#EAF1F6] px-3 py-1 rounded-full mb-3 inline-block">
+        Primary Hip Arthroplasty
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4 tracking-tight">
+        Primary Total Hip Replacement Surgery in Essex
+      </h2>
+      <p class="text-sm sm:text-base text-slate-700 leading-relaxed mb-4">
+        Hip replacement is one of the most successful surgical interventions in modern healthcare, relieving severe groin, buttock, and thigh pain caused by end-stage hip osteoarthritis, avascular necrosis, or inflammatory joint disease. Mr Shankar utilizes contemporary surgical approaches and modern implant biomaterials—such as ceramic articulation and highly cross-linked polyethylene bearings—engineered for exceptional durability and natural joint biomechanics.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 text-xs text-slate-700 mb-4">
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+          <strong class="text-slate-900 block text-sm">Muscle-Sparing Approaches</strong>
+          Trained in the direct anterior approach and the true muscle-sparing Rottinger anterolateral approach (CABPS Centre, Haguenau, France), working between natural muscle planes without detaching the key abductor tendons.
+        </div>
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+          <strong class="text-slate-900 block text-sm">MAKO Robotic-Assisted Hip Arthroplasty</strong>
+          Available at Nuffield Health Brentwood Hospital, combining pre-operative 3D CT virtual planning with stereotactic robotic haptic guidance for precise acetabular cup version, inclination, and leg length restoration.
+        </div>
+      </div>
+      <a href="/hip-replacement" class="text-xs font-bold text-[#1B4965] hover:underline">
+        Explore Total Hip Replacement Techniques &rarr;
+      </a>
+    </div>
+  </section>
+
+  <!-- 3. DEDICATED REVISION HIP REPLACEMENT SECTION -->
+  <section class="bg-white rounded-2xl p-6 sm:p-8 border-2 border-purple-200 shadow-xs mb-10">
+    <div class="max-w-4xl">
+      <span class="text-xs font-bold uppercase tracking-wider text-purple-800 bg-purple-50 px-3 py-1 rounded-full mb-3 inline-block border border-purple-200">
+        Specialist Revision Arthroplasty
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4 tracking-tight">
+        Revision Hip Replacement Surgery in Essex — Mr Shivakumar Shankar
+      </h2>
+      <p class="text-sm sm:text-base text-slate-700 leading-relaxed mb-4">
+        Revision total hip replacement is a complex surgical procedure that involves removing and replacing one or more components of a previously implanted artificial hip joint. While modern primary hip replacements routinely achieve 15- to 20-year survival rates exceeding 90% in UK National Joint Registry data, artificial joints can fail over time, experience mechanical wear, or develop complications that necessitate specialist revision surgery.
+      </p>
+      <p class="text-sm sm:text-base text-slate-700 leading-relaxed mb-4">
+        Trained at the world-renowned <strong>Royal National Orthopaedic Hospital (RNOH), Stanmore</strong>—the UK's premier tertiary orthopaedic centre for complex primary and revision joint arthroplasty—Mr Shivakumar Shankar provides comprehensive clinical evaluation, investigation, and revision surgical planning for patients across Essex presenting with problematic, painful, or failing previous hip replacements.
+      </p>
+
+      <div class="p-5 bg-purple-50/50 rounded-2xl border border-purple-200 mb-6 space-y-3 text-xs sm:text-sm text-slate-700">
+        <h3 class="text-sm sm:text-base font-bold text-slate-900">
+          Revision Hip Replacement — Scope of Practice Across Private and NHS Settings in Essex
+        </h3>
+        <p class="leading-relaxed">
+          Mr Shankar performs revision hip replacement surgery across both private and NHS hospital settings in Essex, ensuring patients receive care tailored to case complexity:
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
+          <div class="p-3.5 bg-white rounded-xl border border-purple-100 space-y-1">
+            <strong class="text-slate-900 block text-xs">Private Hospital Practice (Nuffield &amp; Spire Brentwood)</strong>
+            Revision hip procedures suitable for the facilities and perioperative support available at private hospitals are undertaken by Mr Shankar following individual clinical assessment and appropriate pre-operative investigations. These may include selected revision hip replacement procedures for implant loosening, wear, instability or other mechanical problems, depending on the complexity of the case and suitability for the hospital.
+          </div>
+          <div class="p-3.5 bg-white rounded-xl border border-purple-100 space-y-1">
+            <strong class="text-slate-900 block text-xs">NHS Hospital Practice (BHRUT)</strong>
+            Mr Shankar also undertakes complex revision hip replacement surgery and complex hip reconstruction within his NHS hospital practice at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT). Complex revision procedures are managed within the appropriate NHS surgical setting, with access to specialist multidisciplinary assessment, complex reconstruction resources and perioperative support as clinically required.
+          </div>
+        </div>
+        <p class="text-[11px] text-slate-500 italic pt-1">
+          The decision regarding the appropriate hospital and surgical pathway depends on the complexity of the revision, patient comorbidities, anticipated reconstructive requirements and available hospital resources.
+        </p>
+      </div>
+
+      <div class="space-y-6 pt-2">
+        <div>
+          <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-2">
+            Why Does a Hip Replacement Require Revision Surgery?
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 leading-relaxed mb-3">
+            A previously replaced hip may require revision for several identifiable mechanical, biological, or anatomical reasons:
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-700">
+            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+              <strong class="text-slate-900 block mb-1">Aseptic Loosening</strong>
+              Over years of repetitive mechanical loading, the biological or cement bond between the implant and bone can break down, causing the acetabular cup or femoral stem to loosen, shift position, and generate weight-bearing pain.
+            </div>
+            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+              <strong class="text-slate-900 block mb-1">Polyethylene Wear &amp; Osteolysis</strong>
+              Microscopic wear particles generated from older polyethylene liners trigger a macrophage immune response that resorbs surrounding bone (osteolysis), leading to progressive bone loss and implant instability.
+            </div>
+            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+              <strong class="text-slate-900 block mb-1">Instability &amp; Recurrent Dislocation</strong>
+              Implant malposition, soft-tissue laxity, abductor muscle deficiency, or component impingement can lead to the femoral head dislodging from the acetabular cup, requiring surgical stabilization.
+            </div>
+            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+              <strong class="text-slate-900 block mb-1">Periprosthetic Fracture</strong>
+              A fall or low-energy trauma can cause the bone around the femoral stem or acetabular component to fracture, necessitating internal fracture fixation and revision of loose implants.
+            </div>
+            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+              <strong class="text-slate-900 block mb-1">Suspected Prosthetic Joint Infection</strong>
+              Bacterial colonization of the prosthetic surfaces requires meticulous exclusion through serology and sterile joint aspiration before any mechanical revision is undertaken.
+            </div>
+            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+              <strong class="text-slate-900 block mb-1">Persistent Unexplained Pain</strong>
+              Detailed tertiary diagnostic workup to differentiate true prosthetic failure from referred lumbar spine pathology, psoas tendon impingement, or occult loosening.
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-2">
+            Assessment &amp; Investigation of the Problematic Hip Replacement
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 leading-relaxed mb-3">
+            Evaluating a painful hip replacement requires a structured, multi-modality diagnostic sequence:
+          </p>
+          <ul class="text-xs sm:text-sm text-slate-700 space-y-2 mb-4">
+            <li class="flex items-start gap-2">
+              <span class="text-purple-700 font-bold">&bull;</span>
+              <span><strong>Detailed Clinical History &amp; Gait Assessment:</strong> Identifying the precise onset, location (groin, buttock, or thigh), start-up pain upon standing, and checking abductor muscle strength (Trendelenburg sign).</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-purple-700 font-bold">&bull;</span>
+              <span><strong>Serological Inflammatory Markers:</strong> Routine blood testing including Erythrocyte Sedimentation Rate (ESR) and C-Reactive Protein (CRP) to screen for occult infection.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-purple-700 font-bold">&bull;</span>
+              <span><strong>Specialized Plain Radiographs:</strong> Comparing serial anteroposterior pelvis, shoot-through lateral hip, and Judet views to detect subtle component migration, radiolucent lines, or osteolytic cavitary bone loss.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-purple-700 font-bold">&bull;</span>
+              <span><strong>MARS Computed Tomography (CT):</strong> High-resolution CT scanning with Metal Artefact Reduction Software (MARS) to accurately map three-dimensional bone stock deficits and component rotation.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-purple-700 font-bold">&bull;</span>
+              <span><strong>Image-Guided Diagnostic Aspiration:</strong> Performed under sterile ultrasound or fluoroscopic control when infection cannot be definitively excluded, sending synovial fluid for white cell count, differential, and extended microbiological culture.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-2">
+            Surgical Reconstruction Options &amp; Managing Bone Loss
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 leading-relaxed mb-3">
+            Revision hip surgery is tailored to the specific failure mechanism and the extent of bone loss:
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-700">
+            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+              <strong class="text-slate-900 block mb-1">Isolated Component / Modular Exchange</strong>
+              When the well-fixed metal cup and stem remain securely osseointegrated, revision may be limited to exchanging a worn polyethylene liner and modular femoral head, minimizing operative trauma.
+            </div>
+            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+              <strong class="text-slate-900 block mb-1">Acetabular Cup Reconstruction</strong>
+              Loose acetabular components are removed and reconstructed using highly porous biological trabecular metal cups, multi-hole revision shells, structural titanium augments, or bone grafting to restore the anatomical hip centre of rotation.
+            </div>
+            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+              <strong class="text-slate-900 block mb-1">Femoral Stem Revision</strong>
+              Loose or fractured femoral stems are managed using modular or monobloc uncemented tapered fluted titanium revision stems that achieve distal scratch-fit diaphyseal fixation below the area of proximal bone loss.
+            </div>
+            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+              <strong class="text-slate-900 block mb-1">Careful Case Triaging &amp; Governance</strong>
+              Revision hip arthroplasty requires meticulous clinical selection. Complex two-stage reconstructions for multi-resistant infections or massive pelvic discontinuity are multidisciplinary cases triaged with dedicated tertiary orthopaedic input.
+            </div>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-purple-50 border border-purple-200 text-xs sm:text-sm text-purple-950 space-y-1.5">
+          <strong class="block text-sm">Risks, Complexity &amp; Recovery Expectations Following Revision Surgery</strong>
+          <p class="leading-relaxed">
+            Patients should be aware that revision total hip replacement is a substantially more demanding operation than a primary hip replacement. Because previous implants must be removed and scar tissue mobilized, surgery carries higher risks of bleeding, nerve irritation, fracture, and dislocation. Hospital stays and recovery timelines are typically longer, often requiring protected weight-bearing with crutches for 6 to 12 weeks to safeguard implant fixation and bone healing.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. TOTAL & PARTIAL KNEE SURGERY -->
+  <section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs mb-10">
+    <div class="max-w-4xl">
+      <span class="text-xs font-bold uppercase tracking-wider text-[#1B4965] bg-[#EAF1F6] px-3 py-1 rounded-full mb-3 inline-block">
+        Knee Arthroplasty
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4 tracking-tight">
+        Total &amp; Partial (Unicompartmental) Knee Replacement in Essex
+      </h2>
+      <p class="text-sm sm:text-base text-slate-700 leading-relaxed mb-4">
+        Mr Shankar offers a spectrum of knee preservation, resurfacing, and reconstruction options tailored to the exact pattern of osteoarthritis:
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 text-xs text-slate-700 mb-4">
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+          <strong class="text-slate-900 block text-sm">Total Knee Replacement</strong>
+          Conventional, computer-navigated, and MAKO robotic-assisted total knee arthroplasty designed to restore coronal mechanical alignment, relieve chronic weight-bearing pain, and correct severe bow-leg or knock-knee deformities.
+          <a href="/knee-replacement" class="text-xs font-bold text-[#1B4965] hover:underline block pt-1">
+            Explore Total Knee Surgery &rarr;
+          </a>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+          <strong class="text-slate-900 block text-sm">Partial (Unicompartmental) Knee Replacement</strong>
+          Targeted resurfacing of isolated medial or lateral compartment osteoarthritis, preserving the anterior and posterior cruciate ligaments (ACL and PCL) to deliver natural joint kinematics and accelerated functional recovery.
+          <a href="/partial-knee-replacement" class="text-xs font-bold text-[#1B4965] hover:underline block pt-1">
+            Explore Partial Knee Resurfacing &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. HOSPITAL TECHNOLOGY COMPARISON IN BRENTWOOD -->
+  <section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs mb-10">
+    <div class="max-w-4xl">
+      <span class="text-xs font-bold uppercase tracking-wider text-[#1B4965] bg-[#EAF1F6] px-3 py-1 rounded-full mb-3 inline-block">
+        Private Hospital Facilities
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4 tracking-tight">
+        Private Practice Hospitals &amp; Surgical Technology in Brentwood
+      </h2>
+      <p class="text-sm sm:text-base text-slate-700 leading-relaxed mb-6">
+        Mr Shankar consults and operates across two premier private hospitals in Brentwood, ensuring clear technology mapping for patients and GPs:
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="p-5 rounded-xl border border-slate-200 bg-slate-50/50 space-y-3">
+          <div class="flex justify-between items-center">
+            <span class="text-xs font-bold uppercase text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded border border-emerald-200">MAKO Robotic Centre</span>
+            <span class="text-xs text-slate-500 font-semibold">Shenfield Road</span>
+          </div>
+          <h3 class="text-base font-bold text-slate-900">Nuffield Health Brentwood Hospital</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Shenfield Road, Brentwood, Essex CM15 8EH. Tel: <strong>01277 695 695</strong> (Appointments: <strong>01277 886 737</strong>).
+          </p>
+          <ul class="text-xs text-slate-700 space-y-1">
+            <li>&bull; MAKO Robotic-assisted Total Hip, Total Knee &amp; Partial Knee surgery</li>
+            <li>&bull; On-site low-dose 3D CT scanner for pre-operative virtual modeling</li>
+            <li>&bull; Conventional joint replacement &amp; muscle-sparing approaches</li>
+            <li>&bull; 1 mile from Shenfield Station (Elizabeth Line); free on-site parking</li>
+          </ul>
+          <a href="/nuffield-brentwood-hospital" class="text-xs font-bold text-emerald-700 hover:underline block pt-1">
+            View Nuffield Health Brentwood Details &rarr;
+          </a>
+        </div>
+
+        <div class="p-5 rounded-xl border border-slate-200 bg-slate-50/50 space-y-3">
+          <div class="flex justify-between items-center">
+            <span class="text-xs font-bold uppercase text-[#1B4965] bg-[#EAF1F6] px-2.5 py-0.5 rounded border border-slate-200">Optical Navigation Centre</span>
+            <span class="text-xs text-slate-500 font-semibold">Eagle Way, Great Warley</span>
+          </div>
+          <h3 class="text-base font-bold text-slate-900">Spire Hartswood Hospital</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Eagle Way, Great Warley, Brentwood, Essex CM13 3LE. Tel: <strong>01277 266 766</strong> (Appointments: <strong>01277 266 777</strong>).
+          </p>
+          <ul class="text-xs text-slate-700 space-y-1">
+            <li>&bull; Optical infrared computer-navigated knee replacement</li>
+            <li>&bull; Avoids femoral intramedullary rods; requires no pre-operative CT scan</li>
+            <li>&bull; Conventional total hip replacement &amp; partial knee surgery</li>
+            <li>&bull; <em>Note: MAKO robotic surgery is not offered at Spire Hartswood</em></li>
+          </ul>
+          <a href="/spire-hartswood-hospital" class="text-xs font-bold text-[#1B4965] hover:underline block pt-1">
+            View Spire Hartswood Details &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. BOOKING PATHWAYS -->
+  <section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs mb-10">
+    <div class="max-w-4xl">
+      <span class="text-xs font-bold uppercase tracking-wider text-[#1B4965] bg-[#EAF1F6] px-3 py-1 rounded-full mb-3 inline-block">
+        Appointments &amp; Funding
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4 tracking-tight">
+        Private Consultations, Insured Care &amp; Fixed-Price Self-Funding
+      </h2>
+      <p class="text-sm sm:text-base text-slate-700 leading-relaxed mb-4">
+        Mr Shankar warmly welcomes both privately insured and self-funding patients across Essex:
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 text-xs text-slate-700 mb-6">
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+          <strong class="text-slate-900 block text-sm">Private Medical Insurance</strong>
+          Fee-assured with all major UK insurers: Bupa, AXA Health, Aviva, Vitality, WPA, Cigna, Healix, Police Mutual. Most insurers require a GP referral letter prior to issuing authorization codes.
+        </div>
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+          <strong class="text-slate-900 block text-sm">Self-Funding Fixed Prices</strong>
+          Initial Consultation: £250 &bull; Follow-Up Review: £200. Transparent fixed-price surgery packages bundle surgeon fee, anaesthetist fee, theatre time, implants, hospital stay, and physiotherapy.
+        </div>
+      </div>
+      <div class="p-4 rounded-xl bg-slate-100 border border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div>
+          <span class="text-xs font-bold text-slate-900 block">Contact Practice Secretary Remya Rexlin:</span>
+          <span class="text-xs text-slate-600">Telephone <strong>07587 765888</strong> / <strong>020 3523 0621</strong> &bull; Email: <strong>hip.knee_specialist@yahoo.com</strong></span>
+        </div>
+        <a
+          href="/book-consultation"
+          class="bg-[#1B4965] hover:bg-[#13364B] text-white px-4 py-2 rounded-lg text-xs font-bold shrink-0 transition-colors"
+        >
+          Book Consultation &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. FREQUENTLY ASKED QUESTIONS -->
+  <section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs mb-12">
+    <div class="max-w-4xl">
+      <span class="text-xs font-bold uppercase tracking-wider text-[#1B4965] bg-[#EAF1F6] px-3 py-1 rounded-full mb-3 inline-block">
+        Patient Guidance
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-6 tracking-tight">
+        Frequently Asked Questions: Hip, Knee &amp; Revision Surgery in Essex
+      </h2>
+
+      <div class="space-y-4">
+        ${ESSEX_FAQS.map((faq, i) => `
+          <div class="p-4 sm:p-5 rounded-xl border border-slate-200 bg-slate-50/50">
+            <h3 class="text-sm sm:text-base font-bold text-slate-900 mb-2">
+              ${faq.question}
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              ${faq.answer}
+            </p>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. CONTEXTUAL INTERNAL LINKS -->
+  <section class="p-6 sm:p-8 bg-slate-50 rounded-2xl border border-slate-200 mb-8">
+    <h3 class="text-lg font-black text-slate-900 mb-4">
+      Explore Related Procedures &amp; Practice Information
+    </h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+      <a href="/revision-hip-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        Revision Hip Replacement &rarr;
+      </a>
+      <a href="/hip-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        Total Hip Replacement &rarr;
+      </a>
+      <a href="/robotic-hip-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        Robotic Hip Surgery &rarr;
+      </a>
+      <a href="/knee-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        Total Knee Replacement &rarr;
+      </a>
+      <a href="/partial-knee-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        Partial Knee Resurfacing &rarr;
+      </a>
+      <a href="/computer-assisted-knee-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        Navigated Knee Surgery &rarr;
+      </a>
+      <a href="/nuffield-brentwood-hospital" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        Nuffield Brentwood Hospital &rarr;
+      </a>
+      <a href="/spire-hartswood-hospital" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        Spire Hartswood Hospital &rarr;
+      </a>
+      <a href="/about-mr-shivakumar-shankar" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        About Mr Shankar &rarr;
+      </a>
+    </div>
+  </section>
+`;
+
+const renderLondonPageContent = () => `
+  <!-- QUICK CONTACT & LOCATIONS ACTION BAR -->
+  <div class="mb-10 p-6 bg-white rounded-2xl border border-slate-200 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+    <div>
+      <span class="text-xs uppercase font-extrabold text-[#1B4965] tracking-wider block mb-1">
+        London &amp; North East London Orthopaedic Arthroplasty
+      </span>
+      <h2 class="text-xl font-black text-slate-900">
+        Substantive NHS Practice &amp; Private Consultations in Brentwood
+      </h2>
+      <p class="text-xs text-slate-600 mt-1 max-w-2xl leading-relaxed">
+        NHS Consultant at BHRUT (Queen's Hospital Romford &amp; King George Hospital Goodmayes). Private consultations and surgery at Nuffield Health Brentwood and Spire Hartswood in Brentwood, Essex, easily reached via the Elizabeth Line from Central London.
+      </p>
+    </div>
+    <div class="flex flex-wrap items-center gap-3 shrink-0">
+      <a
+        href="/book-consultation"
+        class="bg-[#E8A24C] hover:bg-[#D99136] text-white px-5 py-2.5 rounded-lg text-xs font-bold transition-all shadow-xs"
+      >
+        Book Private Consultation
+      </a>
+      <a
+        href="/contact"
+        class="bg-slate-100 hover:bg-slate-200 text-slate-800 px-5 py-2.5 rounded-lg text-xs font-bold transition-colors"
+      >
+        Contact Secretary
+      </a>
+    </div>
+  </div>
+
+  <!-- KEY CLINICAL METRICS GRID -->
+  <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
+    <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-2xs">
+      <div class="text-[11px] font-bold uppercase text-[#1B4965] tracking-wider mb-1">NHS Clinical Leadership</div>
+      <div class="text-base font-black text-slate-900 mb-1">BHRUT NHS Consultant</div>
+      <p class="text-xs text-slate-600 leading-relaxed">Substantive Consultant at Queen's and King George Hospitals; former Interim &amp; Acting Clinical Lead for T&amp;O.</p>
+    </div>
+    <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-2xs">
+      <div class="text-[11px] font-bold uppercase text-purple-700 tracking-wider mb-1">Revision Arthroplasty</div>
+      <div class="text-base font-black text-slate-900 mb-1">RNOH Stanmore Trained</div>
+      <p class="text-xs text-slate-600 leading-relaxed">Subspecialty fellowship training in primary and complex revision hip and knee surgery at the UK's leading orthopaedic centre.</p>
+    </div>
+    <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-2xs">
+      <div class="text-[11px] font-bold uppercase text-emerald-700 tracking-wider mb-1">Robotic &amp; Navigated Care</div>
+      <div class="text-base font-black text-slate-900 mb-1">CAOS Diploma &amp; MAKO</div>
+      <p class="text-xs text-slate-600 leading-relaxed">Fellowship-trained at Golden Jubilee Hospital, Glasgow; personal surgical series of 100+ MAKO robotic joint replacements.</p>
+    </div>
+    <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-2xs">
+      <div class="text-[11px] font-bold uppercase text-[#1B4965] tracking-wider mb-1">London Transport Link</div>
+      <div class="text-base font-black text-slate-900 mb-1">Rail &amp; Elizabeth Line</div>
+      <p class="text-xs text-slate-600 leading-relaxed">Direct rail from Liverpool Street (23–25 mins via Greater Anglia; 35–45 mins via Elizabeth Line) to Shenfield and Brentwood.</p>
+    </div>
+  </section>
+
+  <!-- 1. PROFESSIONAL BACKGROUND & NHS LEADERSHIP -->
+  <section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs mb-10">
+    <div class="max-w-4xl">
+      <span class="text-xs font-bold uppercase tracking-wider text-[#1B4965] bg-[#EAF1F6] px-3 py-1 rounded-full mb-3 inline-block">
+        North East London Leadership
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4 tracking-tight">
+        Consultant Practice &amp; NHS Clinical Leadership in North East London
+      </h2>
+      <p class="text-sm sm:text-base text-slate-700 leading-relaxed mb-4">
+        Mr Shivakumar Shankar is a Consultant Orthopaedic Surgeon specialising in hip and knee reconstruction, joint preservation, and complex revision surgery. Holding a substantive NHS Consultant appointment at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT) since 2017, Mr Shankar serves a diverse population across Havering, Redbridge, Barking &amp; Dagenham, and the wider North East London health economy.
+      </p>
+      <p class="text-sm sm:text-base text-slate-700 leading-relaxed mb-4">
+        Throughout his tenure at Queen's Hospital in Romford (a major acute regional trauma centre) and King George Hospital in Goodmayes (the high-volume elective orthopaedic surgical centre), Mr Shankar has held senior clinical leadership positions. He has served as Interim &amp; Acting Clinical Lead for Trauma and Orthopaedics, Clinical Director for Trauma and Orthopaedics, and Clinical Lead for Femur Fracture Management. He has spearheaded critical waiting-list reduction initiatives—including the landmark 'Bones R Us' and HULK-10 high-efficiency joint replacement programmes—expanding surgical access and maintaining exceptional surgical governance standards.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-slate-100 text-xs text-slate-700">
+        <div class="p-3 bg-slate-50 rounded-lg">
+          <strong class="block text-slate-900 mb-0.5">Queen's Hospital Romford</strong>
+          Regional acute trauma and joint reconstruction centre in Romford, Greater London (BHRUT).
+        </div>
+        <div class="p-3 bg-slate-50 rounded-lg">
+          <strong class="block text-slate-900 mb-0.5">King George Hospital Goodmayes</strong>
+          High-volume elective orthopaedic surgery hub with dedicated clean-air laminar flow theatres.
+        </div>
+        <div class="p-3 bg-slate-50 rounded-lg">
+          <strong class="block text-slate-900 mb-0.5">NHS Waiting-List Innovator</strong>
+          Led weekend super-clinics assessing 260 outpatients in 2 days and multi-theatre arthroplasty sprints.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. TERTIARY FELLOWSHIPS & CREDENTIALS -->
+  <section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs mb-10">
+    <div class="max-w-4xl">
+      <span class="text-xs font-bold uppercase tracking-wider text-[#1B4965] bg-[#EAF1F6] px-3 py-1 rounded-full mb-3 inline-block">
+        Surgical Credentials &amp; Training
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4 tracking-tight">
+        Tertiary Fellowship Training &amp; Specialist Arthroplasty Credentials
+      </h2>
+      <p class="text-sm sm:text-base text-slate-700 leading-relaxed mb-4">
+        Mr Shankar's surgical expertise is built upon formal higher surgical training within the London Deanery and subspecialist arthroplasty fellowships at premier UK and international institutions:
+      </p>
+      <div class="space-y-3 text-xs sm:text-sm text-slate-700 mb-4">
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+          <strong class="text-slate-900 block text-sm mb-1">Royal National Orthopaedic Hospital (RNOH), Stanmore</strong>
+          Completed a dedicated Lower Limb Arthroplasty and Revision Fellowship shared between RNOH Stanmore (the UK's pre-eminent tertiary orthopaedic specialist hospital) and St Albans Hospital, gaining extensive experience in primary and complex revision hip and knee reconstructions.
+        </div>
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+          <strong class="text-slate-900 block text-sm mb-1">Golden Jubilee National Hospital, Glasgow</strong>
+          Completed a specialist subspecialty fellowship in computer-assisted navigation and robotic hip and knee arthroplasty, earning the formal Postgraduate Diploma in Computer and Robot-Assisted Orthopaedic Surgery.
+        </div>
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+          <strong class="text-slate-900 block text-sm mb-1">Academic &amp; Postgraduate Qualifications</strong>
+          Master of Science (MSc) in Trauma &amp; Orthopaedics from University College London (UCL), Fellow of the Royal College of Surgeons of Edinburgh (FRCSEd Tr &amp; Orth), and Certificate of Completion of Training (CCT awarded October 2016).
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. DEDICATED REVISION HIP REPLACEMENT SECTION -->
+  <section class="bg-white rounded-2xl p-6 sm:p-8 border-2 border-purple-200 shadow-xs mb-10">
+    <div class="max-w-4xl">
+      <span class="text-xs font-bold uppercase tracking-wider text-purple-800 bg-purple-50 px-3 py-1 rounded-full mb-3 inline-block border border-purple-200">
+        Complex Hip Arthroplasty
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4 tracking-tight">
+        Revision Hip Replacement Surgeon for London and North East London Patients
+      </h2>
+      <p class="text-sm sm:text-base text-slate-700 leading-relaxed mb-4">
+        For patients living in London and North East London who are experiencing ongoing pain, instability, or mechanical issues with an existing artificial hip joint, specialized tertiary-level assessment is essential. A hip replacement that has performed reliably for many years can deteriorate, loose fixation, or suffer bone loss around the implants.
+      </p>
+      <p class="text-sm sm:text-base text-slate-700 leading-relaxed mb-4">
+        Mr Shivakumar Shankar provides thorough, systematic evaluation for patients with problematic previous hip replacements, utilizing the diagnostic protocols and surgical techniques honed during his subspecialist fellowship at RNOH Stanmore:
+      </p>
+
+      <div class="p-5 bg-purple-50/50 rounded-2xl border border-purple-200 mb-6 space-y-3 text-xs sm:text-sm text-slate-700">
+        <h3 class="text-sm sm:text-base font-bold text-slate-900">
+          Complex Revision Hip Surgery Across NHS and Private Practice for London Patients
+        </h3>
+        <p class="leading-relaxed">
+          Mr Shankar delivers revision hip replacement surgery across complementary practice settings, matching each patient to the appropriate clinical environment:
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
+          <div class="p-3.5 bg-white rounded-xl border border-purple-100 space-y-1">
+            <strong class="text-slate-900 block text-xs">Complex NHS Revision Surgery (BHRUT)</strong>
+            Mr Shankar undertakes complex revision hip replacement surgery and complex hip reconstruction within his NHS hospital practice at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT). Complex revision procedures are managed within the appropriate NHS surgical setting, with access to specialist multidisciplinary assessment, complex reconstruction resources and perioperative support as clinically required.
+          </div>
+          <div class="p-3.5 bg-white rounded-xl border border-purple-100 space-y-1">
+            <strong class="text-slate-900 block text-xs">Private Hospital Practice (Brentwood)</strong>
+            For private patients from London, selected revision hip replacement procedures suitable for the facilities and perioperative support available at private hospitals are undertaken by Mr Shankar at Nuffield Health Brentwood Hospital and Spire Hartswood Hospital following individual clinical assessment and appropriate pre-operative investigations.
+          </div>
+        </div>
+        <p class="text-[11px] text-slate-500 italic pt-1">
+          The decision regarding the appropriate hospital and surgical pathway depends on the complexity of the revision, patient comorbidities, anticipated reconstructive requirements and available hospital resources.
+        </p>
+      </div>
+
+      <div class="space-y-6 pt-2">
+        <div>
+          <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-2">
+            Investigating the Problematic Hip Replacement
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 leading-relaxed mb-3">
+            Patients often present with groin ache, pain on initiating walking, thigh discomfort, limb length discrepancy, or sudden giving way. Mr Shankar conducts a multi-step investigation:
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-700">
+            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+              <strong class="text-slate-900 block mb-1">Differentiating Pain Sources</strong>
+              Distinguishing prosthetic failure from referred lumbar spine nerve root irritation, trochanteric bursitis, or psoas tendon impingement against an anteriorly prominent cup.
+            </div>
+            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+              <strong class="text-slate-900 block mb-1">Aseptic Loosening &amp; Osteolysis</strong>
+              Serial radiographs and MARS CT to identify implant migration, fibrous tissue formation at bone-implant interfaces, and cavitary bone loss caused by polyethylene wear debris.
+            </div>
+            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+              <strong class="text-slate-900 block mb-1">Excluding Occult Infection</strong>
+              Mandatory inflammatory blood serology (ESR, CRP) and, where indicated, ultrasound-guided synovial fluid aspiration sent for extended microbiological culture before contemplating mechanical revision.
+            </div>
+            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+              <strong class="text-slate-900 block mb-1">Instability &amp; Dislocation Risk</strong>
+              Assessing acetabular cup version, inclination, femoral offset, and abductor muscle integrity in patients experiencing recurrent subluxation or dislocation episodes.
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-2">
+            Reconstructive Surgical Strategies
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 leading-relaxed mb-3">
+            Surgical revision is customized to the specific structural deficits:
+          </p>
+          <ul class="text-xs sm:text-sm text-slate-700 space-y-2 mb-4">
+            <li class="flex items-start gap-2">
+              <span class="text-purple-700 font-bold">&bull;</span>
+              <span><strong>Modular Liner &amp; Head Exchange:</strong> In patients with isolated bearing wear and well-integrated, undamaged metal components, replacing the polyethylene liner and modular head can restore stability without removing bone-fixed shells.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-purple-700 font-bold">&bull;</span>
+              <span><strong>Acetabular Revision:</strong> Removing loose cups and reconstructing acetabular bone stock using highly porous titanium or trabecular metal cups, screw augmentation, and modular structural wedges.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-purple-700 font-bold">&bull;</span>
+              <span><strong>Femoral Stem Revision:</strong> Removing loose or fractured femoral stems and achieving stable diaphyseal fixation using uncemented tapered fluted modular or monobloc titanium revision stems.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="p-4 rounded-xl bg-purple-50 border border-purple-200 text-xs sm:text-sm text-purple-950">
+          <strong>Clinical Note on Surgical Complexity:</strong> Revision hip surgery involves greater operative exposure, longer surgical durations, and tailored post-operative weight-bearing precautions compared to primary hip replacement. Cases requiring complex two-stage management for multi-organism infection or extensive pelvic reconstruction are managed with multidisciplinary team coordination.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. PRIMARY HIP & KNEE REPLACEMENT -->
+  <section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs mb-10">
+    <div class="max-w-4xl">
+      <span class="text-xs font-bold uppercase tracking-wider text-[#1B4965] bg-[#EAF1F6] px-3 py-1 rounded-full mb-3 inline-block">
+        Primary Arthroplasty
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4 tracking-tight">
+        Primary Hip &amp; Knee Surgery: Conventional, Navigated &amp; Robotic
+      </h2>
+      <p class="text-sm sm:text-base text-slate-700 leading-relaxed mb-4">
+        Mr Shankar provides comprehensive primary joint reconstruction for London patients:
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs text-slate-700 mb-4">
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+          <strong class="text-slate-900 block text-sm mb-1">Primary Total Hip Replacement</strong>
+          Muscle-sparing direct anterior and Rottinger approaches, durable ceramic bearings, and precision anatomical offset restoration.
+        </div>
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+          <strong class="text-slate-900 block text-sm mb-1">Total Knee Replacement</strong>
+          Conventional and computer-navigated arthroplasty achieving neutral coronal alignment and dynamic ligament balancing.
+        </div>
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+          <strong class="text-slate-900 block text-sm mb-1">Partial Knee Resurfacing</strong>
+          Medial or lateral unicompartmental knee replacement preserving native cruciate ligaments and native knee proprioception.
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-3 pt-2">
+        <a href="/hip-replacement" class="text-xs font-bold text-[#1B4965] hover:underline">Hip Replacement &rarr;</a>
+        <a href="/knee-replacement" class="text-xs font-bold text-[#1B4965] hover:underline">Knee Replacement &rarr;</a>
+        <a href="/partial-knee-replacement" class="text-xs font-bold text-[#1B4965] hover:underline">Partial Knee &rarr;</a>
+        <a href="/robotic-hip-replacement" class="text-xs font-bold text-[#1B4965] hover:underline">Robotic Hip &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. ACCESSING BRENTWOOD CLINICS FROM LONDON -->
+  <section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs mb-10">
+    <div class="max-w-4xl">
+      <span class="text-xs font-bold uppercase tracking-wider text-[#1B4965] bg-[#EAF1F6] px-3 py-1 rounded-full mb-3 inline-block">
+        Travel &amp; Practice Locations
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4 tracking-tight">
+        Accessing Private Consultations &amp; Surgery from London
+      </h2>
+      <p class="text-sm sm:text-base text-slate-700 leading-relaxed mb-4">
+        Mr Shankar's private surgical practice is centred at two premier private hospitals in Brentwood, Essex—chosen specifically for their modern laminar airflow operating theatres, on-site 3D CT and MRI diagnostics, advanced robotic technology, and tranquil recovery environment. <strong>Mr Shankar does not operate out of central London consulting rooms</strong>; instead, London patients travel to Brentwood, which is exceptionally well-connected:
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 text-xs text-slate-700 mb-6">
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+          <strong class="text-slate-900 block text-sm mb-1 flex items-center gap-1.5">
+            <Train size={15} className="text-[#1B4965]" />
+            Rail &amp; Elizabeth Line Transit
+          </strong>
+          <p class="leading-relaxed mb-2">
+            Frequent train services run directly from Central London stations:
+          </p>
+          <ul class="space-y-1 text-slate-600">
+            <li>&bull; <strong>Greater Anglia Fast Trains (from Liverpool Street):</strong> ~23–25 mins direct to Shenfield</li>
+            <li>&bull; <strong>Elizabeth Line (from Liverpool Street / Stratford):</strong> ~35–45 mins to Shenfield / ~38 mins to Brentwood</li>
+            <li>&bull; <strong>From Paddington / Farringdon / Tottenham Court Road:</strong> Direct Elizabeth Line through-trains</li>
+            <li>&bull; Shenfield Station is approx. 1 mile from Nuffield Brentwood (5 mins taxi); Brentwood Station is approx. 5 mins taxi to Spire Hartswood.</li>
+          </ul>
+        </div>
+
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+          <strong class="text-slate-900 block text-sm mb-1 flex items-center gap-1.5">
+            <Car size={15} className="text-[#1B4965]" />
+            Road Access &amp; Free On-Site Parking
+          </strong>
+          <p class="leading-relaxed mb-2">
+            Both hospitals are situated immediately accessible from major road arteries:
+          </p>
+          <ul class="space-y-1 text-slate-600">
+            <li>&bull; Direct access via the <strong>A12</strong> and <strong>M25 (Junction 28 &amp; 29)</strong></li>
+            <li>&bull; Approx. 20–30 mins driving from Romford, Ilford, and North East London</li>
+            <li>&bull; <strong>Free On-Site Parking:</strong> Both Spire Hartswood and Nuffield Brentwood provide complimentary patient parking with accessible bays.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. NHS VS PRIVATE REFERRAL PATHWAYS -->
+  <section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs mb-10">
+    <div class="max-w-4xl">
+      <span class="text-xs font-bold uppercase tracking-wider text-[#1B4965] bg-[#EAF1F6] px-3 py-1 rounded-full mb-3 inline-block">
+        Referral Pathways
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4 tracking-tight">
+        Understanding Referral Pathways: NHS Care vs Private Consultation
+      </h2>
+      <p class="text-sm sm:text-base text-slate-700 leading-relaxed mb-4">
+        Mr Shankar maintains distinct NHS and private clinical services to serve patients according to their needs and preferences:
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 text-xs text-slate-700 mb-6">
+        <div class="p-4 rounded-xl bg-sky-50 border border-sky-200 space-y-2">
+          <strong class="text-slate-900 block text-sm">NHS Referral Pathway (BHRUT)</strong>
+          <p class="text-slate-600 leading-relaxed">
+            NHS patients are assessed and treated within Barking, Havering and Redbridge University Hospitals NHS Trust at Queen's Hospital in Romford or King George Hospital in Goodmayes. Referrals must be initiated by your NHS GP through the NHS e-Referral Service (e-RS) addressed to the Orthopaedic Department.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+          <strong class="text-slate-900 block text-sm">Private Consultation Pathway (Brentwood)</strong>
+          <p class="text-slate-600 leading-relaxed">
+            Private consultations at Nuffield Health Brentwood or Spire Hartswood provide rapid access without NHS waiting list delays. Patients benefit from consultant-delivered continuity with Mr Shankar personally performing your surgery. Welcomes insured (Bupa, AXA, Aviva, Vitality, WPA) and self-funding patients (£250 initial consultation).
+          </p>
+        </div>
+      </div>
+
+      <div class="p-4 rounded-xl bg-slate-100 border border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div>
+          <span class="text-xs font-bold text-slate-900 block">Private Medical Secretary (Remya Rexlin):</span>
+          <span class="text-xs text-slate-600">Telephone: <strong>07587 765888</strong> / <strong>020 3523 0621</strong> &bull; Email: <strong>hip.knee_specialist@yahoo.com</strong></span>
+        </div>
+        <a
+          href="/book-consultation"
+          class="bg-[#1B4965] hover:bg-[#13364B] text-white px-4 py-2 rounded-lg text-xs font-bold shrink-0 transition-colors"
+        >
+          Book Consultation &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. FREQUENTLY ASKED QUESTIONS -->
+  <section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs mb-12">
+    <div class="max-w-4xl">
+      <span class="text-xs font-bold uppercase tracking-wider text-[#1B4965] bg-[#EAF1F6] px-3 py-1 rounded-full mb-3 inline-block">
+        Patient Guidance
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-6 tracking-tight">
+        Frequently Asked Questions: London &amp; North East London Care
+      </h2>
+
+      <div class="space-y-4">
+        ${LONDON_FAQS.map((faq, i) => `
+          <div class="p-4 sm:p-5 rounded-xl border border-slate-200 bg-slate-50/50">
+            <h3 class="text-sm sm:text-base font-bold text-slate-900 mb-2">
+              ${faq.question}
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              ${faq.answer}
+            </p>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. CONTEXTUAL INTERNAL LINKS -->
+  <section class="p-6 sm:p-8 bg-slate-50 rounded-2xl border border-slate-200 mb-8">
+    <h3 class="text-lg font-black text-slate-900 mb-4">
+      Explore Related Procedures &amp; Practice Information
+    </h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+      <a href="/revision-hip-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        Revision Hip Replacement &rarr;
+      </a>
+      <a href="/hip-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        Total Hip Replacement &rarr;
+      </a>
+      <a href="/robotic-hip-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        Robotic Hip Surgery &rarr;
+      </a>
+      <a href="/knee-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        Total Knee Replacement &rarr;
+      </a>
+      <a href="/partial-knee-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        Partial Knee Resurfacing &rarr;
+      </a>
+      <a href="/computer-assisted-knee-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        Navigated Knee Surgery &rarr;
+      </a>
+      <a href="/nuffield-brentwood-hospital" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        Nuffield Brentwood Hospital &rarr;
+      </a>
+      <a href="/spire-hartswood-hospital" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        Spire Hartswood Hospital &rarr;
+      </a>
+      <a href="/about-mr-shivakumar-shankar" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        About Mr Shankar &rarr;
       </a>
     </div>
   </section>
@@ -2731,7 +3786,34 @@ const pageDefinitions = [
     )
   },
 
-  // 8. Knee Replacement
+  // 8. Revision Hip Replacement
+  {
+    path: 'revision-hip-replacement',
+    title: 'Revision Hip Replacement Essex & London | Mr Shivakumar Shankar',
+    description: 'Specialist revision hip replacement surgery in Essex and London with Mr Shivakumar Shankar. Assessment of painful or failing hip replacements, loosening, dislocation, and complex reconstruction.',
+    canonical: 'https://www.shivakumarshankar.co.uk/revision-hip-replacement',
+    customJsonLd: generateProcedureJsonLd({
+      path: 'revision-hip-replacement',
+      data: CLINICAL_PROCEDURES['revision-hip-replacement'],
+      title: 'Revision Hip Replacement Essex & London | Mr Shivakumar Shankar',
+      description: 'Specialist revision hip replacement surgery in Essex and London with Mr Shivakumar Shankar. Assessment of painful or failing hip replacements, loosening, dislocation, and complex reconstruction.',
+      canonical: 'https://www.shivakumarshankar.co.uk/revision-hip-replacement',
+      procedureName: 'Revision Total Hip Replacement Surgery',
+      bodyLocation: 'Hip joint',
+      howPerformed: 'Pre-operative MARS CT and serological workup, surgical exposure with scar adhesiolysis, extraction of failed primary components with bone stock preservation, acetabular reconstruction using trabecular metal augments or bone grafting, femoral canal revision using modular fluted tapered uncemented stems, soft-tissue balancing and trial reduction, component impaction, and layered anatomical closure.',
+      breadcrumbs: [
+        { name: 'Hip Surgery', href: '/hip-replacement' }
+      ]
+    }),
+    bodyHtml: renderClinicalProcedurePage(
+      CLINICAL_PROCEDURES['revision-hip-replacement'],
+      [
+        { name: 'Hip Surgery', href: '/hip-replacement' }
+      ]
+    )
+  },
+
+  // 9. Knee Replacement
   {
     path: 'knee-replacement',
     title: 'Total Knee Replacement London & Essex | Mr Shivakumar Shankar',
@@ -4061,60 +5143,48 @@ const pageDefinitions = [
   // 24. London Hip & Knee Surgeon
   {
     path: 'london-hip-knee-surgeon',
-    title: 'Hip & Knee Surgeon in London & North East London | Mr Shankar',
-    description: 'Consultant orthopaedic hip and knee surgery for London and North East London patients with substantive NHS and private hospital options.',
+    title: 'London & North East London Hip, Knee & Revision Surgeon | Mr Shankar',
+    description: 'Consultant orthopaedic hip, knee and revision hip replacement surgeon for London and North East London patients. NHS Clinical Lead at BHRUT and private Brentwood clinics.',
     canonical: 'https://www.shivakumarshankar.co.uk/london-hip-knee-surgeon',
-    bodyHtml: renderPageShell(
-      'london-practice',
-      'Specialist Arthroplasty • London Practice',
-      'Hip and Knee Surgeon in London &amp; North East London',
-      'Mr Shivakumar Shankar provides substantive NHS consultant care at Queen\'s Hospital and King George Hospital (BHRUT) alongside private consultations at Brentwood hospitals easily accessible from London.',
-      `
-      ${renderCardGrid([
-        {
-          title: 'Accessible From London',
-          desc: 'Spire Hartswood and Nuffield Health Brentwood are located just off the M25 J28/A12 and easily reached via Elizabeth Line.'
-        },
-        {
-          title: 'NHS Clinical Leadership',
-          desc: 'Leading orthopaedic services across Barking, Havering, Redbridge, and greater North East London.'
-        },
-        {
-          title: 'Private Robotic Surgery',
-          desc: 'Fast-track private outpatient appointments without extensive NHS waiting list delays.'
-        }
-      ])}
-      `
+    customJsonLd: generateRegionalPageJsonLd({
+      path: 'london-hip-knee-surgeon',
+      canonical: 'https://www.shivakumarshankar.co.uk/london-hip-knee-surgeon',
+      title: 'London & North East London Hip, Knee & Revision Surgeon | Mr Shankar',
+      description: 'Consultant orthopaedic hip, knee and revision hip replacement surgeon for London and North East London patients. NHS Clinical Lead at BHRUT and private Brentwood clinics.',
+      regionName: 'London & North East London',
+      faqs: LONDON_FAQS
+    }),
+    bodyHtml: renderRegionalPageShell(
+      'london-hip-knee-surgeon',
+      'Consultant Orthopaedic Care • London & North East London Practice',
+      'Hip, Knee and Revision Hip Surgeon for London & North East London',
+      'Mr Shivakumar Shankar provides consultant orthopaedic hip, knee and revision hip surgery for patients from London and North East London. Appointed substantive NHS Consultant at BHRUT (Queen\'s Hospital, Romford and King George Hospital, Goodmayes) and offering private surgical care at premier Brentwood hospitals easily accessible via the Elizabeth Line and M25.',
+      renderLondonPageContent(),
+      'London & North East London'
     )
   },
 
   // 25. Essex Hip & Knee Surgeon
   {
     path: 'essex-hip-knee-surgeon',
-    title: 'Hip & Knee Surgeon in Essex | Mr Shivakumar Shankar',
-    description: 'Leading hip and knee arthroplasty specialist in Brentwood and Essex providing robotic-assisted surgery and joint preservation.',
+    title: 'Essex Hip, Knee & Revision Hip Surgeon | Mr Shivakumar Shankar',
+    description: 'Consultant orthopaedic hip, knee and revision hip surgeon in Essex. Specialist primary and revision joint replacement at Nuffield and Spire Hospitals in Brentwood.',
     canonical: 'https://www.shivakumarshankar.co.uk/essex-hip-knee-surgeon',
-    bodyHtml: renderPageShell(
-      'essex-practice',
+    customJsonLd: generateRegionalPageJsonLd({
+      path: 'essex-hip-knee-surgeon',
+      canonical: 'https://www.shivakumarshankar.co.uk/essex-hip-knee-surgeon',
+      title: 'Essex Hip, Knee & Revision Hip Surgeon | Mr Shivakumar Shankar',
+      description: 'Consultant orthopaedic hip, knee and revision hip surgeon in Essex. Specialist primary and revision joint replacement at Nuffield and Spire Hospitals in Brentwood.',
+      regionName: 'Essex',
+      faqs: ESSEX_FAQS
+    }),
+    bodyHtml: renderRegionalPageShell(
+      'essex-hip-knee-surgeon',
       'Consultant Orthopaedic Care • Essex Practice',
-      'Hip and Knee Surgeon in Essex',
-      'Specialist hip and knee arthroplasty, computer-navigated surgery, and joint preservation care for Essex patients. Private consultations and surgery at Spire Hartswood (conventional & computer-navigated) and Nuffield Health Brentwood (MAKO robotic-assisted), alongside NHS robotic services at BHRUT.',
-      `
-      ${renderCardGrid([
-        {
-          title: 'Robotic & Arthroplasty Specialist',
-          desc: 'Specialist consultant in computer-assisted and robotic joint replacement across Essex and North East London.'
-        },
-        {
-          title: 'Brentwood Private Facilities',
-          desc: 'Outpatient consultation clinics, on-site imaging, and dedicated joint replacement inpatient wards.'
-        },
-        {
-          title: 'Insured & Self-Pay Welcome',
-          desc: 'Recognised by all UK private insurers with transparent fixed-price self-pay options.'
-        }
-      ])}
-      `
+      'Hip, Knee and Revision Hip Surgeon in Essex — Mr Shivakumar Shankar',
+      'Mr Shivakumar Shankar is a fellowship-trained Consultant Orthopaedic Surgeon providing specialist hip, knee and complex revision hip surgery for patients across Brentwood, Romford, Chelmsford, and throughout Essex. Offering robotic-assisted, computer-navigated, and muscle-sparing joint reconstruction at premier private hospitals in Brentwood.',
+      renderEssexPageContent(),
+      'Essex'
     )
   },
 
@@ -4170,18 +5240,22 @@ const pageDefinitions = [
   {
     path: 'queens-hospital-romford',
     title: 'Queen\'s Hospital Romford (BHRUT NHS Trust) | Mr Shivakumar Shankar',
-    description: 'NHS Clinical Lead for Orthopaedics at Barking, Havering and Redbridge University Hospitals NHS Trust, operating at Queen\'s Hospital Romford.',
+    description: 'NHS Consultant Orthopaedic Surgeon at Barking, Havering and Redbridge University Hospitals NHS Trust, undertaking joint replacement and complex revision hip surgery at Queen\'s Hospital Romford.',
     canonical: 'https://www.shivakumarshankar.co.uk/queens-hospital-romford',
     bodyHtml: renderPageShell(
       'queens-hospital',
       'BHRUT NHS Trust • Major Trauma & Arthroplasty',
       'Queen\'s Hospital, Romford (BHRUT NHS Trust)',
-      'Substantive NHS consultant base and acute trauma centre for Barking, Havering and Redbridge University Hospitals NHS Trust, where Mr Shankar serves as NHS Clinical Lead for Orthopaedics.',
+      'Substantive NHS consultant base and acute trauma centre for Barking, Havering and Redbridge University Hospitals NHS Trust, where Mr Shankar provides specialist joint replacement and complex revision hip surgery within the NHS.',
       `
       ${renderCardGrid([
         {
-          title: 'Clinical Lead Role',
+          title: 'Clinical Lead & Governance',
           desc: 'Oversees surgical governance, patient safety protocols, and subspecialty arthroplasty pathways across BHRUT.'
+        },
+        {
+          title: 'Complex Revision Hip Surgery (NHS)',
+          desc: 'Mr Shankar undertakes complex revision hip replacement surgery within his NHS practice at BHRUT, with access to specialist multidisciplinary assessment, complex reconstruction resources and perioperative support.'
         },
         {
           title: 'NHS Referral Pathway',
@@ -4206,12 +5280,16 @@ const pageDefinitions = [
       'king-george-hospital',
       'BHRUT NHS Trust • Elective Surgical Centre',
       'King George Hospital, Goodmayes (BHRUT NHS Trust)',
-      'Dedicated elective surgical centre for Barking, Havering and Redbridge University Hospitals NHS Trust, delivering high-volume routine hip and knee arthroplasty with clean elective pathways.',
+      'Dedicated elective surgical centre for Barking, Havering and Redbridge University Hospitals NHS Trust, delivering high-volume routine hip and knee arthroplasty and complex revision reconstruction across BHRUT elective pathways.',
       `
       ${renderCardGrid([
         {
           title: 'Elective Arthroplasty Unit',
           desc: 'Specialised protected elective orthopaedic surgical suites minimising operation cancellation risks.'
+        },
+        {
+          title: 'Complex Revision Arthroplasty (NHS)',
+          desc: 'Joint replacements and complex revision hip procedures are delivered within BHRUT NHS Trust, supported by multidisciplinary perioperative resources and dedicated rehabilitation.'
         },
         {
           title: 'NHS Referral Pathway',
