@@ -1857,7 +1857,7 @@ const renderNuffieldBrentwoodContent = () => `
           <p class="text-xs text-slate-600 leading-relaxed">
             Outpatient ultrasound- and fluoroscopic-guided joint injections for targeted pain relief and differential diagnosis (confirming hip vs lumbar spine pathology). Day-case keyhole knee arthroscopy for mechanical catching, meniscal tears, and chondral preservation.
           </p>
-          <a href="/knee-replacement" class="text-xs font-bold text-[#1B4965] hover:underline inline-block pt-1">
+          <a href="/knee-arthroscopy" class="text-xs font-bold text-[#1B4965] hover:underline inline-block pt-1">
             Explore Knee Joint Preservation &rarr;
           </a>
         </div>
@@ -2283,7 +2283,7 @@ const renderSpireHartswoodContent = () => `
           <p class="text-xs text-slate-600 leading-relaxed">
             Minimally invasive keyhole procedures for meniscal tears, chondral flaps, loose bodies, and persistent mechanical symptoms. Day-case admission with rapid return to daily mobility and sports-specific rehabilitation.
           </p>
-          <a href="/knee-replacement" class="text-xs font-bold text-[#1B4965] hover:underline inline-block pt-1">
+          <a href="/knee-arthroscopy" class="text-xs font-bold text-[#1B4965] hover:underline inline-block pt-1">
             Learn more about Knee Arthroscopy &rarr;
           </a>
         </div>
@@ -3748,35 +3748,44 @@ const renderEssexPageContent = () => `
   <!-- 8. CONTEXTUAL INTERNAL LINKS -->
   <section class="p-6 sm:p-8 bg-slate-50 rounded-2xl border border-slate-200 mb-8">
     <h3 class="text-lg font-black text-slate-900 mb-4">
-      Explore Related Procedures &amp; Practice Information
+      Explore Related Specialist Procedures &amp; Practice Locations
     </h3>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
-      <a href="/revision-hip-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
-        Revision Hip Replacement &rarr;
-      </a>
       <a href="/hip-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
         Total Hip Replacement &rarr;
-      </a>
-      <a href="/robotic-hip-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
-        Robotic Hip Surgery &rarr;
       </a>
       <a href="/knee-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
         Total Knee Replacement &rarr;
       </a>
+      <a href="/robotic-hip-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        MAKO Robotic Hip Replacement &rarr;
+      </a>
+      <a href="/robotic-knee-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        MAKO Robotic Knee Replacement &rarr;
+      </a>
+      <a href="/revision-hip-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        Revision Hip Replacement &rarr;
+      </a>
       <a href="/partial-knee-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
-        Partial Knee Resurfacing &rarr;
+        Partial Knee Replacement &rarr;
       </a>
       <a href="/computer-assisted-knee-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
-        Navigated Knee Surgery &rarr;
+        Computer-Navigated Knee Surgery &rarr;
+      </a>
+      <a href="/minimally-invasive-hip-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        Minimally Invasive Hip Replacement &rarr;
       </a>
       <a href="/nuffield-brentwood-hospital" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
-        Nuffield Brentwood Hospital &rarr;
+        Nuffield Health Brentwood &rarr;
       </a>
       <a href="/spire-hartswood-hospital" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
         Spire Hartswood Hospital &rarr;
       </a>
-      <a href="/about-mr-shivakumar-shankar" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
-        About Mr Shankar &rarr;
+      <a href="/london-hip-knee-surgeon" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        London Hip &amp; Knee Surgeon &rarr;
+      </a>
+      <a href="/book-consultation" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-[#1B4965] border border-slate-200 transition-colors">
+        Book Private Consultation &rarr;
       </a>
     </div>
   </section>
@@ -4148,35 +4157,47 @@ const renderLondonPageContent = () => `
   <!-- 8. CONTEXTUAL INTERNAL LINKS -->
   <section class="p-6 sm:p-8 bg-slate-50 rounded-2xl border border-slate-200 mb-8">
     <h3 class="text-lg font-black text-slate-900 mb-4">
-      Explore Related Procedures &amp; Practice Information
+      Explore Related Procedures &amp; Practice Locations
     </h3>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
-      <a href="/revision-hip-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
-        Revision Hip Replacement &rarr;
-      </a>
       <a href="/hip-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
         Total Hip Replacement &rarr;
-      </a>
-      <a href="/robotic-hip-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
-        Robotic Hip Surgery &rarr;
       </a>
       <a href="/knee-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
         Total Knee Replacement &rarr;
       </a>
+      <a href="/robotic-hip-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        MAKO Robotic Hip Replacement &rarr;
+      </a>
+      <a href="/robotic-knee-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        MAKO Robotic Knee Replacement &rarr;
+      </a>
+      <a href="/revision-hip-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        Revision Hip Replacement &rarr;
+      </a>
       <a href="/partial-knee-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
-        Partial Knee Resurfacing &rarr;
+        Partial Knee Replacement &rarr;
       </a>
       <a href="/computer-assisted-knee-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
-        Navigated Knee Surgery &rarr;
+        Computer-Navigated Knee Surgery &rarr;
+      </a>
+      <a href="/minimally-invasive-hip-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        Minimally Invasive Hip Replacement &rarr;
+      </a>
+      <a href="/essex-hip-knee-surgeon" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        Essex Hip &amp; Knee Surgeon &rarr;
       </a>
       <a href="/nuffield-brentwood-hospital" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
-        Nuffield Brentwood Hospital &rarr;
+        Nuffield Health Brentwood &rarr;
       </a>
       <a href="/spire-hartswood-hospital" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
         Spire Hartswood Hospital &rarr;
       </a>
-      <a href="/about-mr-shivakumar-shankar" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
-        About Mr Shankar &rarr;
+      <a href="/queens-hospital-romford" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        Queen's Hospital Romford (NHS) &rarr;
+      </a>
+      <a href="/book-consultation" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-[#1B4965] border border-slate-200 transition-colors">
+        Book Private Consultation &rarr;
       </a>
     </div>
   </section>
@@ -4584,8 +4605,8 @@ const pageDefinitions = [
   // 9. Robotic Knee Replacement
   {
     path: 'robotic-knee-replacement',
-    title: 'Robotic Knee Replacement London & Essex | Mr Shivakumar Shankar',
-    description: 'Explore MAKO robotic-assisted knee replacement with consultant surgeon Mr Shivakumar Shankar. Private consultations in Brentwood, Essex, serving London.',
+    title: 'MAKO Robotic Knee Replacement Essex & London | Mr Shivakumar Shankar',
+    description: 'Mr Shivakumar Shankar offers MAKO robotic-assisted total and partial knee replacement where appropriate, at Nuffield Health Brentwood Hospital, Essex, serving London.',
     canonical: 'https://www.shivakumarshankar.co.uk/robotic-knee-replacement',
     customJsonLd: {
       "@context": "https://schema.org",
@@ -4657,8 +4678,8 @@ const pageDefinitions = [
           "@type": "MedicalWebPage",
           "@id": "https://www.shivakumarshankar.co.uk/robotic-knee-replacement",
           "url": "https://www.shivakumarshankar.co.uk/robotic-knee-replacement",
-          "name": "Robotic Knee Replacement London & Essex | Mr Shivakumar Shankar",
-          "description": "Explore MAKO robotic-assisted knee replacement with consultant surgeon Mr Shivakumar Shankar. Private consultations in Brentwood, Essex, serving London.",
+          "name": "MAKO Robotic Knee Replacement Essex & London | Mr Shivakumar Shankar",
+          "description": "Mr Shivakumar Shankar offers MAKO robotic-assisted total and partial knee replacement where appropriate, at Nuffield Health Brentwood Hospital, Essex, serving London.",
           "inLanguage": "en-GB",
           "author": {
             "@id": "https://www.shivakumarshankar.co.uk/#physician"
@@ -4757,7 +4778,7 @@ const pageDefinitions = [
           </h1>
 
           <p class="text-lg sm:text-xl text-slate-600 mt-4 leading-relaxed max-w-4xl">
-            Consultant-led Mako robotic total and partial knee replacement in London and Essex with Mr Shivakumar Shankar. Combining pre-operative 3D CT planning, dynamic ligament balancing, and haptic robotic guidance to restore personalised joint kinematics.
+            Consultant-led MAKO robotic-assisted total and partial knee replacement, where clinically appropriate, with Mr Shivakumar Shankar in Essex and London. Private robotic knee surgery at Nuffield Health Brentwood Hospital, combining pre-operative 3D CT planning, dynamic ligament balancing, and haptic robotic guidance.
           </p>
 
           <div class="flex flex-wrap items-center gap-3 pt-6">
@@ -4791,13 +4812,13 @@ const pageDefinitions = [
               <!-- Clinical Overview -->
               <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-4">
                 <h2 class="text-2xl font-black text-slate-900 flex items-center gap-2.5">
-                  Clinical Overview: Advanced Robotic-Assisted Arthroplasty
+                  Clinical Overview: MAKO Robotic-Assisted Total &amp; Partial Knee Replacement
                 </h2>
                 <p class="text-slate-700 leading-relaxed text-base">
                   Robotic-assisted knee replacement utilising the Stryker Mako robotic system provides an exceptional level of precision in bone preparation and component alignment. Rather than relying solely on conventional mechanical cutting blocks and manual eyeballing, the Mako platform integrates a patient-specific 3D CT scan with intra-operative optical tracking sensors and robotic arm guidance.
                 </p>
                 <p class="text-slate-700 leading-relaxed text-base">
-                  The technology enables both <strong>robotic total knee replacement</strong> (resurfacing tricompartmental end-stage arthritis) and <strong>robotic partial (unicompartmental) knee replacement</strong> (resurfacing an isolated medial or lateral arthritic compartment while leaving the anterior cruciate ligament, posterior cruciate ligament, and healthy cartilage untouched).
+                  The technology enables both <strong>robotic total knee replacement</strong> (resurfacing tricompartmental end-stage arthritis) and <strong>robotic partial (unicompartmental) knee replacement</strong> where clinically appropriate (resurfacing an isolated medial or lateral arthritic compartment while leaving the anterior cruciate ligament, posterior cruciate ligament, and healthy cartilage untouched).
                 </p>
                 <p class="text-slate-700 leading-relaxed text-base">
                   Mr Shivakumar Shankar has extensive specialist experience in computer-assisted and robotic joint arthroplasty, holding a Postgraduate Diploma in Computer and Robot-Assisted Orthopaedic Arthroplasty alongside his substantive NHS consultant appointment at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT). At King George Hospital’s Elective Surgical Hub, Mr Shankar reached a personal milestone of completing over 100 MAKO robotic-assisted joint replacements personally performed by him (an individual surgical series within the trust's high-volume clinical recovery programme featured in broadcast coverage on BBC London News).
@@ -5303,6 +5324,18 @@ const pageDefinitions = [
                       Verified patient testimonials and feedback on Doctify and I Want Great Care.
                     </p>
                   </a>
+                  <a
+                    href="/book-consultation"
+                    class="block p-3 rounded-xl bg-slate-50 hover:bg-[#EAF1F6] border border-slate-100 hover:border-[#1B4965]/30 transition-colors group"
+                  >
+                    <strong class="text-xs font-bold text-slate-900 group-hover:text-[#1B4965] flex items-center justify-between">
+                      <span>Book a Consultation</span>
+                      <span class="text-slate-400 group-hover:text-[#1B4965]">&rarr;</span>
+                    </strong>
+                    <p class="text-[11px] text-slate-500 mt-1 leading-normal">
+                      Schedule an outpatient consultation with Mr Shivakumar Shankar in Essex or London.
+                    </p>
+                  </a>
                 </div>
               </div>
             </div>
@@ -5345,12 +5378,12 @@ const pageDefinitions = [
   {
     path: 'partial-knee-replacement',
     title: 'Partial Knee Replacement London & Essex | Mr Shivakumar Shankar',
-    description: 'Specialist medial & lateral unicompartmental knee replacement in London & Essex with Mr Shivakumar Shankar. Preserving native cruciate ligaments in Brentwood & Romford.',
+    description: 'Mr Shivakumar Shankar provides conventional and MAKO robotic-assisted partial (unicompartmental) knee replacement where clinically appropriate in Essex and London, with private clinics in Brentwood.',
     canonical: 'https://www.shivakumarshankar.co.uk/partial-knee-replacement',
     customJsonLd: generateProcedureJsonLd({
       path: 'partial-knee-replacement',
       title: 'Partial Knee Replacement London & Essex | Mr Shivakumar Shankar',
-      description: 'Specialist medial & lateral unicompartmental knee replacement in London & Essex with Mr Shivakumar Shankar. Preserving native cruciate ligaments in Brentwood & Romford.',
+      description: 'Mr Shivakumar Shankar provides conventional and MAKO robotic-assisted partial (unicompartmental) knee replacement where clinically appropriate in Essex and London, with private clinics in Brentwood.',
       canonical: 'https://www.shivakumarshankar.co.uk/partial-knee-replacement',
       data: CLINICAL_PROCEDURES['partial-knee-replacement'],
       procedureName: 'Partial (Unicompartmental) Knee Replacement Surgery',
@@ -5888,14 +5921,14 @@ const pageDefinitions = [
   // 24. London Hip & Knee Surgeon
   {
     path: 'london-hip-knee-surgeon',
-    title: 'London & North East London Hip, Knee & Revision Surgeon | Mr Shankar',
-    description: 'Consultant orthopaedic hip, knee and revision hip replacement surgeon for London and North East London patients. NHS Clinical Lead at BHRUT and private Brentwood clinics.',
+    title: 'London & North East London Hip, Knee & Revision Surgeon | Mr Shivakumar Shankar',
+    description: 'Mr Shivakumar Shankar is a Consultant Orthopaedic Hip, Knee and Revision Hip Surgeon serving London and North East London, with NHS practice at BHRUT and private clinics in Brentwood, Essex.',
     canonical: 'https://www.shivakumarshankar.co.uk/london-hip-knee-surgeon',
     customJsonLd: generateRegionalPageJsonLd({
       path: 'london-hip-knee-surgeon',
       canonical: 'https://www.shivakumarshankar.co.uk/london-hip-knee-surgeon',
-      title: 'London & North East London Hip, Knee & Revision Surgeon | Mr Shankar',
-      description: 'Consultant orthopaedic hip, knee and revision hip replacement surgeon for London and North East London patients. NHS Clinical Lead at BHRUT and private Brentwood clinics.',
+      title: 'London & North East London Hip, Knee & Revision Surgeon | Mr Shivakumar Shankar',
+      description: 'Mr Shivakumar Shankar is a Consultant Orthopaedic Hip, Knee and Revision Hip Surgeon serving London and North East London, with NHS practice at BHRUT and private clinics in Brentwood, Essex.',
       regionName: 'London & North East London',
       faqs: LONDON_FAQS
     }),
@@ -5913,13 +5946,13 @@ const pageDefinitions = [
   {
     path: 'essex-hip-knee-surgeon',
     title: 'Essex Hip, Knee & Revision Hip Surgeon | Mr Shivakumar Shankar',
-    description: 'Consultant orthopaedic hip, knee and revision hip surgeon in Essex. Specialist primary and revision joint replacement at Nuffield and Spire Hospitals in Brentwood.',
+    description: 'Mr Shivakumar Shankar is a Consultant Orthopaedic Hip, Knee and Revision Hip Surgeon in Essex, offering conventional, navigated and MAKO robotic surgery at Nuffield Brentwood and Spire Hartswood.',
     canonical: 'https://www.shivakumarshankar.co.uk/essex-hip-knee-surgeon',
     customJsonLd: generateRegionalPageJsonLd({
       path: 'essex-hip-knee-surgeon',
       canonical: 'https://www.shivakumarshankar.co.uk/essex-hip-knee-surgeon',
       title: 'Essex Hip, Knee & Revision Hip Surgeon | Mr Shivakumar Shankar',
-      description: 'Consultant orthopaedic hip, knee and revision hip surgeon in Essex. Specialist primary and revision joint replacement at Nuffield and Spire Hospitals in Brentwood.',
+      description: 'Mr Shivakumar Shankar is a Consultant Orthopaedic Hip, Knee and Revision Hip Surgeon in Essex, offering conventional, navigated and MAKO robotic surgery at Nuffield Brentwood and Spire Hartswood.',
       regionName: 'Essex',
       faqs: ESSEX_FAQS
     }),

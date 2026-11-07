@@ -560,7 +560,7 @@ export const LocationsHub: React.FC<LocationsHubProps> = ({
                       <p className="text-xs text-slate-600 leading-relaxed">
                         Outpatient ultrasound- and fluoroscopic-guided joint injections for targeted pain relief and differential diagnosis (confirming hip vs lumbar spine pathology). Day-case keyhole knee arthroscopy for mechanical catching, meniscal tears, and chondral preservation.
                       </p>
-                      <a href="/knee-replacement" onClick={(e) => { e.preventDefault(); onNavigate('/knee-replacement'); }} className="text-xs font-bold text-[#1B4965] hover:underline inline-block pt-1">
+                      <a href="/knee-arthroscopy" onClick={(e) => { e.preventDefault(); onNavigate('/knee-arthroscopy'); }} className="text-xs font-bold text-[#1B4965] hover:underline inline-block pt-1">
                         Explore Knee Joint Preservation &rarr;
                       </a>
                     </div>
@@ -989,7 +989,7 @@ export const LocationsHub: React.FC<LocationsHubProps> = ({
                       <p className="text-xs text-slate-600 leading-relaxed">
                         Minimally invasive keyhole procedures for meniscal tears, chondral flaps, loose bodies, and persistent mechanical symptoms. Day-case admission with rapid return to daily mobility and sports-specific rehabilitation.
                       </p>
-                      <a href="/knee-replacement" onClick={(e) => { e.preventDefault(); onNavigate('/knee-replacement'); }} className="text-xs font-bold text-[#1B4965] hover:underline inline-block pt-1">
+                      <a href="/knee-arthroscopy" onClick={(e) => { e.preventDefault(); onNavigate('/knee-arthroscopy'); }} className="text-xs font-bold text-[#1B4965] hover:underline inline-block pt-1">
                         Learn more about Knee Arthroscopy &rarr;
                       </a>
                     </div>
@@ -1541,20 +1541,29 @@ export const LocationsHub: React.FC<LocationsHubProps> = ({
                   Explore Related Specialist Procedures &amp; Practice Locations
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+                  <a href="/hip-replacement" onClick={(e) => { e.preventDefault(); onNavigate('/hip-replacement'); }} className="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+                    Total Hip Replacement &rarr;
+                  </a>
+                  <a href="/knee-replacement" onClick={(e) => { e.preventDefault(); onNavigate('/knee-replacement'); }} className="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+                    Total Knee Replacement &rarr;
+                  </a>
+                  <a href="/robotic-hip-replacement" onClick={(e) => { e.preventDefault(); onNavigate('/robotic-hip-replacement'); }} className="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+                    MAKO Robotic Hip Replacement &rarr;
+                  </a>
+                  <a href="/robotic-knee-replacement" onClick={(e) => { e.preventDefault(); onNavigate('/robotic-knee-replacement'); }} className="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+                    MAKO Robotic Knee Replacement &rarr;
+                  </a>
                   <a href="/revision-hip-replacement" onClick={(e) => { e.preventDefault(); onNavigate('/revision-hip-replacement'); }} className="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
                     Revision Hip Replacement &rarr;
                   </a>
-                  <a href="/robotic-hip-replacement" onClick={(e) => { e.preventDefault(); onNavigate('/robotic-hip-replacement'); }} className="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
-                    Robotic Hip Replacement &rarr;
-                  </a>
-                  <a href="/minimally-invasive-hip-replacement" onClick={(e) => { e.preventDefault(); onNavigate('/minimally-invasive-hip-replacement'); }} className="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
-                    Minimally Invasive Hip &rarr;
-                  </a>
-                  <a href="/computer-assisted-knee-replacement" onClick={(e) => { e.preventDefault(); onNavigate('/computer-assisted-knee-replacement'); }} className="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
-                    Computer-Navigated Knee &rarr;
-                  </a>
                   <a href="/partial-knee-replacement" onClick={(e) => { e.preventDefault(); onNavigate('/partial-knee-replacement'); }} className="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
                     Partial Knee Replacement &rarr;
+                  </a>
+                  <a href="/computer-assisted-knee-replacement" onClick={(e) => { e.preventDefault(); onNavigate('/computer-assisted-knee-replacement'); }} className="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+                    Computer-Navigated Knee Surgery &rarr;
+                  </a>
+                  <a href="/minimally-invasive-hip-replacement" onClick={(e) => { e.preventDefault(); onNavigate('/minimally-invasive-hip-replacement'); }} className="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+                    Minimally Invasive Hip Replacement &rarr;
                   </a>
                   <a href="/nuffield-brentwood-hospital" onClick={(e) => { e.preventDefault(); onNavigate('/nuffield-brentwood-hospital'); }} className="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
                     Nuffield Health Brentwood &rarr;
@@ -1829,17 +1838,29 @@ export const LocationsHub: React.FC<LocationsHubProps> = ({
                   Explore Related Procedures &amp; Practice Locations
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+                  <a href="/hip-replacement" onClick={(e) => { e.preventDefault(); onNavigate('/hip-replacement'); }} className="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+                    Total Hip Replacement &rarr;
+                  </a>
+                  <a href="/knee-replacement" onClick={(e) => { e.preventDefault(); onNavigate('/knee-replacement'); }} className="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+                    Total Knee Replacement &rarr;
+                  </a>
+                  <a href="/robotic-hip-replacement" onClick={(e) => { e.preventDefault(); onNavigate('/robotic-hip-replacement'); }} className="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+                    MAKO Robotic Hip Replacement &rarr;
+                  </a>
+                  <a href="/robotic-knee-replacement" onClick={(e) => { e.preventDefault(); onNavigate('/robotic-knee-replacement'); }} className="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+                    MAKO Robotic Knee Replacement &rarr;
+                  </a>
                   <a href="/revision-hip-replacement" onClick={(e) => { e.preventDefault(); onNavigate('/revision-hip-replacement'); }} className="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
                     Revision Hip Replacement &rarr;
                   </a>
-                  <a href="/robotic-hip-replacement" onClick={(e) => { e.preventDefault(); onNavigate('/robotic-hip-replacement'); }} className="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
-                    Robotic Hip Replacement &rarr;
-                  </a>
-                  <a href="/minimally-invasive-hip-replacement" onClick={(e) => { e.preventDefault(); onNavigate('/minimally-invasive-hip-replacement'); }} className="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
-                    Minimally Invasive Hip &rarr;
+                  <a href="/partial-knee-replacement" onClick={(e) => { e.preventDefault(); onNavigate('/partial-knee-replacement'); }} className="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+                    Partial Knee Replacement &rarr;
                   </a>
                   <a href="/computer-assisted-knee-replacement" onClick={(e) => { e.preventDefault(); onNavigate('/computer-assisted-knee-replacement'); }} className="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
-                    Computer-Navigated Knee &rarr;
+                    Computer-Navigated Knee Surgery &rarr;
+                  </a>
+                  <a href="/minimally-invasive-hip-replacement" onClick={(e) => { e.preventDefault(); onNavigate('/minimally-invasive-hip-replacement'); }} className="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+                    Minimally Invasive Hip Replacement &rarr;
                   </a>
                   <a href="/essex-hip-knee-surgeon" onClick={(e) => { e.preventDefault(); onNavigate('/essex-hip-knee-surgeon'); }} className="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
                     Essex Hip &amp; Knee Surgeon &rarr;

@@ -187,8 +187,8 @@ const PAGE_METADATA: Record<string, { title: string; desc: string; canonical: st
     canonical: 'https://www.shivakumarshankar.co.uk/knee-replacement'
   },
   'robotic-knee-replacement': {
-    title: 'Robotic Knee Replacement London & Essex | Mr Shivakumar Shankar',
-    desc: 'Explore MAKO robotic-assisted knee replacement with consultant surgeon Mr Shivakumar Shankar. Private consultations in Brentwood, Essex, serving London.',
+    title: 'MAKO Robotic Knee Replacement Essex & London | Mr Shivakumar Shankar',
+    desc: 'Mr Shivakumar Shankar offers MAKO robotic-assisted total and partial knee replacement where appropriate, at Nuffield Health Brentwood Hospital, Essex, serving London.',
     canonical: 'https://www.shivakumarshankar.co.uk/robotic-knee-replacement'
   },
   'computer-assisted-knee-replacement': {
@@ -198,7 +198,7 @@ const PAGE_METADATA: Record<string, { title: string; desc: string; canonical: st
   },
   'partial-knee-replacement': {
     title: 'Partial Knee Replacement London & Essex | Mr Shivakumar Shankar',
-    desc: 'Specialist medial & lateral unicompartmental knee replacement in London & Essex with Mr Shivakumar Shankar. Preserving native cruciate ligaments in Brentwood & Romford.',
+    desc: 'Mr Shivakumar Shankar provides conventional and MAKO robotic-assisted partial (unicompartmental) knee replacement where clinically appropriate in Essex and London, with private clinics in Brentwood.',
     canonical: 'https://www.shivakumarshankar.co.uk/partial-knee-replacement'
   },
   'knee-arthroscopy': {
@@ -267,13 +267,13 @@ const PAGE_METADATA: Record<string, { title: string; desc: string; canonical: st
     canonical: 'https://www.shivakumarshankar.co.uk/hospitals-locations'
   },
   'london-hip-knee-surgeon': {
-    title: 'London & North East London Hip, Knee & Revision Surgeon | Mr Shankar',
-    desc: 'Consultant orthopaedic hip, knee and revision hip replacement surgeon for London and North East London patients. NHS Clinical Lead at BHRUT and private Brentwood clinics.',
+    title: 'London & North East London Hip, Knee & Revision Surgeon | Mr Shivakumar Shankar',
+    desc: 'Mr Shivakumar Shankar is a Consultant Orthopaedic Hip, Knee and Revision Hip Surgeon serving London and North East London, with NHS practice at BHRUT and private clinics in Brentwood, Essex.',
     canonical: 'https://www.shivakumarshankar.co.uk/london-hip-knee-surgeon'
   },
   'essex-hip-knee-surgeon': {
     title: 'Essex Hip, Knee & Revision Hip Surgeon | Mr Shivakumar Shankar',
-    desc: 'Consultant orthopaedic hip, knee and revision hip surgeon in Essex. Specialist primary and revision joint replacement at Nuffield and Spire Hospitals in Brentwood.',
+    desc: 'Mr Shivakumar Shankar is a Consultant Orthopaedic Hip, Knee and Revision Hip Surgeon in Essex, offering conventional, navigated and MAKO robotic surgery at Nuffield Brentwood and Spire Hartswood.',
     canonical: 'https://www.shivakumarshankar.co.uk/essex-hip-knee-surgeon'
   },
   'spire-hartswood-hospital': {

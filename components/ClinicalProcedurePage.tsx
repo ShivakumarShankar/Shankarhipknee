@@ -20,6 +20,7 @@ export interface ProcedurePageData {
   badge: string;
   h1: string;
   leadParagraph: string;
+  overviewTitle?: string;
   overview: string[];
   whoMayBenefit: string[];
   symptomsTreated: string[];
@@ -160,7 +161,7 @@ export const ClinicalProcedurePage: React.FC<ClinicalProcedurePageProps> = ({
               {/* Clinical Overview */}
               <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-4">
                 <h2 className="text-2xl font-black text-slate-900 flex items-center gap-2.5">
-                  <Activity size={22} className="text-[#1B4965]" /> Clinical Overview
+                  <Activity size={22} className="text-[#1B4965]" /> {data.overviewTitle || 'Clinical Overview'}
                 </h2>
                 {data.overview.map((para, idx) => (
                   <p key={idx} className="text-slate-700 leading-relaxed text-base">
