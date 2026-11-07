@@ -48,7 +48,7 @@ function createPdfContext(): PdfContext {
  * Features:
  * - Logo image
  * - Mr Shivakumar Shankar
- * - Consultant Robotic Hip and Knee Surgeon
+ * - Consultant Orthopaedic Hip and Knee Surgeon
  * - Hospital affiliations & contact
  */
 function drawHeader(ctx: PdfContext, isFirstPage: boolean = false) {
@@ -631,7 +631,7 @@ export function buildLetterheadPdfDoc(data: PatientLetterheadData = {}): jsPDF {
   const bodyText = data.body || "";
   const signoffText = data.signoff || "Yours sincerely,";
   const surgeonNameText = data.surgeonName || "Mr Shivakumar Shankar";
-  const surgeonTitleText = data.surgeonTitle || "Consultant Robotic Hip and Knee Surgeon";
+  const surgeonTitleText = data.surgeonTitle || "Consultant Orthopaedic Hip and Knee Surgeon";
 
   function drawLetterheadHeader() {
     const headerY = 12;
@@ -655,7 +655,7 @@ export function buildLetterheadPdfDoc(data: PatientLetterheadData = {}): jsPDF {
     doc.setFont("helvetica", "bold");
     doc.setFontSize(8.5);
     doc.setTextColor(PRIMARY_NAVY[0], PRIMARY_NAVY[1], PRIMARY_NAVY[2]);
-    doc.text("Consultant Robotic Hip and Knee Surgeon", centreX, headerY + 8);
+    doc.text("Consultant Orthopaedic Hip and Knee Surgeon", centreX, headerY + 8);
 
     doc.setFont("helvetica", "normal");
     doc.setFontSize(6.5);
@@ -709,7 +709,7 @@ export function buildLetterheadPdfDoc(data: PatientLetterheadData = {}): jsPDF {
     doc.setFont("helvetica", "normal");
     doc.setFontSize(7.5);
     doc.setTextColor(TEXT_MUTED[0], TEXT_MUTED[1], TEXT_MUTED[2]);
-    doc.text("Mr Shivakumar Shankar • Consultant Robotic Hip and Knee Surgeon", margin, footerY + 5);
+    doc.text("Mr Shivakumar Shankar • Consultant Orthopaedic Hip and Knee Surgeon", margin, footerY + 5);
 
     doc.setFont("helvetica", "normal");
     doc.setTextColor(PRIMARY_NAVY[0], PRIMARY_NAVY[1], PRIMARY_NAVY[2]);

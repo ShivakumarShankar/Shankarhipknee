@@ -102,7 +102,7 @@ export async function generateLetterheadDocx(outputPath = 'public/Mr_Shivakumar_
                 spacing: { after: 60 },
                 children: [
                   new TextRun({
-                    text: 'Consultant Robotic Hip and Knee Surgeon',
+                    text: 'Consultant Orthopaedic Hip and Knee Surgeon',
                     font: 'Calibri',
                     bold: true,
                     size: 18, // 9pt
@@ -248,7 +248,7 @@ export async function generateLetterheadDocx(outputPath = 'public/Mr_Shivakumar_
                 spacing: { before: 80 },
                 children: [
                   new TextRun({
-                    text: 'Mr Shivakumar Shankar  •  Consultant Robotic Hip and Knee Surgeon',
+                    text: 'Mr Shivakumar Shankar  •  Consultant Orthopaedic Hip and Knee Surgeon',
                     font: 'Calibri',
                     size: 15, // 7.5pt
                     color: '64748B',
@@ -497,7 +497,7 @@ export async function generateLetterheadDocx(outputPath = 'public/Mr_Shivakumar_
             spacing: { before: 20, after: 80 },
             children: [
               new TextRun({
-                text: 'Consultant Robotic Hip and Knee Surgeon',
+                text: 'Consultant Orthopaedic Hip and Knee Surgeon',
                 font: 'Calibri',
                 size: 20,
                 color: '475569',

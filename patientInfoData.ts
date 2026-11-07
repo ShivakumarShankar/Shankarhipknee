@@ -1,5 +1,5 @@
 // Structured Clinical Data for Procedures, Risks, and Patient Information Guides
-// Authored by Mr Shivakumar Shankar - Consultant Robotic Hip and Knee Surgeon
+// Authored by Mr Shivakumar Shankar - Consultant Orthopaedic Hip and Knee Surgeon
 
 export interface ProcedureRiskInfo {
   id: string;

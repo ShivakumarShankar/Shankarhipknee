@@ -43,7 +43,7 @@ export function generateLetterheadPdf(outputPath = 'public/Mr_Shivakumar_Shankar
     doc.setFont('helvetica', 'bold');
     doc.setFontSize(8.5);
     doc.setTextColor(PRIMARY_NAVY[0], PRIMARY_NAVY[1], PRIMARY_NAVY[2]);
-    doc.text('Consultant Robotic Hip and Knee Surgeon', centreX, headerY + 8);
+    doc.text('Consultant Orthopaedic Hip and Knee Surgeon', centreX, headerY + 8);
 
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(6.5);
@@ -97,7 +97,7 @@ export function generateLetterheadPdf(outputPath = 'public/Mr_Shivakumar_Shankar
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(7.5);
     doc.setTextColor(TEXT_MUTED[0], TEXT_MUTED[1], TEXT_MUTED[2]);
-    doc.text('Mr Shivakumar Shankar • Consultant Robotic Hip and Knee Surgeon', margin, footerY + 5);
+    doc.text('Mr Shivakumar Shankar • Consultant Orthopaedic Hip and Knee Surgeon', margin, footerY + 5);
 
     doc.setFont('helvetica', 'normal');
     doc.setTextColor(PRIMARY_NAVY[0], PRIMARY_NAVY[1], PRIMARY_NAVY[2]);
@@ -154,7 +154,7 @@ export function generateLetterheadPdf(outputPath = 'public/Mr_Shivakumar_Shankar
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(9.5);
   doc.setTextColor(TEXT_MUTED[0], TEXT_MUTED[1], TEXT_MUTED[2]);
-  doc.text('Consultant Robotic Hip and Knee Surgeon', margin, signoffY + 26.5);
+  doc.text('Consultant Orthopaedic Hip and Knee Surgeon', margin, signoffY + 26.5);
 
   drawLetterheadFooter();
 

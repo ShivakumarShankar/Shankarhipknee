@@ -133,7 +133,7 @@ export function buildLetterheadDocx(data: LetterheadContent = {}): Document {
                 spacing: { after: 50 },
                 children: [
                   new TextRun({
-                    text: data.surgeonTitle || 'Consultant Robotic Hip and Knee Surgeon',
+                    text: data.surgeonTitle || 'Consultant Orthopaedic Hip and Knee Surgeon',
                     font: 'Calibri',
                     bold: true,
                     size: 18, // 9pt
@@ -280,7 +280,7 @@ export function buildLetterheadDocx(data: LetterheadContent = {}): Document {
                 spacing: { before: 80 },
                 children: [
                   new TextRun({
-                    text: 'Mr Shivakumar Shankar  •  Consultant Robotic Hip and Knee Surgeon',
+                    text: 'Mr Shivakumar Shankar  •  Consultant Orthopaedic Hip and Knee Surgeon',
                     font: 'Calibri',
                     size: 15,
                     color: '64748B',
@@ -466,7 +466,7 @@ export function buildLetterheadDocx(data: LetterheadContent = {}): Document {
       spacing: { before: 20, after: 80 },
       children: [
         new TextRun({
-          text: data.surgeonTitle || 'Consultant Robotic Hip and Knee Surgeon',
+          text: data.surgeonTitle || 'Consultant Orthopaedic Hip and Knee Surgeon',
           font: 'Calibri',
           size: 20,
           color: '475569',

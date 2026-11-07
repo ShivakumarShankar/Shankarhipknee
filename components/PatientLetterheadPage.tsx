@@ -50,7 +50,7 @@ export const PatientLetterheadPage: React.FC<PatientLetterheadPageProps> = ({ on
         body,
         signoff: 'Yours sincerely,',
         surgeonName: 'Mr Shivakumar Shankar',
-        surgeonTitle: 'Consultant Robotic Hip and Knee Surgeon'
+        surgeonTitle: 'Consultant Orthopaedic Hip and Knee Surgeon'
       }, 'Mr_Shivakumar_Shankar_Patient_Letterhead.docx');
     } catch (err) {
       console.error('Failed to generate docx in browser, falling back to static template:', err);
@@ -75,7 +75,7 @@ export const PatientLetterheadPage: React.FC<PatientLetterheadPageProps> = ({ on
         body,
         signoff: 'Yours sincerely,',
         surgeonName: 'Mr Shivakumar Shankar',
-        surgeonTitle: 'Consultant Robotic Hip and Knee Surgeon'
+        surgeonTitle: 'Consultant Orthopaedic Hip and Knee Surgeon'
       }, 'Mr_Shivakumar_Shankar_Patient_Letterhead.pdf');
     } catch (err) {
       console.error('Failed to generate PDF, falling back to static template:', err);
@@ -241,7 +241,7 @@ export const PatientLetterheadPage: React.FC<PatientLetterheadPageProps> = ({ on
                 Mr Shivakumar Shankar
               </h2>
               <p className="text-[10px] sm:text-[11px] font-bold text-[#2A5F82] uppercase tracking-wider mt-0.5 leading-tight">
-                Consultant Robotic Hip and Knee Surgeon
+                Consultant Orthopaedic Hip and Knee Surgeon
               </p>
               <p className="text-[8.5px] sm:text-[9.5px] text-slate-500 font-medium mt-1 leading-snug">
                 Spire Hartswood Hospital &bull; Nuffield Health Brentwood Hospital &bull; Queen's Hospital
@@ -349,7 +349,7 @@ export const PatientLetterheadPage: React.FC<PatientLetterheadPageProps> = ({ on
                   Mr Shivakumar Shankar
                 </p>
                 <p className="text-xs sm:text-sm text-slate-600 font-medium leading-tight">
-                  Consultant Robotic Hip and Knee Surgeon
+                  Consultant Orthopaedic Hip and Knee Surgeon
                 </p>
               </div>
             </div>
@@ -363,7 +363,7 @@ export const PatientLetterheadPage: React.FC<PatientLetterheadPageProps> = ({ on
           <div>
             <span>Mr Shivakumar Shankar</span>
             <span className="mx-1.5 text-slate-300">•</span>
-            <span>Consultant Robotic Hip and Knee Surgeon</span>
+            <span>Consultant Orthopaedic Hip and Knee Surgeon</span>
           </div>
           <div>
             <span className="text-[#1B4965] font-semibold">www.shivakumarshankar.co.uk</span>
