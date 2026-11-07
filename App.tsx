@@ -968,7 +968,15 @@ function App() {
 
                       {/* Title & Subtitle */}
                       <h3 className="text-xl font-bold text-slate-900 mb-1 group-hover:text-[#1B4965] transition-colors">
-                        {treatment.title}
+                        {treatment.id === 'revision-hip-replacement' ? (
+                          <a 
+                            href="/revision-hip-replacement" 
+                            onClick={(e) => { e.preventDefault(); handleNavigate('revision-hip-replacement'); }}
+                            className="hover:underline"
+                          >
+                            {treatment.title}
+                          </a>
+                        ) : treatment.title}
                       </h3>
                       {treatment.subtitle && (
                         <p className="text-xs font-semibold text-slate-500 mb-3">
@@ -996,12 +1004,23 @@ function App() {
 
                     {/* Action Bar */}
                     <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-2">
-                      <button 
-                        onClick={() => setSelectedTreatment(treatment)}
-                        className="text-xs font-bold text-slate-700 hover:text-[#1B4965] flex items-center gap-1 transition-colors"
-                      >
-                        Details & Risks <ChevronRight size={14} />
-                      </button>
+                      <div className="flex items-center gap-2">
+                        <button 
+                          onClick={() => setSelectedTreatment(treatment)}
+                          className="text-xs font-bold text-slate-700 hover:text-[#1B4965] flex items-center gap-1 transition-colors"
+                        >
+                          Details & Risks <ChevronRight size={14} />
+                        </button>
+                        {treatment.id === 'revision-hip-replacement' && (
+                          <a 
+                            href="/revision-hip-replacement"
+                            onClick={(e) => { e.preventDefault(); handleNavigate('revision-hip-replacement'); }}
+                            className="text-xs font-bold text-[#1B4965] hover:text-[#13364B] underline"
+                          >
+                            Full Guide &rarr;
+                          </a>
+                        )}
+                      </div>
 
                       <div className="flex items-center gap-1.5">
                         {(() => {
@@ -1851,7 +1870,7 @@ function App() {
               <li><a href="/partial-knee-replacement" onClick={(e) => { e.preventDefault(); handleNavigate('partial-knee-replacement'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Partial (Unicompartmental) Knee</a></li>
               <li><a href="/knee-arthroscopy" onClick={(e) => { e.preventDefault(); handleNavigate('knee-arthroscopy'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Knee Arthroscopy &amp; Meniscal Repair</a></li>
               <li><a href="/prp-injection" onClick={(e) => { e.preventDefault(); handleNavigate('prp-injection'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Platelet-Rich Plasma (PRP) Injections</a></li>
-              <li><a href="/hip-replacement" onClick={(e) => { e.preventDefault(); handleNavigate('hip-replacement'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Complex Revision Arthroplasty</a></li>
+              <li><a href="/revision-hip-replacement" onClick={(e) => { e.preventDefault(); handleNavigate('revision-hip-replacement'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Revision Hip Replacement</a></li>
             </ul>
           </div>
 

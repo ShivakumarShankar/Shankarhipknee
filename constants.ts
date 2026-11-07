@@ -172,6 +172,25 @@ export const TREATMENTS: Treatment[] = [
     ]
   },
   {
+    id: "revision-hip-replacement",
+    title: "Revision Total Hip Replacement",
+    subtitle: "Investigation, Component Exchange & Reconstruction",
+    category: "hip",
+    procedureRiskId: "total-hip-replacement",
+    surgicalApproach: "Posterior, Anterolateral & Extended Trochanteric Approaches",
+    description: "Specialist surgery for painful, worn, loose, or unstable hip replacements. Undertaken across private hospitals in Brentwood for selected cases and BHRUT NHS hospitals for complex cases.",
+    keyBenefits: [
+      "Tertiary fellowship training from RNOH Stanmore in complex failing hip arthroplasty",
+      "Selected revision procedures at Spire Hartswood and Nuffield Brentwood",
+      "Complex reconstruction and bone preservation at BHRUT NHS surgical centres",
+      "Comprehensive diagnostic workup for implant loosening, infection, and wear"
+    ],
+    fullDetails: [
+      "Revision total hip replacement involves the removal and replacement of one or more failing components of a previous hip replacement.",
+      "Mr Shankar evaluates patients with unexplained hip pain, prosthetic loosening, recurrent dislocation, or bearing wear, matching the surgical setting to case complexity."
+    ]
+  },
+  {
     id: "total-knee-replacement",
     title: "Total Knee Replacement",
     subtitle: "Conventional, Computer-Navigated & Robotic",

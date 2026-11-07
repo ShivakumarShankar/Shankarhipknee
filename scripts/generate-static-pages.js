@@ -87,6 +87,7 @@ const renderFooter = () => `
             <li><a href="/robotic-hip-replacement" class="text-slate-600 hover:text-[#1B4965] transition-colors">Robotic Hip Replacement</a></li>
             <li><a href="/computer-assisted-hip-replacement" class="text-slate-600 hover:text-[#1B4965] transition-colors">Computer-Assisted Hip Replacement</a></li>
             <li><a href="/minimally-invasive-hip-replacement" class="text-slate-600 hover:text-[#1B4965] transition-colors">Minimally Invasive Hip (Rottinger)</a></li>
+            <li><a href="/revision-hip-replacement" class="text-slate-600 hover:text-[#1B4965] transition-colors">Revision Hip Replacement</a></li>
             <li><a href="/knee-replacement" class="text-slate-600 hover:text-[#1B4965] transition-colors">Total Knee Replacement</a></li>
             <li><a href="/robotic-knee-replacement" class="text-slate-600 hover:text-[#1B4965] transition-colors">Robotic Mako Knee Surgery</a></li>
             <li><a href="/partial-knee-replacement" class="text-slate-600 hover:text-[#1B4965] transition-colors">Partial (Unicompartmental) Knee</a></li>
@@ -4203,6 +4204,10 @@ const pageDefinitions = [
         {
           title: 'Minimally Invasive Joint Care',
           desc: 'Specialist expertise in tissue-sparing Rottinger anterior hip surgery and keyhole knee arthroscopy preserving vital soft tissues, supporting a patient-focused approach to recovery and rehabilitation.'
+        },
+        {
+          title: 'Revision Hip Replacement',
+          desc: 'Specialist assessment, component exchange, and complex reconstruction for painful, loose, worn, or unstable hip replacements across private and NHS hospital settings (<a href="/revision-hip-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">learn more about revision hip surgery</a>).'
         },
         {
           title: 'Patient Feedback & Reviews',

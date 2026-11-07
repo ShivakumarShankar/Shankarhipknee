@@ -50,6 +50,55 @@ interface ClinicalProcedurePageProps {
   onNavigate: (href: string) => void;
 }
 
+/**
+ * Safely renders text containing simple anchor tags without using dangerouslySetInnerHTML.
+ * Replaces HTML anchor tags with safe interactive React links wired to onNavigate.
+ */
+const renderFormattedDetail = (
+  text: string,
+  onNavigate: (href: string) => void
+): React.ReactNode => {
+  if (!text.includes('<a') || !text.includes('</a>')) {
+    return text;
+  }
+
+  const anchorRegex = /<a\s+href="([^"]+)"(?:\s+class="([^"]*)")?>([\s\S]*?)<\/a>/gi;
+  const nodes: React.ReactNode[] = [];
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+
+  while ((match = anchorRegex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      nodes.push(text.substring(lastIndex, match.index));
+    }
+    const href = match[1];
+    const className = match[2] || 'font-bold underline text-[#1B4965] hover:text-[#0A192F]';
+    const rawContent = match[3];
+    const linkText = rawContent.replace(/&rarr;/g, '→').replace(/&amp;/g, '&');
+
+    nodes.push(
+      <a
+        key={match.index}
+        href={href}
+        onClick={(e) => {
+          e.preventDefault();
+          onNavigate(href.replace(/^\//, ''));
+        }}
+        className={className}
+      >
+        {linkText}
+      </a>
+    );
+    lastIndex = anchorRegex.lastIndex;
+  }
+
+  if (lastIndex < text.length) {
+    nodes.push(text.substring(lastIndex));
+  }
+
+  return nodes;
+};
+
 export const ClinicalProcedurePage: React.FC<ClinicalProcedurePageProps> = ({
   data,
   onBook,
@@ -194,7 +243,7 @@ export const ClinicalProcedurePage: React.FC<ClinicalProcedurePageProps> = ({
                           {pt.label}
                         </strong>
                         <p className="text-xs text-slate-600 leading-relaxed">
-                          {pt.detail}
+                          {renderFormattedDetail(pt.detail, onNavigate)}
                         </p>
                       </div>
                     ))}

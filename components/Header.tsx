@@ -121,7 +121,7 @@ const MENU_PAGES: NavMenuItem[] = [
         href: 'minimally-invasive-hip-replacement'
       },
       {
-        name: 'Revision Hip Replacement',
+        name: 'Revision Total Hip Replacement',
         description: 'Specialist assessment & surgery for painful or failing hip replacements',
         href: 'revision-hip-replacement'
       }
