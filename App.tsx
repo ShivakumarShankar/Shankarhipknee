@@ -75,6 +75,7 @@ export type AppPage =
   | 'robotic-hip-replacement'
   | 'computer-assisted-hip-replacement'
   | 'minimally-invasive-hip-replacement'
+  | 'revision-hip-replacement'
   | 'knee-replacement' 
   | 'robotic-knee-replacement'
   | 'computer-assisted-knee-replacement'
@@ -111,6 +112,7 @@ export const getPageFromPath = (path: string): AppPage => {
   if (clean === '/robotic-hip-replacement') return 'robotic-hip-replacement';
   if (clean === '/computer-assisted-hip-replacement') return 'computer-assisted-hip-replacement';
   if (clean === '/minimally-invasive-hip-replacement') return 'minimally-invasive-hip-replacement';
+  if (clean === '/revision-hip-replacement' || clean === '/revision-total-hip-replacement' || clean === '/revision-hip') return 'revision-hip-replacement';
   if (clean === '/knee-replacement') return 'knee-replacement';
   if (clean === '/robotic-knee-replacement') return 'robotic-knee-replacement';
   if (clean === '/computer-assisted-knee-replacement') return 'computer-assisted-knee-replacement';

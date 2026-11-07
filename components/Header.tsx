@@ -418,13 +418,17 @@ const Header: React.FC<HeaderProps> = ({ onBook, onNavigate, currentPage }) => {
               <div className="flex items-center space-x-1">
                 {MENU_PAGES.map((page) => {
                   const isActive = 
-                    (page.href === 'about' && currentPage === 'about') || 
+                    page.href === currentPage ||
+                    (page.href === 'about' && (currentPage === 'about' || currentPage === 'about-mr-shivakumar-shankar')) || 
                     (page.href === 'reviews' && currentPage === 'reviews') ||
                     (page.href === 'contact' && currentPage === 'contact') ||
-                    (page.href === 'robotic-surgery' && currentPage === 'robotic-surgery') ||
-                    (page.href === 'hip-replacement' && (currentPage === 'hip-replacement' || currentPage === 'knee-replacement' || currentPage === 'knee-arthroscopy')) ||
-                    (page.href === 'patient-guides' && currentPage === 'patient-guides') ||
-                    (page.href === 'home' && currentPage === 'home');
+                    (page.href === 'robotic-surgery' && (currentPage === 'robotic-surgery' || currentPage === 'robotic-computer-assisted-surgery' || currentPage === 'conventional-vs-computer-assisted-vs-robotic-surgery')) ||
+                    (page.href === 'hip-replacement' && (currentPage === 'hip-replacement' || currentPage === 'robotic-hip-replacement' || currentPage === 'computer-assisted-hip-replacement' || currentPage === 'minimally-invasive-hip-replacement' || currentPage === 'revision-hip-replacement')) ||
+                    (page.href === 'knee-replacement' && (currentPage === 'knee-replacement' || currentPage === 'robotic-knee-replacement' || currentPage === 'computer-assisted-knee-replacement' || currentPage === 'partial-knee-replacement' || currentPage === 'knee-arthroscopy' || currentPage === 'prp-injection')) ||
+                    (page.href === 'patient-guides' && (currentPage === 'patient-information' || currentPage === 'patient-guides' || currentPage === 'hip-replacement-recovery' || currentPage === 'knee-replacement-recovery' || currentPage === 'preparing-for-surgery' || currentPage === 'frequently-asked-questions' || currentPage === 'physio-protocols')) ||
+                    (page.href === 'hospitals-locations' && (currentPage === 'hospitals-locations' || currentPage === 'london-hip-knee-surgeon' || currentPage === 'essex-hip-knee-surgeon' || currentPage === 'spire-hartswood-hospital' || currentPage === 'nuffield-brentwood-hospital' || currentPage === 'queens-hospital-romford' || currentPage === 'king-george-hospital-goodmayes')) ||
+                    (page.href === 'home' && currentPage === 'home') ||
+                    Boolean(page.subItems && page.subItems.some(sub => sub.href === currentPage));
                   const hasSub = page.subItems && page.subItems.length > 0;
                   return (
                     <div 
