@@ -143,7 +143,7 @@ export const getPageFromPath = (path: string): AppPage => {
 const PAGE_METADATA: Record<string, { title: string; desc: string; canonical: string }> = {
   'home': {
     title: 'Mr Shivakumar Shankar | London & Essex Hip and Knee Surgeon',
-    desc: 'Mr Shivakumar Shankar is a Consultant Orthopaedic Surgeon specialising in hip and knee surgery, robotic joint replacement, and joint preservation in London and Essex.',
+    desc: 'Mr Shivakumar Shankar is a Consultant Orthopaedic Hip and Knee Surgeon in London and Essex, offering hip and knee replacement, robotic surgery & arthroscopy.',
     canonical: 'https://www.shivakumarshankar.co.uk/'
   },
   'about': {
@@ -157,8 +157,8 @@ const PAGE_METADATA: Record<string, { title: string; desc: string; canonical: st
     canonical: 'https://www.shivakumarshankar.co.uk/media-social'
   },
   'hip-replacement': {
-    title: 'Hip Replacement Surgery London & Essex | Mr Shivakumar Shankar',
-    desc: 'Consultant-led total hip replacement in London & Essex with Mr Shivakumar Shankar. Advanced ceramic bearings, computer navigation & muscle-sparing approaches in Brentwood & Romford.',
+    title: 'Hip Replacement Surgeon in Essex & London | Mr Shivakumar Shankar',
+    desc: 'Consultant Hip Replacement Surgeon in Essex & London. Mr Shivakumar Shankar offers conventional, computer-assisted, MAKO robotic & minimally invasive hip surgery.',
     canonical: 'https://www.shivakumarshankar.co.uk/hip-replacement'
   },
   'robotic-hip-replacement': {
@@ -182,8 +182,8 @@ const PAGE_METADATA: Record<string, { title: string; desc: string; canonical: st
     canonical: 'https://www.shivakumarshankar.co.uk/revision-hip-replacement'
   },
   'knee-replacement': {
-    title: 'Total Knee Replacement London & Essex | Mr Shivakumar Shankar',
-    desc: 'Consultant-led total knee replacement in London & Essex with Mr Shivakumar Shankar. Conventional, computer-navigated & Mako robotic knee surgery in Brentwood & Romford.',
+    title: 'Knee Replacement Surgeon in Essex & London | Mr Shivakumar Shankar',
+    desc: 'Consultant Knee Replacement Surgeon in Essex & London. Mr Shivakumar Shankar offers total, partial, computer-assisted & MAKO robotic knee replacement in Brentwood.',
     canonical: 'https://www.shivakumarshankar.co.uk/knee-replacement'
   },
   'robotic-knee-replacement': {
@@ -750,18 +750,25 @@ function App() {
                       className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain bg-white p-1 rounded-xl shadow-md flex-shrink-0 border border-slate-200"
                     />
                     <div>
-                      <h1 className="font-serif text-[30px] sm:text-[36px] lg:text-[40px] text-[#1B4965] font-semibold tracking-tight leading-tight">
+                      <p className="font-serif text-[30px] sm:text-[36px] lg:text-[40px] text-[#1B4965] font-semibold tracking-tight leading-tight">
                         {SLOGAN}
+                      </p>
+                      <h1 className="text-xs sm:text-sm font-bold text-slate-700 tracking-wide mt-1">
+                        Mr Shivakumar Shankar — Consultant Orthopaedic Hip and Knee Surgeon in London and Essex
                       </h1>
-                      <span className="sr-only">
-                        Mr Shivakumar Shankar &bull; London and Essex Hip and Knee Surgeon &bull; Consultant Orthopaedic Surgeon specialising in hip and knee surgery, robotic joint replacement, and arthroscopy
-                      </span>
                     </div>
                   </div>
 
                   <p className="text-base sm:text-lg text-slate-700 leading-relaxed max-w-2xl border-l-4 border-[#1B4965] pl-4">
-                    High-volume Consultant Orthopaedic Surgeon specialising in <strong>hip and knee replacement surgery, minimally invasive hip replacement, robotic-assisted arthroplasty</strong>, and <strong>computer-navigated joint replacement</strong> in Essex and London.
-                    <span className="block mt-3 text-slate-900 font-semibold">
+                    Consultant Orthopaedic Surgeon providing specialist assessment and surgery across{' '}
+                    <a href="/hip-replacement" onClick={(e) => { e.preventDefault(); handleNavigate('hip-replacement'); }} className="font-bold text-[#1B4965] hover:underline">hip replacement</a>,{' '}
+                    <a href="/knee-replacement" onClick={(e) => { e.preventDefault(); handleNavigate('knee-replacement'); }} className="font-bold text-[#1B4965] hover:underline">knee replacement</a>,{' '}
+                    <a href="/robotic-computer-assisted-surgery" onClick={(e) => { e.preventDefault(); handleNavigate('robotic-computer-assisted-surgery'); }} className="font-bold text-[#1B4965] hover:underline">MAKO robotic-assisted</a> and{' '}
+                    <a href="/computer-assisted-hip-replacement" onClick={(e) => { e.preventDefault(); handleNavigate('computer-assisted-hip-replacement'); }} className="font-bold text-[#1B4965] hover:underline">computer-assisted joint replacement</a>,{' '}
+                    <a href="/minimally-invasive-hip-replacement" onClick={(e) => { e.preventDefault(); handleNavigate('minimally-invasive-hip-replacement'); }} className="font-bold text-[#1B4965] hover:underline">minimally invasive hip surgery</a>,{' '}
+                    <a href="/revision-hip-replacement" onClick={(e) => { e.preventDefault(); handleNavigate('revision-hip-replacement'); }} className="font-bold text-[#1B4965] hover:underline">revision hip replacement</a>, and{' '}
+                    <a href="/knee-arthroscopy" onClick={(e) => { e.preventDefault(); handleNavigate('knee-arthroscopy'); }} className="font-bold text-[#1B4965] hover:underline">knee arthroscopy</a> in Brentwood, Essex, and London.
+                    <span className="block mt-3 text-slate-900 font-semibold text-sm sm:text-base">
                       First Surgeon in Essex &amp; North East London to perform computer-assisted and robotic total hip replacement.
                     </span>
                   </p>
@@ -771,12 +778,20 @@ function App() {
                     <span className="font-bold text-slate-900 flex items-center gap-1.5">
                       <MapPin size={15} className="text-[#1B4965]" /> Private Consultations:
                     </span>
-                    <span className="bg-white border border-slate-200 px-2.5 py-1 rounded text-slate-800 font-medium shadow-2xs">
+                    <a
+                      href="/spire-hartswood-hospital"
+                      onClick={(e) => { e.preventDefault(); handleNavigate('spire-hartswood-hospital'); }}
+                      className="bg-white border border-slate-200 hover:border-[#1B4965] px-2.5 py-1 rounded text-slate-800 hover:text-[#1B4965] font-medium shadow-2xs transition-colors"
+                    >
                       Spire Hartswood Hospital
-                    </span>
-                    <span className="bg-white border border-slate-200 px-2.5 py-1 rounded text-slate-800 font-medium shadow-2xs">
-                      Nuffield Brentwood Hospital
-                    </span>
+                    </a>
+                    <a
+                      href="/nuffield-brentwood-hospital"
+                      onClick={(e) => { e.preventDefault(); handleNavigate('nuffield-brentwood-hospital'); }}
+                      className="bg-white border border-slate-200 hover:border-[#1B4965] px-2.5 py-1 rounded text-slate-800 hover:text-[#1B4965] font-medium shadow-2xs transition-colors"
+                    >
+                      Nuffield Health Brentwood Hospital
+                    </a>
                   </div>
 
                   {/* CTA Buttons */}
@@ -970,15 +985,29 @@ function App() {
 
                       {/* Title & Subtitle */}
                       <h3 className="text-xl font-bold text-slate-900 mb-1 group-hover:text-[#1B4965] transition-colors">
-                        {treatment.id === 'revision-hip-replacement' ? (
-                          <a 
-                            href="/revision-hip-replacement" 
-                            onClick={(e) => { e.preventDefault(); handleNavigate('revision-hip-replacement'); }}
-                            className="hover:underline"
-                          >
-                            {treatment.title}
-                          </a>
-                        ) : treatment.title}
+                        {(() => {
+                          const routeMap: Record<string, string> = {
+                            'total-hip-replacement': 'hip-replacement',
+                            'robotic-hip-replacement': 'robotic-hip-replacement',
+                            'minimally-invasive-hip': 'minimally-invasive-hip-replacement',
+                            'revision-hip-replacement': 'revision-hip-replacement',
+                            'total-knee-replacement': 'knee-replacement',
+                            'partial-knee-replacement': 'partial-knee-replacement',
+                            'robotic-knee-replacement': 'robotic-knee-replacement',
+                            'knee-arthroscopy': 'knee-arthroscopy',
+                            'prp-injection': 'prp-injection'
+                          };
+                          const targetRoute = routeMap[treatment.id];
+                          return targetRoute ? (
+                            <a 
+                              href={`/${targetRoute}`} 
+                              onClick={(e) => { e.preventDefault(); handleNavigate(targetRoute); }}
+                              className="hover:underline"
+                            >
+                              {treatment.title}
+                            </a>
+                          ) : treatment.title;
+                        })()}
                       </h3>
                       {treatment.subtitle && (
                         <p className="text-xs font-semibold text-slate-500 mb-3">
@@ -1013,15 +1042,29 @@ function App() {
                         >
                           Details & Risks <ChevronRight size={14} />
                         </button>
-                        {treatment.id === 'revision-hip-replacement' && (
-                          <a 
-                            href="/revision-hip-replacement"
-                            onClick={(e) => { e.preventDefault(); handleNavigate('revision-hip-replacement'); }}
-                            className="text-xs font-bold text-[#1B4965] hover:text-[#13364B] underline"
-                          >
-                            Full Guide &rarr;
-                          </a>
-                        )}
+                        {(() => {
+                          const routeMap: Record<string, string> = {
+                            'total-hip-replacement': 'hip-replacement',
+                            'robotic-hip-replacement': 'robotic-hip-replacement',
+                            'minimally-invasive-hip': 'minimally-invasive-hip-replacement',
+                            'revision-hip-replacement': 'revision-hip-replacement',
+                            'total-knee-replacement': 'knee-replacement',
+                            'partial-knee-replacement': 'partial-knee-replacement',
+                            'robotic-knee-replacement': 'robotic-knee-replacement',
+                            'knee-arthroscopy': 'knee-arthroscopy',
+                            'prp-injection': 'prp-injection'
+                          };
+                          const targetRoute = routeMap[treatment.id];
+                          return targetRoute ? (
+                            <a 
+                              href={`/${targetRoute}`}
+                              onClick={(e) => { e.preventDefault(); handleNavigate(targetRoute); }}
+                              className="text-xs font-bold text-[#1B4965] hover:text-[#13364B] underline"
+                            >
+                              Full Guide &rarr;
+                            </a>
+                          ) : null;
+                        })()}
                       </div>
 
                       <div className="flex items-center gap-1.5">
@@ -1867,12 +1910,13 @@ function App() {
             <h5 className="text-slate-900 font-bold mb-4 uppercase tracking-wider text-xs">Specialist Procedures</h5>
             <ul className="space-y-2 text-xs">
               <li><a href="/hip-replacement" onClick={(e) => { e.preventDefault(); handleNavigate('hip-replacement'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Total Hip Replacement</a></li>
-              <li><a href="/robotic-surgery" onClick={(e) => { e.preventDefault(); handleNavigate('robotic-surgery'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Robotic Hip &amp; Knee Surgery</a></li>
-              <li><a href="/hip-replacement" onClick={(e) => { e.preventDefault(); handleNavigate('hip-replacement'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Minimally Invasive Hip (Anterior/Rottinger)</a></li>
+              <li><a href="/knee-replacement" onClick={(e) => { e.preventDefault(); handleNavigate('knee-replacement'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Total Knee Replacement</a></li>
+              <li><a href="/robotic-computer-assisted-surgery" onClick={(e) => { e.preventDefault(); handleNavigate('robotic-computer-assisted-surgery'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Robotic &amp; Computer-Assisted Surgery</a></li>
+              <li><a href="/minimally-invasive-hip-replacement" onClick={(e) => { e.preventDefault(); handleNavigate('minimally-invasive-hip-replacement'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Minimally Invasive Hip (Anterior/Rottinger)</a></li>
+              <li><a href="/revision-hip-replacement" onClick={(e) => { e.preventDefault(); handleNavigate('revision-hip-replacement'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Revision Hip Replacement</a></li>
               <li><a href="/partial-knee-replacement" onClick={(e) => { e.preventDefault(); handleNavigate('partial-knee-replacement'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Partial (Unicompartmental) Knee</a></li>
               <li><a href="/knee-arthroscopy" onClick={(e) => { e.preventDefault(); handleNavigate('knee-arthroscopy'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Knee Arthroscopy &amp; Meniscal Repair</a></li>
               <li><a href="/prp-injection" onClick={(e) => { e.preventDefault(); handleNavigate('prp-injection'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Platelet-Rich Plasma (PRP) Injections</a></li>
-              <li><a href="/revision-hip-replacement" onClick={(e) => { e.preventDefault(); handleNavigate('revision-hip-replacement'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Revision Hip Replacement</a></li>
             </ul>
           </div>
 
@@ -1900,7 +1944,14 @@ function App() {
                 <a href={`mailto:${EMAIL}`} className="hover:text-[#1B4965] text-slate-800 break-all">{EMAIL}</a>
               </li>
               <li className="pt-2 border-t border-slate-200 text-[11px] text-slate-600">
-                <strong>Clinics:</strong> Spire Hartswood, Nuffield Brentwood
+                <strong>Private Clinics:</strong>{' '}
+                <a href="/spire-hartswood-hospital" onClick={(e) => { e.preventDefault(); handleNavigate('spire-hartswood-hospital'); }} className="hover:text-[#1B4965] hover:underline">Spire Hartswood</a>,{' '}
+                <a href="/nuffield-brentwood-hospital" onClick={(e) => { e.preventDefault(); handleNavigate('nuffield-brentwood-hospital'); }} className="hover:text-[#1B4965] hover:underline">Nuffield Brentwood</a>
+              </li>
+              <li className="text-[11px] text-slate-600">
+                <strong>NHS Practice:</strong>{' '}
+                <a href="/queens-hospital-romford" onClick={(e) => { e.preventDefault(); handleNavigate('queens-hospital-romford'); }} className="hover:text-[#1B4965] hover:underline">Queen's Romford</a>,{' '}
+                <a href="/king-george-hospital-goodmayes" onClick={(e) => { e.preventDefault(); handleNavigate('king-george-hospital-goodmayes'); }} className="hover:text-[#1B4965] hover:underline">King George Goodmayes</a>
               </li>
             </ul>
           </div>

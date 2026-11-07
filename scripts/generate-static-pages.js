@@ -4188,13 +4188,13 @@ const pageDefinitions = [
   {
     path: '',
     title: 'Mr Shivakumar Shankar | London & Essex Hip and Knee Surgeon',
-    description: 'Mr Shivakumar Shankar is a Consultant Orthopaedic Surgeon specialising in hip and knee surgery, robotic joint replacement, and joint preservation in London and Essex.',
+    description: 'Mr Shivakumar Shankar is a Consultant Orthopaedic Hip and Knee Surgeon in London and Essex, offering hip and knee replacement, robotic surgery & arthroscopy.',
     canonical: 'https://www.shivakumarshankar.co.uk/',
     bodyHtml: renderPageShell(
       '',
-      'Consultant Orthopaedic Hip & Knee Surgeon • London & Essex',
-      'Restoring Mobility with Robotic Precision & Fellowship-Trained Expertise',
-      'Mr Shivakumar Shankar MBBS, DHA, MRCSEd, MSc, FRCSEd (Tr & Orth) is a Consultant Orthopaedic Surgeon specialising in hip and knee surgery, serving as NHS Clinical Lead at BHRUT NHS Trust with private practice at Spire Hartswood and Nuffield Health Brentwood hospitals.',
+      'Restoring your active lifestyle',
+      'Mr Shivakumar Shankar — Consultant Orthopaedic Hip and Knee Surgeon in London and Essex',
+      'Consultant Orthopaedic Surgeon providing specialist assessment and surgery across <a href="/hip-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">hip replacement</a>, <a href="/knee-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">knee replacement</a>, <a href="/robotic-computer-assisted-surgery" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">MAKO robotic-assisted</a> and <a href="/computer-assisted-hip-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">computer-assisted joint replacement</a>, <a href="/minimally-invasive-hip-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">minimally invasive hip surgery</a>, <a href="/revision-hip-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">revision hip replacement</a>, and <a href="/knee-arthroscopy" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">knee arthroscopy</a> in Brentwood, Essex, and London. Private consultations at <a href="/spire-hartswood-hospital" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Spire Hartswood Hospital</a> and <a href="/nuffield-brentwood-hospital" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Nuffield Health Brentwood Hospital</a>, with substantive NHS practice at <a href="/queens-hospital-romford" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Queen\'s Hospital, Romford</a> and <a href="/king-george-hospital-goodmayes" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">King George Hospital, Goodmayes</a>.',
       `
       ${renderCardGrid([
         {
@@ -4430,13 +4430,13 @@ const pageDefinitions = [
   // 4. Hip Replacement
   {
     path: 'hip-replacement',
-    title: 'Hip Replacement Surgery London & Essex | Mr Shivakumar Shankar',
-    description: 'Consultant-led total hip replacement in London & Essex with Mr Shivakumar Shankar. Advanced ceramic bearings, computer navigation & muscle-sparing approaches in Brentwood & Romford.',
+    title: 'Hip Replacement Surgeon in Essex & London | Mr Shivakumar Shankar',
+    description: 'Consultant Hip Replacement Surgeon in Essex & London. Mr Shivakumar Shankar offers conventional, computer-assisted, MAKO robotic & minimally invasive hip surgery.',
     canonical: 'https://www.shivakumarshankar.co.uk/hip-replacement',
     customJsonLd: generateProcedureJsonLd({
       path: 'hip-replacement',
-      title: 'Hip Replacement Surgery London & Essex | Mr Shivakumar Shankar',
-      description: 'Consultant-led total hip replacement in London & Essex with Mr Shivakumar Shankar. Advanced ceramic bearings, computer navigation & muscle-sparing approaches in Brentwood & Romford.',
+      title: 'Hip Replacement Surgeon in Essex & London | Mr Shivakumar Shankar',
+      description: 'Consultant Hip Replacement Surgeon in Essex & London. Mr Shivakumar Shankar offers conventional, computer-assisted, MAKO robotic & minimally invasive hip surgery.',
       canonical: 'https://www.shivakumarshankar.co.uk/hip-replacement',
       data: CLINICAL_PROCEDURES['hip-replacement'],
       procedureName: 'Total Hip Replacement Surgery',
@@ -4561,13 +4561,13 @@ const pageDefinitions = [
   // 9. Knee Replacement
   {
     path: 'knee-replacement',
-    title: 'Total Knee Replacement London & Essex | Mr Shivakumar Shankar',
-    description: 'Consultant-led total knee replacement in London & Essex with Mr Shivakumar Shankar. Conventional, computer-navigated & Mako robotic knee surgery in Brentwood & Romford.',
+    title: 'Knee Replacement Surgeon in Essex & London | Mr Shivakumar Shankar',
+    description: 'Consultant Knee Replacement Surgeon in Essex & London. Mr Shivakumar Shankar offers total, partial, computer-assisted & MAKO robotic knee replacement in Brentwood.',
     canonical: 'https://www.shivakumarshankar.co.uk/knee-replacement',
     customJsonLd: generateProcedureJsonLd({
       path: 'knee-replacement',
-      title: 'Total Knee Replacement London & Essex | Mr Shivakumar Shankar',
-      description: 'Consultant-led total knee replacement in London & Essex with Mr Shivakumar Shankar. Conventional, computer-navigated & Mako robotic knee surgery in Brentwood & Romford.',
+      title: 'Knee Replacement Surgeon in Essex & London | Mr Shivakumar Shankar',
+      description: 'Consultant Knee Replacement Surgeon in Essex & London. Mr Shivakumar Shankar offers total, partial, computer-assisted & MAKO robotic knee replacement in Brentwood.',
       canonical: 'https://www.shivakumarshankar.co.uk/knee-replacement',
       data: CLINICAL_PROCEDURES['knee-replacement'],
       procedureName: 'Total Knee Replacement Surgery',
