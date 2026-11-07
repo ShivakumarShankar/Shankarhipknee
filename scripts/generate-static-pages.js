@@ -135,6 +135,31 @@ const renderPageShell = (path, badge, h1, lead, contentHtml) => `
       <a href="/" class="hover:underline">Home</a> &gt; <span class="font-bold text-slate-800">${h1}</span>
     </nav>
     <section class="mb-12">
+      ${path === '' ? `
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7">
+          <span class="inline-block px-3 py-1 rounded-full bg-[#EAF1F6] text-[#1B4965] text-xs font-bold uppercase tracking-wider mb-3">
+            ${badge}
+          </span>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+            ${h1}
+          </h1>
+          <p class="text-base sm:text-lg text-slate-600 mt-4 leading-relaxed max-w-4xl">
+            ${lead}
+          </p>
+        </div>
+        <div class="lg:col-span-5 relative flex justify-center lg:justify-end">
+          <div class="relative z-10 w-full max-w-md">
+            <div class="relative rounded-2xl overflow-hidden border border-slate-200 shadow-xl bg-white w-full max-w-md">
+              <img src="/profile.jpg" alt="Mr Shivakumar Shankar, Consultant Orthopaedic Hip and Knee Surgeon in London and Essex" width="600" height="605" class="w-full h-auto object-cover object-top max-h-[520px]" loading="eager" decoding="async" />
+              <div class="p-4 bg-slate-50 border-t border-slate-200">
+                <p class="text-base font-bold text-slate-900 leading-snug">Mr Shivakumar Shankar</p>
+                <p class="text-xs text-[#1B4965] font-semibold mt-0.5">Consultant Orthopaedic Hip &amp; Knee Surgeon</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>` : `
       <span class="inline-block px-3 py-1 rounded-full bg-[#EAF1F6] text-[#1B4965] text-xs font-bold uppercase tracking-wider mb-3">
         ${badge}
       </span>
@@ -143,7 +168,7 @@ const renderPageShell = (path, badge, h1, lead, contentHtml) => `
       </h1>
       <p class="text-base sm:text-lg text-slate-600 mt-4 leading-relaxed max-w-4xl">
         ${lead}
-      </p>
+      </p>`}
     </section>
     ${contentHtml}
   </main>
@@ -259,6 +284,7 @@ const getPhysicianEntity = (locations = STANDARD_HOSPITAL_LOCATIONS) => ({
   "image": {
     "@type": "ImageObject",
     "@id": "https://www.shivakumarshankar.co.uk/profile.jpg#primaryimage",
+    "name": "Mr Shivakumar Shankar, Consultant Orthopaedic Hip and Knee Surgeon in London and Essex",
     "url": "https://www.shivakumarshankar.co.uk/profile.jpg",
     "contentUrl": "https://www.shivakumarshankar.co.uk/profile.jpg",
     "caption": "Mr Shivakumar Shankar, Consultant Orthopaedic Hip and Knee Surgeon in London and Essex",
@@ -461,7 +487,7 @@ const renderAboutPageContent = () => `
           </div>
           <div class="lg:col-span-5 flex flex-col items-center">
             <div class="relative rounded-2xl overflow-hidden border border-slate-200 shadow-xl bg-white w-full max-w-sm">
-              <img src="/profile.jpg" alt="Mr Shivakumar Shankar, Consultant Orthopaedic Hip and Knee Surgeon in London and Essex" width="600" height="605" class="w-full h-auto object-cover object-top max-h-[440px]" loading="eager" />
+              <img src="/profile.jpg" alt="Mr Shivakumar Shankar, Consultant Orthopaedic Hip and Knee Surgeon in London and Essex" width="600" height="605" class="w-full h-auto object-cover object-top max-h-[440px]" loading="eager" decoding="async" />
               <div class="p-4 bg-slate-50 border-t border-slate-200">
                 <p class="text-sm font-bold text-slate-900 leading-snug">Mr Shivakumar Shankar</p>
                 <p class="text-xs text-[#1B4965] font-semibold mt-0.5">Consultant Robotic Hip &amp; Knee Surgeon</p>

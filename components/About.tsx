@@ -126,7 +126,7 @@ const About: React.FC<AboutProps> = ({ onBook, onNavigateHome }) => {
               <SurgeonPortraitCard 
                 className="w-full max-w-md shadow-xl"
                 imageMaxHeight="max-h-[520px]"
-                alt={`${SURGEON_NAME} - Consultant Orthopaedic Surgeon`}
+                alt="Mr Shivakumar Shankar, Consultant Orthopaedic Hip and Knee Surgeon in London and Essex"
               />
 
               {/* Regional Pioneer Accolade Card */}

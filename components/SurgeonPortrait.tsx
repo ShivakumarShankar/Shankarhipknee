@@ -1,46 +1,31 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { SURGEON_NAME, SURGEON_ROLE } from '../constants';
+
+const CANONICAL_PORTRAIT_SRC = '/profile.jpg';
+const CANONICAL_PORTRAIT_ALT = 'Mr Shivakumar Shankar, Consultant Orthopaedic Hip and Knee Surgeon in London and Essex';
 
 interface SurgeonPortraitProps {
   className?: string;
   alt?: string;
+  width?: number;
+  height?: number;
 }
-
-// Ordered list of candidate image sources to check (prioritising canonical /profile.jpg)
-const CANDIDATE_SOURCES = [
-  '/profile.jpg',
-  './profile.jpg',
-  './Shankar%20Profile%20picture%20Final.jpg',
-  './Shankar Profile picture Final.jpg',
-  './Shankar%20Profile%20picture%20Final.jpeg',
-  './Shankar Profile picture Final.jpeg',
-  './profile.jpeg',
-  './profile.png',
-  './hero_image.png',
-  './hero_image.jpg',
-];
 
 export const SurgeonPortrait: React.FC<SurgeonPortraitProps> = ({
   className = 'w-full h-auto object-cover object-top',
-  alt = `${SURGEON_NAME} - London & Essex Hip and Knee Surgeon, Consultant Orthopaedic Surgeon`,
+  alt = CANONICAL_PORTRAIT_ALT,
+  width = 600,
+  height = 605,
 }) => {
-  const [sourceIndex, setSourceIndex] = useState(0);
-
-  const handleError = () => {
-    if (sourceIndex < CANDIDATE_SOURCES.length - 1) {
-      setSourceIndex(prev => prev + 1);
-    }
-  };
-
   return (
     <img
-      src={CANDIDATE_SOURCES[sourceIndex]}
+      src={CANONICAL_PORTRAIT_SRC}
       alt={alt}
+      width={width}
+      height={height}
       className={className}
       loading="eager"
       decoding="async"
-      referrerPolicy="no-referrer"
-      onError={handleError}
     />
   );
 };
@@ -54,12 +39,14 @@ export interface SurgeonPortraitCardProps {
 export const SurgeonPortraitCard: React.FC<SurgeonPortraitCardProps> = ({
   className = 'w-full max-w-md',
   imageMaxHeight = 'max-h-[520px]',
-  alt = `${SURGEON_NAME} - London and Essex Hip and Knee Surgeon`,
+  alt = CANONICAL_PORTRAIT_ALT,
 }) => {
   return (
     <div className={`relative rounded-2xl overflow-hidden border border-slate-200 shadow-xl bg-white ${className}`}>
       <SurgeonPortrait 
         alt={alt} 
+        width={600}
+        height={605}
         className={`w-full h-auto object-cover object-top ${imageMaxHeight}`}
       />
       
