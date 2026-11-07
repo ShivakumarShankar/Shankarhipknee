@@ -236,7 +236,7 @@ Shared on Instagram on 25 September 2026.`,
         role: 'Patient • BBC LONDON',
         title: 'Pre-Op Ward: Rapid Elective Turnaround & Cricket Ambition',
         quote: '“I’ve been playing cricket for the last 12 years. I’ve got a terrible batting average, so I hope that improves once this is done.”',
-        description: 'Former NHS nurse Stuart Ayris prepares for planned knee replacement on the elective ward, praising the efficient scheduling that prevents surgical cancellations.',
+        description: 'Former NHS nurse Stuart Ayris prepares for planned knee replacement on the elective ward, praising the efficient scheduling designed to protect elective capacity and minimise surgical cancellations.',
         image: 'https://ichef.bbci.co.uk/ace/standard/976/cpsprodpb/5270/live/21de2a70-f6ef-11f0-9c4a-e59460e06bbd.jpg'
       },
       {

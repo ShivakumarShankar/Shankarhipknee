@@ -41,7 +41,7 @@ export const CLINICAL_PROCEDURES = {
       description: 'Mr Shankar evaluates each patient\'s unique pelvic tilt, spinopelvic mobility, and bone geometry to determine the optimal surgical alignment technique:',
       points: [
         { label: 'Conventional Arthroplasty', detail: 'Tried and proven worldwide over five decades using precision mechanical alignment guides and surgeon tactile judgment, delivering excellent National Joint Registry survivorship.' },
-        { label: 'Computer-Assisted Navigation', detail: 'Provides real-time optical intra-operative tracking of acetabular cup inclination and anteversion without pre-operative CT radiation, reducing orientation outliers.' },
+        { label: 'Computer-Assisted Navigation', detail: 'Provides real-time optical intra-operative tracking of acetabular cup inclination and anteversion without routinely requiring a separate pre-operative planning CT scan, substantially reducing alignment variation.' },
         { label: 'Mako Robotic-Assisted Surgery', detail: 'Combines pre-operative 3D CT virtual planning with tactile robotic arm haptic boundaries to guide component positioning and bone preparation within pre-planned stereotactic margins, available at Nuffield Health Brentwood Hospital and BHRUT NHS hospitals.' },
         { label: 'Tissue-Sparing Approaches', detail: 'Specialist European-trained muscle-sparing techniques (such as the Rottinger anterolateral approach) preserve muscular continuity, promoting early joint stability and reducing dislocation risk.' }
       ]
@@ -172,7 +172,7 @@ export const CLINICAL_PROCEDURES = {
         },
         {
           label: 'Computer-Navigated Hip Replacement',
-          detail: 'Uses optical infrared tracking arrays in the operating theatre to provide real-time numerical measurements of cup inclination, anteversion, and leg length without requiring pre-operative CT radiation. Enhances alignment consistency compared to manual surgery, but does not provide tactile robotic resistance or physical boundary protection during bone reaming.'
+          detail: 'Uses optical infrared tracking arrays in the operating theatre to provide real-time numerical measurements of cup inclination, anteversion, and leg length without routinely requiring a separate pre-operative planning CT scan. Enhances alignment consistency compared to manual surgery, but does not provide tactile robotic resistance or physical boundary protection during bone reaming.'
         },
         {
           label: 'MAKO Robotic-Assisted Hip Replacement',
@@ -317,68 +317,149 @@ export const CLINICAL_PROCEDURES = {
 
   'computer-assisted-hip-replacement': {
     slug: 'computer-assisted-hip-replacement',
-    badge: 'Navigated Arthroplasty',
-    h1: 'Computer-Assisted & Navigated Hip Replacement',
-    leadParagraph: 'Intra-operative optical navigation providing live digital verification of component inclination, anteversion, and limb length during hip arthroplasty without requiring pre-operative CT scans.',
+    badge: 'Computer-Navigated Arthroplasty • Optical Tracking',
+    h1: 'Computer-Assisted & Navigated Hip Replacement in Essex & London',
+    leadParagraph: 'Consultant-led computer-assisted and optical navigated hip replacement surgery in Essex and London with Mr Shivakumar Shankar. Advanced intra-operative computer navigation providing live digital validation of acetabular cup inclination, anteversion, and limb length restoration without routinely requiring a separate pre-operative planning CT scan, performed at Spire Hartswood Hospital in Brentwood and within BHRUT NHS Trust.',
     overview: [
-      'Computer-assisted hip surgery utilises optical sensor arrays and intelligent tracking software to guide implant orientation during surgery. Mr Shankar has extensive experience in computer-navigated arthroplasty, having completed specialist fellowship training at premier centres.',
-      'Unlike conventional visual alignment jigs, navigation calculates real-time spatial angles, helping the surgeon position the acetabular cup accurately within the safe zone, particularly in patients with unusual pelvic tilt.'
+      'Total hip replacement is one of the most clinically reliable and transformative operations in contemporary orthopaedic surgery, effectively relieving debilitating arthritis pain, restoring joint mechanics, and returning patients to active, independent lifestyles. While conventional hip arthroplasty achieves good long-term outcomes in experienced hands, traditional surgical instrumentation relies on visual anatomical landmarks and external mechanical alignment guides. Because individual pelvic tilt, bone morphology, and spinopelvic kinematics vary considerably among patients, conventional alignment guides carry a recognised risk of component positioning outliers outside safe angular zones.',
+      'Computer-assisted and optical navigated hip replacement (CAOS) represents a sophisticated intra-operative guidance technology designed to eliminate alignment guesswork. The system utilises high-precision optical tracking arrays and stereoscopic infrared cameras mounted in the operating theatre. Lightweight optical tracking arrays equipped with reflective spheres are temporarily affixed to the patient\'s pelvic iliac crest and surgical instruments. An intra-operative computer workstation continuously calculates the spatial coordinates of the acetabulum, providing Mr Shivakumar Shankar with real-time numeric readouts of component inclination and anteversion angles on a surgical display during every stage of socket preparation.',
+      'A primary technical advantage of computer-assisted navigation is the precise control of acetabular component orientation. For decades, surgeons aimed for the classic "Lewinnek safe zone" (radiographic inclination of 40° ± 10° and anteversion of 15° ± 10°). However, modern orthopaedic research demonstrates that safe cup placement is dynamic and functional rather than static. As an individual transitions between standing, sitting, and lying down, the pelvis rotates and tilts. In patients with spinal stiffness, lumbar degenerative disc disease, or prior spinal fusion, abnormal pelvic tilt increases the risk of component impingement, edge-loading, accelerated bearing wear, or post-operative hip dislocation. Computer navigation enables Mr Shankar to evaluate individual anatomical landmarks and functional pelvic tilt intra-operatively, positioning the socket precisely to match the patient\'s unique pelvic mechanics.',
+      'In addition to acetabular cup orientation, computer navigation provides continuous objective feedback on leg length equality and femoral offset. Maintaining limb length equality and restoring native femoral offset are essential to avoid post-operative limp, abductor muscle weakness, or painful leg length discrepancy. By registering baseline anatomical references before femoral dislocation and re-measuring them with trial components in situ, navigation quantifies vertical displacement and lateral offset to within millimetres, allowing fine-tuning of modular femoral head and neck geometries prior to final component implantation.',
+      'Mr Shivakumar Shankar is a fellowship-trained Consultant Orthopaedic Hip and Knee Surgeon holding substantive NHS consultant appointments and senior clinical leadership roles at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT), where he has served as Clinical Director and NHS Clinical Lead for Trauma and Orthopaedics. Holding a specialist Postgraduate Diploma in Computer and Robot-Assisted Orthopaedic Surgery alongside subspecialist lower limb reconstruction fellowships at the Royal National Orthopaedic Hospital (RNOH) Stanmore, the Golden Jubilee National Hospital in Glasgow, and European centres in France and Germany, Mr Shankar has completed over 3,000 hip and knee replacements with approximately nine years of dedicated experience in conventional and computer-navigated arthroplasty (GMC Number: 6038414). At Spire Hartswood Hospital in Brentwood, Essex, Mr Shankar offers conventional and computer-navigated joint replacement; at Nuffield Health Brentwood Hospital, he provides Stryker MAKO robotic-arm assisted joint reconstruction; and within his NHS practice at BHRUT, he delivers complex joint replacement and reconstruction services.'
     ],
     whoMayBenefit: [
-      'Patients with hip arthritis desiring verified component orientation without pre-operative CT radiation.',
-      'Individuals with spinal deformities or prior lumbar spine surgery where pelvic tilt alters functional hip kinematics.',
-      'Patients with atypical pelvic morphology where conventional visual landmarks are obscured.'
+      'Patients with advanced primary osteoarthritis, avascular necrosis, or post-traumatic hip degeneration seeking precision intra-operative angular verification without routinely requiring a separate pre-operative planning CT scan.',
+      'Individuals with abnormal pelvic tilt, severe lumbar spine stiffness, degenerative disc disease, or previous lumbar spinal fusion where dynamic spinopelvic kinematics require tailored acetabular component positioning to prevent impingement.',
+      'Patients with mild-to-moderate developmental hip dysplasia (DDH) or atypical pelvic morphology where conventional visual landmarks are distorted or unreliable.',
+      'Patients concerned about leg length discrepancy who benefit from real-time numeric tracking of femoral offset and vertical limb length during surgery.',
+      'Active individuals seeking meticulous mechanical restoration of native hip biomechanics to support prolonged implant longevity and optimal gait efficiency.',
+      'Prerequisite: Prior evaluation of non-operative treatments—including targeted physiotherapy, activity modification, weight optimisation, and diagnostic or therapeutic joint injections.'
     ],
     symptomsTreated: [
-      'Severe hip osteoarthritis pain, stiffness, and reduced walking capacity.',
-      'Pain in the groin radiating down the anterior thigh to the knee.',
-      'Difficulty putting on socks, getting in and out of cars, or negotiating steps.'
+      'Severe, chronic groin or deep anterior hip pain that radiates down the front of the thigh toward the knee during walking, stair climbing, or weight-bearing.',
+      'Persistent night pain, throbbing discomfort at rest, and sleep disruption despite regular anti-inflammatory or analgesic medications.',
+      'Progressive joint stiffness, loss of internal rotation, and difficulty putting on socks, tying shoes, or stepping into vehicles.',
+      'Noticeable antalgic limp, abductor lurch, or pelvic drop caused by joint incongruity and muscle inhibition.',
+      'Functional disability causing reduced walking tolerance and progressive withdrawal from work, recreation, or social activities.'
     ],
     procedureExplanation: {
-      title: 'How Computer Navigation Works',
-      description: 'Optical cameras communicate with wireless reference arrays placed on the pelvis and surgical instruments.',
+      title: 'How Computer-Assisted Hip Replacement is Performed',
+      description: 'Computer-navigated total hip replacement combines proven surgical technique with continuous optical tracking across eight systematic stages:',
       steps: [
-        'Anatomical Landmark Registration: Key pelvic landmarks are digitised using an optical probe to calibrate the patient\'s coronal plane.',
-        'Live Real-Time Feedback: As the acetabular reamer and cup impactor are positioned, digital angles appear continuously on screen.',
-        'Angle Confirmation: The surgeon verifies exact inclination (typically 40°–45°) and anteversion (15°–20°) before final impaction.',
-        'Limb Length Tracking: Real-time verification ensures that planned leg length and femoral offset are accurately restored.'
+        '1. Pre-Operative Digital Templating: Calibrated high-resolution digital radiographs are evaluated using specialized orthopaedic planning software to calculate native femoral offset, leg length equality, and projected implant dimensions prior to surgery.',
+        '2. Anaesthesia & Patient Positioning: Conducted under regional spinal anaesthesia with sedation or general anaesthesia. Intravenous tranexamic acid and local infiltration analgesia (LIA) are administered to minimise blood loss and provide effective post-operative pain relief.',
+        '3. Rigid Optical Reference Array Placement: Two small, temporary optical tracker pins are placed into the superior crest of the iliac wing through minor percutaneous stab incisions. An infrared camera positioned in theatre establishes a secure optical link with these trackers.',
+        '4. Anatomical Landmark Digitisation: Using a wireless digitising probe tracked by the camera, Mr Shankar digitises standard pelvic anatomical landmarks (anterior superior iliac spines and pubic tubercles) to calibrate the patient\'s anterior pelvic plane and coronal orientation.',
+        '5. Baseline Biomechanical Measurement: Before joint dislocation, baseline measurements of vertical limb length and femoral offset are recorded using an optical femoral reference tracker, establishing a precise patient-specific baseline.',
+        '6. Live Real-Time Acetabular Reaming: Specialized navigation trackers are attached to the acetabular reamers. The workstation screen provides live digital readouts of real-time cup inclination (typically 40°–45°) and anteversion (typically 15°–20°), guiding bone preparation exactly within the planned safe corridor.',
+        '7. Navigated Component Impaction & Verification: The uncemented titanium acetabular shell is guided and impacted using the navigated impactor. Final angular position is confirmed and digitally recorded in theatre records.',
+        '8. Femoral Preparation, Leg Length Verification & Closure: The femoral canal is prepared, and trial modular components are inserted. The navigation system re-measures limb length and femoral offset under dynamic movement, verifying stability through full flexion, extension, and rotation before final implant seating, tracking pin removal, and layered anatomical wound closure.'
+      ]
+    },
+    technologyComparison: {
+      title: 'Conventional vs Navigated vs Robotic Hip Replacement',
+      description: 'An evidence-informed appraisal of surgical alignment technologies in total hip reconstruction:',
+      points: [
+        {
+          label: 'Conventional Manual Hip Arthroplasty',
+          detail: 'Relies on mechanical alignment jigs and visual anatomical landmarks. While backed by decades of registry evidence, it carries a higher rate of component positioning outliers outside safe target zones.'
+        },
+        {
+          label: 'Computer-Navigated Hip Arthroplasty',
+          detail: 'Uses intra-operative optical tracking pins and infrared cameras to provide continuous digital angle readouts of cup inclination, anteversion, leg length, and offset on a screen without requiring a pre-operative CT scan.'
+        },
+        {
+          label: 'MAKO Robotic-Assisted Hip Arthroplasty',
+          detail: 'Combines pre-operative 3D CT virtual templating with an active surgeon-guided robotic arm providing haptic boundary constraints during acetabular reaming.'
+        },
+        {
+          label: 'Spinopelvic & Functional Tilt Assessment',
+          detail: 'Optical navigation allows dynamic evaluation of functional pelvic tilt in real time, customising cup position for patients with lumbar spinal stiffness or previous spinal fusion.'
+        },
+        {
+          label: 'Hospital Practice Scope & Availability',
+          detail: 'Mr Shankar provides conventional and computer-navigated surgery at Spire Hartswood Hospital in Brentwood, MAKO robotic joint replacement at Nuffield Health Brentwood Hospital, and joint replacement within BHRUT NHS Trust.'
+        }
       ]
     },
     benefitsAndLimitations: {
       benefits: [
-        'Reduces orientation outliers compared with purely visual manual guides.',
-        'No pre-operative CT scan required (zero additional radiation).',
-        'Continuous numeric feedback on leg length and cup position.',
-        'Proven safety profile across thousands of audited registry procedures.'
+        'Significant Reduction in Alignment Outliers: Clinical studies and registry data confirm that computer navigation significantly narrows component placement deviation compared with purely visual manual techniques, keeping cup orientation reliably within targeted zones.',
+        'No Routine Pre-Operative Planning CT Scan Required: Unlike robotic systems that require pre-operative computed tomography, optical navigation relies on intra-operative registration of skeletal landmarks, meaning patients do not routinely require a separate pre-operative planning CT scan beyond standard diagnostic plain X-rays.',
+        'Dynamic Spinopelvic Compensation: Allows the surgeon to account for abnormal pelvic tilt and lumbar spinal stiffness in real time, reducing the risk of prosthetic impingement and instability.',
+        'Accurate Limb Length and Offset Control: Continuous numeric verification helps prevent unrecognised leg length discrepancy and maintains optimal abductor muscle tension.',
+        'Established International Registry Evidence: Supported by extensive international joint registry data demonstrating low revision rates and high procedural safety over thousands of recorded cases.'
       ],
       limitations: [
-        'Requires temporary optical tracking pins in the pelvic bone.',
-        'Slightly extends surgical preparation time by a few minutes.',
-        'Does not include physical haptic feedback boundaries provided by robotic arms.'
+        'Temporary Pelvic Tracking Pins: Requires two small temporary pins inserted into the iliac crest through separate stab incisions, which heal rapidly but can cause mild localised temporary tenderness.',
+        'No Physical Haptic Resistance: Navigation provides visual digital guidance on screen, but does not provide the physical tactile boundary resistance of a robotic arm.',
+        'Slight Operative Time Increase: Intra-operative landmark registration typically adds approximately 5 to 10 minutes to the surgical setup compared to conventional manual surgery.',
+        'Evidence of Long-Term Survivorship: In unselected patient populations with normal anatomy, National Joint Registry (NJR) data shows comparable 10-to-15-year implant survival between expertly performed conventional arthroplasty and navigated procedures.'
       ]
     },
     risksAndComplications: [
-      'Standard hip arthroplasty risks: infection, DVT/PE, bleeding, stiffness, or dislocation.',
-      'Temporary pin site discomfort on the pelvic crest.'
+      'Prosthetic Dislocation (~1% to 2%): Although navigated placement reduces orientation outliers, dislocation remains a general risk of all hip replacements, influenced by soft-tissue tension, patient compliance with movements, and muscle strength.',
+      'Deep Prosthetic Infection (~0.5% to 1%): Managed with ultra-clean laminar airflow theatres, prophylactic intravenous antibiotics, and rigorous sterile protocol.',
+      'Venous Thromboembolism (DVT/PE): Managed through chemical thromboprophylaxis (blood-thinning medications for 28 to 35 days), compression stockings, and early mobilisation within hours of surgery.',
+      'Temporary Pin Site Discomfort or Rare Pin Site Fracture (<0.1%): Mild bruising or tenderness at the pelvic pin sites on the iliac crest, resolving over several days. The risk of pin-site fracture is exceptionally low when pins are placed correctly.',
+      'Periprosthetic Fracture or Nerve Irritation (~0.5%): Rare crack in the femur during component impaction or transient irritation of the sciatic or lateral femoral cutaneous nerves.',
+      'Leg Length Variation: Navigation substantially improves leg length equality, but minor anatomical differences or functional contractures may take weeks of physiotherapy to equilibrate.'
     ],
     recoveryTimeline: [
-      { phase: 'Day 0', description: 'Assisted standing with crutches within hours of surgery.' },
-      { phase: 'Weeks 1 to 2', description: 'Mobilising with crutches, wound monitoring, and gentle walking.' },
-      { phase: 'Weeks 6+', description: 'Return to driving and resumption of light recreational activities.' }
+      { phase: 'Day 0 to 1', description: 'Assisted mobilisation out of bed with physiotherapists within hours of surgery. Full weight-bearing with crutches or walking frame; pain management and deep breathing exercises initiated.' },
+      { phase: 'Weeks 1 to 6', description: 'Independent walking indoors and outdoors using two crutches, weaning down to one crutch or walking stick by weeks 3 to 4. Regular home exercises to rebuild gluteal and quadriceps strength. Wound review at 10 to 14 days.' },
+      { phase: 'Weeks 6 to 12', description: 'Consultant clinic review and follow-up radiographs with Mr Shankar. Most patients safely resume driving (once emergency stopping reflex is restored and off strong painkillers) and return to sedentary office work.' },
+      { phase: 'Months 3 to 12', description: 'Progressive return to low-impact sports (swimming, cycling, golf, brisk walking). Long-term bone ingrowth into porous uncemented titanium surfaces continues throughout the first year.' }
     ],
     rehabilitationMilestones: [
-      'Restoration of symmetrical step length.',
-      'Active hip abduction strength development.'
+      'Day 1: Safe independent bed transfers and walking to the bathroom with crutches.',
+      'Week 2: Symmetrical gait pattern with reduced walking aid dependency.',
+      'Week 6: Unassisted walking for daily household tasks, driving resumption, and hip flexion beyond 90 degrees.',
+      'Month 3: Full return to low-impact recreational activities, walking without a limp, and sustained abductor strength.'
     ],
     faqs: [
       {
-        question: 'How does computer navigation differ from robotic surgery?',
-        answer: 'Computer navigation provides live digital feedback and measurements on a screen while the surgeon holds all instruments manually. Robotic surgery adds a physical robotic arm with haptic boundary enforcement.'
+        question: 'What is computer-assisted hip replacement, and how does optical navigation work?',
+        answer: 'Computer-assisted hip replacement is an advanced surgical technique where intra-operative computer software and optical infrared cameras guide the placement of prosthetic hip components. Small, lightweight reference arrays with reflective markers are temporarily affixed to the pelvis and surgical instruments. An infrared camera in the operating theatre detects these markers in real time, calculating spatial coordinates and displaying continuous digital readouts of acetabular cup inclination, anteversion, and leg length measurements on a screen. This allows Mr Shankar to adjust angles with millimetric and degree-level precision while holding and controlling all surgical instruments.'
+      },
+      {
+        question: 'How does computer-assisted navigation compare to conventional manual and MAKO robotic hip replacement?',
+        answer: 'Conventional hip replacement relies on mechanical rods and visual estimation, which carries a recognised risk of component outliers outside the safe zone. Computer-navigated hip replacement introduces intra-operative optical tracking to provide live numerical angle readouts on a display without requiring a pre-operative CT scan, but the surgeon maneuvers the instruments manually. MAKO robotic-assisted hip replacement combines a pre-operative 3D CT virtual plan with a surgeon-guided robotic arm that features active haptic boundary enforcement to physically constrain bone reaming. Mr Shankar provides conventional and computer-navigated surgery at Spire Hartswood Hospital, MAKO robotic joint replacement at Nuffield Health Brentwood Hospital, and joint replacement within BHRUT NHS Trust.'
+      },
+      {
+        question: 'Why is acetabular cup orientation and inclination/anteversion so critical?',
+        answer: 'The acetabular cup (socket) must be placed at precise angles—typically 40° to 45° of inclination and 15° to 20° of anteversion—to match the patient\'s anatomy. If a cup is placed too vertically (steep inclination) or tilted incorrectly (excessive or retroverted anteversion), it can lead to edge-loading, accelerated plastic or ceramic wear, component impingement during bending, and an increased risk of prosthetic dislocation. In patients with spinal stiffness, lumbar fusion, or abnormal pelvic tilt, navigation is especially valuable for aligning the socket to individual functional pelvic kinetics.'
+      },
+      {
+        question: 'How does optical navigation verify leg length equality and femoral offset during surgery?',
+        answer: 'Before dislocating the arthritic hip joint, Mr Shankar records baseline anatomical coordinates using an optical tracking array on the femur. After the acetabular cup and trial femoral components are inserted, the optical system re-measures vertical displacement (leg length) and horizontal displacement (femoral offset) relative to the pelvic baseline. This immediate numerical feedback allows Mr Shankar to adjust femoral head neck lengths and offset options intra-operatively, minimising the risk of post-operative leg length discrepancies and restoring abductor muscle tension.'
+      },
+      {
+        question: 'Does computer-navigated hip replacement require a pre-operative CT scan?',
+        answer: 'No. A major clinical benefit of optical computer navigation is that it does not routinely require a separate pre-operative planning CT scan. All spatial mapping is performed in theatre by digitising patient-specific anatomical landmarks (such as the anterior superior iliac spines and pubic tubercles) using an optical probe. Patients therefore do not require the additional ionising radiation of a pre-operative planning CT scan, relying instead on standard diagnostic plain radiographs while still benefiting from real-time intra-operative navigation accuracy.'
+      },
+      {
+        question: 'Who is an ideal candidate for computer-navigated hip replacement surgery?',
+        answer: 'Computer-assisted hip replacement is suitable for most patients with end-stage hip osteoarthritis, avascular necrosis, or post-traumatic arthritis. It is particularly advantageous for individuals with previous lumbar spinal surgery or spinal fusion, severe spinal stiffness, atypical pelvic tilt, mild hip dysplasia, or post-traumatic pelvic deformities where traditional visual guides can be misleading. Active patients seeking precise reconstruction of leg length and femoral offset also benefit from this approach.'
+      },
+      {
+        question: 'Where does Mr Shankar perform computer-assisted and navigated joint surgery in Essex and London?',
+        answer: 'Mr Shankar performs computer-navigated and conventional joint replacement for private patients at Spire Hartswood Hospital on Eagle Way in Brentwood, Essex. For patients desiring MAKO robotic-assisted surgery, Mr Shankar operates at Nuffield Health Brentwood Hospital on Shenfield Road in Brentwood. Both Brentwood hospitals are easily reached from London and Essex via the Elizabeth Line and M25/A12. Within his NHS practice at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT), Mr Shankar treats patients at Queen\'s Hospital in Romford and King George Hospital in Goodmayes.'
+      },
+      {
+        question: 'What are the recovery and rehabilitation expectations following navigated hip replacement?',
+        answer: 'Recovery follows an enhanced recovery arthroplasty pathway. Patients mobilise out of bed with physiotherapists on the day of surgery or morning of day 1. Most patients use two crutches for 2 to 3 weeks, progressing to one stick and walking unaided by weeks 4 to 6. Independent walking, stair climbing, and driving are typically achieved around week 6 following clinical review. While navigation optimizes component alignment, biological soft-tissue healing and muscle strengthening still require active participation in dedicated physiotherapy exercises over 3 to 12 months.'
       }
     ],
     relatedLinks: [
-      { title: 'Total Hip Replacement', href: '/hip-replacement', description: 'Primary hip replacement surgery overview.' },
-      { title: 'Robotic Hip Replacement', href: '/robotic-hip-replacement', description: 'Mako robotic guidance with 3D CT modelling.' }
+      { title: 'Revision Hip Replacement', href: '/revision-hip-replacement', description: 'Specialist surgery for painful, loose, worn, or failing hip replacements.' },
+      { title: 'Total Hip Replacement', href: '/hip-replacement', description: 'Comprehensive guide to primary, complex, and revision total hip replacement surgery.' },
+      { title: 'Robotic Hip Replacement', href: '/robotic-hip-replacement', description: 'Mako robotic arm-assisted hip arthroplasty with pre-operative 3D CT planning.' },
+      { title: 'Minimally Invasive Hip Replacement', href: '/minimally-invasive-hip-replacement', description: 'Muscle-sparing Rottinger and direct anterior tissue-preserving approaches.' },
+      { title: 'Conventional vs Robotic Arthroplasty', href: '/conventional-vs-computer-assisted-vs-robotic-surgery', description: 'Detailed objective comparison of manual, computer-navigated, and robotic surgery.' },
+      { title: 'Spire Hartswood Hospital', href: '/spire-hartswood-hospital', description: 'Conventional and computer-navigated joint replacement centre in Brentwood, Essex.' },
+      { title: 'Nuffield Health Brentwood Hospital', href: '/nuffield-brentwood-hospital', description: 'Designated Stryker MAKO robotic-assisted joint replacement centre in Brentwood.' },
+      { title: 'Book a Private Consultation', href: '/book-consultation', description: 'Schedule an outpatient consultation with Mr Shivakumar Shankar.' }
     ]
   },
 
@@ -569,7 +650,7 @@ export const CLINICAL_PROCEDURES = {
       description: 'Mr Shankar selects the optimal surgical alignment strategy tailored to patient anatomy and deformity:',
       points: [
         { label: 'Conventional Arthroplasty', detail: 'Uses intramedullary rods and extramedullary cutting jigs to establish neutral mechanical alignment, supported by decades of proven registry success.' },
-        { label: 'Computer Navigation', detail: 'Provides live digital angular readouts of bone resections and ligament tensioning without pre-operative CT radiation, ideal when intramedullary rods cannot be used.' },
+        { label: 'Computer Navigation', detail: 'Provides live digital angular readouts of bone resections and ligament tensioning without routinely requiring a separate pre-operative planning CT scan, ideal when intramedullary rods cannot be used.' },
         { label: 'Robotic-Assisted (Mako)', detail: 'Employs pre-operative 3D CT virtual planning and robotic arm haptic boundaries to guide bony resections within pre-planned stereotactic margins, available at Nuffield Health Brentwood and BHRUT NHS hospitals.' },
         { label: 'Total vs Partial Arthroplasty', detail: 'Total knee replacement addresses widespread multi-compartmental wear; when arthritis is strictly isolated to the medial or lateral side, partial knee replacement preserves native cruciate ligaments.' }
       ]
@@ -774,7 +855,7 @@ export const CLINICAL_PROCEDURES = {
     slug: 'computer-assisted-knee-replacement',
     badge: 'Computer-Navigated Arthroplasty • Optical Guidance',
     h1: 'Computer-Navigated Knee Replacement Surgery in Essex & London',
-    leadParagraph: 'Consultant-led computer-assisted and navigated total knee replacement in Essex and London with Mr Shivakumar Shankar. Advanced optical infrared tracking and dynamic mechanical axis restoration at Spire Hartswood Hospital in Brentwood, eliminating alignment outliers without requiring pre-operative CT radiation.',
+    leadParagraph: 'Consultant-led computer-assisted and navigated total knee replacement in Essex and London with Mr Shivakumar Shankar. Advanced optical infrared tracking and dynamic mechanical axis restoration at Spire Hartswood Hospital in Brentwood, substantially reducing alignment variation without routinely requiring a separate pre-operative planning CT scan.',
     overview: [
       'Computer-assisted total knee replacement (CAS), commonly termed computer-navigated knee replacement, is an advanced surgical technique where specialised optical tracking technology provides the surgeon with real-time digital measurements of limb alignment, joint gaps, and bone resection levels throughout the operation. In conventional knee replacement, surgeons rely on mechanical cutting blocks and manual visual alignment rods. Computer navigation introduces a high-resolution intra-operative digital tracking system that calculates the patient\'s unique skeletal geometry in real time, assisting the surgeon in achieving balanced joint kinematics. Crucially, the computer navigation system does not perform surgical cuts or operate autonomously; Mr Shivakumar Shankar retains complete manual control and surgical decision-making at every stage of the procedure.',
       'How Optical Navigation Works in Theatre: During surgery, rigid optical tracking arrays—lightweight frames fitted with reflective infrared tracking spheres—are temporarily secured to the distal femur and proximal tibia via dedicated surgical pins. A dual-camera infrared optical tracking system positioned adjacent to the operating table continuously registers the three-dimensional coordinates of these arrays in space. During the initial anatomical registration sequence, Mr Shankar records essential anatomical landmarks using a wireless pointer: determining the functional centre of the femoral head through gentle kinematic circumduction of the hip, mapping the distal femoral condyles, identifying the femoral mechanical axis, and digitising the tibial plateau and ankle malleoli. The software synthesises these spatial points to calculate the patient\'s true mechanical Hip-Knee-Ankle (HKA) axis on a sterile theatre display.',
@@ -783,7 +864,7 @@ export const CLINICAL_PROCEDURES = {
       'Hospital Technology Availability & Evidence-Based Care: In his private practice in Brentwood, Essex, Mr Shankar provides computer-navigated total knee replacement at Spire Hartswood Hospital on Eagle Way. Spire Hartswood is equipped with optical computer navigation technology for knee replacement; MAKO robotic surgery is not currently available at Spire Hartswood. Private patients seeking MAKO robotic-assisted surgery can be treated by Mr Shankar at Nuffield Health Brentwood Hospital on Shenfield Road. Within BHRUT NHS Trust, computer-assisted and robotic joint replacement services are available subject to clinical referral criteria and pathway availability. In clinical consultations, Mr Shankar provides balanced, evidence-informed guidance: while clinical trials and systematic reviews confirm that computer navigation consistently reduces coronal alignment outliers, long-term 15- to 20-year implant survivorship and patient-reported functional outcomes are multifactorial, reflecting patient health, implant design, soft-tissue balance, and rehabilitation rather than navigational guidance alone.'
     ],
     whoMayBenefit: [
-      'Patients with advanced primary or secondary knee osteoarthritis seeking digital mechanical axis verification without pre-operative CT radiation.',
+      'Patients with advanced primary or secondary knee osteoarthritis seeking digital mechanical axis verification without routinely requiring a separate pre-operative planning CT scan.',
       'Individuals with previous fractures or retained metalwork (intramedullary nails, plates, screws) in the femur or tibia where standard intramedullary alignment rods cannot be inserted.',
       'Patients with extra-articular femoral or tibial bowing or deformities that distort conventional anatomical landmarks.',
       'Patients with significant constitutional varus (bow-legged) or valgus (knock-kneed) deformity requiring live numeric soft-tissue gap balancing.',
@@ -815,7 +896,7 @@ export const CLINICAL_PROCEDURES = {
       points: [
         {
           label: 'Computer-Navigated Arthroplasty (Spire Hartswood & BHRUT NHS)',
-          detail: 'Uses optical infrared cameras and rigid tracking arrays in theatre to calculate live limb mechanical axes and joint gaps. Avoids instrumenting the femoral intramedullary canal and requires no pre-operative CT scan radiation. The surgeon uses manual saws guided by digitally verified cutting blocks. Available for private patients at Spire Hartswood Hospital and NHS patients at BHRUT.'
+          detail: 'Uses optical infrared cameras and rigid tracking arrays in theatre to calculate live limb mechanical axes and joint gaps. Avoids instrumenting the femoral intramedullary canal and does not routinely require a separate pre-operative planning CT scan. The surgeon uses manual saws guided by digitally verified cutting blocks. Available for private patients at Spire Hartswood Hospital and NHS patients at BHRUT.'
         },
         {
           label: 'MAKO Robotic-Assisted Surgery (Nuffield Brentwood & BHRUT NHS)',
@@ -837,7 +918,7 @@ export const CLINICAL_PROCEDURES = {
         'Avoidance of femoral intramedullary alignment rods, minimising canal instrumentation and associated intramedullary pressure rises.',
         'Particularly advantageous for patients with retained hardware, prior femoral fractures, or severe extra-articular bowing.',
         'Real-time numeric quantification of flexion and extension gaps, guiding accurate soft-tissue balancing across the full range of motion.',
-        'Does not require pre-operative computed tomography (CT) imaging, avoiding exposure to diagnostic ionising radiation.',
+        'Does not routinely require a separate pre-operative planning CT scan, avoiding additional ionising radiation beyond standard diagnostic plain radiographs.',
         'High-performance biocompatible prostheses with cross-linked polyethylene bearings engineered for long-term joint durability.'
       ],
       limitations: [
@@ -886,7 +967,7 @@ export const CLINICAL_PROCEDURES = {
       },
       {
         question: 'Does computer-navigated knee surgery require a pre-operative CT scan?',
-        answer: 'No. Computer navigation registers the patient\'s anatomical landmarks directly in the operating theatre using optical pointers and kinematic tracking. Because it does not rely on pre-operative scans, patients do not receive any diagnostic ionising radiation from a CT scan, which is required for robotic-assisted surgery.'
+        answer: 'No. Computer navigation registers the patient\'s anatomical landmarks directly in the operating theatre using optical pointers and kinematic tracking. Because it does not rely on pre-operative 3D modelling scans, patients do not routinely receive the additional ionising radiation of a pre-operative planning CT scan, which is required for CT-based robotic-assisted surgery.'
       },
       {
         question: 'Why is avoiding intramedullary rods in the femur considered an advantage?',

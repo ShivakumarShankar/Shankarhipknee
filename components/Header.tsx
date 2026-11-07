@@ -112,7 +112,7 @@ const MENU_PAGES: NavMenuItem[] = [
       },
       {
         name: 'Computer-Assisted Hip Replacement',
-        description: 'Real-time optical navigation without pre-op CT radiation',
+        description: 'Real-time optical navigation with no routine pre-op CT scan required',
         href: 'computer-assisted-hip-replacement'
       },
       {

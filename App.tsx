@@ -165,8 +165,8 @@ const PAGE_METADATA: Record<string, { title: string; desc: string; canonical: st
     canonical: 'https://www.shivakumarshankar.co.uk/robotic-hip-replacement'
   },
   'computer-assisted-hip-replacement': {
-    title: 'Computer-Assisted Hip Replacement | Mr Shivakumar Shankar',
-    desc: 'Navigated hip replacement providing real-time intra-operative tracking of cup angles and limb length without pre-operative CT radiation.',
+    title: 'Computer-Assisted Hip Replacement Essex & London | Mr Shivakumar Shankar',
+    desc: 'Consultant-led computer-assisted & navigated hip replacement in Essex and London with Mr Shivakumar Shankar. Real-time optical tracking with no routine pre-op CT scan required in Brentwood & BHRUT.',
     canonical: 'https://www.shivakumarshankar.co.uk/computer-assisted-hip-replacement'
   },
   'minimally-invasive-hip-replacement': {
@@ -285,13 +285,13 @@ const PAGE_METADATA: Record<string, { title: string; desc: string; canonical: st
     canonical: 'https://www.shivakumarshankar.co.uk/nuffield-brentwood-hospital'
   },
   'queens-hospital-romford': {
-    title: 'Queen\'s Hospital Romford (BHRUT NHS Trust) | Mr Shivakumar Shankar',
-    desc: 'NHS Consultant Orthopaedic Surgeon at Barking, Havering and Redbridge University Hospitals NHS Trust, undertaking joint replacement and complex revision hip surgery at Queen\'s Hospital Romford.',
+    title: "Queen's Hospital Romford | Mr Shivakumar Shankar | Substantive NHS Consultant",
+    desc: "Substantive NHS Consultant Orthopaedic Surgeon at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT) at Queen's Hospital, Romford. Complex revision hip surgery, joint reconstruction, and trauma care.",
     canonical: 'https://www.shivakumarshankar.co.uk/queens-hospital-romford'
   },
   'king-george-hospital-goodmayes': {
-    title: 'King George Hospital Goodmayes (BHRUT) | Elective Orthopaedic Centre',
-    desc: 'Substantive NHS elective orthopaedic surgery and high-volume joint replacement unit at King George Hospital, Goodmayes.',
+    title: 'King George Hospital Goodmayes | Mr Shivakumar Shankar | Elective Surgical Centre',
+    desc: 'BHRUT Elective Surgical Centre at King George Hospital, Goodmayes. Protected clean-air joint replacement, high-volume hip and knee surgery, and elective recovery leadership with Mr Shivakumar Shankar.',
     canonical: 'https://www.shivakumarshankar.co.uk/king-george-hospital-goodmayes'
   },
   'reviews': {

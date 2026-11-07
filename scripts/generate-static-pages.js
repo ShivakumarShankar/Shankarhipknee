@@ -24,7 +24,7 @@ const renderHeader = (currentPath) => `
             Mr Shivakumar Shankar
           </a>
           <p class="text-xs sm:text-sm font-semibold text-slate-600 mt-0.5">
-            Consultant Robotic Hip and Knee Surgeon &bull; London &amp; Essex
+            Consultant Orthopaedic Hip and Knee Surgeon &bull; London &amp; Essex
           </p>
         </div>
         <nav aria-label="Main Navigation" class="overflow-x-auto pb-1 md:pb-0">
@@ -53,7 +53,7 @@ const renderFooter = () => `
           <p class="text-xs text-slate-600 leading-relaxed">
             MBBS, DHA, MRCSEd, MSc (Tr &amp; Orth), FRCSEd (Tr &amp; Orth)<br>
             PG Diploma Principles of Computer-Assisted &amp; Robotic Arthroplasty<br>
-            Consultant Robotic Hip and Knee Surgeon &bull; London &amp; Essex<br>
+            Consultant Orthopaedic Hip and Knee Surgeon &bull; London &amp; Essex<br>
             NHS Clinical Lead, Barking, Havering &amp; Redbridge University Hospitals NHS Trust<br>
             GMC Number: 6038414 (Specialist Register)
           </p>
@@ -218,15 +218,42 @@ const getPhysicianEntity = (locations = STANDARD_HOSPITAL_LOCATIONS) => ({
     "S. Shankar Orthopaedic Surgeon"
   ],
   "legalName": "Mr Shivakumar Shankar",
-  "jobTitle": "Consultant Robotic Hip and Knee Surgeon",
+  "jobTitle": "Consultant Orthopaedic Hip and Knee Surgeon",
   "medicalSpecialty": [
     "Orthopaedic Surgery",
     "Hip Replacement Surgery",
     "Knee Replacement Surgery",
     "Robotic-Assisted Joint Replacement",
+    "Computer-Assisted Joint Replacement",
+    "Revision Hip Surgery",
+    "Partial Knee Replacement",
     "Knee Arthroscopy"
   ],
-  "description": "Consultant Robotic Hip and Knee Surgeon specialising in hip and knee surgery, offering MAKO robotic joint replacement at Nuffield Health Brentwood Hospital and BHRUT NHS hospitals, alongside conventional and computer-navigated surgery at Spire Hartswood Hospital in Brentwood, Essex.",
+  "knowsAbout": [
+    "Primary Hip Replacement",
+    "Revision Hip Replacement",
+    "MAKO Robotic Hip Replacement",
+    "Computer-Assisted Hip Replacement",
+    "Primary Knee Replacement",
+    "MAKO Robotic Knee Replacement",
+    "Partial Knee Replacement",
+    "Knee Arthroscopy"
+  ],
+  "affiliation": [
+    {
+      "@type": "Hospital",
+      "name": "Barking, Havering and Redbridge University Hospitals NHS Trust"
+    },
+    {
+      "@type": "Hospital",
+      "name": "Spire Hartswood Hospital"
+    },
+    {
+      "@type": "Hospital",
+      "name": "Nuffield Health Brentwood Hospital"
+    }
+  ],
+  "description": "Consultant Orthopaedic Hip and Knee Surgeon specialising in primary, complex, and revision hip and knee surgery, with specialist interests in MAKO robotic joint replacement, computer-assisted navigation, and tissue-preserving arthroplasty across London and Essex.",
   "url": "https://www.shivakumarshankar.co.uk/",
   "image": {
     "@type": "ImageObject",
@@ -543,7 +570,7 @@ const renderAboutPageContent = () => `
         </h2>
         <div class="space-y-4 text-sm sm:text-base text-slate-700 leading-relaxed">
           <p>
-            Mr Shankar was among the earliest surgeons in Essex and North East London to routinely integrate computer navigation and robotic technology into both NHS and private practice. Building upon his longstanding conventional and computer-navigated surgical experience, he more recently integrated MAKO robotic technology and has personally performed more than 100 MAKO robotic-assisted joint replacements. This milestone represents Mr Shankar's individual surgical series, rather than the total number performed across BHRUT NHS Trust. His technological expertise centres on eliminating surgical alignment outliers and achieving predictable, patient-specific joint kinematics.
+            Mr Shankar was among the earliest surgeons in Essex and North East London to routinely integrate computer navigation and robotic technology into both NHS and private practice. Building upon his longstanding conventional and computer-navigated surgical experience, he more recently integrated MAKO robotic technology and has personally performed more than 100 MAKO robotic-assisted joint replacements. This milestone represents Mr Shankar's individual surgical series, rather than the total number performed across BHRUT NHS Trust. His technological expertise centres on substantially reducing surgical alignment variation and achieving predictable, patient-specific joint kinematics.
           </p>
           <p>
             <strong>MAKO Robotic-Assisted Surgery:</strong> Utilises pre-operative 3D CT virtual modelling to assess the patient's unique skeletal anatomy before stepping into the operating theatre. During surgery, real-time optical arrays capture intra-operative ligament tension across the complete arc of motion. Mr Shankar personally guides the robotic arm, which enforces tactile stereotactic haptic boundaries designed to guide bone preparation with high positional accuracy while helping to protect adjacent soft-tissue structures, collateral ligaments, and healthy bone stock.
@@ -1398,6 +1425,112 @@ const SPIRE_HARTSWOOD_HOSPITAL_DATA = {
   ]
 };
 
+const QUEENS_HOSPITAL_DATA = {
+  name: "Queen's Hospital, Romford (BHRUT NHS Trust)",
+  telephone: "01708 435000",
+  url: "https://www.bhrhospitals.nhs.uk/queens-hospital",
+  address: {
+    streetAddress: "Rom Valley Way",
+    addressLocality: "Romford",
+    addressRegion: "Greater London / Essex",
+    postalCode: "RM7 0AG"
+  },
+  geo: {
+    latitude: 51.5694,
+    longitude: 0.1837
+  },
+  availableServices: [
+    "Substantive NHS Consultant Orthopaedic Care",
+    "Acute Orthopaedic Trauma & Fracture Reconstruction",
+    "Complex Revision Hip Surgery (NHS Practice at BHRUT)",
+    "Hip & Knee Joint Replacement Services",
+    "Fragility Neck of Femur Fracture Care",
+    "Peri-Prosthetic Fracture Reconstruction",
+    "Specialist Outpatient Fracture & Arthroplasty Clinics",
+    "Multidisciplinary Inpatient Rehabilitation"
+  ]
+};
+
+const QUEENS_HOSPITAL_FAQS = [
+  {
+    question: "What is Mr Shivakumar Shankar's role and clinical leadership at Queen's Hospital and BHRUT?",
+    answer: "Mr Shivakumar Shankar has served as a substantive Consultant Orthopaedic Surgeon at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT) since 2017. He has held major clinical leadership appointments within the Trust, including Clinical Director for Trauma and Orthopaedics, NHS Clinical Lead for Trauma and Orthopaedics, Femur Fracture Lead, and Infection Control Lead. In these leadership roles, Mr Shankar has overseen clinical governance, patient safety protocols, surgical audit, and the continuous enhancement of trauma and elective orthopaedic care pathways across Queen's and King George Hospitals."
+  },
+  {
+    question: "What orthopaedic services are provided at Queen's Hospital Romford?",
+    answer: "Queen's Hospital on Rom Valley Way is BHRUT's acute major hospital and regional trauma centre. Orthopaedic services at Queen's include acute trauma admissions, complex multi-trauma management, fragility fracture care (including neck of femur fracture pathways), peri-prosthetic fracture reconstruction, and comprehensive orthopaedic outpatient clinics. Elective hip and knee joint replacement surgery is coordinated across BHRUT, with routine elective procedures primarily undertaken at King George Hospital's protected elective surgical hub, while acute, emergency, and inpatient trauma care is delivered at Queen's."
+  },
+  {
+    question: "How is complex revision hip surgery managed within BHRUT NHS Trust?",
+    answer: "Mr Shankar personally undertakes complex revision hip replacement surgery and hip reconstruction within his substantive NHS hospital practice at BHRUT. In the NHS setting at BHRUT, complex revision procedures—including operations for severe acetabular and femoral bone loss, mechanical implant failure, periprosthetic fractures, and chronic instability—are supported by specialist multidisciplinary assessment, complex reconstruction implant systems (such as trabecular metal augments and modular stems), dedicated microbiology services, and access to intensive care and high-dependency perioperative units. Selected revision hip procedures suitable for private hospital facilities are undertaken in his private practice at Nuffield Health Brentwood and Spire Hartswood Hospitals."
+  },
+  {
+    question: "How can NHS patients obtain a referral to see Mr Shankar at Queen's Hospital Romford?",
+    answer: "NHS patients seeking an outpatient appointment with Mr Shivakumar Shankar at Queen's Hospital must be referred by their NHS General Practitioner (GP) via the NHS e-Referral Service (e-RS, formerly Choose and Book). GPs can direct referrals to the Trauma & Orthopaedics department at Barking, Havering and Redbridge University Hospitals NHS Trust, naming Mr Shivakumar Shankar as the named consultant specialist. Once received, referrals are clinically triaged based on urgency, and the hospital appointment booking team contacts the patient with available outpatient clinic dates."
+  },
+  {
+    question: "What public transport links, parking, and accessibility facilities are available at Queen's Hospital?",
+    answer: "Queen's Hospital is situated on Rom Valley Way, Romford, Greater London / Essex RM7 0AG. It is exceptionally well served by public transport: Romford Rail Station (Elizabeth Line, Greater Anglia mainline, and London Overground) is approximately 0.8 miles away, with frequent direct bus connections (routes 5, 128, 175, 193, 365, 496, 498, and 499) stopping directly outside the hospital main entrance. For patients arriving by car, a dedicated multi-storey pay-and-display visitor car park is available on-site with designated accessible Blue Badge parking spaces and step-free access throughout."
+  },
+  {
+    question: "What are the differences between NHS treatment at Queen's Hospital and private care in Brentwood?",
+    answer: "NHS treatment at Queen's Hospital is fully funded by the NHS without direct patient charge, but is subject to national clinical referral pathways, clinical prioritization, and standard NHS waiting lists. In contrast, Mr Shankar's private practice at Nuffield Health Brentwood Hospital and Spire Hartswood Hospital in Brentwood, Essex, offers expedited consultation scheduling, consultant-delivered continuity where Mr Shankar personally conducts every consultation and procedure, private en-suite bedrooms, and self-pay or health insurance funding (Bupa, AXA Health, Aviva, Vitality, WPA)."
+  }
+];
+
+const KING_GEORGE_HOSPITAL_DATA = {
+  name: "King George Hospital, Goodmayes (BHRUT NHS Trust)",
+  telephone: "020 8970 8000",
+  url: "https://www.bhrhospitals.nhs.uk/king-george-hospital",
+  address: {
+    streetAddress: "Barley Lane",
+    addressLocality: "Goodmayes, Ilford",
+    addressRegion: "Essex / Greater London",
+    postalCode: "IG3 8YB"
+  },
+  geo: {
+    latitude: 51.5802,
+    longitude: 0.1084
+  },
+  availableServices: [
+    "Dedicated BHRUT Elective Surgical Centre",
+    "Protected Clean-Air Elective Total Hip Replacement",
+    "Protected Clean-Air Elective Total Knee Replacement",
+    "Partial (Unicompartmental) Knee Replacement",
+    "Complex Revision Hip Surgery (BHRUT Elective Pathways)",
+    "Knee Arthroscopy & Meniscal Surgery",
+    "Pre-Operative Joint School Education",
+    "Inpatient Enhanced Recovery Physiotherapy"
+  ]
+};
+
+const KING_GEORGE_HOSPITAL_FAQS = [
+  {
+    question: "What is the role of King George Hospital as BHRUT's dedicated Elective Surgical Centre?",
+    answer: "King George Hospital in Goodmayes, Ilford, operates as the dedicated Elective Surgical Hub for Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT). It features protected, ring-fenced clean-air laminar airflow orthopaedic operating theatres and dedicated elective surgical wards that are separate from acute emergency trauma admissions. This specialized elective model protects planned hip and knee joint replacement operations from winter bed pressures and acute emergency cancellations, ensuring reliable, high-volume joint reconstruction for patients across North East London and Essex."
+  },
+  {
+    question: "What surgical procedures does Mr Shankar perform at King George Hospital?",
+    answer: "Within his NHS practice at King George Hospital, Mr Shivakumar Shankar performs high-volume primary total hip replacement, total knee replacement, partial (unicompartmental) knee replacement, knee arthroscopy, and revision joint surgery across BHRUT elective pathways. His NHS elective practice benefits from established enhanced recovery arthroplasty protocols, modern multimodal analgesia, and dedicated inpatient physiotherapists who assist patients to mobilise on the day of surgery."
+  },
+  {
+    question: "What were the 'Bones R Us' and HULK-10 elective recovery initiatives led by Mr Shankar?",
+    answer: "Mr Shankar pioneered and led celebrated high-intensity elective orthopaedic surgical initiatives at BHRUT—including the 'Bones R Us' super-weekends and HULK-10 elective sprints—designed to drastically reduce orthopaedic surgery waiting lists following the COVID-19 pandemic. By coordinating multidisciplinary theatre teams, dedicated anaesthetists, and recovery staff over intensive weekend lists, Mr Shankar and his surgical colleagues safely performed high volumes of joint replacement operations, returning dozens of patients to pain-free mobility and receiving regional recognition across NHS London."
+  },
+  {
+    question: "How does the clean-air elective surgical pathway at King George protect joint replacement patients?",
+    answer: "All joint replacement operations at King George Hospital are carried out in modern laminar airflow ultra-clean ventilation theatres, which create a continuous curtain of sterile, HEPA-filtered positive-pressure air over the sterile field. In addition, as former Infection Control Lead for the department, Mr Shankar enforces rigorous MRSA screening, strict pre-operative skin decolonisation, prophylactic intravenous antibiotics, and specialized barrier draping, maintaining exceptionally low prosthetic joint infection rates across BHRUT elective arthroplasty."
+  },
+  {
+    question: "How can NHS patients be referred to King George Hospital for hip or knee surgery?",
+    answer: "NHS patients requiring hip or knee replacement can be referred by their GP through the NHS e-Referral Service (e-RS) to Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT). Patients and their GPs can request referral to Mr Shivakumar Shankar. Following initial outpatient consultation and diagnostic assessment, elective surgical procedures are scheduled at King George Hospital's Elective Surgical Hub, supported by pre-operative Joint School education and comprehensive multidisciplinary rehabilitation."
+  },
+  {
+    question: "How do patients travel to King George Hospital Goodmayes, and what parking is available?",
+    answer: "King George Hospital is located on Barley Lane, Goodmayes, Ilford, Essex / Greater London IG3 8YB. It is conveniently situated between Goodmayes and Newbury Park. By rail, Goodmayes Rail Station (Elizabeth Line) is approximately 1 mile away, with frequent direct TfL bus connections (routes 364, 387, 396, and 173) connecting the station directly to the hospital grounds. Newbury Park Underground Station (Central line) is also within easy bus reach. For motorists, the hospital offers on-site pay-and-display parking with dedicated Blue Badge accessible spaces adjacent to the main elective entrance."
+  }
+];
+
 const generateHospitalPageJsonLd = ({
   path: pagePath,
   canonical,
@@ -2029,7 +2162,7 @@ const renderSpireHartswoodContent = () => `
     <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-2xs">
       <div class="text-[11px] font-bold uppercase text-[#1B4965] tracking-wider mb-1">Knee Technology</div>
       <div class="text-base font-black text-slate-900 mb-1">Optical Computer Navigation</div>
-      <p class="text-xs text-slate-600 leading-relaxed">Intra-operative infrared kinematic tracking; avoids intramedullary rods; requires no pre-operative CT radiation.</p>
+      <p class="text-xs text-slate-600 leading-relaxed">Intra-operative infrared kinematic tracking; avoids intramedullary rods; does not routinely require a separate pre-operative planning CT scan.</p>
     </div>
     <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-2xs">
       <div class="text-[11px] font-bold uppercase text-amber-800 tracking-wider mb-1">Technology Note</div>
@@ -2426,6 +2559,616 @@ const renderSpireHartswoodContent = () => `
   </section>
 `;
 
+const renderQueensHospitalContent = () => `
+  <!-- QUICK CONTACT & TRUST ACTION BAR -->
+  <div class="mb-10 p-6 bg-white rounded-2xl border border-slate-200 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+    <div>
+      <span class="text-xs uppercase font-extrabold text-[#1B4965] tracking-wider block mb-1">
+        BHRUT NHS Trust &bull; Major Acute Hospital &amp; Regional Trauma Centre
+      </span>
+      <h2 class="text-xl font-black text-slate-900">
+        Queen's Hospital, Romford &bull; Mr Shivakumar Shankar
+      </h2>
+      <p class="text-xs text-slate-600 mt-1 max-w-2xl leading-relaxed">
+        Rom Valley Way, Romford, Greater London / Essex RM7 0AG. Trust Switchboard: <strong>01708 435000</strong> &bull; Substantive NHS Consultant in Trauma &amp; Orthopaedics &bull; Private Practice Secretary (Remya Rexlin): <strong>07587 765888</strong>.
+      </p>
+    </div>
+    <div class="flex flex-wrap items-center gap-3 shrink-0">
+      <a
+        href="#referral-pathway"
+        class="bg-[#1B4965] hover:bg-[#13364B] text-white px-5 py-2.5 rounded-lg text-xs font-bold transition-all shadow-xs flex items-center gap-1.5"
+      >
+        <span>NHS e-RS Referral Guide</span>
+        <span>&darr;</span>
+      </a>
+      <a
+        href="/book-consultation"
+        class="bg-[#E8A24C] hover:bg-[#D99136] text-white px-5 py-2.5 rounded-lg text-xs font-bold transition-all shadow-xs"
+      >
+        Private Consultation Option
+      </a>
+    </div>
+  </div>
+
+  <!-- KEY METRICS GRID -->
+  <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
+    <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-2xs">
+      <div class="text-[11px] font-bold uppercase text-[#1B4965] tracking-wider mb-1">NHS Consultant Since 2017</div>
+      <div class="text-base font-black text-slate-900 mb-1">Substantive BHRUT Post</div>
+      <p class="text-xs text-slate-600 leading-relaxed">Former Clinical Director &amp; NHS Clinical Lead for Trauma and Orthopaedics; Femur Fracture &amp; Infection Control Lead.</p>
+    </div>
+    <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-2xs">
+      <div class="text-[11px] font-bold uppercase text-emerald-700 tracking-wider mb-1">Trauma Centre Context</div>
+      <div class="text-base font-black text-slate-900 mb-1">Major Acute Hospital</div>
+      <p class="text-xs text-slate-600 leading-relaxed">Regional acute trauma centre delivering 24/7 emergency surgical care, fragility fracture management, and peri-prosthetic fracture repair.</p>
+    </div>
+    <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-2xs">
+      <div class="text-[11px] font-bold uppercase text-[#1B4965] tracking-wider mb-1">Complex Revision (NHS)</div>
+      <div class="text-base font-black text-slate-900 mb-1">BHRUT Trust-Level Scope</div>
+      <p class="text-xs text-slate-600 leading-relaxed">Complex revision hip replacement and reconstruction personally undertaken by Mr Shankar with MDT perioperative support.</p>
+    </div>
+    <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-2xs">
+      <div class="text-[11px] font-bold uppercase text-[#1B4965] tracking-wider mb-1">Location &amp; Access</div>
+      <div class="text-base font-black text-slate-900 mb-1">Rom Valley Way, Romford</div>
+      <p class="text-xs text-slate-600 leading-relaxed">RM7 0AG. Close to Romford Station (Elizabeth Line). Multi-storey parking and direct TfL bus routes (5, 128, 175, 193, 365, 496, 498, 499).</p>
+    </div>
+  </section>
+
+  <!-- 1. SUBSTANTIVE NHS CONSULTANT PRACTICE & LEADERSHIP -->
+  <section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs mb-10">
+    <div class="max-w-4xl">
+      <span class="text-xs font-bold uppercase tracking-wider text-[#1B4965] bg-[#EAF1F6] px-3 py-1 rounded-full mb-3 inline-block">
+        NHS Consultant Base &bull; Barking, Havering and Redbridge University Hospitals NHS Trust
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4 tracking-tight">
+        Substantive NHS Consultant Orthopaedic Practice &amp; Departmental Leadership
+      </h2>
+      <p class="text-sm sm:text-base text-slate-700 leading-relaxed mb-4">
+        Queen's Hospital in Romford serves as the substantive NHS consultant base for Mr Shivakumar Shankar within Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT). Appointed as a substantive NHS Consultant in Trauma and Orthopaedics in 2017, Mr Shankar has dedicated years of clinical service to the communities of Havering, Barking and Dagenham, Redbridge, and south-west Essex (GMC Number: 6038414).
+      </p>
+      <p class="text-sm sm:text-base text-slate-700 leading-relaxed mb-4">
+        Over his tenure at BHRUT, Mr Shankar has undertaken pivotal clinical leadership responsibilities. He has served as <strong>Clinical Director for Trauma and Orthopaedics</strong> and <strong>NHS Clinical Lead for Trauma and Orthopaedics</strong>, overseeing clinical governance, patient safety protocols, surgical training, and clinical effectiveness across the entire orthopaedic directorate. He has also fulfilled departmental lead roles as <strong>Clinical Lead for Femur Fracture Management</strong>—driving multidisciplinary pathway improvements for vulnerable elderly fracture patients—and <strong>Clinical Lead for Infection Control</strong>, implementing rigorous theatre protocols that uphold exemplary patient safety standards.
+      </p>
+      <p class="text-sm sm:text-base text-slate-700 leading-relaxed text-slate-600">
+        Within the Trust, care is strategically coordinated across BHRUT's two main hospital sites: acute, emergency trauma, peri-prosthetic fracture management, and acute outpatient services operate at Queen's Hospital in Romford, while planned, routine elective joint replacements are primarily performed at King George Hospital's protected elective surgical centre in Goodmayes.
+      </p>
+    </div>
+  </section>
+
+  <!-- 2. CLINICAL SERVICES & ARTHROPLASTY SCOPE -->
+  <section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs mb-10">
+    <div class="max-w-4xl">
+      <span class="text-xs font-bold uppercase tracking-wider text-[#1B4965] bg-[#EAF1F6] px-3 py-1 rounded-full mb-3 inline-block">
+        Clinical Services
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4 tracking-tight">
+        NHS Orthopaedic Trauma, Joint Reconstruction &amp; Arthroplasty Services
+      </h2>
+      <p class="text-sm sm:text-base text-slate-700 leading-relaxed mb-6">
+        As one of North East London's major acute hospitals and regional trauma centres, Queen's Hospital delivers comprehensive emergency and planned orthopaedic care:
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="p-5 rounded-xl bg-slate-50 border border-slate-200">
+          <h3 class="text-base font-bold text-slate-900 mb-2">Acute Trauma &amp; Fracture Reconstruction</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            As a regional acute trauma centre, Queen's Hospital provides comprehensive 24/7 trauma care. Mr Shankar manages acute musculoskeletal injuries, complex peri-articular fractures, fragility hip fractures, and peri-prosthetic fractures around existing hip and knee replacements.
+          </p>
+        </div>
+        <div class="p-5 rounded-xl bg-slate-50 border border-slate-200">
+          <h3 class="text-base font-bold text-slate-900 mb-2">Hip &amp; Knee Joint Reconstruction</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Comprehensive investigation, non-operative management, and surgical treatment for severe hip and knee osteoarthritis, inflammatory arthritis, and secondary degenerative joint disease, coordinated through BHRUT multidisciplinary pathways.
+          </p>
+        </div>
+        <div class="p-5 rounded-xl bg-slate-50 border border-slate-200">
+          <h3 class="text-base font-bold text-slate-900 mb-2">Outpatient Fracture &amp; Arthroplasty Clinics</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Specialist consultant-led outpatient clinics for new GP referrals, fracture follow-up, post-operative arthroplasty surveillance, and assessment of painful or failing previous joint replacements.
+          </p>
+        </div>
+        <div class="p-5 rounded-xl bg-slate-50 border border-slate-200">
+          <h3 class="text-base font-bold text-slate-900 mb-2">Multidisciplinary Collaboration</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Close partnership with orthogeriatricians, specialist musculoskeletal physiotherapists, clinical nurse specialists, occupational therapists, and consultant microbiologists ensuring holistic patient care.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. REVISION HIP SURGERY ACROSS NHS & PRIVATE PRACTICE -->
+  <section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs mb-10">
+    <div class="max-w-4xl">
+      <span class="text-xs font-bold uppercase tracking-wider text-[#1B4965] bg-[#EAF1F6] px-3 py-1 rounded-full mb-3 inline-block">
+        Clinical Scope of Practice
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4 tracking-tight">
+        Revision Hip Surgery — Scope of Practice Across Private &amp; NHS Practice
+      </h2>
+      <p class="text-sm sm:text-base text-slate-700 leading-relaxed mb-4">
+        Mr Shivakumar Shankar performs revision hip replacement surgery across both private and NHS hospital settings, with care structured according to patient clinical complexity, perioperative requirements, and institutional facilities:
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+        <div class="p-6 rounded-xl bg-[#EAF1F6] border border-blue-200">
+          <span class="text-xs font-bold uppercase tracking-wider text-[#1B4965] block mb-2">
+            NHS Hospital Practice &bull; BHRUT
+          </span>
+          <h3 className="text-lg font-black text-slate-900 mb-2">
+            Complex Revision Hip Replacement &amp; Reconstruction
+          </h3>
+          <p class="text-xs text-slate-700 leading-relaxed mb-3">
+            Mr Shankar undertakes complex revision hip replacement surgery and hip reconstruction within his NHS hospital practice at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT).
+          </p>
+          <p class="text-xs text-slate-700 leading-relaxed">
+            Within BHRUT, complex revision cases are managed with access to specialist multidisciplinary assessment, complex reconstruction resources (including modular revision stems, trabecular metal acetabular augments, cages, and bone graft substitutes), and dedicated perioperative support, including intensive care (ITU) and high-dependency (HDU) monitoring.
+          </p>
+        </div>
+        <div class="p-6 rounded-xl bg-emerald-50 border border-emerald-200">
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-800 block mb-2">
+            Private Hospital Practice &bull; Brentwood
+          </span>
+          <h3 class="text-lg font-black text-slate-900 mb-2">
+            Selected Revision Hip Surgery in Private Hospitals
+          </h3>
+          <p class="text-xs text-slate-700 leading-relaxed mb-3">
+            At his private practice locations—Nuffield Health Brentwood Hospital and Spire Hartswood Hospital in Brentwood, Essex—revision hip procedures suitable for the facilities and perioperative support available at private hospitals are undertaken by Mr Shankar following individual clinical assessment and appropriate pre-operative investigations.
+          </p>
+          <p class="text-xs text-slate-700 leading-relaxed">
+            These include selected revision hip replacement procedures for implant loosening, component wear, instability, or mechanical issues, depending on case complexity and hospital suitability.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. NHS REFERRAL PATHWAY (e-RS) -->
+  <section id="referral-pathway" class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs mb-10">
+    <div class="max-w-4xl">
+      <span class="text-xs font-bold uppercase tracking-wider text-[#1B4965] bg-[#EAF1F6] px-3 py-1 rounded-full mb-3 inline-block">
+        Patient Referral Guide
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4 tracking-tight">
+        How NHS Patients Access Care via the NHS e-Referral Service (e-RS)
+      </h2>
+      <p class="text-sm sm:text-base text-slate-700 leading-relaxed mb-6">
+        Under NHS Constitution rights, patients registered with an NHS GP in England have the right to choose the hospital and clinical team for their first consultant-led outpatient appointment:
+      </p>
+      <div class="space-y-4">
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-4">
+          <div class="w-8 h-8 rounded-full bg-[#1B4965] text-white flex items-center justify-center font-bold text-xs shrink-0">1</div>
+          <div>
+            <h3 class="text-sm font-bold text-slate-900 mb-1">Consult Your General Practitioner (GP)</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Discuss your hip or knee joint symptoms, functional limitations, and conservative treatment history with your NHS GP. If surgical assessment is warranted, request a referral to the Trauma &amp; Orthopaedics department at BHRUT.
+            </p>
+          </div>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-4">
+          <div class="w-8 h-8 rounded-full bg-[#1B4965] text-white flex items-center justify-center font-bold text-xs shrink-0">2</div>
+          <div>
+            <h3 class="text-sm font-bold text-slate-900 mb-1">Named Consultant Referral via NHS e-RS</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Your GP or practice administrative team submits your referral electronically through the NHS e-Referral Service (e-RS, formerly Choose &amp; Book), selecting Barking, Havering and Redbridge University Hospitals NHS Trust and naming <strong>Mr Shivakumar Shankar</strong> as the preferred consultant.
+            </p>
+          </div>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-4">
+          <div class="w-8 h-8 rounded-full bg-[#1B4965] text-white flex items-center justify-center font-bold text-xs shrink-0">3</div>
+          <div>
+            <h3 class="text-sm font-bold text-slate-900 mb-1">Clinical Triage &amp; Outpatient Appointment</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Referrals are clinically evaluated based on severity. The Trust central booking office will contact you with booking options or invite you to book an appointment through the NHS App or online portal.
+            </p>
+          </div>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-4">
+          <div class="w-8 h-8 rounded-full bg-[#1B4965] text-white flex items-center justify-center font-bold text-xs shrink-0">4</div>
+          <div>
+            <h3 class="text-sm font-bold text-slate-900 mb-1">Alternative: Private Consultation Pathway</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Patients seeking expedited consultant review without standard NHS waiting times can consult Mr Shankar privately at Nuffield Health Brentwood Hospital or Spire Hartswood Hospital in Brentwood, Essex. Contact his medical secretary (Remya Rexlin) on <strong>07587 765888</strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. LOCATION, TRANSPORT & AMENITIES -->
+  <section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs mb-10">
+    <div class="max-w-4xl">
+      <span class="text-xs font-bold uppercase tracking-wider text-[#1B4965] bg-[#EAF1F6] px-3 py-1 rounded-full mb-3 inline-block">
+        Hospital Location &amp; Access
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4 tracking-tight">
+        Location, Public Transport &amp; Parking at Queen's Hospital Romford
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+        <div class="p-5 rounded-xl bg-slate-50 border border-slate-200">
+          <h3 class="text-base font-bold text-slate-900 mb-2">Hospital Address</h3>
+          <p class="text-xs text-slate-700 leading-relaxed mb-2">
+            Queen's Hospital<br />
+            Rom Valley Way<br />
+            Romford, Greater London / Essex<br />
+            <strong>RM7 0AG</strong>
+          </p>
+          <p class="text-xs text-slate-500">Main Switchboard: 01708 435000</p>
+        </div>
+        <div class="p-5 rounded-xl bg-slate-50 border border-slate-200">
+          <h3 class="text-base font-bold text-slate-900 mb-2">Public Transport</h3>
+          <p class="text-xs text-slate-700 leading-relaxed mb-2">
+            <strong>Romford Station</strong> (Elizabeth Line, Greater Anglia, London Overground) is approx. 0.8 miles away.
+          </p>
+          <p class="text-xs text-slate-600">
+            Frequent direct TfL buses stop directly outside the hospital entrance: <strong>5, 128, 175, 193, 365, 496, 498, 499</strong>.
+          </p>
+        </div>
+        <div class="p-5 rounded-xl bg-slate-50 border border-slate-200">
+          <h3 class="text-base font-bold text-slate-900 mb-2">Parking &amp; Facilities</h3>
+          <p class="text-xs text-slate-700 leading-relaxed mb-2">
+            Multi-storey pay-and-display visitor car park on-site with automatic number plate recognition (ANPR).
+          </p>
+          <p class="text-xs text-slate-600">
+            Designated accessible Blue Badge bays, 20-minute patient drop-off bays, step-free access, on-site pharmacy, and cafes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. FREQUENTLY ASKED QUESTIONS -->
+  <section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs mb-10">
+    <div class="max-w-4xl">
+      <span class="text-xs font-bold uppercase tracking-wider text-[#1B4965] bg-[#EAF1F6] px-3 py-1 rounded-full mb-3 inline-block">
+        Patient Questions
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4 tracking-tight">
+        Frequently Asked Questions — Queen's Hospital Romford
+      </h2>
+      <div class="space-y-4 mt-6">
+        ${QUEENS_HOSPITAL_FAQS.map(faq => `
+          <div class="p-5 rounded-xl bg-slate-50 border border-slate-200">
+            <h3 class="text-base font-bold text-slate-900 mb-2">${faq.question}</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">${faq.answer}</p>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. INTERNAL LINKS -->
+  <section class="p-6 sm:p-8 bg-slate-50 rounded-2xl border border-slate-200">
+    <h3 class="text-lg font-black text-slate-900 mb-4">
+      Explore Related Hospital Locations &amp; Arthroplasty Services
+    </h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+      <a href="/king-george-hospital-goodmayes" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        King George Hospital Goodmayes (NHS) &rarr;
+      </a>
+      <a href="/nuffield-brentwood-hospital" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        Nuffield Health Brentwood (Private) &rarr;
+      </a>
+      <a href="/spire-hartswood-hospital" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        Spire Hartswood Hospital (Private) &rarr;
+      </a>
+      <a href="/revision-hip-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        Revision Hip Replacement &rarr;
+      </a>
+      <a href="/hip-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        Total Hip Replacement &rarr;
+      </a>
+      <a href="/knee-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        Total Knee Replacement &rarr;
+      </a>
+      <a href="/about-mr-shivakumar-shankar" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        About Mr Shivakumar Shankar &rarr;
+      </a>
+      <a href="/contact" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-[#1B4965] border border-slate-200 transition-colors">
+        Contact Practice Secretary &rarr;
+      </a>
+    </div>
+  </section>
+`;
+
+const renderKingGeorgeHospitalContent = () => `
+  <!-- QUICK CONTACT & TRUST ACTION BAR -->
+  <div class="mb-10 p-6 bg-white rounded-2xl border border-slate-200 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+    <div>
+      <span class="text-xs uppercase font-extrabold text-[#1B4965] tracking-wider block mb-1">
+        BHRUT NHS Trust &bull; Dedicated Elective Surgical Centre
+      </span>
+      <h2 class="text-xl font-black text-slate-900">
+        King George Hospital, Goodmayes &bull; Mr Shivakumar Shankar
+      </h2>
+      <p class="text-xs text-slate-600 mt-1 max-w-2xl leading-relaxed">
+        Barley Lane, Goodmayes, Ilford, Essex IG3 8YB. Trust Switchboard: <strong>020 8970 8000</strong> &bull; Elective Orthopaedic Surgical Hub &bull; Private Practice Secretary (Remya Rexlin): <strong>07587 765888</strong>.
+      </p>
+    </div>
+    <div class="flex flex-wrap items-center gap-3 shrink-0">
+      <a
+        href="#referral-pathway"
+        class="bg-[#1B4965] hover:bg-[#13364B] text-white px-5 py-2.5 rounded-lg text-xs font-bold transition-all shadow-xs flex items-center gap-1.5"
+      >
+        <span>NHS e-RS Referral Guide</span>
+        <span>&darr;</span>
+      </a>
+      <a
+        href="/book-consultation"
+        class="bg-[#E8A24C] hover:bg-[#D99136] text-white px-5 py-2.5 rounded-lg text-xs font-bold transition-all shadow-xs"
+      >
+        Private Consultation Option
+      </a>
+    </div>
+  </div>
+
+  <!-- KEY METRICS GRID -->
+  <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
+    <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-2xs">
+      <div class="text-[11px] font-bold uppercase text-[#1B4965] tracking-wider mb-1">Protected Elective Hub</div>
+      <div class="text-base font-black text-slate-900 mb-1">Dedicated Clean Theatres</div>
+      <p class="text-xs text-slate-600 leading-relaxed">Ring-fenced laminar airflow theatres isolated from emergency trauma surges, designed to protect elective capacity and minimise surgical cancellations.</p>
+    </div>
+    <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-2xs">
+      <div class="text-[11px] font-bold uppercase text-emerald-700 tracking-wider mb-1">Elective Recovery Lead</div>
+      <div class="text-base font-black text-slate-900 mb-1">&lsquo;Bones R Us&rsquo; &amp; HULK-10</div>
+      <p class="text-xs text-slate-600 leading-relaxed">Pioneered high-intensity surgical sprints delivering high-volume hip and knee joint replacements to reduce post-pandemic backlogs.</p>
+    </div>
+    <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-2xs">
+      <div class="text-[11px] font-bold uppercase text-[#1B4965] tracking-wider mb-1">Complex Revision (NHS)</div>
+      <div class="text-base font-black text-slate-900 mb-1">BHRUT Trust-Level Scope</div>
+      <p class="text-xs text-slate-600 leading-relaxed">Complex revision hip replacement and reconstruction personally undertaken by Mr Shankar with MDT perioperative support.</p>
+    </div>
+    <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-2xs">
+      <div class="text-[11px] font-bold uppercase text-[#1B4965] tracking-wider mb-1">Location &amp; Access</div>
+      <div class="text-base font-black text-slate-900 mb-1">Barley Lane, Goodmayes</div>
+      <p class="text-xs text-slate-600 leading-relaxed">IG3 8YB. Goodmayes Station (Elizabeth Line) and Newbury Park (Central line). On-site pay-and-display parking and bus links (364, 387, 396, 173).</p>
+    </div>
+  </section>
+
+  <!-- 1. DEDICATED ELECTIVE SURGICAL HUB -->
+  <section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs mb-10">
+    <div class="max-w-4xl">
+      <span class="text-xs font-bold uppercase tracking-wider text-[#1B4965] bg-[#EAF1F6] px-3 py-1 rounded-full mb-3 inline-block">
+        Elective Orthopaedic Centre &bull; Barking, Havering and Redbridge University Hospitals NHS Trust
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4 tracking-tight">
+        King George Hospital — Dedicated Elective Orthopaedic Surgical Hub
+      </h2>
+      <p class="text-sm sm:text-base text-slate-700 leading-relaxed mb-4">
+        King George Hospital in Goodmayes, Ilford, serves as the designated, protected Elective Surgical Centre for Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT). While acute emergency trauma admissions are concentrated at Queen's Hospital in Romford, King George Hospital operates as a specialised, high-efficiency hub dedicated to planned inpatient and day-case surgery.
+      </p>
+      <p class="text-sm sm:text-base text-slate-700 leading-relaxed mb-4">
+        A cornerstone of the King George elective model is the complete separation of planned elective beds and operating theatres from emergency medical and trauma pressures. Orthopaedic joint replacement lists are hosted in specialized ultra-clean laminar airflow theatre suites equipped with HEPA filtration, creating a sterile air curtain that substantially minimizes surgical site infection risks. Having served as <strong>Clinical Lead for Infection Control</strong> for the department, Mr Shivakumar Shankar enforces meticulous infection prevention protocols, MRSA screening, and enhanced surgical prophylaxis.
+      </p>
+      <p class="text-sm sm:text-base text-slate-700 leading-relaxed text-slate-600">
+        This ring-fenced elective arrangement provides patients across North East London and Essex with outstanding procedural reliability, substantially reduced risk of elective cancellation during seasonal winter bed pressures, and dedicated orthopaedic rehabilitation wards supported by specialist physiotherapists.
+      </p>
+    </div>
+  </section>
+
+  <!-- 2. ELECTIVE RECOVERY LEADERSHIP ('BONES R US' & HULK-10) -->
+  <section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs mb-10">
+    <div class="max-w-4xl">
+      <span class="text-xs font-bold uppercase tracking-wider text-[#1B4965] bg-[#EAF1F6] px-3 py-1 rounded-full mb-3 inline-block">
+        Elective Recovery Innovation
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4 tracking-tight">
+        Pioneering NHS Elective Recovery — &lsquo;Bones R Us&rsquo; &amp; HULK-10 Sprints
+      </h2>
+      <p class="text-sm sm:text-base text-slate-700 leading-relaxed mb-4">
+        In the wake of unprecedented post-pandemic orthopaedic waiting list backlogs across the NHS, Mr Shivakumar Shankar championed innovative, high-intensity elective surgical recovery programmes at BHRUT that garnered regional and national recognition:
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+        <div class="p-6 rounded-xl bg-slate-50 border border-slate-200">
+          <h3 class="text-base font-bold text-slate-900 mb-2">&lsquo;Bones R Us&rsquo; Intensive Joint Sprints</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Mr Shankar spearheaded the celebrated &lsquo;Bones R Us&rsquo; intensive surgical recovery weekends at King George Hospital. By synchronizing multidisciplinary theatre staff, consultant anaesthetists, nursing teams, and dedicated physiotherapists, Mr Shankar personally completed high-volume joint replacement lists across dedicated weekends, dramatically accelerating access for long-waiting hip and knee patients.
+          </p>
+        </div>
+        <div class="p-6 rounded-xl bg-slate-50 border border-slate-200">
+          <h3 class="text-base font-bold text-slate-900 mb-2">HULK-10 Elective Arthroplasty Sprints</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Building on this clinical model, Mr Shankar co-led the &lsquo;HULK-10&rsquo; high-intensity elective arthroplasty initiative. By streamlining pre-assessment, standardizing surgical trays, and implementing modern multimodal pain protocols, surgical teams safely carried out high volumes of complex and routine joint replacements, receiving acclaim across NHS London.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. REVISION HIP SURGERY ACROSS NHS & PRIVATE PRACTICE -->
+  <section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs mb-10">
+    <div class="max-w-4xl">
+      <span class="text-xs font-bold uppercase tracking-wider text-[#1B4965] bg-[#EAF1F6] px-3 py-1 rounded-full mb-3 inline-block">
+        Clinical Scope of Practice
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4 tracking-tight">
+        Revision Hip Surgery — Scope of Practice Across Private &amp; NHS Practice
+      </h2>
+      <p class="text-sm sm:text-base text-slate-700 leading-relaxed mb-4">
+        Mr Shivakumar Shankar performs revision hip replacement surgery across both private and NHS hospital settings, with care structured according to patient clinical complexity, perioperative requirements, and institutional facilities:
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+        <div class="p-6 rounded-xl bg-[#EAF1F6] border border-blue-200">
+          <span class="text-xs font-bold uppercase tracking-wider text-[#1B4965] block mb-2">
+            NHS Hospital Practice &bull; BHRUT
+          </span>
+          <h3 class="text-lg font-black text-slate-900 mb-2">
+            Complex Revision Hip Replacement &amp; Reconstruction
+          </h3>
+          <p class="text-xs text-slate-700 leading-relaxed mb-3">
+            Mr Shankar undertakes complex revision hip replacement surgery and hip reconstruction within his NHS hospital practice at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT).
+          </p>
+          <p class="text-xs text-slate-700 leading-relaxed">
+            Within BHRUT, complex revision cases are managed with access to specialist multidisciplinary assessment, complex reconstruction resources (including modular revision stems, trabecular metal acetabular augments, cages, and bone graft substitutes), and dedicated perioperative support, including intensive care (ITU) and high-dependency (HDU) monitoring.
+          </p>
+        </div>
+        <div class="p-6 rounded-xl bg-emerald-50 border border-emerald-200">
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-800 block mb-2">
+            Private Hospital Practice &bull; Brentwood
+          </span>
+          <h3 class="text-lg font-black text-slate-900 mb-2">
+            Selected Revision Hip Surgery in Private Hospitals
+          </h3>
+          <p class="text-xs text-slate-700 leading-relaxed mb-3">
+            At his private practice locations—Nuffield Health Brentwood Hospital and Spire Hartswood Hospital in Brentwood, Essex—revision hip procedures suitable for the facilities and perioperative support available at private hospitals are undertaken by Mr Shankar following individual clinical assessment and appropriate pre-operative investigations.
+          </p>
+          <p class="text-xs text-slate-700 leading-relaxed">
+            These include selected revision hip replacement procedures for implant loosening, component wear, instability, or mechanical issues, depending on case complexity and hospital suitability.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. NHS REFERRAL PATHWAY (e-RS) -->
+  <section id="referral-pathway" class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs mb-10">
+    <div class="max-w-4xl">
+      <span class="text-xs font-bold uppercase tracking-wider text-[#1B4965] bg-[#EAF1F6] px-3 py-1 rounded-full mb-3 inline-block">
+        Patient Referral Guide
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4 tracking-tight">
+        How NHS Patients Access Care via the NHS e-Referral Service (e-RS)
+      </h2>
+      <p class="text-sm sm:text-base text-slate-700 leading-relaxed mb-6">
+        NHS patients in Essex, London, and nationwide can access Mr Shankar's NHS elective orthopaedic service through the electronic referral pathway:
+      </p>
+      <div class="space-y-4">
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-4">
+          <div class="w-8 h-8 rounded-full bg-[#1B4965] text-white flex items-center justify-center font-bold text-xs shrink-0">1</div>
+          <div>
+            <h3 class="text-sm font-bold text-slate-900 mb-1">GP Consultation &amp; Assessment</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Visit your GP for physical examination and weight-bearing X-rays. If joint replacement is considered appropriate, request an elective referral to BHRUT Trauma &amp; Orthopaedics.
+            </p>
+          </div>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-4">
+          <div class="w-8 h-8 rounded-full bg-[#1B4965] text-white flex items-center justify-center font-bold text-xs shrink-0">2</div>
+          <div>
+            <h3 class="text-sm font-bold text-slate-900 mb-1">Electronic e-RS Referral</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Your GP practice sends your referral via the NHS e-Referral Service to Barking, Havering and Redbridge University Hospitals NHS Trust, naming <strong>Mr Shivakumar Shankar</strong> as the consultant orthopaedic surgeon.
+            </p>
+          </div>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-4">
+          <div class="w-8 h-8 rounded-full bg-[#1B4965] text-white flex items-center justify-center font-bold text-xs shrink-0">3</div>
+          <div>
+            <h3 class="text-sm font-bold text-slate-900 mb-1">Pre-Assessment &amp; Elective Surgery at King George</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Following clinic review, patients attend Joint School and pre-operative anaesthetic assessment before planned surgery in King George Hospital's protected clean elective theatres.
+            </p>
+          </div>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-4">
+          <div class="w-8 h-8 rounded-full bg-[#1B4965] text-white flex items-center justify-center font-bold text-xs shrink-0">4</div>
+          <div>
+            <h3 class="text-sm font-bold text-slate-900 mb-1">Fast-Track Private Option</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              For patients seeking immediate consultation and rapid surgery dates without NHS waitlists, Mr Shankar consults privately in Brentwood at Nuffield Health Brentwood and Spire Hartswood Hospitals. Contact his practice secretary on <strong>07587 765888</strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. LOCATION, TRANSPORT & AMENITIES -->
+  <section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs mb-10">
+    <div class="max-w-4xl">
+      <span class="text-xs font-bold uppercase tracking-wider text-[#1B4965] bg-[#EAF1F6] px-3 py-1 rounded-full mb-3 inline-block">
+        Hospital Location &amp; Travel
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4 tracking-tight">
+        Location, Public Transport &amp; Parking at King George Hospital Goodmayes
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+        <div class="p-5 rounded-xl bg-slate-50 border border-slate-200">
+          <h3 class="text-base font-bold text-slate-900 mb-2">Hospital Address</h3>
+          <p class="text-xs text-slate-700 leading-relaxed mb-2">
+            King George Hospital<br />
+            Barley Lane<br />
+            Goodmayes, Ilford, Essex / London<br />
+            <strong>IG3 8YB</strong>
+          </p>
+          <p class="text-xs text-slate-500">Trust Switchboard: 020 8970 8000</p>
+        </div>
+        <div class="p-5 rounded-xl bg-slate-50 border border-slate-200">
+          <h3 class="text-base font-bold text-slate-900 mb-2">Public Transport</h3>
+          <p class="text-xs text-slate-700 leading-relaxed mb-2">
+            <strong>Goodmayes Rail Station</strong> (Elizabeth Line) is approx. 1 mile away. <strong>Newbury Park</strong> (Central line) is also nearby.
+          </p>
+          <p class="text-xs text-slate-600">
+            Frequent direct TfL buses stop directly within the hospital grounds: <strong>173, 364, 387, 396</strong>.
+          </p>
+        </div>
+        <div class="p-5 rounded-xl bg-slate-50 border border-slate-200">
+          <h3 class="text-base font-bold text-slate-900 mb-2">Parking &amp; Facilities</h3>
+          <p class="text-xs text-slate-700 leading-relaxed mb-2">
+            On-site pay-and-display visitor parking with designated Blue Badge spaces outside the main elective entrance.
+          </p>
+          <p class="text-xs text-slate-600">
+            Drop-off bays, step-free access throughout, outpatient pharmacy, hospital restaurant, and rehabilitation physiotherapy gym.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. FREQUENTLY ASKED QUESTIONS -->
+  <section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs mb-10">
+    <div class="max-w-4xl">
+      <span class="text-xs font-bold uppercase tracking-wider text-[#1B4965] bg-[#EAF1F6] px-3 py-1 rounded-full mb-3 inline-block">
+        Patient Questions
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4 tracking-tight">
+        Frequently Asked Questions — King George Hospital Goodmayes
+      </h2>
+      <div class="space-y-4 mt-6">
+        ${KING_GEORGE_HOSPITAL_FAQS.map(faq => `
+          <div class="p-5 rounded-xl bg-slate-50 border border-slate-200">
+            <h3 class="text-base font-bold text-slate-900 mb-2">${faq.question}</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">${faq.answer}</p>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. INTERNAL LINKS -->
+  <section class="p-6 sm:p-8 bg-slate-50 rounded-2xl border border-slate-200">
+    <h3 class="text-lg font-black text-slate-900 mb-4">
+      Explore Related Hospital Locations &amp; Arthroplasty Services
+    </h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+      <a href="/queens-hospital-romford" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        Queen's Hospital Romford (NHS) &rarr;
+      </a>
+      <a href="/nuffield-brentwood-hospital" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        Nuffield Health Brentwood (Private) &rarr;
+      </a>
+      <a href="/spire-hartswood-hospital" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        Spire Hartswood Hospital (Private) &rarr;
+      </a>
+      <a href="/revision-hip-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        Revision Hip Replacement &rarr;
+      </a>
+      <a href="/hip-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        Total Hip Replacement &rarr;
+      </a>
+      <a href="/knee-replacement" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        Total Knee Replacement &rarr;
+      </a>
+      <a href="/about-mr-shivakumar-shankar" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200 transition-colors">
+        About Mr Shivakumar Shankar &rarr;
+      </a>
+      <a href="/contact" class="p-3 bg-white hover:bg-[#EAF1F6] rounded-xl font-bold text-[#1B4965] border border-slate-200 transition-colors">
+        Contact Practice Secretary &rarr;
+      </a>
+    </div>
+  </section>
+`;
+
 // ============================================================================
 // PHASE 2B STAGE 6: ESSEX & LONDON HIP, KNEE & REVISION SURGEON DATA & RENDERERS
 // ============================================================================
@@ -2640,7 +3383,7 @@ const renderEssexPageContent = () => `
     <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-2xs">
       <div class="text-[11px] font-bold uppercase text-[#1B4965] tracking-wider mb-1">Computer Navigation</div>
       <div class="text-base font-black text-slate-900 mb-1">Spire Hartswood Centre</div>
-      <p class="text-xs text-slate-600 leading-relaxed">Optical infrared navigation for knee replacement avoiding intramedullary rods and CT radiation.</p>
+      <p class="text-xs text-slate-600 leading-relaxed">Optical infrared navigation for knee replacement avoiding intramedullary rods and separate pre-operative planning CT scans.</p>
     </div>
     <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-2xs">
       <div class="text-[11px] font-bold uppercase text-purple-700 tracking-wider mb-1">Tertiary Hip Expertise</div>
@@ -3732,30 +4475,27 @@ const pageDefinitions = [
   // 6. Computer-Assisted Hip Replacement
   {
     path: 'computer-assisted-hip-replacement',
-    title: 'Computer-Assisted Hip Replacement | Mr Shivakumar Shankar',
-    description: 'Navigated hip replacement providing real-time intra-operative tracking of cup angles and limb length without pre-operative CT radiation.',
+    title: 'Computer-Assisted Hip Replacement Essex & London | Mr Shivakumar Shankar',
+    description: 'Consultant-led computer-assisted & navigated hip replacement in Essex and London with Mr Shivakumar Shankar. Real-time optical tracking with no routine pre-op CT scan required in Brentwood & BHRUT.',
     canonical: 'https://www.shivakumarshankar.co.uk/computer-assisted-hip-replacement',
-    bodyHtml: renderPageShell(
-      'computer-assisted-hip-replacement',
-      'Optical Computer Navigation • Arthroplasty',
-      'Computer-Assisted Hip Replacement Surgery',
-      'Computer-navigated hip arthroplasty provides live intra-operative optical tracking of acetabular cup orientation, femoral offset, and leg length without requiring pre-operative CT scans.',
-      `
-      ${renderCardGrid([
-        {
-          title: 'Live Optical Navigation',
-          desc: 'Infrared trackers register pelvic and femoral anatomical landmarks during surgery, giving real-time angular feedback.'
-        },
-        {
-          title: 'No Pre-Op CT Radiation',
-          desc: 'Ideal for patients seeking navigated precision without additional pre-operative radiological exposure.'
-        },
-        {
-          title: 'Proven Kinematic Alignment',
-          desc: 'Fellowship training at the Golden Jubilee National Hospital Glasgow informs Mr Shankar\'s computer-navigated technique.'
-        }
-      ])}
-      `
+    customJsonLd: generateProcedureJsonLd({
+      path: 'computer-assisted-hip-replacement',
+      title: 'Computer-Assisted Hip Replacement Essex & London | Mr Shivakumar Shankar',
+      description: 'Consultant-led computer-assisted & navigated hip replacement in Essex and London with Mr Shivakumar Shankar. Real-time optical tracking with no routine pre-op CT scan required in Brentwood & BHRUT.',
+      canonical: 'https://www.shivakumarshankar.co.uk/computer-assisted-hip-replacement',
+      data: CLINICAL_PROCEDURES['computer-assisted-hip-replacement'],
+      procedureName: 'Computer-Assisted & Navigated Total Hip Replacement',
+      bodyLocation: 'Hip joint',
+      howPerformed: 'Rigid pelvic and femoral optical tracker array placement, anatomical landmark digitisation, real-time infrared spatial orientation, continuous digital measurement of acetabular cup inclination and anteversion, and live intra-operative verification of leg length and femoral offset without pre-operative CT scans.',
+      breadcrumbs: [
+        { name: 'Hip Surgery', href: '/hip-replacement' }
+      ]
+    }),
+    bodyHtml: renderClinicalProcedurePage(
+      CLINICAL_PROCEDURES['computer-assisted-hip-replacement'],
+      [
+        { name: 'Hip Surgery', href: '/hip-replacement' }
+      ]
     )
   },
 
@@ -5239,68 +5979,48 @@ const pageDefinitions = [
   // 28. Queen's Hospital Romford (NHS)
   {
     path: 'queens-hospital-romford',
-    title: 'Queen\'s Hospital Romford (BHRUT NHS Trust) | Mr Shivakumar Shankar',
-    description: 'NHS Consultant Orthopaedic Surgeon at Barking, Havering and Redbridge University Hospitals NHS Trust, undertaking joint replacement and complex revision hip surgery at Queen\'s Hospital Romford.',
+    title: "Queen's Hospital Romford | Mr Shivakumar Shankar | Substantive NHS Consultant",
+    description: "Substantive NHS Consultant Orthopaedic Surgeon at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT) at Queen's Hospital, Romford. Complex revision hip surgery, joint reconstruction, and trauma care.",
     canonical: 'https://www.shivakumarshankar.co.uk/queens-hospital-romford',
-    bodyHtml: renderPageShell(
-      'queens-hospital',
-      'BHRUT NHS Trust • Major Trauma & Arthroplasty',
-      'Queen\'s Hospital, Romford (BHRUT NHS Trust)',
-      'Substantive NHS consultant base and acute trauma centre for Barking, Havering and Redbridge University Hospitals NHS Trust, where Mr Shankar provides specialist joint replacement and complex revision hip surgery within the NHS.',
-      `
-      ${renderCardGrid([
-        {
-          title: 'Clinical Lead & Governance',
-          desc: 'Oversees surgical governance, patient safety protocols, and subspecialty arthroplasty pathways across BHRUT.'
-        },
-        {
-          title: 'Complex Revision Hip Surgery (NHS)',
-          desc: 'Mr Shankar undertakes complex revision hip replacement surgery within his NHS practice at BHRUT, with access to specialist multidisciplinary assessment, complex reconstruction resources and perioperative support.'
-        },
-        {
-          title: 'NHS Referral Pathway',
-          desc: 'NHS patients can be referred by their GP via the NHS e-Referral Service (Choose & Book) to Mr Shankar\'s clinic.'
-        },
-        {
-          title: 'Romford Medical Centre',
-          desc: 'Rom Valley Way, Romford RM7 0AG. Major trauma centre and complex orthopaedic reconstruction unit.'
-        }
-      ])}
-      `
+    customJsonLd: generateHospitalPageJsonLd({
+      path: 'queens-hospital-romford',
+      canonical: 'https://www.shivakumarshankar.co.uk/queens-hospital-romford',
+      title: "Queen's Hospital Romford | Mr Shivakumar Shankar | Substantive NHS Consultant",
+      description: "Substantive NHS Consultant Orthopaedic Surgeon at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT) at Queen's Hospital, Romford. Complex revision hip surgery, joint reconstruction, and trauma care.",
+      hospital: QUEENS_HOSPITAL_DATA,
+      faqs: QUEENS_HOSPITAL_FAQS
+    }),
+    bodyHtml: renderHospitalPageShell(
+      'queens-hospital-romford',
+      'BHRUT NHS Trust • Major Acute Hospital & Trauma Centre',
+      "Mr Shivakumar Shankar at Queen's Hospital, Romford",
+      "Mr Shivakumar Shankar has served as a substantive NHS Consultant Orthopaedic Surgeon at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT) since 2017. As former Clinical Director and NHS Clinical Lead for Trauma and Orthopaedics, Mr Shankar oversees trauma reconstruction, complex revision hip replacement, and joint care at Queen's Hospital on Rom Valley Way in Romford.",
+      renderQueensHospitalContent(),
+      "Queen's Hospital, Romford"
     )
   },
 
   // 29. King George Hospital Goodmayes (NHS)
   {
     path: 'king-george-hospital-goodmayes',
-    title: 'King George Hospital Goodmayes (BHRUT) | Elective Orthopaedic Centre',
-    description: 'Substantive NHS elective orthopaedic surgery and high-volume joint replacement unit at King George Hospital, Goodmayes.',
+    title: 'King George Hospital Goodmayes | Mr Shivakumar Shankar | Elective Surgical Centre',
+    description: 'BHRUT Elective Surgical Centre at King George Hospital, Goodmayes. Protected clean-air joint replacement, high-volume hip and knee surgery, and elective recovery leadership with Mr Shivakumar Shankar.',
     canonical: 'https://www.shivakumarshankar.co.uk/king-george-hospital-goodmayes',
-    bodyHtml: renderPageShell(
-      'king-george-hospital',
-      'BHRUT NHS Trust • Elective Surgical Centre',
-      'King George Hospital, Goodmayes (BHRUT NHS Trust)',
-      'Dedicated elective surgical centre for Barking, Havering and Redbridge University Hospitals NHS Trust, delivering high-volume routine hip and knee arthroplasty and complex revision reconstruction across BHRUT elective pathways.',
-      `
-      ${renderCardGrid([
-        {
-          title: 'Elective Arthroplasty Unit',
-          desc: 'Specialised protected elective orthopaedic surgical suites minimising operation cancellation risks.'
-        },
-        {
-          title: 'Complex Revision Arthroplasty (NHS)',
-          desc: 'Joint replacements and complex revision hip procedures are delivered within BHRUT NHS Trust, supported by multidisciplinary perioperative resources and dedicated rehabilitation.'
-        },
-        {
-          title: 'NHS Referral Pathway',
-          desc: 'NHS patient consultations and surgery managed via GP referral through the NHS e-Referral Service.'
-        },
-        {
-          title: 'Goodmayes Facility',
-          desc: 'Barley Lane, Goodmayes, Ilford IG3 8YB. Modern inpatient surgical facilities and rehabilitation gym.'
-        }
-      ])}
-      `
+    customJsonLd: generateHospitalPageJsonLd({
+      path: 'king-george-hospital-goodmayes',
+      canonical: 'https://www.shivakumarshankar.co.uk/king-george-hospital-goodmayes',
+      title: 'King George Hospital Goodmayes | Mr Shivakumar Shankar | Elective Surgical Centre',
+      description: 'BHRUT Elective Surgical Centre at King George Hospital, Goodmayes. Protected clean-air joint replacement, high-volume hip and knee surgery, and elective recovery leadership with Mr Shivakumar Shankar.',
+      hospital: KING_GEORGE_HOSPITAL_DATA,
+      faqs: KING_GEORGE_HOSPITAL_FAQS
+    }),
+    bodyHtml: renderHospitalPageShell(
+      'king-george-hospital-goodmayes',
+      'BHRUT NHS Trust • Dedicated Elective Surgical Centre',
+      'Mr Shivakumar Shankar at King George Hospital, Goodmayes',
+      'King George Hospital in Goodmayes serves as the dedicated Elective Surgical Centre for Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT). Operating within ring-fenced clean-air laminar airflow theatre suites, Mr Shivakumar Shankar delivers high-volume primary hip and knee arthroplasty, complex revision hip reconstruction across BHRUT elective pathways, and award-winning elective recovery initiatives.',
+      renderKingGeorgeHospitalContent(),
+      'King George Hospital, Goodmayes'
     )
   },
 
