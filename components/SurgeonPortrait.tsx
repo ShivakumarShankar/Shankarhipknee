@@ -9,6 +9,7 @@ interface SurgeonPortraitProps {
   alt?: string;
   width?: number;
   height?: number;
+  fetchPriority?: 'high' | 'low' | 'auto';
 }
 
 export const SurgeonPortrait: React.FC<SurgeonPortraitProps> = ({
@@ -16,16 +17,19 @@ export const SurgeonPortrait: React.FC<SurgeonPortraitProps> = ({
   alt = CANONICAL_PORTRAIT_ALT,
   width = 600,
   height = 605,
+  fetchPriority = 'auto',
 }) => {
   return (
     <img
       src={CANONICAL_PORTRAIT_SRC}
       alt={alt}
+      title="Mr Shivakumar Shankar — Consultant Orthopaedic Hip and Knee Surgeon"
       width={width}
       height={height}
       className={className}
       loading="eager"
       decoding="async"
+      fetchPriority={fetchPriority}
     />
   );
 };
@@ -42,23 +46,24 @@ export const SurgeonPortraitCard: React.FC<SurgeonPortraitCardProps> = ({
   alt = CANONICAL_PORTRAIT_ALT,
 }) => {
   return (
-    <div className={`relative rounded-2xl overflow-hidden border border-slate-200 shadow-xl bg-white ${className}`}>
+    <figure className={`relative rounded-2xl overflow-hidden border border-slate-200 shadow-xl bg-white m-0 ${className}`}>
       <SurgeonPortrait 
         alt={alt} 
         width={600}
         height={605}
+        fetchPriority="high"
         className={`w-full h-auto object-cover object-top ${imageMaxHeight}`}
       />
       
-      <div className="p-4 bg-slate-50 border-t border-slate-200">
+      <figcaption className="p-4 bg-slate-50 border-t border-slate-200">
         <p className="text-base font-bold text-slate-900 leading-snug">
           {SURGEON_NAME}
         </p>
         <p className="text-xs text-[#1B4965] font-semibold mt-0.5">
           {SURGEON_ROLE}
         </p>
-      </div>
-    </div>
+      </figcaption>
+    </figure>
   );
 };
 

@@ -150,13 +150,13 @@ const renderPageShell = (path, badge, h1, lead, contentHtml) => `
         </div>
         <div class="lg:col-span-5 relative flex justify-center lg:justify-end">
           <div class="relative z-10 w-full max-w-md">
-            <div class="relative rounded-2xl overflow-hidden border border-slate-200 shadow-xl bg-white w-full max-w-md">
-              <img src="/profile.jpg" alt="Mr Shivakumar Shankar, Consultant Orthopaedic Hip and Knee Surgeon in London and Essex" width="600" height="605" class="w-full h-auto object-cover object-top max-h-[520px]" loading="eager" decoding="async" />
-              <div class="p-4 bg-slate-50 border-t border-slate-200">
+            <figure class="relative rounded-2xl overflow-hidden border border-slate-200 shadow-xl bg-white m-0 w-full max-w-md">
+              <img src="/profile.jpg" alt="Mr Shivakumar Shankar, Consultant Orthopaedic Hip and Knee Surgeon in London and Essex" title="Mr Shivakumar Shankar — Consultant Orthopaedic Hip and Knee Surgeon" width="600" height="605" class="w-full h-auto object-cover object-top max-h-[520px]" loading="eager" decoding="async" fetchpriority="high" />
+              <figcaption class="p-4 bg-slate-50 border-t border-slate-200">
                 <p class="text-base font-bold text-slate-900 leading-snug">Mr Shivakumar Shankar</p>
                 <p class="text-xs text-[#1B4965] font-semibold mt-0.5">Consultant Orthopaedic Hip &amp; Knee Surgeon</p>
-              </div>
-            </div>
+              </figcaption>
+            </figure>
           </div>
         </div>
       </div>` : `
@@ -288,6 +288,7 @@ const getPhysicianEntity = (locations = STANDARD_HOSPITAL_LOCATIONS) => ({
     "url": "https://www.shivakumarshankar.co.uk/profile.jpg",
     "contentUrl": "https://www.shivakumarshankar.co.uk/profile.jpg",
     "caption": "Mr Shivakumar Shankar, Consultant Orthopaedic Hip and Knee Surgeon in London and Essex",
+    "representativeOfPage": true,
     "width": 3009,
     "height": 3035
   },
@@ -486,14 +487,14 @@ const renderAboutPageContent = () => `
             </div>
           </div>
           <div class="lg:col-span-5 flex flex-col items-center">
-            <div class="relative rounded-2xl overflow-hidden border border-slate-200 shadow-xl bg-white w-full max-w-sm">
-              <img src="/profile.jpg" alt="Mr Shivakumar Shankar, Consultant Orthopaedic Hip and Knee Surgeon in London and Essex" width="600" height="605" class="w-full h-auto object-cover object-top max-h-[440px]" loading="eager" decoding="async" />
-              <div class="p-4 bg-slate-50 border-t border-slate-200">
+            <figure class="relative rounded-2xl overflow-hidden border border-slate-200 shadow-xl bg-white m-0 w-full max-w-sm">
+              <img src="/profile.jpg" alt="Mr Shivakumar Shankar, Consultant Orthopaedic Hip and Knee Surgeon in London and Essex" title="Mr Shivakumar Shankar — Consultant Orthopaedic Hip and Knee Surgeon" width="600" height="605" class="w-full h-auto object-cover object-top max-h-[440px]" loading="eager" decoding="async" fetchpriority="high" />
+              <figcaption class="p-4 bg-slate-50 border-t border-slate-200">
                 <p class="text-sm font-bold text-slate-900 leading-snug">Mr Shivakumar Shankar</p>
-                <p class="text-xs text-[#1B4965] font-semibold mt-0.5">Consultant Robotic Hip &amp; Knee Surgeon</p>
+                <p class="text-xs text-[#1B4965] font-semibold mt-0.5">Consultant Orthopaedic Hip &amp; Knee Surgeon</p>
                 <p class="text-[11px] text-slate-500 mt-1">NHS Clinical Lead &bull; Spire Hartswood &bull; Nuffield Brentwood</p>
-              </div>
-            </div>
+              </figcaption>
+            </figure>
           </div>
         </div>
 

@@ -382,7 +382,7 @@ function App() {
       robotsMeta.setAttribute('content', 'noindex, follow');
     } else {
       if (robotsMeta) {
-        robotsMeta.setAttribute('content', 'index, follow');
+        robotsMeta.setAttribute('content', 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1');
       }
     }
 
