@@ -187,8 +187,8 @@ const PAGE_METADATA: Record<string, { title: string; desc: string; canonical: st
     canonical: 'https://www.shivakumarshankar.co.uk/knee-replacement'
   },
   'robotic-knee-replacement': {
-    title: 'MAKO Robotic Knee Replacement Essex & London | Mr Shivakumar Shankar',
-    desc: 'Mr Shivakumar Shankar offers MAKO robotic-assisted total and partial knee replacement where appropriate, at Nuffield Health Brentwood Hospital, Essex, serving London.',
+    title: 'Robotic Knee Replacement London & Essex | MAKO Surgery | Mr Shivakumar Shankar',
+    desc: 'Consultant-led MAKO robotic total and partial knee replacement and robot-assisted knee surgery in London, East London, Romford & Brentwood, Essex with Mr Shivakumar Shankar.',
     canonical: 'https://www.shivakumarshankar.co.uk/robotic-knee-replacement'
   },
   'computer-assisted-knee-replacement': {
@@ -237,13 +237,13 @@ const PAGE_METADATA: Record<string, { title: string; desc: string; canonical: st
     canonical: 'https://www.shivakumarshankar.co.uk/patient-information'
   },
   'hip-replacement-recovery': {
-    title: 'Hip Replacement Recovery Guide | Milestones, Walking & Driving',
-    desc: 'Evidence-based recovery guide detailing post-operative milestones, exercise regimens, driving guidelines, and return to work after hip arthroplasty.',
+    title: 'Hip Replacement Recovery & Rehabilitation Guide | Mr Shivakumar Shankar',
+    desc: 'Evidence-based hip replacement recovery and rehabilitation guide by Mr Shivakumar Shankar in London & Essex: walking milestones, physiotherapy, driving, and return to work.',
     canonical: 'https://www.shivakumarshankar.co.uk/hip-replacement-recovery'
   },
   'knee-replacement-recovery': {
-    title: 'Knee Replacement Recovery Guide | Milestones & Rehabilitation',
-    desc: 'Comprehensive recovery timeline for knee replacement, managing swelling, restoring range of motion, and returning to daily activities.',
+    title: 'Knee Replacement Rehabilitation & Recovery Guide | Mr Shivakumar Shankar',
+    desc: 'Comprehensive knee replacement rehabilitation and recovery timeline by Mr Shivakumar Shankar in London & Essex: knee extension, flexion exercises, swelling control, and driving.',
     canonical: 'https://www.shivakumarshankar.co.uk/knee-replacement-recovery'
   },
   'preparing-for-surgery': {
@@ -763,7 +763,8 @@ function App() {
                     Consultant Orthopaedic Surgeon providing specialist assessment and surgery across{' '}
                     <a href="/hip-replacement" onClick={(e) => { e.preventDefault(); handleNavigate('hip-replacement'); }} className="font-bold text-[#1B4965] hover:underline">hip replacement</a>,{' '}
                     <a href="/knee-replacement" onClick={(e) => { e.preventDefault(); handleNavigate('knee-replacement'); }} className="font-bold text-[#1B4965] hover:underline">knee replacement</a>,{' '}
-                    <a href="/robotic-computer-assisted-surgery" onClick={(e) => { e.preventDefault(); handleNavigate('robotic-computer-assisted-surgery'); }} className="font-bold text-[#1B4965] hover:underline">MAKO robotic-assisted</a> and{' '}
+                    <a href="/robotic-hip-replacement" onClick={(e) => { e.preventDefault(); handleNavigate('robotic-hip-replacement'); }} className="font-bold text-[#1B4965] hover:underline">MAKO robotic hip</a> and{' '}
+                    <a href="/robotic-knee-replacement" onClick={(e) => { e.preventDefault(); handleNavigate('robotic-knee-replacement'); }} className="font-bold text-[#1B4965] hover:underline">robotic knee replacement</a>,{' '}
                     <a href="/computer-assisted-hip-replacement" onClick={(e) => { e.preventDefault(); handleNavigate('computer-assisted-hip-replacement'); }} className="font-bold text-[#1B4965] hover:underline">computer-assisted joint replacement</a>,{' '}
                     <a href="/minimally-invasive-hip-replacement" onClick={(e) => { e.preventDefault(); handleNavigate('minimally-invasive-hip-replacement'); }} className="font-bold text-[#1B4965] hover:underline">minimally invasive hip surgery</a>,{' '}
                     <a href="/revision-hip-replacement" onClick={(e) => { e.preventDefault(); handleNavigate('revision-hip-replacement'); }} className="font-bold text-[#1B4965] hover:underline">revision hip replacement</a>, and{' '}

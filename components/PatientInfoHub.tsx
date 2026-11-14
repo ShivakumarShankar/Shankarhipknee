@@ -53,15 +53,15 @@ export const PatientInfoHub: React.FC<PatientInfoHubProps> = ({
     switch (mode) {
       case 'hip-recovery':
         return {
-          badge: 'Recovery Pathway',
-          h1: 'Hip Replacement Recovery Guide',
-          lead: 'Comprehensive recovery milestones, wound care guidance, walking progress, returning to driving, returning to work, and warning signs following hip replacement surgery.'
+          badge: 'Recovery Pathway • Hip Arthroplasty',
+          h1: 'Hip Replacement Recovery & Rehabilitation Guide',
+          lead: 'Comprehensive hip replacement recovery milestones, physiotherapy exercises, wound care guidance, walking progression, returning to driving, and return to work under Mr Shivakumar Shankar in London and Essex.'
         };
       case 'knee-recovery':
         return {
-          badge: 'Recovery Pathway',
-          h1: 'Knee Replacement Recovery Guide',
-          lead: 'Detailed post-operative guidance on knee extension, flexion milestones, swelling control, icing protocols, stair negotiation, and physical rehabilitation following knee arthroplasty.'
+          badge: 'Recovery Pathway • Knee Arthroplasty',
+          h1: 'Knee Replacement Rehabilitation & Recovery Guide',
+          lead: 'Detailed knee replacement rehabilitation pathway covering knee extension (0°), flexion milestones, swelling control, icing protocols, stair negotiation, and return to daily activities under Mr Shivakumar Shankar in London and Essex.'
         };
       case 'preparing':
         return {
@@ -221,6 +221,13 @@ export const PatientInfoHub: React.FC<PatientInfoHubProps> = ({
                   </ul>
                 </div>
               </div>
+              <div className="pt-4 border-t border-slate-100 flex flex-wrap gap-3 text-xs">
+                <span className="font-bold text-slate-700">Related Hip Procedures:</span>
+                <a href="/hip-replacement" onClick={(e) => { e.preventDefault(); onNavigate('hip-replacement'); }} className="font-bold text-[#1B4965] hover:underline">Total Hip Replacement &rarr;</a>
+                <a href="/robotic-hip-replacement" onClick={(e) => { e.preventDefault(); onNavigate('robotic-hip-replacement'); }} className="font-bold text-[#1B4965] hover:underline">MAKO Robotic Hip Replacement &rarr;</a>
+                <a href="/minimally-invasive-hip-replacement" onClick={(e) => { e.preventDefault(); onNavigate('minimally-invasive-hip-replacement'); }} className="font-bold text-[#1B4965] hover:underline">Minimally Invasive Hip Surgery &rarr;</a>
+                <a href="/revision-hip-replacement" onClick={(e) => { e.preventDefault(); onNavigate('revision-hip-replacement'); }} className="font-bold text-[#1B4965] hover:underline">Revision Hip Replacement &rarr;</a>
+              </div>
             </div>
           )}
 
@@ -228,7 +235,7 @@ export const PatientInfoHub: React.FC<PatientInfoHubProps> = ({
           {(mode === 'knee-recovery' || mode === 'overview') && (
             <div className="mb-14 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-6">
               <h2 className="text-2xl font-black text-slate-900">
-                Knee Replacement Recovery &amp; Mobility Focus
+                Knee Replacement Rehabilitation &amp; Mobility Focus
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-2">
@@ -249,6 +256,13 @@ export const PatientInfoHub: React.FC<PatientInfoHubProps> = ({
                     Aim for 90 degrees of knee bend by weeks 2 to 4. Active heel slides and sitting knee bends allow safe progress without straining the healing wound.
                   </p>
                 </div>
+              </div>
+              <div className="pt-4 border-t border-slate-100 flex flex-wrap gap-3 text-xs">
+                <span className="font-bold text-slate-700">Related Knee Procedures:</span>
+                <a href="/knee-replacement" onClick={(e) => { e.preventDefault(); onNavigate('knee-replacement'); }} className="font-bold text-[#1B4965] hover:underline">Total Knee Replacement &rarr;</a>
+                <a href="/robotic-knee-replacement" onClick={(e) => { e.preventDefault(); onNavigate('robotic-knee-replacement'); }} className="font-bold text-[#1B4965] hover:underline">MAKO Robotic Knee Replacement &rarr;</a>
+                <a href="/partial-knee-replacement" onClick={(e) => { e.preventDefault(); onNavigate('partial-knee-replacement'); }} className="font-bold text-[#1B4965] hover:underline">Partial Knee Replacement &rarr;</a>
+                <a href="/computer-assisted-knee-replacement" onClick={(e) => { e.preventDefault(); onNavigate('computer-assisted-knee-replacement'); }} className="font-bold text-[#1B4965] hover:underline">Computer-Navigated Knee Surgery &rarr;</a>
               </div>
             </div>
           )}

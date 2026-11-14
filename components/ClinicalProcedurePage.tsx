@@ -127,7 +127,7 @@ export const ClinicalProcedurePage: React.FC<ClinicalProcedurePageProps> = ({
           </h1>
 
           <p className="text-lg sm:text-xl text-slate-600 mt-4 leading-relaxed max-w-4xl">
-            {data.leadParagraph}
+            {renderFormattedDetail(data.leadParagraph, onNavigate)}
           </p>
 
           <div className="flex flex-wrap items-center gap-3 pt-6">
@@ -165,7 +165,7 @@ export const ClinicalProcedurePage: React.FC<ClinicalProcedurePageProps> = ({
                 </h2>
                 {data.overview.map((para, idx) => (
                   <p key={idx} className="text-slate-700 leading-relaxed text-base">
-                    {para}
+                    {renderFormattedDetail(para, onNavigate)}
                   </p>
                 ))}
               </div>

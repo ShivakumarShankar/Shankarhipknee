@@ -4241,12 +4241,12 @@ const pageDefinitions = [
       '',
       'Restoring your active lifestyle',
       'Mr Shivakumar Shankar — Consultant Orthopaedic Hip and Knee Surgeon in London and Essex',
-      'Consultant Orthopaedic Surgeon providing specialist assessment and surgery across <a href="/hip-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">hip replacement</a>, <a href="/knee-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">knee replacement</a>, <a href="/robotic-computer-assisted-surgery" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">MAKO robotic-assisted</a> and <a href="/computer-assisted-hip-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">computer-assisted joint replacement</a>, <a href="/minimally-invasive-hip-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">minimally invasive hip surgery</a>, <a href="/revision-hip-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">revision hip replacement</a>, and <a href="/knee-arthroscopy" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">knee arthroscopy</a> in Brentwood, Essex, and London. Private consultations at <a href="/spire-hartswood-hospital" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Spire Hartswood Hospital</a> and <a href="/nuffield-brentwood-hospital" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Nuffield Health Brentwood Hospital</a>, with substantive NHS practice at <a href="/queens-hospital-romford" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Queen\'s Hospital, Romford</a> and <a href="/king-george-hospital-goodmayes" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">King George Hospital, Goodmayes</a>.',
+      'Consultant Orthopaedic Surgeon providing specialist assessment and surgery across <a href="/hip-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">hip replacement</a>, <a href="/knee-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">knee replacement</a>, <a href="/robotic-hip-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">MAKO robotic hip</a> and <a href="/robotic-knee-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">robotic knee replacement</a>, <a href="/computer-assisted-hip-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">computer-assisted joint replacement</a>, <a href="/minimally-invasive-hip-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">minimally invasive hip surgery</a>, <a href="/revision-hip-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">revision hip replacement</a>, and <a href="/knee-arthroscopy" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">knee arthroscopy</a> in Brentwood, Essex, and London. Private consultations at <a href="/spire-hartswood-hospital" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Spire Hartswood Hospital</a> and <a href="/nuffield-brentwood-hospital" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Nuffield Health Brentwood Hospital</a>, with substantive NHS practice at <a href="/queens-hospital-romford" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Queen\'s Hospital, Romford</a> and <a href="/king-george-hospital-goodmayes" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">King George Hospital, Goodmayes</a>.',
       `
       ${renderCardGrid([
         {
           title: 'Regional Robotic Pioneer',
-          desc: 'Mr Shankar was the first surgeon to perform computer-assisted and robotic total hip replacement in Essex and North East London, supporting precise execution of the planned implant position.'
+          desc: 'Mr Shankar was the first surgeon to perform computer-assisted and <a href="/robotic-hip-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">robotic total hip replacement</a> in Essex and North East London, and provides private <a href="/robotic-knee-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">MAKO robotic knee replacement</a> at Nuffield Health Brentwood Hospital.'
         },
         {
           title: 'Minimally Invasive Joint Care',
@@ -4631,8 +4631,8 @@ const pageDefinitions = [
   // 9. Robotic Knee Replacement
   {
     path: 'robotic-knee-replacement',
-    title: 'MAKO Robotic Knee Replacement Essex & London | Mr Shivakumar Shankar',
-    description: 'Mr Shivakumar Shankar offers MAKO robotic-assisted total and partial knee replacement where appropriate, at Nuffield Health Brentwood Hospital, Essex, serving London.',
+    title: 'Robotic Knee Replacement London & Essex | MAKO Surgery | Mr Shivakumar Shankar',
+    description: 'Consultant-led MAKO robotic total and partial knee replacement and robot-assisted knee surgery in London, East London, Romford & Brentwood, Essex with Mr Shivakumar Shankar.',
     canonical: 'https://www.shivakumarshankar.co.uk/robotic-knee-replacement',
     customJsonLd: {
       "@context": "https://schema.org",
@@ -4704,14 +4704,20 @@ const pageDefinitions = [
           "@type": "MedicalWebPage",
           "@id": "https://www.shivakumarshankar.co.uk/robotic-knee-replacement",
           "url": "https://www.shivakumarshankar.co.uk/robotic-knee-replacement",
-          "name": "MAKO Robotic Knee Replacement Essex & London | Mr Shivakumar Shankar",
-          "description": "Mr Shivakumar Shankar offers MAKO robotic-assisted total and partial knee replacement where appropriate, at Nuffield Health Brentwood Hospital, Essex, serving London.",
+          "name": "Robotic Knee Replacement London & Essex | MAKO Surgery | Mr Shivakumar Shankar",
+          "description": "Consultant-led MAKO robotic total and partial knee replacement and robot-assisted knee surgery in London, East London, Romford & Brentwood, Essex with Mr Shivakumar Shankar.",
           "inLanguage": "en-GB",
           "author": {
             "@id": "https://www.shivakumarshankar.co.uk/#physician"
           },
           "about": {
             "@id": "https://www.shivakumarshankar.co.uk/robotic-knee-replacement#procedure"
+          },
+          "mainEntity": {
+            "@id": "https://www.shivakumarshankar.co.uk/robotic-knee-replacement#procedure"
+          },
+          "primaryImageOfPage": {
+            "@id": "https://www.shivakumarshankar.co.uk/profile.jpg#primaryimage"
           },
           "breadcrumb": {
             "@id": "https://www.shivakumarshankar.co.uk/robotic-knee-replacement#breadcrumbs"
@@ -4804,7 +4810,7 @@ const pageDefinitions = [
           </h1>
 
           <p class="text-lg sm:text-xl text-slate-600 mt-4 leading-relaxed max-w-4xl">
-            Consultant-led MAKO robotic-assisted total and partial knee replacement, where clinically appropriate, with Mr Shivakumar Shankar in Essex and London. Private robotic knee surgery at Nuffield Health Brentwood Hospital, combining pre-operative 3D CT planning, dynamic ligament balancing, and haptic robotic guidance.
+            Consultant-led MAKO robotic-assisted total and partial knee replacement (robot-assisted knee surgery), where clinically appropriate, with Mr Shivakumar Shankar in London, East London, Romford, and Brentwood, Essex. Private MAKO robotic knee surgery is available at <a href="/nuffield-brentwood-hospital" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Nuffield Health Brentwood Hospital</a>, combining pre-operative 3D CT planning, dynamic ligament balancing, and haptic robotic guidance.
           </p>
 
           <div class="flex flex-wrap items-center gap-3 pt-6">
@@ -4838,19 +4844,19 @@ const pageDefinitions = [
               <!-- Clinical Overview -->
               <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-4">
                 <h2 class="text-2xl font-black text-slate-900 flex items-center gap-2.5">
-                  Clinical Overview: MAKO Robotic-Assisted Total &amp; Partial Knee Replacement
+                  Clinical Overview: MAKO Robotic Total &amp; Partial Knee Replacement in London &amp; Essex
                 </h2>
                 <p class="text-slate-700 leading-relaxed text-base">
-                  Robotic-assisted knee replacement utilising the Stryker Mako robotic system provides an exceptional level of precision in bone preparation and component alignment. Rather than relying solely on conventional mechanical cutting blocks and manual eyeballing, the Mako platform integrates a patient-specific 3D CT scan with intra-operative optical tracking sensors and robotic arm guidance.
+                  Robotic-assisted knee replacement (also referred to as robot-assisted knee surgery or Mako robotic knee surgery) utilises the Stryker MAKO system to support accurate bone preparation and component alignment. Rather than relying solely on conventional mechanical cutting blocks and manual visual alignment jigs, the MAKO platform integrates a patient-specific pre-operative 3D CT scan with intra-operative optical tracking sensors and surgeon-controlled robotic arm guidance.
                 </p>
                 <p class="text-slate-700 leading-relaxed text-base">
-                  The technology enables both <strong>robotic total knee replacement</strong> (resurfacing tricompartmental end-stage arthritis) and <strong>robotic partial (unicompartmental) knee replacement</strong> where clinically appropriate (resurfacing an isolated medial or lateral arthritic compartment while leaving the anterior cruciate ligament, posterior cruciate ligament, and healthy cartilage untouched).
+                  The technology supports both <strong>robotic total knee replacement</strong> (resurfacing tricompartmental end-stage osteoarthritis) and <strong>robotic partial (unicompartmental) knee replacement</strong> where clinically appropriate (resurfacing an isolated medial or lateral arthritic compartment while preserving the anterior cruciate ligament, posterior cruciate ligament, and healthy cartilage).
                 </p>
                 <p class="text-slate-700 leading-relaxed text-base">
-                  Mr Shivakumar Shankar has extensive specialist experience in computer-assisted and robotic joint arthroplasty, holding a Postgraduate Diploma in Computer and Robot-Assisted Orthopaedic Arthroplasty alongside his substantive NHS consultant appointment at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT). At King George Hospital’s Elective Surgical Hub, Mr Shankar reached a personal milestone of completing over 100 MAKO robotic-assisted joint replacements personally performed by him (an individual surgical series within the trust's high-volume clinical recovery programme featured in broadcast coverage on BBC London News).
+                  Mr Shivakumar Shankar has extensive specialist experience in computer-assisted and robotic joint arthroplasty, holding a Postgraduate Diploma in Computer and Robot-Assisted Orthopaedic Surgery alongside his substantive NHS consultant appointment at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT) in Romford and Goodmayes (North East London). At King George Hospital’s Elective Surgical Hub, Mr Shankar reached a personal surgical milestone of completing over 100 MAKO robotic-assisted joint replacements personally performed by him (representing his individual surgical series within the trust's elective recovery programme featured on BBC London News).
                 </p>
                 <p class="text-slate-700 leading-relaxed text-base">
-                  MAKO robotic-assisted joint replacement is available for private patients (insured and self-funding) at <strong>Nuffield Health Brentwood Hospital</strong> in Brentwood, Essex, conveniently serving patients across Essex, East London, and Greater London. Mr Shankar also undertakes robotic-assisted joint replacement within BHRUT NHS services. At <strong>Spire Hartswood Hospital</strong> in Brentwood, Mr Shankar provides conventional manual and computer-navigated knee replacement surgery, rather than MAKO robotic surgery. Robotic technology assists the surgeon; it does not operate independently. Improved technical accuracy does not automatically establish superior long-term clinical outcomes, and successful recovery remains founded upon dedicated post-operative physiotherapy and patient commitment.
+                  MAKO robotic-assisted hip and knee replacement is available for private patients (both insured and self-funding) at <a href="/nuffield-brentwood-hospital" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Nuffield Health Brentwood Hospital</a> in Brentwood, Essex (CM15 8EH), conveniently located near the M25 and A12 for patients travelling from Brentwood, Romford, Chelmsford, Essex, East London, and Greater London. Mr Shankar also performs robotic-assisted knee replacement within BHRUT NHS services. Please note that at <a href="/spire-hartswood-hospital" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Spire Hartswood Hospital</a> in Brentwood (CM13 3LE), Mr Shankar provides conventional manual and <a href="/computer-assisted-knee-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">computer-navigated knee replacement</a>, rather than MAKO robotic surgery. Robotic technology assists the surgeon and does not operate independently; improved technical accuracy in implant alignment does not automatically guarantee superior long-term clinical outcomes, and successful recovery depends on structured <a href="/knee-replacement-recovery" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">knee replacement rehabilitation</a>.
                 </p>
               </div>
 
@@ -5339,15 +5345,27 @@ const pageDefinitions = [
                     </p>
                   </a>
                   <a
-                    href="/reviews"
+                    href="/london-hip-knee-surgeon"
                     class="block p-3 rounded-xl bg-slate-50 hover:bg-[#EAF1F6] border border-slate-100 hover:border-[#1B4965]/30 transition-colors group"
                   >
                     <strong class="text-xs font-bold text-slate-900 group-hover:text-[#1B4965] flex items-center justify-between">
-                      <span>Patient Reviews &amp; Outcomes</span>
+                      <span>London &amp; East London Hip &amp; Knee Surgeon</span>
                       <span class="text-slate-400 group-hover:text-[#1B4965]">&rarr;</span>
                     </strong>
                     <p class="text-[11px] text-slate-500 mt-1 leading-normal">
-                      Verified patient testimonials and feedback on Doctify and I Want Great Care.
+                      Information for patients travelling from East London, North East London, and Greater London.
+                    </p>
+                  </a>
+                  <a
+                    href="/essex-hip-knee-surgeon"
+                    class="block p-3 rounded-xl bg-slate-50 hover:bg-[#EAF1F6] border border-slate-100 hover:border-[#1B4965]/30 transition-colors group"
+                  >
+                    <strong class="text-xs font-bold text-slate-900 group-hover:text-[#1B4965] flex items-center justify-between">
+                      <span>Essex &amp; Brentwood Hip &amp; Knee Surgeon</span>
+                      <span class="text-slate-400 group-hover:text-[#1B4965]">&rarr;</span>
+                    </strong>
+                    <p class="text-[11px] text-slate-500 mt-1 leading-normal">
+                      Specialist orthopaedic consultations and joint replacement across Brentwood, Romford, and Essex.
                     </p>
                   </a>
                   <a
@@ -5767,14 +5785,14 @@ const pageDefinitions = [
   // 18. Hip Replacement Recovery
   {
     path: 'hip-replacement-recovery',
-    title: 'Hip Replacement Recovery Guide | Milestones, Walking & Driving',
-    description: 'Evidence-based recovery guide detailing post-operative milestones, exercise regimens, driving guidelines, and return to work after hip arthroplasty.',
+    title: 'Hip Replacement Recovery & Rehabilitation Guide | Mr Shivakumar Shankar',
+    description: 'Evidence-based hip replacement recovery and rehabilitation guide by Mr Shivakumar Shankar in London & Essex: walking milestones, physiotherapy, driving, and return to work.',
     canonical: 'https://www.shivakumarshankar.co.uk/hip-replacement-recovery',
     bodyHtml: renderPageShell(
       'hip-recovery',
       'Clinical Recovery Pathway • Hip Arthroplasty',
-      'Hip Replacement Recovery Guide',
-      'Comprehensive recovery milestones, wound care advice, walking progression, returning to driving, returning to work, and warning signs following total hip replacement surgery.',
+      'Hip Replacement Recovery & Rehabilitation Guide',
+      'Comprehensive hip replacement recovery milestones, physiotherapy exercises, wound care advice, walking progression, returning to driving, and return to work under Mr Shivakumar Shankar in London and Essex. Explore related procedures: <a href="/hip-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Total Hip Replacement</a>, <a href="/robotic-hip-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">MAKO Robotic Hip Replacement</a>, <a href="/minimally-invasive-hip-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Minimally Invasive Hip Surgery</a>, and <a href="/revision-hip-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Revision Hip Replacement</a>.',
       `
       ${renderCardGrid([
         {
@@ -5797,14 +5815,14 @@ const pageDefinitions = [
   // 19. Knee Replacement Recovery
   {
     path: 'knee-replacement-recovery',
-    title: 'Knee Replacement Recovery Guide | Milestones & Rehabilitation',
-    description: 'Comprehensive recovery timeline for knee replacement, managing swelling, restoring range of motion, and returning to daily activities.',
+    title: 'Knee Replacement Rehabilitation & Recovery Guide | Mr Shivakumar Shankar',
+    description: 'Comprehensive knee replacement rehabilitation and recovery timeline by Mr Shivakumar Shankar in London & Essex: knee extension, flexion exercises, swelling control, and driving.',
     canonical: 'https://www.shivakumarshankar.co.uk/knee-replacement-recovery',
     bodyHtml: renderPageShell(
       'knee-recovery',
       'Clinical Recovery Pathway • Knee Arthroplasty',
-      'Knee Replacement Recovery Guide',
-      'Detailed recovery milestones, straightening and bending exercises, swelling management, driving resumption, and rehabilitation after total and partial knee replacement.',
+      'Knee Replacement Rehabilitation & Recovery Guide',
+      'Detailed knee replacement rehabilitation milestones, straightening (0° extension) and bending exercises, swelling management, driving resumption, and recovery after <a href="/knee-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">total knee replacement</a>, <a href="/robotic-knee-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">MAKO robotic knee replacement</a>, <a href="/partial-knee-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">partial knee replacement</a>, and <a href="/computer-assisted-knee-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">computer-navigated knee surgery</a>.',
       `
       ${renderCardGrid([
         {
