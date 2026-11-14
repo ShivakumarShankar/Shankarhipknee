@@ -649,11 +649,11 @@ export const PrpInjectionPage: React.FC<PrpInjectionPageProps> = ({
           <div className="pt-4 border-t border-white/10 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-300">
             <div>
               <strong className="text-white block">Spire Hartswood Hospital</strong>
-              Eagle Way, Brentwood, Essex CM13 3LE &bull; Tel: 01277 695 695
+              Eagle Way, Great Warley, Brentwood, Essex CM13 3LE &bull; Tel: 01277 266 766
             </div>
             <div>
               <strong className="text-white block">Nuffield Health Brentwood Hospital</strong>
-              Shenfield Road, Brentwood, Essex CM15 8EH &bull; Tel: 01277 263 263
+              Shenfield Road, Brentwood, Essex CM15 8EH &bull; Tel: 01277 695 695
             </div>
           </div>
         </section>

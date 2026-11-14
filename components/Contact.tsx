@@ -28,7 +28,11 @@ import {
   X_URL,
   X_HANDLE,
   SPIRE_HARTSWOOD_BOOKING_URL,
-  NUFFIELD_BRENTWOOD_BOOKING_URL
+  NUFFIELD_BRENTWOOD_BOOKING_URL,
+  SPIRE_PROFILE_URL,
+  NUFFIELD_PROFILE_URL,
+  SPIRE_HARTSWOOD_MAPS_URL,
+  NUFFIELD_BRENTWOOD_MAPS_URL
 } from '../constants';
 import { SurgeonPortrait } from './SurgeonPortrait';
 
@@ -607,22 +611,52 @@ ${contactForm.name}`
             )}
           </div>
 
-          {/* Right Column: Hospital Locations & Patient Guides */}
-          <div className="lg:col-span-5 space-y-6">
-            
-            {/* Spire Hartswood Hospital Card */}
+          {/* Right Column: Private Practice Locations & Patient Guides */}
+          <div id="private-practice-locations" className="lg:col-span-5 space-y-6">
+            <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-2xs">
+              <div className="flex items-center justify-between gap-2 mb-1.5">
+                <h3 className="text-lg font-extrabold text-slate-900 tracking-tight">
+                  Private Practice Locations
+                </h3>
+                <a
+                  href="/hospitals-locations"
+                  className="text-xs font-bold text-[#1B4965] hover:underline"
+                >
+                  All Hospitals &rarr;
+                </a>
+              </div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Mr Shivakumar Shankar holds independent practising privileges for private outpatient consultations and surgery at two established private hospitals in Brentwood, Essex:
+              </p>
+            </div>
+
+            {/* 1. Nuffield Health Brentwood Hospital Card */}
             <div className="bg-white border border-slate-200 rounded-3xl p-6 shadow-xs hover:shadow-md transition-all">
               <div className="flex justify-between items-start mb-3">
-                <span className="text-[10px] uppercase font-bold text-[#1B4965] bg-[#EAF1F6] px-2.5 py-1 rounded border border-slate-200">
-                  Private Hospital
+                <span className="text-[10px] uppercase font-bold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded border border-emerald-200">
+                  Private Practice Location &bull; MAKO Robotic Centre
                 </span>
-                <span className="text-xs text-slate-500">Brentwood, Essex</span>
+                <a
+                  href="/nuffield-brentwood-hospital"
+                  className="text-xs font-bold text-[#1B4965] hover:underline"
+                >
+                  Hospital Guide &rarr;
+                </a>
               </div>
-              <h4 className="text-xl font-bold text-slate-900 mb-1">Spire Hartswood Hospital</h4>
-              <p className="text-xs text-slate-600 flex items-start gap-1.5 mb-3">
+              <h4 className="text-xl font-bold text-slate-900 mb-1">Nuffield Health Brentwood Hospital</h4>
+              <p className="text-xs text-slate-700 font-medium flex items-start gap-1.5 mb-3">
                 <MapPin size={14} className="text-[#1B4965] flex-shrink-0 mt-0.5" />
-                Eagle Way, Great Warley, Brentwood, Essex CM13 3LE
+                <span>Shenfield Road, Brentwood, Essex CM15 8EH</span>
               </p>
+
+              <div className="p-3 bg-emerald-50/60 rounded-xl text-xs space-y-1 border border-emerald-200/80 mb-3 text-slate-700">
+                <p className="font-bold text-slate-900 text-[11px] uppercase tracking-wider mb-1">Procedures Available at Nuffield Brentwood:</p>
+                <ul className="space-y-1 list-disc pl-4">
+                  <li>MAKO robotic-assisted hip and knee replacement.</li>
+                  <li>Conventional and other appropriate hip and knee procedures.</li>
+                </ul>
+              </div>
+
               <div className="p-3 bg-[#F8FAFC] rounded-xl text-xs space-y-1.5 border border-slate-200 mb-4">
                 <div className="flex justify-between">
                   <span className="text-slate-500">Main Hospital Line:</span>
@@ -638,55 +672,27 @@ ${contactForm.name}`
                 </div>
               </div>
               <div className="space-y-2">
-                <a
-                  href={SPIRE_HARTSWOOD_BOOKING_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full bg-[#1B4965] hover:bg-[#13364B] text-white text-xs font-bold py-2.5 rounded-lg transition-all flex items-center justify-center gap-1.5 shadow-xs hover:shadow-md"
-                >
-                  <Calendar size={13} />
-                  <span>Book Online at Spire (Live Timeslots)</span>
-                  <ExternalLink size={12} />
-                </a>
-                {onBook && (
-                  <button
-                    onClick={() => onBook('Spire Hartswood Hospital')}
-                    className="w-full bg-[#EAF1F6] hover:bg-[#dbe7f0] text-[#1B4965] text-xs font-bold py-2 rounded-lg transition-colors flex items-center justify-center gap-1.5 border border-slate-200"
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <a
+                    href={NUFFIELD_PROFILE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-white hover:bg-slate-50 text-[#1B4965] border border-slate-300 text-xs font-bold py-2 px-3 rounded-lg transition-colors flex items-center justify-center gap-1.5"
                   >
-                    Request via Medical Secretary
-                  </button>
-                )}
-              </div>
-            </div>
-
-            {/* Nuffield Health Brentwood Hospital Card */}
-            <div className="bg-white border border-slate-200 rounded-3xl p-6 shadow-xs hover:shadow-md transition-all">
-              <div className="flex justify-between items-start mb-3">
-                <span className="text-[10px] uppercase font-bold text-[#1B4965] bg-[#EAF1F6] px-2.5 py-1 rounded border border-slate-200">
-                  Private Hospital
-                </span>
-                <span className="text-xs text-slate-500">Brentwood, Essex</span>
-              </div>
-              <h4 className="text-xl font-bold text-slate-900 mb-1">Nuffield Health Brentwood Hospital</h4>
-              <p className="text-xs text-slate-600 flex items-start gap-1.5 mb-3">
-                <MapPin size={14} className="text-[#1B4965] flex-shrink-0 mt-0.5" />
-                Shenfield Road, Brentwood, Essex CM15 8EH
-              </p>
-              <div className="p-3 bg-[#F8FAFC] rounded-xl text-xs space-y-1.5 border border-slate-200 mb-4">
-                <div className="flex justify-between">
-                  <span className="text-slate-500">Main Hospital Line:</span>
-                  <a href="tel:01277263263" className="text-slate-800 hover:text-[#1B4965] font-semibold">01277 263 263</a>
+                    <span>Official Nuffield Profile</span>
+                    <ExternalLink size={12} />
+                  </a>
+                  <a
+                    href={NUFFIELD_BRENTWOOD_MAPS_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 text-xs font-bold py-2 px-3 rounded-lg transition-colors flex items-center justify-center gap-1.5"
+                  >
+                    <MapPin size={12} className="text-[#1B4965]" />
+                    <span>Google Maps Directions</span>
+                    <ExternalLink size={11} />
+                  </a>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-slate-500">Secretary Mobile:</span>
-                  <a href={`tel:${MOBILE_PHONE.replace(/\s+/g, '')}`} className="text-[#1B4965] hover:underline font-bold">{MOBILE_PHONE}</a>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-slate-500">Secretary Landline:</span>
-                  <a href={`tel:${LANDLINE_PHONE.replace(/\s+/g, '')}`} className="text-slate-800 hover:text-[#1B4965] font-semibold">{LANDLINE_PHONE}</a>
-                </div>
-              </div>
-              <div className="space-y-2">
                 <a
                   href={NUFFIELD_BRENTWOOD_BOOKING_URL}
                   target="_blank"
@@ -700,6 +706,91 @@ ${contactForm.name}`
                 {onBook && (
                   <button
                     onClick={() => onBook('Nuffield Brentwood Hospital')}
+                    className="w-full bg-[#EAF1F6] hover:bg-[#dbe7f0] text-[#1B4965] text-xs font-bold py-2 rounded-lg transition-colors flex items-center justify-center gap-1.5 border border-slate-200"
+                  >
+                    Request via Medical Secretary
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {/* 2. Spire Hartswood Hospital Card */}
+            <div className="bg-white border border-slate-200 rounded-3xl p-6 shadow-xs hover:shadow-md transition-all">
+              <div className="flex justify-between items-start mb-3">
+                <span className="text-[10px] uppercase font-bold text-[#1B4965] bg-[#EAF1F6] px-2.5 py-1 rounded border border-slate-200">
+                  Private Practice Location &bull; Navigated &amp; Conventional
+                </span>
+                <a
+                  href="/spire-hartswood-hospital"
+                  className="text-xs font-bold text-[#1B4965] hover:underline"
+                >
+                  Hospital Guide &rarr;
+                </a>
+              </div>
+              <h4 className="text-xl font-bold text-slate-900 mb-1">Spire Hartswood Hospital</h4>
+              <p className="text-xs text-slate-700 font-medium flex items-start gap-1.5 mb-3">
+                <MapPin size={14} className="text-[#1B4965] flex-shrink-0 mt-0.5" />
+                <span>Eagle Way, Great Warley, Brentwood, Essex CM13 3LE</span>
+              </p>
+
+              <div className="p-3 bg-slate-50 rounded-xl text-xs space-y-1 border border-slate-200 mb-3 text-slate-700">
+                <p className="font-bold text-slate-900 text-[11px] uppercase tracking-wider mb-1">Procedures Available at Spire Hartswood:</p>
+                <ul className="space-y-1 list-disc pl-4">
+                  <li>Conventional and computer-navigated hip and knee replacement.</li>
+                  <li>Knee arthroscopy and other appropriate procedures.</li>
+                  <li className="text-slate-600">MAKO robotic surgery is not available at this hospital.</li>
+                </ul>
+              </div>
+
+              <div className="p-3 bg-[#F8FAFC] rounded-xl text-xs space-y-1.5 border border-slate-200 mb-4">
+                <div className="flex justify-between">
+                  <span className="text-slate-500">Main Hospital Line:</span>
+                  <a href="tel:01277266766" className="text-slate-800 hover:text-[#1B4965] font-semibold">01277 266 766</a>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-slate-500">Secretary Mobile:</span>
+                  <a href={`tel:${MOBILE_PHONE.replace(/\s+/g, '')}`} className="text-[#1B4965] hover:underline font-bold">{MOBILE_PHONE}</a>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-slate-500">Secretary Landline:</span>
+                  <a href={`tel:${LANDLINE_PHONE.replace(/\s+/g, '')}`} className="text-slate-800 hover:text-[#1B4965] font-semibold">{LANDLINE_PHONE}</a>
+                </div>
+              </div>
+              <div className="space-y-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <a
+                    href={SPIRE_PROFILE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-white hover:bg-slate-50 text-[#1B4965] border border-slate-300 text-xs font-bold py-2 px-3 rounded-lg transition-colors flex items-center justify-center gap-1.5"
+                  >
+                    <span>Official Spire Profile</span>
+                    <ExternalLink size={12} />
+                  </a>
+                  <a
+                    href={SPIRE_HARTSWOOD_MAPS_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 text-xs font-bold py-2 px-3 rounded-lg transition-colors flex items-center justify-center gap-1.5"
+                  >
+                    <MapPin size={12} className="text-[#1B4965]" />
+                    <span>Google Maps Directions</span>
+                    <ExternalLink size={11} />
+                  </a>
+                </div>
+                <a
+                  href={SPIRE_HARTSWOOD_BOOKING_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-[#1B4965] hover:bg-[#13364B] text-white text-xs font-bold py-2.5 rounded-lg transition-all flex items-center justify-center gap-1.5 shadow-xs hover:shadow-md"
+                >
+                  <Calendar size={13} />
+                  <span>Book Online at Spire (Live Timeslots)</span>
+                  <ExternalLink size={12} />
+                </a>
+                {onBook && (
+                  <button
+                    onClick={() => onBook('Spire Hartswood Hospital')}
                     className="w-full bg-[#EAF1F6] hover:bg-[#dbe7f0] text-[#1B4965] text-xs font-bold py-2 rounded-lg transition-colors flex items-center justify-center gap-1.5 border border-slate-200"
                   >
                     Request via Medical Secretary

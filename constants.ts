@@ -38,6 +38,9 @@ export const SPIRE_HARTSWOOD_BOOKING_URL = "https://appointments.spirehealthcare
 export const NUFFIELD_BRENTWOOD_BOOKING_URL = "https://www.nuffieldhealth.com/consultants/mr-shivakumar-shankar#book";
 export const GMC_REGISTER_URL = "https://www.gmc-uk.org/registrants/6038414";
 export const SPIRE_PROFILE_URL = "https://www.spirehealthcare.com/consultant-profiles/mr-shivakumar-shankar-c6038414/";
+export const NUFFIELD_PROFILE_URL = "https://www.nuffieldhealth.com/consultants/mr-shivakumar-shankar";
+export const NUFFIELD_BRENTWOOD_MAPS_URL = "https://www.google.com/maps/dir/?api=1&destination=Nuffield+Health+Brentwood+Hospital,Shenfield+Road,Brentwood,Essex,CM15+8EH";
+export const SPIRE_HARTSWOOD_MAPS_URL = "https://www.google.com/maps/dir/?api=1&destination=Spire+Hartswood+Hospital,Eagle+Way,Great+Warley,Brentwood,Essex,CM13+3LE";
 export const DOCTIFY_PROFILE_URL = "https://www.doctify.com/en-gb/specialist/shivakumar-shankar";
 export const IWGC_PROFILE_URL = "https://www.iwantgreatcare.org/doctors/mr-shivakumar-shankar";
 

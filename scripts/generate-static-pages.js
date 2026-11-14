@@ -101,13 +101,13 @@ const renderFooter = () => `
           <div class="space-y-3 text-xs text-slate-600">
             <div>
               <strong class="text-slate-900 block">Spire Hartswood Hospital (Private)</strong>
-              Eagle Way, Brentwood, Essex CM13 3LE<br>
-              Tel: 01277 695 695
+              Eagle Way, Great Warley, Brentwood, Essex CM13 3LE<br>
+              Tel: 01277 266 766
             </div>
             <div>
               <strong class="text-slate-900 block">Nuffield Health Brentwood Hospital (Private)</strong>
               Shenfield Road, Brentwood, Essex CM15 8EH<br>
-              Tel: 01277 263 263
+              Tel: 01277 695 695
             </div>
             <div>
               <strong class="text-slate-900 block">NHS Hospitals (BHRUT)</strong>
@@ -207,7 +207,8 @@ const STANDARD_HOSPITAL_LOCATIONS = [
       "longitude": 0.3188
     },
     "telephone": "01277 695 695",
-    "url": "https://www.nuffieldhealth.com/consultants/mr-shivakumar-shankar#book"
+    "url": "https://www.nuffieldhealth.com/consultants/mr-shivakumar-shankar",
+    "hasMap": "https://www.google.com/maps/dir/?api=1&destination=Nuffield+Health+Brentwood+Hospital,Shenfield+Road,Brentwood,Essex,CM15+8EH"
   },
   {
     "@type": "Hospital",
@@ -226,7 +227,8 @@ const STANDARD_HOSPITAL_LOCATIONS = [
       "longitude": 0.2882
     },
     "telephone": "01277 266 766",
-    "url": "https://appointments.spirehealthcare.com/?c=C6038414"
+    "url": "https://www.spirehealthcare.com/consultant-profiles/mr-shivakumar-shankar-c6038414/",
+    "hasMap": "https://www.google.com/maps/dir/?api=1&destination=Spire+Hartswood+Hospital,Eagle+Way,Great+Warley,Brentwood,Essex,CM13+3LE"
   }
 ];
 
@@ -246,6 +248,10 @@ const getPhysicianEntity = (locations = STANDARD_HOSPITAL_LOCATIONS) => ({
   "legalName": "Mr Shivakumar Shankar",
   "jobTitle": "Consultant Orthopaedic Hip and Knee Surgeon",
   "medicalSpecialty": [
+    "https://schema.org/Surgical",
+    "https://schema.org/Musculoskeletal"
+  ],
+  "knowsAbout": [
     "Orthopaedic Surgery",
     "Hip Replacement Surgery",
     "Knee Replacement Surgery",
@@ -253,17 +259,13 @@ const getPhysicianEntity = (locations = STANDARD_HOSPITAL_LOCATIONS) => ({
     "Computer-Assisted Joint Replacement",
     "Revision Hip Surgery",
     "Partial Knee Replacement",
-    "Knee Arthroscopy"
-  ],
-  "knowsAbout": [
+    "Knee Arthroscopy",
     "Primary Hip Replacement",
     "Revision Hip Replacement",
     "MAKO Robotic Hip Replacement",
     "Computer-Assisted Hip Replacement",
     "Primary Knee Replacement",
-    "MAKO Robotic Knee Replacement",
-    "Partial Knee Replacement",
-    "Knee Arthroscopy"
+    "MAKO Robotic Knee Replacement"
   ],
   "affiliation": [
     {
@@ -272,11 +274,31 @@ const getPhysicianEntity = (locations = STANDARD_HOSPITAL_LOCATIONS) => ({
     },
     {
       "@type": "Hospital",
-      "name": "Spire Hartswood Hospital"
+      "name": "Nuffield Health Brentwood Hospital",
+      "url": "https://www.nuffieldhealth.com/consultants/mr-shivakumar-shankar",
+      "hasMap": "https://www.google.com/maps/dir/?api=1&destination=Nuffield+Health+Brentwood+Hospital,Shenfield+Road,Brentwood,Essex,CM15+8EH",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Shenfield Road",
+        "addressLocality": "Brentwood",
+        "addressRegion": "Essex",
+        "postalCode": "CM15 8EH",
+        "addressCountry": "GB"
+      }
     },
     {
       "@type": "Hospital",
-      "name": "Nuffield Health Brentwood Hospital"
+      "name": "Spire Hartswood Hospital",
+      "url": "https://www.spirehealthcare.com/consultant-profiles/mr-shivakumar-shankar-c6038414/",
+      "hasMap": "https://www.google.com/maps/dir/?api=1&destination=Spire+Hartswood+Hospital,Eagle+Way,Great+Warley,Brentwood,Essex,CM13+3LE",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Eagle Way, Great Warley",
+        "addressLocality": "Brentwood",
+        "addressRegion": "Essex",
+        "postalCode": "CM13 3LE",
+        "addressCountry": "GB"
+      }
     }
   ],
   "description": "Consultant Orthopaedic Hip and Knee Surgeon specialising in primary, complex, and revision hip and knee surgery, with specialist interests in MAKO robotic joint replacement, computer-assisted navigation, and tissue-preserving arthroplasty across London and Essex.",
@@ -350,6 +372,59 @@ const getPhysicianEntity = (locations = STANDARD_HOSPITAL_LOCATIONS) => ({
     { "@type": "City", "name": "Chelmsford" },
     { "@type": "AdministrativeArea", "name": "North East London" }
   ],
+  "availableService": [
+    {
+      "@type": "MedicalProcedure",
+      "name": "Total Hip Replacement",
+      "description": "Primary and complex total hip arthroplasty using advanced bearing surfaces and muscle-sparing techniques."
+    },
+    {
+      "@type": "MedicalProcedure",
+      "name": "Robotic Total Hip Replacement",
+      "description": "CT-guided 3D pre-operative planning and robotic arm-assisted component positioning for precision cup alignment."
+    },
+    {
+      "@type": "MedicalProcedure",
+      "name": "Computer-Assisted Hip Replacement",
+      "description": "Real-time intra-operative optical navigation for accurate acetabular cup orientation and leg length restoration."
+    },
+    {
+      "@type": "MedicalProcedure",
+      "name": "Minimally Invasive Hip Replacement",
+      "description": "Muscle-preserving surgical approaches designed for reduced soft tissue disruption and accelerated mobilisation."
+    },
+    {
+      "@type": "MedicalProcedure",
+      "name": "Revision Hip Replacement",
+      "description": "Specialist assessment, component exchange, and reconstruction for painful, loose, worn, or unstable hip replacements."
+    },
+    {
+      "@type": "MedicalProcedure",
+      "name": "Total Knee Replacement",
+      "description": "Personalised alignment and kinematic joint resurfacing for severe knee osteoarthritis."
+    },
+    {
+      "@type": "MedicalProcedure",
+      "name": "Robotic Knee Replacement",
+      "description": "Mako robotic-assisted total knee replacement delivering 3D CT-guided implant positioning and balanced ligament tension."
+    },
+    {
+      "@type": "MedicalProcedure",
+      "name": "Computer-Assisted Knee Replacement",
+      "description": "Real-time intra-operative optical tracking and digital navigation for accurate limb mechanical axis restoration."
+    },
+    {
+      "@type": "MedicalProcedure",
+      "name": "Partial Knee Replacement",
+      "description": "Unicompartmental medial, lateral, or patellofemoral knee resurfacing preserving healthy natural joint compartments."
+    },
+    {
+      "@type": "MedicalProcedure",
+      "name": "Knee Arthroscopy & Meniscal Surgery",
+      "description": "Keyhole diagnostic and therapeutic arthroscopic surgery for meniscal tears, cartilage debridement, and joint preservation."
+    }
+  ],
+  "workLocation": locations,
   "location": locations
 });
 
@@ -868,17 +943,12 @@ const generateProcedureJsonLd = ({
       },
       getPhysicianEntity(STANDARD_HOSPITAL_LOCATIONS),
       {
-        "@type": "MedicalProcedure",
+        "@type": "SurgicalProcedure",
         "@id": `${canonical}#procedure`,
         "name": procedureName,
-        "procedureType": "SurgicalProcedure",
         "bodyLocation": bodyLocation,
         "description": data.leadParagraph,
-        "howPerformed": howPerformed,
-        "performer": {
-          "@id": "https://www.shivakumarshankar.co.uk/#physician"
-        },
-        "location": STANDARD_HOSPITAL_LOCATIONS
+        "howPerformed": howPerformed
       },
       {
         "@type": "MedicalWebPage",
@@ -1400,7 +1470,8 @@ const SPIRE_HARTSWOOD_FAQS = [
 const NUFFIELD_BRENTWOOD_HOSPITAL_DATA = {
   name: "Nuffield Health Brentwood Hospital",
   telephone: "01277 695 695",
-  url: "https://www.nuffieldhealth.com/consultants/mr-shivakumar-shankar#book",
+  url: "https://www.nuffieldhealth.com/consultants/mr-shivakumar-shankar",
+  hasMap: "https://www.google.com/maps/dir/?api=1&destination=Nuffield+Health+Brentwood+Hospital,Shenfield+Road,Brentwood,Essex,CM15+8EH",
   address: {
     streetAddress: "Shenfield Road",
     addressLocality: "Brentwood",
@@ -1428,7 +1499,8 @@ const NUFFIELD_BRENTWOOD_HOSPITAL_DATA = {
 const SPIRE_HARTSWOOD_HOSPITAL_DATA = {
   name: "Spire Hartswood Hospital",
   telephone: "01277 266 766",
-  url: "https://appointments.spirehealthcare.com/?c=C6038414",
+  url: "https://www.spirehealthcare.com/consultant-profiles/mr-shivakumar-shankar-c6038414/",
+  hasMap: "https://www.google.com/maps/dir/?api=1&destination=Spire+Hartswood+Hospital,Eagle+Way,Great+Warley,Brentwood,Essex,CM13+3LE",
   address: {
     streetAddress: "Eagle Way, Great Warley",
     addressLocality: "Brentwood",
@@ -1609,6 +1681,7 @@ const generateHospitalPageJsonLd = ({
       "@id": `${canonical}#hospital`,
       "name": hospital.name,
       "url": hospital.url,
+      ...(hospital.hasMap ? { "hasMap": hospital.hasMap } : {}),
       "telephone": hospital.telephone,
       "address": {
         "@type": "PostalAddress",
@@ -1624,9 +1697,8 @@ const generateHospitalPageJsonLd = ({
         "longitude": hospital.geo.longitude
       },
       "medicalSpecialty": [
-        "Orthopaedics",
-        "AdultReconstructiveOrthopaedics",
-        "JointReplacementSurgery"
+        "https://schema.org/Surgical",
+        "https://schema.org/Musculoskeletal"
       ],
       "availableService": hospital.availableServices.map(service => ({
         "@type": "MedicalProcedure",
@@ -1638,9 +1710,22 @@ const generateHospitalPageJsonLd = ({
         "@type": "Hospital",
         "@id": `${canonical}#hospital`,
         "name": hospital.name,
-        "address": hospital.address,
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": hospital.address.streetAddress,
+          "addressLocality": hospital.address.addressLocality,
+          "addressRegion": hospital.address.addressRegion,
+          "postalCode": hospital.address.postalCode,
+          "addressCountry": "GB"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": hospital.geo.latitude,
+          "longitude": hospital.geo.longitude
+        },
         "telephone": hospital.telephone,
-        "url": hospital.url
+        "url": hospital.url,
+        ...(hospital.hasMap ? { "hasMap": hospital.hasMap } : {})
       }
     ]),
     {
@@ -2079,8 +2164,17 @@ const renderNuffieldBrentwoodContent = () => `
         </div>
       </div>
 
-      <div class="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-900">
+      <div class="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-900 mb-4">
         <strong>Complimentary Parking:</strong> Ample free on-site parking is provided for patients and visitors directly outside the hospital entrance, including designated accessible (blue badge) bays.
+      </div>
+
+      <div class="flex flex-wrap items-center gap-3">
+        <a href="https://www.google.com/maps/dir/?api=1&destination=Nuffield+Health+Brentwood+Hospital,Shenfield+Road,Brentwood,Essex,CM15+8EH" target="_blank" rel="noopener noreferrer" class="bg-white hover:bg-slate-50 text-[#1B4965] border border-slate-300 px-4 py-2.5 rounded-lg text-xs font-bold transition-colors inline-flex items-center gap-1.5 shadow-2xs">
+          <span>Google Maps Directions &rarr;</span>
+        </a>
+        <a href="https://www.nuffieldhealth.com/consultants/mr-shivakumar-shankar" target="_blank" rel="noopener noreferrer" class="bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 px-4 py-2.5 rounded-lg text-xs font-bold transition-colors inline-flex items-center gap-1.5 shadow-2xs">
+          <span>Official Nuffield Consultant Profile &rarr;</span>
+        </a>
       </div>
     </div>
   </section>
@@ -2519,8 +2613,17 @@ const renderSpireHartswoodContent = () => `
         </div>
       </div>
 
-      <div class="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-900">
+      <div class="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-900 mb-4">
         <strong>Complimentary Parking:</strong> Generous free on-site parking is situated directly outside the hospital entrance, with step-free accessible parking spaces immediately adjoining reception.
+      </div>
+
+      <div class="flex flex-wrap items-center gap-3">
+        <a href="https://www.google.com/maps/dir/?api=1&destination=Spire+Hartswood+Hospital,Eagle+Way,Great+Warley,Brentwood,Essex,CM13+3LE" target="_blank" rel="noopener noreferrer" class="bg-white hover:bg-slate-50 text-[#1B4965] border border-slate-300 px-4 py-2.5 rounded-lg text-xs font-bold transition-colors inline-flex items-center gap-1.5 shadow-2xs">
+          <span>Google Maps Directions &rarr;</span>
+        </a>
+        <a href="https://www.spirehealthcare.com/consultant-profiles/mr-shivakumar-shankar-c6038414/" target="_blank" rel="noopener noreferrer" class="bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 px-4 py-2.5 rounded-lg text-xs font-bold transition-colors inline-flex items-center gap-1.5 shadow-2xs">
+          <span>Official Spire Consultant Profile &rarr;</span>
+        </a>
       </div>
     </div>
   </section>
@@ -4423,6 +4526,62 @@ const pageDefinitions = [
         </div>
       </section>
 
+      <!-- Private Practice Locations Section -->
+      <section id="private-practice-locations" class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs mb-12">
+        <div class="mb-6">
+          <span class="inline-block px-3 py-1 rounded-full bg-[#EAF1F6] text-[#1B4965] text-xs font-bold uppercase tracking-wider mb-2">
+            Brentwood, Essex &bull; Private Practice
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+            Private Practice Locations
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1 max-w-3xl leading-relaxed">
+            Mr Shivakumar Shankar holds independent practising privileges for private outpatient consultations and surgery at two established private hospitals in Brentwood, Essex, easily accessible from across Essex and London:
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="p-6 rounded-2xl border border-slate-200 bg-slate-50/50 flex flex-col justify-between space-y-4">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded border border-emerald-200">MAKO Robotic Centre</span>
+                <a href="/nuffield-brentwood-hospital" class="text-xs font-bold text-[#1B4965] hover:underline">Hospital Guide &rarr;</a>
+              </div>
+              <h3 class="text-lg font-extrabold text-slate-900">Nuffield Health Brentwood Hospital</h3>
+              <p class="text-xs text-slate-700 font-semibold">Shenfield Road, Brentwood, Essex CM15 8EH &bull; Tel: 01277 695 695</p>
+              <ul class="text-xs text-slate-600 space-y-1 list-disc pl-4">
+                <li>MAKO robotic-assisted hip and knee replacement.</li>
+                <li>Conventional and other appropriate hip and knee procedures.</li>
+              </ul>
+            </div>
+            <div class="flex flex-wrap gap-2 pt-2 border-t border-slate-200">
+              <a href="https://www.nuffieldhealth.com/consultants/mr-shivakumar-shankar" target="_blank" rel="noopener noreferrer" class="bg-white hover:bg-slate-100 text-[#1B4965] border border-slate-300 px-3 py-1.5 rounded-lg text-xs font-bold transition-colors">Official Nuffield Profile &rarr;</a>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=Nuffield+Health+Brentwood+Hospital,Shenfield+Road,Brentwood,Essex,CM15+8EH" target="_blank" rel="noopener noreferrer" class="bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 px-3 py-1.5 rounded-lg text-xs font-bold transition-colors">Google Maps Directions &rarr;</a>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl border border-slate-200 bg-slate-50/50 flex flex-col justify-between space-y-4">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-[#1B4965] bg-[#EAF1F6] px-2.5 py-0.5 rounded border border-slate-200">Navigated &amp; Conventional</span>
+                <a href="/spire-hartswood-hospital" class="text-xs font-bold text-[#1B4965] hover:underline">Hospital Guide &rarr;</a>
+              </div>
+              <h3 class="text-lg font-extrabold text-slate-900">Spire Hartswood Hospital</h3>
+              <p class="text-xs text-slate-700 font-semibold">Eagle Way, Great Warley, Brentwood, Essex CM13 3LE &bull; Tel: 01277 266 766</p>
+              <ul class="text-xs text-slate-600 space-y-1 list-disc pl-4">
+                <li>Conventional and computer-navigated hip and knee replacement.</li>
+                <li>Knee arthroscopy and other appropriate procedures.</li>
+                <li>MAKO robotic surgery is not available at this hospital.</li>
+              </ul>
+            </div>
+            <div class="flex flex-wrap gap-2 pt-2 border-t border-slate-200">
+              <a href="https://www.spirehealthcare.com/consultant-profiles/mr-shivakumar-shankar-c6038414/" target="_blank" rel="noopener noreferrer" class="bg-white hover:bg-slate-100 text-[#1B4965] border border-slate-300 px-3 py-1.5 rounded-lg text-xs font-bold transition-colors">Official Spire Profile &rarr;</a>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=Spire+Hartswood+Hospital,Eagle+Way,Great+Warley,Brentwood,Essex,CM13+3LE" target="_blank" rel="noopener noreferrer" class="bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 px-3 py-1.5 rounded-lg text-xs font-bold transition-colors">Google Maps Directions &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="p-8 bg-[#EAF1F6] rounded-2xl border border-slate-300 flex flex-col md:flex-row items-center justify-between gap-6 mb-12">
         <div>
           <h2 class="text-xl font-bold text-[#1B4965]">Consultation &amp; Surgical Scheduling</h2>
@@ -4675,31 +4834,12 @@ const pageDefinitions = [
         },
         getPhysicianEntity(),
         {
-          "@type": "MedicalProcedure",
+          "@type": "SurgicalProcedure",
           "@id": "https://www.shivakumarshankar.co.uk/robotic-knee-replacement#procedure",
           "name": "Robotic Knee Replacement Surgery",
-          "procedureType": "SurgicalProcedure",
           "bodyLocation": "Knee joint",
           "description": "Consultant-led Mako robotic-assisted total and partial knee replacement combining pre-operative 3D CT virtual modelling, dynamic ligament balancing, and haptic robotic arm guidance.",
-          "howPerformed": "Low-dose pre-operative 3D CT modelling, real-time optical tracking arrays, dynamic soft-tissue tension mapping across flexion and extension, and surgeon-guided tactile haptic boundary bone resection.",
-          "performer": {
-            "@id": "https://www.shivakumarshankar.co.uk/#physician"
-          },
-          "location": [
-            {
-              "@type": "Hospital",
-              "name": "Nuffield Health Brentwood Hospital",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Shenfield Road",
-                "addressLocality": "Brentwood",
-                "addressRegion": "Essex",
-                "postalCode": "CM15 8EH",
-                "addressCountry": "GB"
-              },
-              "telephone": "01277 263 263"
-            }
-          ]
+          "howPerformed": "Low-dose pre-operative 3D CT modelling, real-time optical tracking arrays, dynamic soft-tissue tension mapping across flexion and extension, and surgeon-guided tactile haptic boundary bone resection."
         },
         {
           "@type": "MedicalWebPage",
@@ -5945,14 +6085,49 @@ const pageDefinitions = [
       'Hospitals &amp; Consulting Locations',
       'Mr Shivakumar Shankar consults and operates across private and NHS hospital facilities in Essex and North East London, providing convenient access for London and Essex patients.',
       `
+      <section id="private-practice-locations" class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs mb-10">
+        <h2 class="text-2xl font-extrabold text-slate-900 mb-2">Private Practice Locations</h2>
+        <p class="text-xs sm:text-sm text-slate-600 mb-6">
+          Mr Shivakumar Shankar holds independent practising privileges for private outpatient consultations and surgery at two private hospitals in Brentwood, Essex:
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="p-6 rounded-2xl border border-slate-200 bg-slate-50/50 space-y-3">
+            <h3 class="text-lg font-bold text-slate-900"><a href="/nuffield-brentwood-hospital" class="hover:text-[#1B4965] hover:underline">Nuffield Health Brentwood Hospital</a></h3>
+            <p class="text-xs text-slate-700 font-semibold">Shenfield Road, Brentwood, Essex CM15 8EH &bull; Tel: 01277 695 695</p>
+            <ul class="text-xs text-slate-600 space-y-1 list-disc pl-4">
+              <li>MAKO robotic-assisted hip and knee replacement.</li>
+              <li>Conventional and other appropriate hip and knee procedures.</li>
+            </ul>
+            <div class="flex flex-wrap gap-2 pt-2">
+              <a href="https://www.nuffieldhealth.com/consultants/mr-shivakumar-shankar" target="_blank" rel="noopener noreferrer" class="bg-white border border-slate-300 text-[#1B4965] px-3 py-1.5 rounded-lg text-xs font-bold">Official Nuffield Profile &rarr;</a>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=Nuffield+Health+Brentwood+Hospital,Shenfield+Road,Brentwood,Essex,CM15+8EH" target="_blank" rel="noopener noreferrer" class="bg-white border border-slate-300 text-slate-800 px-3 py-1.5 rounded-lg text-xs font-bold">Google Maps Directions &rarr;</a>
+              <a href="/nuffield-brentwood-hospital" class="bg-[#1B4965] text-white px-3 py-1.5 rounded-lg text-xs font-bold">Hospital Guide &rarr;</a>
+            </div>
+          </div>
+          <div class="p-6 rounded-2xl border border-slate-200 bg-slate-50/50 space-y-3">
+            <h3 class="text-lg font-bold text-slate-900"><a href="/spire-hartswood-hospital" class="hover:text-[#1B4965] hover:underline">Spire Hartswood Hospital</a></h3>
+            <p class="text-xs text-slate-700 font-semibold">Eagle Way, Great Warley, Brentwood, Essex CM13 3LE &bull; Tel: 01277 266 766</p>
+            <ul class="text-xs text-slate-600 space-y-1 list-disc pl-4">
+              <li>Conventional and computer-navigated hip and knee replacement.</li>
+              <li>Knee arthroscopy and other appropriate procedures.</li>
+              <li>MAKO robotic surgery is not available at this hospital.</li>
+            </ul>
+            <div class="flex flex-wrap gap-2 pt-2">
+              <a href="https://www.spirehealthcare.com/consultant-profiles/mr-shivakumar-shankar-c6038414/" target="_blank" rel="noopener noreferrer" class="bg-white border border-slate-300 text-[#1B4965] px-3 py-1.5 rounded-lg text-xs font-bold">Official Spire Profile &rarr;</a>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=Spire+Hartswood+Hospital,Eagle+Way,Great+Warley,Brentwood,Essex,CM13+3LE" target="_blank" rel="noopener noreferrer" class="bg-white border border-slate-300 text-slate-800 px-3 py-1.5 rounded-lg text-xs font-bold">Google Maps Directions &rarr;</a>
+              <a href="/spire-hartswood-hospital" class="bg-[#1B4965] text-white px-3 py-1.5 rounded-lg text-xs font-bold">Hospital Guide &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </section>
       ${renderCardGrid([
         {
           title: 'Spire Hartswood Hospital',
-          desc: 'Premier private hospital in Brentwood, Essex with laminar flow theatres, on-site MRI/CT, and en-suite inpatient rooms.'
+          desc: 'Premier private hospital in Brentwood, Essex (CM13 3LE) with laminar flow theatres, optical computer-navigated knee surgery, on-site MRI/CT, and en-suite inpatient rooms.'
         },
         {
           title: 'Nuffield Health Brentwood',
-          desc: 'Renowned private hospital in Brentwood, Essex offering fixed-price self-pay packages and advanced robotic surgery.'
+          desc: 'Renowned private hospital in Brentwood, Essex (CM15 8EH) offering fixed-price self-pay packages and MAKO robotic-assisted hip and knee replacement.'
         },
         {
           title: 'BHRUT NHS Trust Hospitals',
@@ -6179,7 +6354,7 @@ const pageDefinitions = [
       'Contact Mr Shivakumar Shankar\'s Practice',
       'Contact private practice medical secretary Remya Rexlin directly for fast-track consultation bookings, insurance pre-authorisations, and hospital appointments.',
       `
-      <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+      <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
         <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200">
           <h2 class="text-xl font-bold text-slate-900 mb-4">Medical Secretary Contact</h2>
           <div class="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed">
@@ -6190,11 +6365,49 @@ const pageDefinitions = [
           </div>
         </div>
         <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200">
-          <h2 class="text-xl font-bold text-slate-900 mb-4">Hospital Locations</h2>
+          <h2 class="text-xl font-bold text-slate-900 mb-4">Hospital Switchboards &amp; NHS Enquiries</h2>
           <div class="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed">
-            <p><strong>Spire Hartswood Hospital:</strong> 01277 695 695 (Brentwood, Essex)</p>
-            <p><strong>Nuffield Health Brentwood:</strong> 01277 263 263 (Brentwood, Essex)</p>
+            <p><strong>Nuffield Health Brentwood Hospital:</strong> 01277 695 695 (Shenfield Road, Brentwood, Essex CM15 8EH)</p>
+            <p><strong>Spire Hartswood Hospital:</strong> 01277 266 766 (Eagle Way, Great Warley, Brentwood, Essex CM13 3LE)</p>
             <p><strong>NHS Enquiries:</strong> BHRUT Orthopaedic Lead Secretary (01708 435000)</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="private-practice-locations" class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 mb-12">
+        <h2 class="text-2xl font-extrabold text-slate-900 mb-2">Private Practice Locations</h2>
+        <p class="text-xs sm:text-sm text-slate-600 mb-6">
+          Mr Shivakumar Shankar holds independent practising privileges for private outpatient consultations and surgery at two private hospitals in Brentwood, Essex:
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="p-6 rounded-2xl border border-slate-200 bg-slate-50/50 space-y-3">
+            <h3 class="text-lg font-bold text-slate-900"><a href="/nuffield-brentwood-hospital" class="hover:text-[#1B4965] hover:underline">Nuffield Health Brentwood Hospital</a></h3>
+            <p class="text-xs text-slate-700 font-semibold">Shenfield Road, Brentwood, Essex CM15 8EH &bull; Tel: 01277 695 695</p>
+            <ul class="text-xs text-slate-600 space-y-1 list-disc pl-4">
+              <li>MAKO robotic-assisted hip and knee replacement.</li>
+              <li>Conventional and other appropriate hip and knee procedures.</li>
+            </ul>
+            <div class="flex flex-wrap gap-2 pt-2">
+              <a href="https://www.nuffieldhealth.com/consultants/mr-shivakumar-shankar" target="_blank" rel="noopener noreferrer" class="bg-white border border-slate-300 text-[#1B4965] px-3 py-1.5 rounded-lg text-xs font-bold">Official Nuffield Profile &rarr;</a>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=Nuffield+Health+Brentwood+Hospital,Shenfield+Road,Brentwood,Essex,CM15+8EH" target="_blank" rel="noopener noreferrer" class="bg-white border border-slate-300 text-slate-800 px-3 py-1.5 rounded-lg text-xs font-bold">Google Maps Directions &rarr;</a>
+              <a href="https://www.nuffieldhealth.com/consultants/mr-shivakumar-shankar#book" target="_blank" rel="noopener noreferrer" class="bg-[#00703C] text-white px-3 py-1.5 rounded-lg text-xs font-bold">Book Online at Nuffield &rarr;</a>
+              <a href="/nuffield-brentwood-hospital" class="bg-slate-100 text-slate-800 px-3 py-1.5 rounded-lg text-xs font-bold">Hospital Guide &rarr;</a>
+            </div>
+          </div>
+          <div class="p-6 rounded-2xl border border-slate-200 bg-slate-50/50 space-y-3">
+            <h3 class="text-lg font-bold text-slate-900"><a href="/spire-hartswood-hospital" class="hover:text-[#1B4965] hover:underline">Spire Hartswood Hospital</a></h3>
+            <p class="text-xs text-slate-700 font-semibold">Eagle Way, Great Warley, Brentwood, Essex CM13 3LE &bull; Tel: 01277 266 766</p>
+            <ul class="text-xs text-slate-600 space-y-1 list-disc pl-4">
+              <li>Conventional and computer-navigated hip and knee replacement.</li>
+              <li>Knee arthroscopy and other appropriate procedures.</li>
+              <li>MAKO robotic surgery is not available at this hospital.</li>
+            </ul>
+            <div class="flex flex-wrap gap-2 pt-2">
+              <a href="https://www.spirehealthcare.com/consultant-profiles/mr-shivakumar-shankar-c6038414/" target="_blank" rel="noopener noreferrer" class="bg-white border border-slate-300 text-[#1B4965] px-3 py-1.5 rounded-lg text-xs font-bold">Official Spire Profile &rarr;</a>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=Spire+Hartswood+Hospital,Eagle+Way,Great+Warley,Brentwood,Essex,CM13+3LE" target="_blank" rel="noopener noreferrer" class="bg-white border border-slate-300 text-slate-800 px-3 py-1.5 rounded-lg text-xs font-bold">Google Maps Directions &rarr;</a>
+              <a href="https://appointments.spirehealthcare.com/?c=C6038414" target="_blank" rel="noopener noreferrer" class="bg-[#1B4965] text-white px-3 py-1.5 rounded-lg text-xs font-bold">Book Online at Spire &rarr;</a>
+              <a href="/spire-hartswood-hospital" class="bg-slate-100 text-slate-800 px-3 py-1.5 rounded-lg text-xs font-bold">Hospital Guide &rarr;</a>
+            </div>
           </div>
         </div>
       </section>
@@ -6228,6 +6441,29 @@ const pageDefinitions = [
           desc: 'Transparent consultation and procedure fees with fixed-price hospital packages available.'
         }
       ])}
+      <section id="private-practice-locations" class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 mb-12">
+        <h2 class="text-2xl font-extrabold text-slate-900 mb-2">Private Practice Locations</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <div class="p-6 rounded-2xl border border-slate-200 bg-slate-50/50 space-y-2">
+            <h3 class="text-lg font-bold text-slate-900"><a href="/nuffield-brentwood-hospital" class="hover:text-[#1B4965] hover:underline">Nuffield Health Brentwood Hospital</a></h3>
+            <p class="text-xs text-slate-700 font-semibold">Shenfield Road, Brentwood, Essex CM15 8EH &bull; Tel: 01277 695 695</p>
+            <p class="text-xs text-slate-600">MAKO robotic-assisted hip and knee replacement. Conventional and other appropriate hip and knee procedures.</p>
+            <div class="flex flex-wrap gap-2 pt-2">
+              <a href="https://www.nuffieldhealth.com/consultants/mr-shivakumar-shankar" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-[#1B4965] hover:underline">Official Nuffield Profile &rarr;</a>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=Nuffield+Health+Brentwood+Hospital,Shenfield+Road,Brentwood,Essex,CM15+8EH" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-slate-700 hover:underline">Google Maps Directions &rarr;</a>
+            </div>
+          </div>
+          <div class="p-6 rounded-2xl border border-slate-200 bg-slate-50/50 space-y-2">
+            <h3 class="text-lg font-bold text-slate-900"><a href="/spire-hartswood-hospital" class="hover:text-[#1B4965] hover:underline">Spire Hartswood Hospital</a></h3>
+            <p class="text-xs text-slate-700 font-semibold">Eagle Way, Great Warley, Brentwood, Essex CM13 3LE &bull; Tel: 01277 266 766</p>
+            <p class="text-xs text-slate-600">Conventional and computer-navigated hip and knee replacement. Knee arthroscopy and other appropriate procedures. MAKO robotic surgery is not available at this hospital.</p>
+            <div class="flex flex-wrap gap-2 pt-2">
+              <a href="https://www.spirehealthcare.com/consultant-profiles/mr-shivakumar-shankar-c6038414/" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-[#1B4965] hover:underline">Official Spire Profile &rarr;</a>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=Spire+Hartswood+Hospital,Eagle+Way,Great+Warley,Brentwood,Essex,CM13+3LE" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-slate-700 hover:underline">Google Maps Directions &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </section>
       `
     )
   },
@@ -6244,20 +6480,38 @@ const pageDefinitions = [
       'Book an Orthopaedic Consultation',
       'Submit an online consultation enquiry for Mr Shivakumar Shankar or access live hospital diary booking systems for Spire Hartswood Hospital and Nuffield Health Brentwood Hospital.',
       `
-      <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-        <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200">
-          <h2 class="text-xl font-bold text-slate-900 mb-4">Spire Hartswood Hospital (Brentwood)</h2>
-          <p class="text-xs sm:text-sm text-slate-600 mb-4">Fast-track private outpatient appointments on Monday and Thursday evenings.</p>
-          <a href="https://www.spirehealthcare.com/spire-hartswood-hospital/consultants/mr-shivakumar-shankar-c6038414/" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#005EB8] hover:bg-[#004b93] text-white px-5 py-2.5 rounded-lg text-xs font-bold transition-colors">
-            View Live Timeslots on Spire Portal &rarr;
-          </a>
+      <section id="private-practice-locations" class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 space-y-3">
+          <h2 class="text-xl font-bold text-slate-900">Nuffield Health Brentwood Hospital</h2>
+          <p class="text-xs text-slate-700 font-semibold">Shenfield Road, Brentwood, Essex CM15 8EH &bull; Tel: 01277 695 695</p>
+          <p class="text-xs sm:text-sm text-slate-600">MAKO robotic-assisted hip and knee replacement, plus conventional and other appropriate hip and knee procedures.</p>
+          <div class="flex flex-wrap gap-2 pt-2">
+            <a href="https://www.nuffieldhealth.com/consultants/mr-shivakumar-shankar#book" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#00703C] hover:bg-[#005a30] text-white px-4 py-2 rounded-lg text-xs font-bold transition-colors">
+              View Booking on Nuffield Portal &rarr;
+            </a>
+            <a href="https://www.nuffieldhealth.com/consultants/mr-shivakumar-shankar" target="_blank" rel="noopener noreferrer" class="inline-block bg-white border border-slate-300 text-[#1B4965] px-4 py-2 rounded-lg text-xs font-bold transition-colors">
+              Official Nuffield Profile &rarr;
+            </a>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Nuffield+Health+Brentwood+Hospital,Shenfield+Road,Brentwood,Essex,CM15+8EH" target="_blank" rel="noopener noreferrer" class="inline-block bg-white border border-slate-300 text-slate-800 px-4 py-2 rounded-lg text-xs font-bold transition-colors">
+              Google Maps Directions &rarr;
+            </a>
+          </div>
         </div>
-        <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200">
-          <h2 class="text-xl font-bold text-slate-900 mb-4">Nuffield Health Brentwood Hospital</h2>
-          <p class="text-xs sm:text-sm text-slate-600 mb-4">Outpatient consultation clinics and comprehensive surgical care packages.</p>
-          <a href="https://www.nuffieldhealth.com/consultants/mr-shivakumar-shankar" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#00703C] hover:bg-[#005a30] text-white px-5 py-2.5 rounded-lg text-xs font-bold transition-colors">
-            View Booking on Nuffield Portal &rarr;
-          </a>
+        <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 space-y-3">
+          <h2 class="text-xl font-bold text-slate-900">Spire Hartswood Hospital (Brentwood)</h2>
+          <p class="text-xs text-slate-700 font-semibold">Eagle Way, Great Warley, Brentwood, Essex CM13 3LE &bull; Tel: 01277 266 766</p>
+          <p class="text-xs sm:text-sm text-slate-600">Conventional and computer-navigated hip and knee replacement, knee arthroscopy and other appropriate procedures (MAKO robotic surgery is not available at this hospital).</p>
+          <div class="flex flex-wrap gap-2 pt-2">
+            <a href="https://appointments.spirehealthcare.com/?c=C6038414" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#005EB8] hover:bg-[#004b93] text-white px-4 py-2 rounded-lg text-xs font-bold transition-colors">
+              View Live Timeslots on Spire Portal &rarr;
+            </a>
+            <a href="https://www.spirehealthcare.com/consultant-profiles/mr-shivakumar-shankar-c6038414/" target="_blank" rel="noopener noreferrer" class="inline-block bg-white border border-slate-300 text-[#1B4965] px-4 py-2 rounded-lg text-xs font-bold transition-colors">
+              Official Spire Profile &rarr;
+            </a>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Spire+Hartswood+Hospital,Eagle+Way,Great+Warley,Brentwood,Essex,CM13+3LE" target="_blank" rel="noopener noreferrer" class="inline-block bg-white border border-slate-300 text-slate-800 px-4 py-2 rounded-lg text-xs font-bold transition-colors">
+              Google Maps Directions &rarr;
+            </a>
+          </div>
         </div>
       </section>
       `

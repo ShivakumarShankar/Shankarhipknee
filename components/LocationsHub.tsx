@@ -12,7 +12,11 @@ import {
   LANDLINE_PHONE, 
   SECRETARY_NAME, 
   SPIRE_HARTSWOOD_BOOKING_URL, 
-  NUFFIELD_BRENTWOOD_BOOKING_URL 
+  NUFFIELD_BRENTWOOD_BOOKING_URL,
+  SPIRE_PROFILE_URL,
+  NUFFIELD_PROFILE_URL,
+  SPIRE_HARTSWOOD_MAPS_URL,
+  NUFFIELD_BRENTWOOD_MAPS_URL
 } from '../constants';
 
 export type LocationPageMode = 
@@ -755,8 +759,30 @@ export const LocationsHub: React.FC<LocationsHubProps> = ({
                     </div>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-900">
+                  <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-900 mb-4">
                     <strong>Complimentary Parking:</strong> Ample free on-site parking is provided for patients and visitors directly outside the hospital entrance, including designated accessible (blue badge) bays.
+                  </div>
+
+                  <div className="flex flex-wrap items-center gap-3">
+                    <a
+                      href={NUFFIELD_BRENTWOOD_MAPS_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-white hover:bg-slate-50 text-[#1B4965] border border-slate-300 px-4 py-2.5 rounded-lg text-xs font-bold transition-colors flex items-center gap-1.5 shadow-2xs"
+                    >
+                      <MapPin size={14} className="text-[#1B4965]" />
+                      <span>Google Maps Directions</span>
+                      <ExternalLink size={12} />
+                    </a>
+                    <a
+                      href={NUFFIELD_PROFILE_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 px-4 py-2.5 rounded-lg text-xs font-bold transition-colors flex items-center gap-1.5 shadow-2xs"
+                    >
+                      <span>Official Nuffield Consultant Profile</span>
+                      <ExternalLink size={12} />
+                    </a>
                   </div>
                 </div>
               </div>
@@ -1199,8 +1225,30 @@ export const LocationsHub: React.FC<LocationsHubProps> = ({
                     </div>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-900">
+                  <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-900 mb-4">
                     <strong>Complimentary Parking:</strong> Generous free on-site parking is situated directly outside the hospital entrance, with step-free accessible parking spaces immediately adjoining reception.
+                  </div>
+
+                  <div className="flex flex-wrap items-center gap-3">
+                    <a
+                      href={SPIRE_HARTSWOOD_MAPS_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-white hover:bg-slate-50 text-[#1B4965] border border-slate-300 px-4 py-2.5 rounded-lg text-xs font-bold transition-colors flex items-center gap-1.5 shadow-2xs"
+                    >
+                      <MapPin size={14} className="text-[#1B4965]" />
+                      <span>Google Maps Directions</span>
+                      <ExternalLink size={12} />
+                    </a>
+                    <a
+                      href={SPIRE_PROFILE_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 px-4 py-2.5 rounded-lg text-xs font-bold transition-colors flex items-center gap-1.5 shadow-2xs"
+                    >
+                      <span>Official Spire Consultant Profile</span>
+                      <ExternalLink size={12} />
+                    </a>
                   </div>
                 </div>
               </div>
@@ -2568,6 +2616,25 @@ export const LocationsHub: React.FC<LocationsHubProps> = ({
                         <span>Spire Online Portal</span>
                         <ExternalLink size={12} />
                       </a>
+                      <a
+                        href={SPIRE_PROFILE_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-white hover:bg-slate-50 text-[#1B4965] border border-slate-300 px-3 py-2 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-colors"
+                      >
+                        <span>Official Spire Profile</span>
+                        <ExternalLink size={12} />
+                      </a>
+                      <a
+                        href={SPIRE_HARTSWOOD_MAPS_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 px-3 py-2 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-colors"
+                      >
+                        <MapPin size={12} className="text-[#1B4965]" />
+                        <span>Google Maps</span>
+                        <ExternalLink size={11} />
+                      </a>
                       <button
                         onClick={() => onBook('Spire Hartswood Hospital')}
                         className="bg-slate-100 hover:bg-slate-200 text-slate-800 px-3.5 py-2 rounded-lg text-xs font-bold transition-colors"
@@ -2610,6 +2677,25 @@ export const LocationsHub: React.FC<LocationsHubProps> = ({
                       >
                         <span>Nuffield Online Portal</span>
                         <ExternalLink size={12} />
+                      </a>
+                      <a
+                        href={NUFFIELD_PROFILE_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-white hover:bg-slate-50 text-[#1B4965] border border-slate-300 px-3 py-2 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-colors"
+                      >
+                        <span>Official Nuffield Profile</span>
+                        <ExternalLink size={12} />
+                      </a>
+                      <a
+                        href={NUFFIELD_BRENTWOOD_MAPS_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 px-3 py-2 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-colors"
+                      >
+                        <MapPin size={12} className="text-[#1B4965]" />
+                        <span>Google Maps</span>
+                        <ExternalLink size={11} />
                       </a>
                       <button
                         onClick={() => onBook('Nuffield Health Brentwood Hospital')}
