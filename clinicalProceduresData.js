@@ -7,8 +7,8 @@ export const CLINICAL_PROCEDURES = {
     overview: [
       'Total hip replacement (THR) is recognised worldwide as one of the most reliable, pain-relieving, and cost-effective operations in modern medicine. When conservative interventions—such as targeted physiotherapy, weight management, anti-inflammatory analgesia, walking aids, and image-guided joint injections—no longer provide acceptable symptom control, replacement of the arthritic hip joint predictably alleviates chronic pain, corrects leg length discrepancies, and restores independent walking mobility.',
       'Mr Shivakumar Shankar is a fellowship-trained Consultant Orthopaedic Hip and Knee Surgeon holding a substantive NHS appointment and senior clinical leadership roles at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT). Having completed higher surgical training within the prestigious London rotation and specialised arthroplasty fellowships, Mr Shankar holds a Postgraduate Diploma in Computer and Robot-Assisted Orthopaedic Surgery alongside his specialist registration with the General Medical Council (GMC Number: 6038414).',
-      'For private patients (both insured and self-funding), Mr Shankar conducts outpatient clinical consultations and performs hip replacement surgery at two leading private hospital facilities in Brentwood, Essex: Nuffield Health Brentwood Hospital (where Stryker MAKO robotic-assisted joint replacement is available) and Spire Hartswood Hospital (offering conventional manual and computer-navigated hip replacement, rather than MAKO robotic surgery). Both hospitals are conveniently located for patients travelling from Brentwood, Romford, Upminster, Hornchurch, Chelmsford, Essex, and Greater London.',
-      'Mr Shankar\'s surgical philosophy is founded on precision anatomical reconstruction tailored to individual spinopelvic kinematics. He prioritises high-performance bearing couples—utilising modern delta ceramic heads articulating against highly cross-linked polyethylene liners (ceramic-on-polyethylene) locked into uncemented hydroxyapatite-coated titanium shells—to minimise wear particles and optimise long-term fixation. Furthermore, Mr Shankar utilises tissue-sparing, muscle-preserving surgical approaches (such as the Rottinger anterolateral and direct anterior techniques) that work along natural muscular intervals, protecting the vital gluteal abductor tendons to reduce post-operative pain, minimise dislocation risks, and facilitate rapid early mobilisation.'
+      'For private patients (both insured and self-funding), Mr Shankar conducts outpatient clinical consultations and performs hip replacement surgery at two leading private hospital facilities in Brentwood, Essex: <a href="/nuffield-brentwood-hospital" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Nuffield Health Brentwood Hospital</a> (where Stryker <a href="/robotic-hip-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">MAKO robotic-assisted hip replacement</a> is available) and <a href="/spire-hartswood-hospital" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Spire Hartswood Hospital</a> (offering conventional manual and <a href="/computer-assisted-hip-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">computer-navigated hip replacement</a>, rather than MAKO robotic surgery). Both hospitals are conveniently located for patients travelling from <a href="/essex-hip-knee-surgeon" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Brentwood, Romford, Upminster, Hornchurch, Chelmsford, and across Essex</a> as well as <a href="/london-hip-knee-surgeon" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">North East and Greater London</a>.',
+      'Mr Shankar\'s surgical philosophy is founded on precision anatomical reconstruction tailored to individual spinopelvic kinematics. He prioritises high-performance bearing couples—utilising modern delta ceramic heads articulating against highly cross-linked polyethylene liners (ceramic-on-polyethylene) locked into uncemented hydroxyapatite-coated titanium shells—to minimise wear particles and optimise long-term fixation. Furthermore, Mr Shankar utilises tissue-sparing, muscle-preserving surgical approaches (such as the <a href="/minimally-invasive-hip-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Rottinger anterolateral and direct anterior techniques</a>) that work along natural muscular intervals, protecting the vital gluteal abductor tendons to reduce post-operative pain, minimise dislocation risks, and facilitate rapid early mobilisation.'
     ],
     whoMayBenefit: [
       'Patients with advanced primary osteoarthritis of the hip joint with joint space obliteration, osteophyte formation, and debilitating daily pain.',
@@ -37,7 +37,7 @@ export const CLINICAL_PROCEDURES = {
       ]
     },
     technologyComparison: {
-      title: 'Conventional, Computer-Assisted & Robotic Options',
+      title: 'Conventional, Navigated & MAKO Robotic Hip Replacement in Brentwood, Essex',
       description: 'Mr Shankar evaluates each patient\'s unique pelvic tilt, spinopelvic mobility, and bone geometry to determine the optimal surgical alignment technique:',
       points: [
         { label: 'Conventional Arthroplasty', detail: 'Tried and proven worldwide over five decades using precision mechanical alignment guides and surgeon tactile judgment, delivering excellent National Joint Registry survivorship across both <a href="/spire-hartswood-hospital" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Spire Hartswood Hospital</a> and <a href="/nuffield-brentwood-hospital" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Nuffield Health Brentwood Hospital</a>.' },
@@ -135,7 +135,7 @@ export const CLINICAL_PROCEDURES = {
       'A fundamental advantage of the Mako robotic system in hip arthroplasty is patient-specific 3D pre-operative planning. Before entering the operating theatre, a dedicated low-dose CT scan creates a virtual three-dimensional model of the patient\'s unique pelvic and femoral geometry. This allows Mr Shankar to pre-determine the ideal acetabular cup size, depth, inclination angle, and anteversion angle, and to model dynamic spinopelvic changes—how the pelvis naturally tilts between standing and sitting postures. By tailoring cup placement to individual functional pelvic kinetics, the technology is designed to minimise edge-loading, optimise range of motion, and reduce the risk of prosthetic impingement.',
       'During surgery, optical tracking arrays attached to the pelvis communicate with infrared theatre cameras to match the patient\'s live skeletal anatomy with the 3D CT plan. When reaming the acetabular socket, the robotic arm provides stereotactic haptic guidance, physically preventing the reamer from deviating outside the planned bone envelope. This preserves vital healthy host bone stock, prevents eccentric reaming, and helps protect adjacent soft-tissue structures, including the femoral and sciatic nerves. The robotic arm then assists the surgeon in orienting the uncemented acetabular shell according to the pre-operative plan, providing real-time angular verification for inclination and anteversion under direct surgical control.',
       'Mr Shivakumar Shankar is a fellowship-trained Consultant Orthopaedic Hip and Knee Surgeon holding a substantive NHS consultant appointment and clinical leadership roles at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT). Having completed higher surgical training within the London Deanery and subspecialist fellowships at the Royal National Orthopaedic Hospital (RNOH) Stanmore, the Golden Jubilee National Hospital in Glasgow, and European centres in France and Germany, Mr Shankar holds a Postgraduate Diploma in Computer and Robot-Assisted Orthopaedic Surgery alongside his specialist GMC registration (GMC Number: 6038414). Over his surgical career, Mr Shankar has performed more than 3,000 hip and knee replacements, with approximately nine years of extensive conventional and computer-assisted joint replacement experience. More recently adopting MAKO robotic technology, he has personally performed over 100 MAKO robotic-assisted joint replacements—a clinical milestone representing his individual surgical series, rather than a trust total.',
-      'Hospital Technology Availability: Mr Shankar provides MAKO robotic-assisted total hip and knee replacement surgery for private patients (both insured and self-funding) at Nuffield Health Brentwood Hospital in Brentwood, Essex, which is equipped with the dedicated Stryker MAKO robotic suite. At Spire Hartswood Hospital in Brentwood, Mr Shankar provides conventional manual and computer-navigated hip and knee replacement surgery; MAKO robotic surgery is not currently available at Spire Hartswood. Within the NHS, robotic-assisted joint replacement services are undertaken at BHRUT NHS Trust (including the King George Hospital Elective Surgical Hub), subject to clinical assessment and local pathway availability. Patients considering joint replacement receive balanced, evidence-based guidance, as robotic assistance is an adjunct to, rather than a replacement for, meticulous surgical technique and comprehensive rehabilitation.'
+      'Hospital Technology Availability: Mr Shankar provides MAKO robotic-assisted total hip and knee replacement surgery for private patients (both insured and self-funding) at <a href="/nuffield-brentwood-hospital" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Nuffield Health Brentwood Hospital</a> in Brentwood, Essex, which is equipped with the dedicated Stryker MAKO robotic suite. At <a href="/spire-hartswood-hospital" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Spire Hartswood Hospital</a> in Brentwood, Mr Shankar provides conventional manual and <a href="/computer-assisted-hip-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">computer-navigated hip replacement</a> surgery; MAKO robotic surgery is not currently available at Spire Hartswood. Within the NHS, robotic-assisted joint replacement services are undertaken at BHRUT NHS Trust (including the <a href="/king-george-hospital-goodmayes" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">King George Hospital Elective Surgical Hub</a>), subject to clinical assessment and local pathway availability. Patients considering joint replacement receive balanced, evidence-based guidance, as robotic assistance is an adjunct to, rather than a replacement for, meticulous surgical technique and comprehensive rehabilitation.'
     ],
     whoMayBenefit: [
       'Patients with advanced primary osteoarthritis of the hip with severe cartilage loss, bone spurs (osteophytes), and chronic daily pain that has not responded to conservative care.',
@@ -154,7 +154,7 @@ export const CLINICAL_PROCEDURES = {
       'Apparent or structural leg length discrepancy resulting from femoral head collapse, superior migration, or socket erosion.'
     ],
     procedureExplanation: {
-      title: 'How MAKO Robotic-Assisted Hip Replacement is Performed',
+      title: 'How MAKO Robotic-Assisted Hip Replacement is Performed in Brentwood, Essex',
       description: 'MAKO robotic total hip arthroplasty integrates personalised pre-operative 3D CT virtual planning with live optical tracking and tactile robotic arm guidance through four key stages:',
       steps: [
         '1. Pre-Operative 3D CT Virtual Planning: Prior to surgery, a low-dose computed tomography (CT) scan of the pelvis and hip is obtained. Specialised MAKO software converts this into a true three-dimensional anatomical model. Mr Shankar pre-plans the exact acetabular component dimensions, depth, inclination, and anteversion angles, and models dynamic spinopelvic kinematics to accommodate the patient\'s individual pelvic tilt during standing and sitting.',
@@ -647,7 +647,7 @@ export const CLINICAL_PROCEDURES = {
       ]
     },
     technologyComparison: {
-      title: 'Conventional, Navigated & Robotic Approaches',
+      title: 'Conventional, Navigated & MAKO Robotic Knee Replacement in Brentwood, Essex',
       description: 'Mr Shankar selects the optimal surgical alignment strategy tailored to patient anatomy and deformity:',
       points: [
         { label: 'Conventional Arthroplasty', detail: 'Uses intramedullary rods and extramedullary cutting jigs to establish neutral mechanical alignment, supported by decades of proven registry success at <a href="/spire-hartswood-hospital" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Spire Hartswood Hospital</a> and <a href="/nuffield-brentwood-hospital" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Nuffield Health Brentwood Hospital</a>.' },
@@ -1010,7 +1010,7 @@ export const CLINICAL_PROCEDURES = {
       'When osteoarthritis is strictly confined to a single compartment of the knee—most frequently the medial (inner) compartment (accounting for approximately 90% of partial knee cases) or less commonly the lateral (outer) compartment—a unicompartmental knee replacement (UKR) offers an attractive, tissue-sparing alternative to total knee replacement. Rather than replacing the entire joint, only the worn articular cartilage and adjacent bone are resurfaced with miniature precision prostheses.',
       'The definitive advantage of partial knee arthroplasty is the preservation of native joint anatomy. Because both the anterior cruciate ligament (ACL) and posterior cruciate ligament (PCL) remain untouched, the knee maintains its natural kinematics, screw-home mechanism, and proprioception (position sense). Consequently, patients frequently report that a partial knee replacement feels much more like a natural knee than a total knee replacement, with deeper flexion, superior stair negotiation, and faster post-operative rehabilitation.',
       'Mr Shivakumar Shankar is a fellowship-trained Consultant Orthopaedic Hip and Knee Surgeon holding a substantive NHS appointment and Clinical Lead roles at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT). Having completed higher surgical training and specialist arthroplasty fellowships, Mr Shankar holds a Postgraduate Diploma in Computer and Robot-Assisted Orthopaedic Surgery alongside his specialist registration with the General Medical Council (GMC Number: 6038414).',
-      'For private patients (insured and self-funding), Mr Shankar offers partial knee surgery at two premier private hospital facilities in Brentwood, Essex: Nuffield Health Brentwood Hospital (where Stryker MAKO robotic-assisted partial knee replacement is available) and Spire Hartswood Hospital (providing conventional manual unicompartmental knee surgery, rather than MAKO robotic surgery). Mr Shankar also undertakes robotic joint arthroplasty within BHRUT NHS services. Both private hospitals serve patients across Brentwood, Romford, Upminster, Hornchurch, Chelmsford, Essex, and Greater London.'
+      'For private patients (insured and self-funding), Mr Shankar offers partial knee surgery at two premier private hospital facilities in Brentwood, Essex: <a href="/nuffield-brentwood-hospital" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Nuffield Health Brentwood Hospital</a> (where Stryker <a href="/robotic-knee-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">MAKO robotic-assisted partial knee replacement</a> is available) and <a href="/spire-hartswood-hospital" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Spire Hartswood Hospital</a> (providing conventional manual unicompartmental knee surgery, rather than MAKO robotic surgery). Mr Shankar also undertakes robotic joint arthroplasty within BHRUT NHS services. Both private hospitals serve patients across <a href="/essex-hip-knee-surgeon" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Brentwood, Romford, Upminster, Hornchurch, Chelmsford, and Essex</a> as well as <a href="/london-hip-knee-surgeon" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Greater London</a>.'
     ],
     whoMayBenefit: [
       'Patients with symptomatic, end-stage osteoarthritis strictly confined to the medial or lateral compartment of the knee, meeting established clinical and radiological selection criteria (such as Kozinn and Scott guidelines).',
@@ -1039,7 +1039,7 @@ export const CLINICAL_PROCEDURES = {
       ]
     },
     technologyComparison: {
-      title: 'Partial vs Total Knee Replacement & Robotic Assistance',
+      title: 'Partial vs Total Knee Replacement & MAKO Robotic Assistance in Brentwood, Essex',
       description: 'Key clinical distinctions between unicompartmental joint resurfacing, total knee arthroplasty, and robotic technology:',
       points: [
         { label: 'Cruciate Ligament Preservation', detail: 'Partial knee surgery retains both the ACL and PCL, delivering superior proprioception, more natural joint kinematics, and deeper flexion than total knee arthroplasty.' },
@@ -1128,65 +1128,99 @@ export const CLINICAL_PROCEDURES = {
     slug: 'knee-arthroscopy',
     badge: 'Keyhole Surgery',
     h1: 'Knee Arthroscopy & Keyhole Joint Preservation Surgery',
-    leadParagraph: 'Minimally invasive keyhole knee surgery for torn meniscal cartilage, cartilage preservation, and joint debridement in London and Essex.',
+    leadParagraph: 'Minimally invasive keyhole knee surgery for torn meniscal cartilage, mechanical locking, focal cartilage preservation, and loose body removal in Brentwood, Essex, Romford, and London.',
     overview: [
-      'Knee arthroscopy is a minimally invasive keyhole procedure performed through two small puncture incisions. A miniature camera (arthroscope) illuminates the interior of the knee, allowing Mr Shankar to inspect, repair, or trim damaged tissues with micro-surgical instruments.',
-      'Mr Shankar has performed more than 1,200 knee arthroscopies. His surgical priority is always joint and tissue preservation: wherever biologically feasible, torn meniscal cartilage is repaired using specialised suture implants rather than removed, preserving natural shock absorption.'
+      'Knee arthroscopy is a minimally invasive keyhole procedure performed through two or three small 5-millimetre portals around the front of the knee. A high-definition fibre-optic camera (arthroscope) illuminates the intra-articular structures on a surgical monitor, allowing Mr Shivakumar Shankar to inspect the joint surfaces and treat mechanical pathology using specialised micro-instruments.',
+      'Mr Shankar has performed more than 1,200 knee arthroscopies across his consultant and senior orthopaedic practice in Essex and London. His clinical priority is always biological tissue and joint preservation: wherever tear geometry and vascular supply allow, torn meniscal fibrocartilage is repaired using all-inside or inside-out suture anchors rather than excised, preserving the knee’s natural shock-absorbing cushion and protecting long-term articular cartilage.',
+      'In line with modern evidence-based orthopaedic guidelines (including NICE and British Association for Surgery of the Knee recommendations), arthroscopic surgery is reserved for patients with defined mechanical pathology—such as an unstable meniscal tear causing true locking or catching, a focal osteochondral defect, or a loose intra-articular fragment—rather than generalised degenerative osteoarthritis.'
     ],
     whoMayBenefit: [
-      'Patients with symptomatic, mechanically locking meniscal tears unresponsive to conservative physiotherapy.',
-      'Athletes and active individuals with acute sports-related cartilage or meniscal injury.',
-      'Patients experiencing mechanical catching, clicking, or giving-way caused by loose bodies.'
+      'Patients with a confirmed, symptomatic meniscal tear on MRI that has not settled following a structured programme of conservative physiotherapy and activity modification.',
+      'Patients experiencing true mechanical locking (inability to fully straighten the knee), acute catching, or giving-way caused by a displaced bucket-handle or flap tear of the meniscus.',
+      'Athletes and active adults with acute sports-related or rotational knee injuries involving repairable meniscal tears or focal chondral cartilage flaps.',
+      'Patients with symptomatic loose osteochondral or chondral bodies causing recurrent painful locking and joint effusions.',
+      'Patients requiring targeted arthroscopic synovial assessment, plica excision, or focal cartilage preservation procedures.'
     ],
     symptomsTreated: [
-      'Sharp joint-line pain aggravated by twisting or squatting.',
-      'True mechanical locking (inability to fully straighten the knee).',
-      'Painful catching, clicking, or recurrent swelling after sports.'
+      'Sharp, localised medial or lateral joint-line pain aggravated by twisting, pivoting, deep squatting, or kneeling.',
+      'True mechanical locking where the knee becomes stuck in flexion and cannot be fully extended.',
+      'Painful intra-articular catching, snapping, or clicking accompanied by a sensation of instability.',
+      'Recurrent knee joint swelling (effusion) and stiffness triggered by walking or athletic loading.'
     ],
     procedureExplanation: {
-      title: 'The Arthroscopic Procedure',
-      description: 'Performed as a day-case procedure under light general or regional anaesthesia.',
+      title: 'How Keyhole Knee Arthroscopy Is Performed',
+      description: 'Knee arthroscopy is typically performed as a day-case procedure taking 30 to 45 minutes under a short general anaesthetic or spinal regional block, supplemented by local anaesthetic infiltration for comfortable early mobilisation.',
       steps: [
-        'Portals: Two 5-millimetre puncture incisions are made at the front of the knee.',
-        'Fluid Inflow: Sterile saline distends the joint to provide crystal-clear visual clarity.',
-        'Diagnostic Sweep: Systematic inspection of the patella, trochlea, medial meniscus, ACL, PCL, and lateral meniscus.',
-        'Targeted Intervention: Meniscal repair sutures placed, torn unstable flaps trimmed (partial meniscectomy), or loose fragments removed.',
-        'Closure: Portals closed with adhesive tape or dissolvable sutures and waterproof dressing applied.'
+        'Pre-Operative Clinical & MRI Assessment: Correlation of your physical examination findings with high-resolution MRI imaging to determine whether the meniscus is suitable for biological suture repair or requires targeted partial trimming.',
+        'Keyhole Portal Placement: Two small 5-millimetre incisions (anterolateral and anteromedial portals) are made on either side of the patellar tendon.',
+        'Sterile Saline Distension & Diagnostic Sweep: Sterile physiological fluid gently expands the joint space, enabling a systematic inspection of the patellofemoral joint, medial and lateral compartments, menisci, and anterior and posterior cruciate ligaments (ACL/PCL).',
+        'Meniscal Repair or Partial Meniscectomy: Repairable peripheral tears are stabilised using specialised arthroscopic suture implants. Unstable, non-viable flaps causing mechanical catching are contoured back to a smooth, stable rim while conserving as much healthy meniscal tissue as possible.',
+        'Chondroplasty & Loose Body Removal: Unstable cartilage flaps are gently smoothed (chondroplasty) and any mobile bone or cartilage fragments are extracted.',
+        'Portal Closure & Day-Case Discharge: Portals are closed with steristrips or fine sutures, covered with a padded waterproof dressing, and you are mobilised by the physiotherapy team before returning home the same day.'
       ]
     },
     benefitsAndLimitations: {
       benefits: [
-        'Day-case procedure: return home the same day.',
-        'Minimal post-operative pain and rapid wound healing.',
-        'Meniscal preservation preserves long-term shock-absorbing protection.',
-        'Rapid return to sedentary work (often within 1 to 2 weeks).'
+        'Day-case admission at Spire Hartswood Hospital or Nuffield Health Brentwood Hospital, allowing you to sleep in your own bed the same evening.',
+        'Minimal soft-tissue trauma compared with open knee surgery, resulting in less post-operative discomfort and neat 5mm portal scars.',
+        'Meniscal suture repair preserves the natural load-sharing biomechanics of the knee and helps reduce future compartmental overload.',
+        'Rapid functional recovery after uncomplicated partial meniscectomy or loose body removal, with many desk-based workers returning within 7 to 14 days.'
       ],
       limitations: [
-        'Arthroscopy is generally not effective for advanced, bone-on-bone widespread osteoarthritis.',
-        'Meniscal repairs require a period of protected weight-bearing and restricted deep flexion.'
+        'Arthroscopic washout or debridement does not cure or reverse established, bone-on-bone degenerative osteoarthritis; where arthritis is advanced, partial or total knee replacement is more appropriate.',
+        'Biological meniscal repairs require a dedicated period of protected weight-bearing with crutches and hinged knee bracing (typically 4 to 6 weeks) while the sutured tear heals.',
+        'Pre-existing areas of articular cartilage wear (chondromalacia) within the knee may continue to cause mild aching after mechanical symptoms have been resolved.'
       ]
     },
     risksAndComplications: [
-      'Infection (<0.2%), deep vein thrombosis (DVT), joint effusion, or failure of meniscal repair to heal.'
+      'Superficial portal irritation, bruising, or persistent joint swelling (effusion) for several weeks.',
+      'Deep knee joint infection (<0.2%), treated promptly with antibiotics or arthroscopic washout.',
+      'Venous thromboembolism (deep vein thrombosis or pulmonary embolism), minimised through early mobilisation and risk-stratified prophylaxis.',
+      'Localised numbness or tingling adjacent to the small portal scars due to minor superficial skin nerve irritation.',
+      'Incomplete healing or re-tear of a repaired meniscus, or progression of underlying degenerative cartilage wear over time.'
     ],
     recoveryTimeline: [
-      { phase: 'Days 1 to 3', description: 'Rest, ice, elevation, and gentle active range of motion at home.' },
-      { phase: 'Weeks 1 to 2', description: 'Resumption of normal flat walking, return to desk work.' },
-      { phase: 'Weeks 4 to 8', description: 'Return to running, gym training, and sports-specific drills.' }
+      { phase: 'Day 0 (Day of Surgery)', description: 'Walk out of the day-case unit with crutches for balance (full weight-bearing as tolerated for partial meniscectomy; protected weight-bearing if a meniscal suture repair was performed). Begin ankle pumps and static quadriceps contractions.' },
+      { phase: 'Days 1 to 14', description: 'Keep waterproof dressings clean and dry. Elevate the leg and apply wrapped ice packs for 15–20 minutes 3–4 times daily to control swelling. Portal review and suture/steristrip check at 10–14 days.' },
+      { phase: 'Weeks 2 to 6', description: 'Progressive physiotherapy focusing on full knee extension (0°), closed-chain quadriceps strengthening, stationary cycling, and gait normalisation. Return to driving once able to perform an emergency stop safely.' },
+      { phase: 'Weeks 6 to 12+', description: 'Graduated return to jogging, gym training, and rotational sports after partial meniscectomy (biological meniscal suture repairs typically return to pivoting sports at 4 to 6 months).' }
     ],
     rehabilitationMilestones: [
-      'Normal unassisted walking gait within 7 to 10 days.',
-      'Full pain-free range of motion.'
+      'Achieving full, symmetrical straight knee extension (0 degrees) within the first 7 to 10 days.',
+      'Resolution of post-operative joint effusion and restoration of smooth patellar tracking.',
+      'Confident, unassisted walking gait on flat ground and stairs before progressing to impact exercise.',
+      'Safe emergency braking reaction time confirmed prior to resuming driving.'
     ],
     faqs: [
       {
-        question: 'Will knee arthroscopy cure my arthritis?',
-        answer: 'Arthroscopy is primarily effective for mechanical problems like torn cartilage, locking, or loose bodies. It does not reverse generalised arthritis; where arthritis is advanced, joint replacement is more appropriate.'
+        question: 'Will knee arthroscopy cure osteoarthritis of the knee?',
+        answer: 'No. Clinical evidence shows that arthroscopic washout or debridement is not beneficial for widespread, bone-on-bone osteoarthritis. Knee arthroscopy is specifically indicated for targeted mechanical problems such as an unstable torn meniscus, true mechanical locking, or loose intra-articular bodies. When pain is driven by advanced wear of the joint surfaces, partial or total knee replacement is the recommended surgical solution.'
+      },
+      {
+        question: 'What is the difference between a meniscal repair and a partial meniscectomy?',
+        answer: 'During a partial meniscectomy, only the frayed, unstable torn fragment of meniscus that is catching in the joint is trimmed smooth, allowing immediate weight-bearing and a faster recovery. In a meniscal repair, a tear in the vascular outer zone of the meniscus is stitched back together using specialised suture anchors to preserve the entire shock absorber; this requires 4 to 6 weeks of protected weight-bearing and brace use while the tissue heals.'
+      },
+      {
+        question: 'Where does Mr Shankar perform private knee arthroscopy in Essex?',
+        answer: 'Mr Shankar performs private day-case knee arthroscopy, meniscal repair, and keyhole cartilage preservation surgery at Spire Hartswood Hospital in Great Warley, Brentwood (CM13 3LE) and at Nuffield Health Brentwood Hospital on Shenfield Road, Brentwood (CM15 8EH), as well as within his NHS practice at BHRUT.'
+      },
+      {
+        question: 'When can I drive and return to work after keyhole knee surgery?',
+        answer: 'Following a straightforward partial meniscectomy or loose body removal, most patients can return to desk-based or remote work within 1 to 2 weeks, and resume driving after 1 to 2 weeks once completely off strong painkillers and able to perform an emergency stop without hesitation. If a biological meniscal suture repair is performed with a brace, driving and physical work are restricted for 4 to 6 weeks.'
+      },
+      {
+        question: 'Will I need an MRI scan before booking knee arthroscopy?',
+        answer: 'Yes, in almost all cases a high-resolution MRI scan of the knee is arranged alongside plain weight-bearing X-rays prior to surgery. This allows Mr Shankar to evaluate the exact tear configuration, assess the state of the surrounding articular cartilage and ligaments, and plan whether meniscal repair or trimming is required.'
       }
     ],
     relatedLinks: [
-      { title: 'Knee Replacement', href: '/knee-replacement', description: 'Solutions for advanced joint arthritis.' },
-      { title: 'Partial Knee Replacement', href: '/partial-knee-replacement', description: 'Unicompartmental resurfacing.' }
+      { title: 'Spire Hartswood Hospital', href: '/spire-hartswood-hospital', description: 'Private day-case knee arthroscopy, sports injury clinics, and joint replacement in Brentwood (CM13 3LE).' },
+      { title: 'Nuffield Health Brentwood Hospital', href: '/nuffield-brentwood-hospital', description: 'Private orthopaedic consultations, MRI diagnostics, and keyhole knee surgery in Brentwood (CM15 8EH).' },
+      { title: 'Contact & Private Practice Locations', href: '/contact', description: 'Arrange a knee consultation with Mr Shankar’s medical secretary or hospital booking teams.' },
+      { title: 'Partial Knee Replacement', href: '/partial-knee-replacement', description: 'Bone-preserving unicompartmental resurfacing for isolated single-compartment knee arthritis.' },
+      { title: 'Total Knee Replacement', href: '/knee-replacement', description: 'Definitive surgical treatment for advanced multi-compartmental knee osteoarthritis.' },
+      { title: 'Platelet-Rich Plasma (PRP) Injections', href: '/prp-injection', description: 'Autologous biological injection therapy for early knee osteoarthritis and tendon pathology.' },
+      { title: 'Knee Replacement Recovery Guide', href: '/knee-replacement-recovery', description: 'Physiotherapy milestones, swelling management, and rehabilitation pathways.' }
     ]
   },
   'revision-hip-replacement': {
@@ -1199,8 +1233,8 @@ export const CLINICAL_PROCEDURES = {
       'Unlike primary hip replacement—where surgical anatomy is largely intact and bone quality is relatively normal—revision hip surgery is inherently more complex. The surgeon must carefully navigate surgical scar tissue, preserve remaining pelvic and femoral host bone, safely extract well-fixed or loosened implants without fracturing surrounding skeletal structures, reconstruct bone deficiencies, and establish stable biological or mechanical fixation using advanced modular prostheses, trabecular metal augments, or bone graft.',
       'Mr Shivakumar Shankar is a fellowship-trained Consultant Orthopaedic Hip and Knee Surgeon holding substantive NHS consultant appointments at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT)—operating across Queen\'s Hospital in Romford and King George Hospital in Goodmayes—where he has served as Clinical Director and NHS Clinical Lead for Trauma and Orthopaedics. He completed subspecialty tertiary fellowship training in complex hip reconstruction and revision arthroplasty at the prestigious Royal National Orthopaedic Hospital (RNOH) in Stanmore, internationally renowned as a leading tertiary centre for complex bone and joint reconstruction.',
       'Revision Hip Surgery — Scope of Practice Across Private and NHS Settings: Mr Shankar performs revision hip replacement surgery in both private and NHS hospital settings, ensuring each patient is managed in the surgical environment best aligned with their procedural complexity and perioperative support requirements.',
-      'Private Hospital Practice (Brentwood, Essex): Revision hip procedures suitable for the facilities and perioperative support available at private hospitals are undertaken by Mr Shankar at Nuffield Health Brentwood Hospital and Spire Hartswood Hospital following individual clinical assessment and appropriate pre-operative investigations. These may include selected revision hip replacement procedures for implant loosening, wear, instability or other mechanical problems, depending on the complexity of the case and suitability for the hospital environment. Both facilities provide modern clean-air laminar flow theatres, cross-sectional CT and MRI diagnostics, dedicated inpatient physiotherapy, and en-suite rooms, conveniently accessible from Essex and London.',
-      'NHS Hospital Practice (BHRUT): Mr Shankar also undertakes complex revision hip replacement surgery and complex hip reconstruction within his NHS hospital practice at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT). Complex revision procedures are managed within the appropriate NHS surgical setting, with access to specialist multidisciplinary assessment, complex reconstruction resources and perioperative support as clinically required.',
+      'Private Hospital Practice (Brentwood, Essex): Revision hip procedures suitable for the facilities and perioperative support available at private hospitals are undertaken by Mr Shankar at <a href="/nuffield-brentwood-hospital" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Nuffield Health Brentwood Hospital</a> and <a href="/spire-hartswood-hospital" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Spire Hartswood Hospital</a> following individual clinical assessment and appropriate pre-operative investigations. These may include selected revision hip replacement procedures for implant loosening, wear, instability or other mechanical problems, depending on the complexity of the case and suitability for the hospital environment. Both facilities provide modern clean-air laminar flow theatres, cross-sectional CT and MRI diagnostics, dedicated inpatient physiotherapy, and en-suite rooms, conveniently accessible from <a href="/essex-hip-knee-surgeon" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Essex</a> and <a href="/london-hip-knee-surgeon" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">London</a>.',
+      'NHS Hospital Practice (BHRUT): Mr Shankar also undertakes complex revision hip replacement surgery and complex hip reconstruction within his NHS hospital practice at <a href="/queens-hospital-romford" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Queen\'s Hospital Romford (BHRUT)</a>. Complex revision procedures are managed within the appropriate NHS surgical setting, with access to specialist multidisciplinary assessment, complex reconstruction resources and perioperative support as clinically required.',
       'Surgical Pathways & Decision-Making: The decision regarding the appropriate hospital and surgical pathway depends on the complexity of the revision, patient comorbidities, anticipated reconstructive requirements and available hospital resources. Cases requiring additional subspecialist expertise, such as severe chronic periprosthetic joint infection requiring staged exchange or massive pelvic discontinuity, are coordinated through established multidisciplinary referral pathways to ensure the highest standard of patient safety and clinical governance.'
     ],
     whoMayBenefit: [
@@ -1234,7 +1268,7 @@ export const CLINICAL_PROCEDURES = {
       ]
     },
     technologyComparison: {
-      title: 'Revision Modalities & Specialist Reconstructive Options',
+      title: 'Revision Hip Replacement in Brentwood (Private) & BHRUT Romford (NHS Complex Reconstruction)',
       description: 'Mr Shankar selects from modern reconstructive techniques based on the exact mode of primary implant failure and bone stock preservation:',
       points: [
         { label: 'Isolated Modular Bearing Exchange', detail: 'When acetabular and femoral bone-anchored shells remain solidly well-fixed, well-oriented, and biologically integrated, exchanging only the worn polyethylene liner and modular femoral head avoids destructive bone removal and facilitates faster recovery.' },

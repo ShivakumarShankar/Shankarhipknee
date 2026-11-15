@@ -107,7 +107,7 @@ export const PatientInfoHub: React.FC<PatientInfoHubProps> = ({
           <nav aria-label="Breadcrumb" className="mb-4 flex items-center gap-2 text-xs font-semibold text-slate-500 flex-wrap">
             <a href="/" onClick={(e) => { e.preventDefault(); onNavigate('/'); }} className="hover:text-[#1B4965]">Home</a>
             <span>/</span>
-            <a href="/patient-information/" onClick={(e) => { e.preventDefault(); onNavigate('/patient-information/'); }} className="hover:text-[#1B4965]">Patient Information</a>
+            <a href="/patient-information" onClick={(e) => { e.preventDefault(); onNavigate('/patient-information'); }} className="hover:text-[#1B4965]">Patient Information</a>
             {mode !== 'overview' && (
               <>
                 <span>/</span>
@@ -136,8 +136,8 @@ export const PatientInfoHub: React.FC<PatientInfoHubProps> = ({
               <Calendar size={16} /> Book Private Consultation
             </button>
             <a
-              href="/contact/"
-              onClick={(e) => { e.preventDefault(); onNavigate('/contact/'); }}
+              href="/contact"
+              onClick={(e) => { e.preventDefault(); onNavigate('/contact'); }}
               className="bg-slate-100 hover:bg-slate-200 text-slate-800 px-5 py-3 rounded-lg font-bold text-sm transition-colors"
             >
               Contact Practice Secretary
@@ -165,11 +165,11 @@ export const PatientInfoHub: React.FC<PatientInfoHubProps> = ({
           {/* Quick Hub Navigation Cards */}
           <div className="mb-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
             {[
-              { title: 'Hip Recovery', href: '/hip-replacement-recovery/', modeKey: 'hip-recovery' },
-              { title: 'Knee Recovery', href: '/knee-replacement-recovery/', modeKey: 'knee-recovery' },
-              { title: 'Preparing for Surgery', href: '/preparing-for-surgery/', modeKey: 'preparing' },
-              { title: 'Patient FAQs', href: '/frequently-asked-questions/', modeKey: 'faqs' },
-              { title: 'Physio Protocols', href: '/physio-protocols/', modeKey: 'protocols' },
+              { title: 'Hip Recovery', href: '/hip-replacement-recovery', modeKey: 'hip-recovery' },
+              { title: 'Knee Recovery', href: '/knee-replacement-recovery', modeKey: 'knee-recovery' },
+              { title: 'Preparing for Surgery', href: '/preparing-for-surgery', modeKey: 'preparing' },
+              { title: 'Patient FAQs', href: '/frequently-asked-questions', modeKey: 'faqs' },
+              { title: 'Physio Protocols', href: '/physio-protocols', modeKey: 'protocols' },
             ].map((btn, idx) => (
               <a
                 key={idx}
@@ -192,35 +192,99 @@ export const PatientInfoHub: React.FC<PatientInfoHubProps> = ({
               <h2 className="text-2xl font-black text-slate-900">
                 Hip Replacement Recovery Milestones &amp; Practical Advice
               </h2>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Enhanced Recovery After Surgery (ERAS) protocols combine spinal anaesthesia, targeted local anaesthetic infiltration, and muscle-sparing surgical exposure so that most patients stand and walk with a physiotherapist on the day of their hip replacement. While individual progress depends on pre-operative fitness, bone quality, and whether surgery is primary or revision, the structured timeline below outlines typical post-operative milestones.
+              </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-2">
                   <h3 className="font-bold text-slate-900 text-sm text-[#1B4965]">Day 0 to Week 2</h3>
                   <ul className="text-xs text-slate-600 space-y-1.5 leading-relaxed">
-                    <li>• Same-day mobilisation with crutches under physio supervision.</li>
-                    <li>• Stair climbing practice before hospital discharge.</li>
-                    <li>• Keep waterproof dressings clean and dry; shower only as advised.</li>
-                    <li>• Regular pain medication and anti-coagulation injections/tablets.</li>
+                    <li>• Same-day mobilisation with two crutches or a frame under physiotherapy supervision.</li>
+                    <li>• Safe stair negotiation practice (up with the non-operated leg first, down with the crutches and operated leg first) prior to hospital discharge.</li>
+                    <li>• Keep your waterproof surgical dressing undisturbed, clean, and dry; shower only as instructed by the ward team.</li>
+                    <li>• Scheduled multimodal analgesia and venous thromboembolism (VTE) prophylaxis tablets or injections.</li>
                   </ul>
                 </div>
                 <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-2">
                   <h3 className="font-bold text-slate-900 text-sm text-[#1B4965]">Weeks 2 to 6</h3>
                   <ul className="text-xs text-slate-600 space-y-1.5 leading-relaxed">
-                    <li>• Transition from two crutches to a single walking stick.</li>
-                    <li>• Gradual increase in flat walking distance outdoors.</li>
-                    <li>• Wound check by nursing team (typically around day 10–14).</li>
-                    <li>• Sleeping comfortably on back or non-operated side with a pillow.</li>
+                    <li>• Progressive transition from two crutches to a single walking stick held in the hand opposite the operated hip.</li>
+                    <li>• Surgical wound check and clip or suture review by the outpatient nursing team at day 10 to 14.</li>
+                    <li>• Gradual increase in outdoor walking on even pavements and targeted hip abductor (gluteus medius) strengthening.</li>
+                    <li>• Sleeping comfortably on your back or on the non-operated side with a firm pillow placed between the knees.</li>
                   </ul>
                 </div>
                 <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-2">
                   <h3 className="font-bold text-slate-900 text-sm text-[#1B4965]">Weeks 6 to 12+</h3>
                   <ul className="text-xs text-slate-600 space-y-1.5 leading-relaxed">
-                    <li>• Return to driving once off strong opioids and able to emergency brake.</li>
-                    <li>• Return to sedentary desk work (4–6 weeks) or manual work (8–12 weeks).</li>
-                    <li>• Resumption of low-impact recreation: swimming, walking, static cycling.</li>
-                    <li>• Long-term joint consolidation and restoration of endurance.</li>
+                    <li>• Consultant clinical and radiological follow-up review at approximately 6 weeks post-operation.</li>
+                    <li>• Return to driving (typically 4 to 6 weeks) once completely off strong opioid medication and able to perform a firm emergency stop.</li>
+                    <li>• Return to desk-based work at 4 to 6 weeks, or physically demanding manual work at 8 to 12 weeks.</li>
+                    <li>• Graduated resumption of low-impact activities including swimming (once the wound is fully sealed), static cycling, golf, and country walking.</li>
                   </ul>
                 </div>
               </div>
+
+              {mode === 'hip-recovery' && (
+                <>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                    <div className="p-5 bg-slate-50 rounded-xl border border-slate-100 space-y-2.5">
+                      <h3 className="font-bold text-slate-900 text-sm text-[#1B4965]">Core Daily Hip Physiotherapy Exercises</h3>
+                      <p className="text-xs text-slate-600 leading-relaxed">
+                        Consistent, gentle daily repetition (3 to 4 times per day) is more effective than infrequent strenuous workouts:
+                      </p>
+                      <ul className="text-xs text-slate-600 space-y-1.5 leading-relaxed">
+                        <li>• <strong>Ankle Pumps &amp; Gluteal Squeezes:</strong> Hourly foot dorsiflexion/plantarflexion and buttock contractions in the first fortnight to stimulate venous return.</li>
+                        <li>• <strong>Heel Slides &amp; Static Quadriceps:</strong> Controlled knee and hip flexion sliding the heel along the bed, followed by pressing the back of the knee flat for 5 seconds.</li>
+                        <li>• <strong>Standing Hip Abduction &amp; Extension:</strong> Holding a sturdy kitchen worktop, gently lift the operated leg out to the side and backwards while keeping the trunk upright to eliminate any pre-operative limp.</li>
+                      </ul>
+                    </div>
+
+                    <div className="p-5 bg-slate-50 rounded-xl border border-slate-100 space-y-2.5">
+                      <h3 className="font-bold text-slate-900 text-sm text-[#1B4965]">Private Hospital Rehabilitation &amp; Follow-Up in Brentwood</h3>
+                      <p className="text-xs text-slate-600 leading-relaxed">
+                        Inpatient and outpatient physiotherapy, wound care clinics, and 6-week consultant follow-up appointments are coordinated directly at your treating hospital:
+                      </p>
+                      <ul className="text-xs text-slate-600 space-y-1.5 leading-relaxed">
+                        <li>• <a href="/nuffield-brentwood-hospital" onClick={(e) => { e.preventDefault(); onNavigate('nuffield-brentwood-hospital'); }} className="font-bold text-[#1B4965] hover:underline">Nuffield Health Brentwood Hospital (CM15 8EH)</a> — Dedicated inpatient and outpatient physiotherapy following <strong>MAKO robotic-assisted</strong>, minimally invasive, and conventional total hip replacement.</li>
+                        <li>• <a href="/spire-hartswood-hospital" onClick={(e) => { e.preventDefault(); onNavigate('spire-hartswood-hospital'); }} className="font-bold text-[#1B4965] hover:underline">Spire Hartswood Hospital, Brentwood (CM13 3LE)</a> — Specialist arthroplasty rehabilitation following <strong>conventional and computer-navigated</strong> total hip replacement (MAKO robotic surgery is not available at Spire Hartswood).</li>
+                        <li>• <a href="/contact" onClick={(e) => { e.preventDefault(); onNavigate('contact'); }} className="font-bold text-[#1B4965] hover:underline">Contact Practice Secretary</a> — Reach Mr Shankar’s team for post-operative appointments, insurance authorisation, or clinical queries.</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="pt-4 border-t border-slate-100 space-y-4">
+                    <h3 className="text-lg font-black text-slate-900">Frequently Asked Questions: Hip Replacement Recovery</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-1.5">
+                        <h4 className="font-bold text-slate-900 text-xs">When can I drive after a total hip replacement?</h4>
+                        <p className="text-xs text-slate-600 leading-relaxed">
+                          Most patients return to driving between 4 and 6 weeks after hip replacement, provided they are no longer taking sedating opioid painkillers, can enter and exit the car comfortably, and can perform a confident emergency stop. Patients with an automatic car following a left hip replacement may sometimes resume slightly earlier after clinical confirmation.
+                        </p>
+                      </div>
+                      <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-1.5">
+                        <h4 className="font-bold text-slate-900 text-xs">How long will I stay in hospital after hip replacement surgery?</h4>
+                        <p className="text-xs text-slate-600 leading-relaxed">
+                          With Enhanced Recovery After Surgery (ERAS) pathways at Nuffield Health Brentwood Hospital and Spire Hartswood Hospital, the typical inpatient stay is 1 to 2 nights, with selected medically fit patients eligible for day-case discharge once safe on crutches and stairs.
+                        </p>
+                      </div>
+                      <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-1.5">
+                        <h4 className="font-bold text-slate-900 text-xs">Do I need to sleep on my back after a hip replacement?</h4>
+                        <p className="text-xs text-slate-600 leading-relaxed">
+                          Sleeping on your back is recommended during the first 2 to 4 weeks, or sleeping on your non-operated side with a firm pillow between your knees to prevent the operated leg crossing the midline. Mr Shankar’s team will confirm any specific hip precautions based on your surgical approach.
+                        </p>
+                      </div>
+                      <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-1.5">
+                        <h4 className="font-bold text-slate-900 text-xs">When can I fly after hip replacement surgery?</h4>
+                        <p className="text-xs text-slate-600 leading-relaxed">
+                          Short-haul flights are generally deferred until at least 6 weeks post-operatively, and long-haul flights (over 4 hours) are typically advised to wait until 12 weeks after surgery due to the elevated risk of deep vein thrombosis (DVT) during prolonged cabin immobility.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </>
+              )}
+
               <div className="pt-4 border-t border-slate-100 flex flex-wrap gap-3 text-xs">
                 <span className="font-bold text-slate-700">Related Hip Procedures:</span>
                 <a href="/hip-replacement" onClick={(e) => { e.preventDefault(); onNavigate('hip-replacement'); }} className="font-bold text-[#1B4965] hover:underline">Total Hip Replacement &rarr;</a>
@@ -237,26 +301,103 @@ export const PatientInfoHub: React.FC<PatientInfoHubProps> = ({
               <h2 className="text-2xl font-black text-slate-900">
                 Knee Replacement Rehabilitation &amp; Mobility Focus
               </h2>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Successful recovery after total or partial knee replacement relies on active patient participation in daily physiotherapy, disciplined swelling control, and progressive range-of-motion exercises. Unlike the hip, the knee joint requires dedicated daily work to prevent scar tissue stiffness and restore both full straightening (extension) and smooth bending (flexion).
+              </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-2">
                   <h3 className="font-bold text-slate-900 text-sm text-[#1B4965]">Restoring Extension (0°)</h3>
                   <p className="text-xs text-slate-600 leading-relaxed">
-                    Straightening the knee completely is the critical early objective. Practise pressing the back of the knee firmly down into the mattress to reactivate the quadriceps.
+                    Straightening the knee completely (0 degrees) is the critical early objective for an efficient, limp-free walking gait. Practise pressing the back of the knee firmly down into the mattress and resting your heel on a rolled towel with nothing supporting the back of the knee.
                   </p>
                 </div>
                 <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-2">
                   <h3 className="font-bold text-slate-900 text-sm text-[#1B4965]">Swelling &amp; Ice Management</h3>
                   <p className="text-xs text-slate-600 leading-relaxed">
-                    Post-operative swelling and warm sensation around the knee are normal for several months. Regular cryotherapy (ice packs wrapped in towels) and limb elevation help control oedema.
+                    Post-operative swelling and mild warmth around the knee are normal physiological responses for 3 to 6 months. Regular cryotherapy (ice packs wrapped in a damp towel for 15–20 minutes, 4 times daily) and high leg elevation after exercise control joint effusion.
                   </p>
                 </div>
                 <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-2">
-                  <h3 className="font-bold text-slate-900 text-sm text-[#1B4965]">Achieving Flexion (90°+)</h3>
+                  <h3 className="font-bold text-slate-900 text-sm text-[#1B4965]">Achieving Flexion (90° to 115°+)</h3>
                   <p className="text-xs text-slate-600 leading-relaxed">
-                    Aim for 90 degrees of knee bend by weeks 2 to 4. Active heel slides and sitting knee bends allow safe progress without straining the healing wound.
+                    Aim for 90 degrees of knee bend before or shortly after week 2, progressing towards 110–120+ degrees over weeks 6 to 12. Seated heel slides and gentle upright stationary cycling (once flexion reaches ~95°) safely build flexion and quadriceps endurance.
                   </p>
                 </div>
               </div>
+
+              {mode === 'knee-recovery' && (
+                <>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+                    <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-2">
+                      <h3 className="font-bold text-slate-900 text-sm text-[#1B4965]">Day 0 to Week 2</h3>
+                      <ul className="text-xs text-slate-600 space-y-1.5 leading-relaxed">
+                        <li>• Same-day weight-bearing with crutches under physiotherapy guidance after spinal and adductor canal block analgesia.</li>
+                        <li>• Regular scheduled pain relief taken 30 minutes before exercise sessions to permit comfortable knee bending.</li>
+                        <li>• Wound clip or suture inspection at day 12 to 14; keep waterproof dressing dry until healed.</li>
+                      </ul>
+                    </div>
+                    <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-2">
+                      <h3 className="font-bold text-slate-900 text-sm text-[#1B4965]">Weeks 2 to 6</h3>
+                      <ul className="text-xs text-slate-600 space-y-1.5 leading-relaxed">
+                        <li>• Progression from two crutches to one walking stick indoors and outdoors as quadriceps control improves.</li>
+                        <li>• Outpatient physiotherapy focusing on patellar mobility, step-ups, balance, and stationary bike revolutions.</li>
+                        <li>• Return to driving around 4 to 6 weeks (or 2 to 4 weeks after partial knee replacement) once emergency braking is brisk and pain-free.</li>
+                      </ul>
+                    </div>
+                    <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-2">
+                      <h3 className="font-bold text-slate-900 text-sm text-[#1B4965]">Weeks 6 to 12 &amp; Beyond</h3>
+                      <ul className="text-xs text-slate-600 space-y-1.5 leading-relaxed">
+                        <li>• 6-week outpatient clinical and X-ray review with Mr Shankar.</li>
+                        <li>• Return to sedentary work at 4 to 6 weeks; active or manual roles at 8 to 12 weeks.</li>
+                        <li>• Continued soft-tissue remodelling, strength gains, and fading of residual warmth for up to 9 to 12 months.</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="p-5 bg-slate-50 rounded-xl border border-slate-100 space-y-2.5">
+                    <h3 className="font-bold text-slate-900 text-sm text-[#1B4965]">Private Hospital Knee Rehabilitation &amp; Follow-Up Locations</h3>
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      Your post-operative physiotherapy, wound review, and consultant follow-up are delivered across Mr Shankar’s two Brentwood private hospital centres:
+                    </p>
+                    <ul className="text-xs text-slate-600 space-y-1.5 leading-relaxed">
+                      <li>• <a href="/nuffield-brentwood-hospital" onClick={(e) => { e.preventDefault(); onNavigate('nuffield-brentwood-hospital'); }} className="font-bold text-[#1B4965] hover:underline">Nuffield Health Brentwood Hospital (CM15 8EH)</a> — Specialist inpatient and outpatient physiotherapy gym supporting patients after <strong>MAKO robotic-assisted total and partial knee replacement</strong> as well as conventional knee surgery.</li>
+                      <li>• <a href="/spire-hartswood-hospital" onClick={(e) => { e.preventDefault(); onNavigate('spire-hartswood-hospital'); }} className="font-bold text-[#1B4965] hover:underline">Spire Hartswood Hospital, Brentwood (CM13 3LE)</a> — Dedicated orthopaedic rehabilitation following <strong>conventional and computer-navigated total and partial knee replacement</strong> and day-case knee arthroscopy (MAKO robotic surgery is not available at Spire Hartswood).</li>
+                      <li>• <a href="/contact" onClick={(e) => { e.preventDefault(); onNavigate('contact'); }} className="font-bold text-[#1B4965] hover:underline">Contact Practice Secretary</a> — Arrange a post-operative review, physiotherapy referral, or private knee consultation.</li>
+                    </ul>
+                  </div>
+
+                  <div className="pt-4 border-t border-slate-100 space-y-4">
+                    <h3 className="text-lg font-black text-slate-900">Frequently Asked Questions: Knee Replacement Recovery</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-1.5">
+                        <h4 className="font-bold text-slate-900 text-xs">How long is it normal for a replaced knee to stay swollen or warm?</h4>
+                        <p className="text-xs text-slate-600 leading-relaxed">
+                          Moderate swelling and a slight feeling of warmth around the knee are completely normal for 3 to 6 months after knee replacement as internal soft tissues remodel. Provided there is no spreading redness, fever, worsening rest pain, or wound discharge, this settles gradually with icing and elevation.
+                        </p>
+                      </div>
+                      <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-1.5">
+                        <h4 className="font-bold text-slate-900 text-xs">When can I drive after a total or partial knee replacement?</h4>
+                        <p className="text-xs text-slate-600 leading-relaxed">
+                          After a total knee replacement, most patients resume driving at 4 to 6 weeks. After a partial (unicompartmental) knee replacement, driving is often possible at 3 to 4 weeks. In all cases, you must be off strong opioid analgesia and able to perform an emergency stop safely.
+                        </p>
+                      </div>
+                      <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-1.5">
+                        <h4 className="font-bold text-slate-900 text-xs">Can I kneel after a knee replacement?</h4>
+                        <p className="text-xs text-slate-600 leading-relaxed">
+                          Once the surgical scar has fully healed and matured (typically from 8 to 12 weeks onwards), kneeling does not damage the metal or polyethylene implant components. Some patients notice mild scar sensitivity or numbness on the outer side of the incision, which improves by kneeling on a soft cushion.
+                        </p>
+                      </div>
+                      <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-1.5">
+                        <h4 className="font-bold text-slate-900 text-xs">Why is straightening the knee (0° extension) so important early on?</h4>
+                        <p className="text-xs text-slate-600 leading-relaxed">
+                          If a replaced knee heals with a slight bend (fixed flexion contracture), standing and walking require constant quadriceps muscle effort and can cause a persistent limp. Avoiding pillows directly underneath the back of the knee and performing daily heel-prop stretches ensures full extension.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </>
+              )}
+
               <div className="pt-4 border-t border-slate-100 flex flex-wrap gap-3 text-xs">
                 <span className="font-bold text-slate-700">Related Knee Procedures:</span>
                 <a href="/knee-replacement" onClick={(e) => { e.preventDefault(); onNavigate('knee-replacement'); }} className="font-bold text-[#1B4965] hover:underline">Total Knee Replacement &rarr;</a>

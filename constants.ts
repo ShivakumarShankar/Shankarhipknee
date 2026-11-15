@@ -544,7 +544,7 @@ export const LOCATIONS: Location[] = [
     area: "Goodmayes, Ilford, Greater London / Essex",
     address: "Barley Lane, Goodmayes, Ilford",
     postcode: "IG3 8YB",
-    phone: "020 8983 8000",
+    phone: "020 8970 8000",
     facilities: [
       "High-volume elective orthopaedic surgery centre for BHRUT",
       "Dedicated clean-air orthopaedic surgical theatres and day surgery unit",

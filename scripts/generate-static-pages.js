@@ -952,16 +952,26 @@ const generateProcedureJsonLd = ({
       },
       {
         "@type": "MedicalWebPage",
-        "@id": canonical,
+        "@id": `${canonical}#webpage`,
         "url": canonical,
         "name": title,
         "description": description,
         "inLanguage": "en-GB",
+        "isPartOf": {
+          "@id": "https://www.shivakumarshankar.co.uk/#website"
+        },
         "author": {
           "@id": "https://www.shivakumarshankar.co.uk/#physician"
         },
-        "about": {
+        "about": [
+          { "@id": `${canonical}#procedure` },
+          { "@id": "https://www.shivakumarshankar.co.uk/#physician" }
+        ],
+        "mainEntity": {
           "@id": `${canonical}#procedure`
+        },
+        "primaryImageOfPage": {
+          "@id": "https://www.shivakumarshankar.co.uk/profile.jpg#primaryimage"
         },
         "breadcrumb": {
           "@id": `${canonical}#breadcrumbs`
@@ -982,6 +992,203 @@ const generateProcedureJsonLd = ({
     ]
   };
 };
+
+// Helper to generate accurate page-specific structured data for non-procedure canonical pages
+const generateStandardPageJsonLd = ({
+  canonical,
+  title,
+  description,
+  breadcrumbs = [],
+  faqs = [],
+  medicalProcedure = null
+}) => {
+  const breadcrumbElements = [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.shivakumarshankar.co.uk/" }
+  ];
+  breadcrumbs.forEach((b, idx) => {
+    breadcrumbElements.push({
+      "@type": "ListItem",
+      "position": idx + 2,
+      "name": b.name,
+      "item": b.href.startsWith('http') ? b.href : `https://www.shivakumarshankar.co.uk${b.href}`
+    });
+  });
+
+  const graph = [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.shivakumarshankar.co.uk/#website",
+      "url": "https://www.shivakumarshankar.co.uk/",
+      "name": "London and Essex Hip and Knee Surgeon",
+      "description": "Official medical practice website of Mr Shivakumar Shankar, Consultant Orthopaedic Hip & Knee Surgeon.",
+      "inLanguage": "en-GB",
+      "publisher": {
+        "@id": "https://www.shivakumarshankar.co.uk/#physician"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonical}#breadcrumbs`,
+      "itemListElement": breadcrumbElements
+    },
+    getPhysicianEntity(STANDARD_HOSPITAL_LOCATIONS)
+  ];
+
+  if (medicalProcedure) {
+    graph.push({
+      "@type": "MedicalProcedure",
+      "@id": `${canonical}#procedure`,
+      ...medicalProcedure
+    });
+  }
+
+  graph.push({
+    "@type": "MedicalWebPage",
+    "@id": `${canonical}#webpage`,
+    "url": canonical,
+    "name": title,
+    "description": description,
+    "inLanguage": "en-GB",
+    "isPartOf": {
+      "@id": "https://www.shivakumarshankar.co.uk/#website"
+    },
+    "author": {
+      "@id": "https://www.shivakumarshankar.co.uk/#physician"
+    },
+    "breadcrumb": {
+      "@id": `${canonical}#breadcrumbs`
+    },
+    "primaryImageOfPage": {
+      "@id": "https://www.shivakumarshankar.co.uk/profile.jpg#primaryimage"
+    },
+    "about": medicalProcedure
+      ? [{ "@id": `${canonical}#procedure` }, { "@id": "https://www.shivakumarshankar.co.uk/#physician" }]
+      : [{ "@id": "https://www.shivakumarshankar.co.uk/#physician" }],
+    "mainEntity": medicalProcedure
+      ? { "@id": `${canonical}#procedure` }
+      : { "@id": "https://www.shivakumarshankar.co.uk/#physician" }
+  });
+
+  if (faqs && faqs.length > 0) {
+    graph.push({
+      "@type": "FAQPage",
+      "@id": `${canonical}#faqpage`,
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.answer
+        }
+      }))
+    });
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": graph
+  };
+};
+
+const PRP_PAGE_FAQS = [
+  {
+    question: "Is PRP treatment covered by private medical insurance?",
+    answer: "Coverage varies between insurers and individual policies. PRP treatment may not be covered or may require prior authorisation. Patients should check directly with their private medical insurer before proceeding. Where insurance does not cover PRP, treatment may be available as a self-funded option, subject to clinical assessment and suitability."
+  },
+  {
+    question: "Is PRP right for everyone?",
+    answer: "No. Patients with advanced structural deformity or end-stage arthritis are typically better served by surgical intervention."
+  },
+  {
+    question: "How many PRP injections will I need?",
+    answer: "For knee osteoarthritis, my usual treatment protocol is a course of three PRP injections, typically given at intervals of approximately 2–3 weeks. However, treatment is individualised. A single PRP injection may also be considered depending on the condition being treated, the severity of symptoms, clinical findings, patient preference and response to treatment. The appropriate number and timing of injections will be discussed following clinical assessment."
+  },
+  {
+    question: "What should I expect during the appointment?",
+    answer: "PRP treatment is generally performed as an outpatient procedure. The time required can vary depending on the assessment and treatment being undertaken (typically approximately 30 to 45 minutes)."
+  },
+  {
+    question: "What is the recovery after an injection?",
+    answer: "Recovery and response to PRP vary between individuals and according to the condition being treated. Some temporary soreness or discomfort may occur following treatment. Some temporary modification of activity may be recommended, and advice regarding activity, exercise and rehabilitation will be tailored to the individual. Patients should follow the individual aftercare advice provided following their procedure."
+  },
+  {
+    question: "Can PRP cure arthritis?",
+    answer: "No. PRP is not a cure for joint arthritis and cannot regrow lost articular cartilage."
+  }
+];
+
+const HIP_RECOVERY_FAQS = [
+  {
+    question: "When can I drive after a total hip replacement?",
+    answer: "Most patients return to driving between 4 and 6 weeks after hip replacement, provided they are no longer taking sedating opioid painkillers, can enter and exit the car comfortably, and can perform a confident emergency stop. Patients with an automatic car following a left hip replacement may sometimes resume slightly earlier after clinical confirmation."
+  },
+  {
+    question: "How long will I stay in hospital after hip replacement surgery?",
+    answer: "With Enhanced Recovery After Surgery (ERAS) pathways at Nuffield Health Brentwood Hospital and Spire Hartswood Hospital, the typical inpatient stay is 1 to 2 nights, with selected medically fit patients eligible for day-case discharge once safe on crutches and stairs."
+  },
+  {
+    question: "Do I need to sleep on my back after a hip replacement?",
+    answer: "Sleeping on your back is recommended during the first 2 to 4 weeks, or sleeping on your non-operated side with a firm pillow between your knees to prevent the operated leg crossing the midline. Mr Shankar’s team will confirm any specific hip precautions based on your surgical approach."
+  },
+  {
+    question: "When can I fly after hip replacement surgery?",
+    answer: "Short-haul flights are generally deferred until at least 6 weeks post-operatively, and long-haul flights (over 4 hours) are typically advised to wait until 12 weeks after surgery due to the elevated risk of deep vein thrombosis (DVT) during prolonged cabin immobility."
+  }
+];
+
+const KNEE_RECOVERY_FAQS = [
+  {
+    question: "How long is it normal for a replaced knee to stay swollen or warm?",
+    answer: "Moderate swelling and a slight feeling of warmth around the knee are completely normal for 3 to 6 months after knee replacement as internal soft tissues remodel. Provided there is no spreading redness, fever, worsening rest pain, or wound discharge, this settles gradually with icing and elevation."
+  },
+  {
+    question: "When can I drive after a total or partial knee replacement?",
+    answer: "After a total knee replacement, most patients resume driving at 4 to 6 weeks. After a partial (unicompartmental) knee replacement, driving is often possible at 3 to 4 weeks. In all cases, you must be off strong opioid analgesia and able to perform an emergency stop safely."
+  },
+  {
+    question: "Can I kneel after a knee replacement?",
+    answer: "Once the surgical scar has fully healed and matured (typically from 8 to 12 weeks onwards), kneeling does not damage the metal or polyethylene implant components. Some patients notice mild scar sensitivity or numbness on the outer side of the incision, which improves by kneeling on a soft cushion."
+  },
+  {
+    question: "Why is straightening the knee (0° extension) so important early on?",
+    answer: "If a replaced knee heals with a slight bend (fixed flexion contracture), standing and walking require constant quadriceps muscle effort and can cause a persistent limp. Avoiding pillows directly underneath the back of the knee and performing daily heel-prop stretches ensures full extension."
+  }
+];
+
+const HOMEPAGE_AND_HUB_FAQS = [
+  {
+    question: "What is the difference between robotic-assisted and computer-assisted joint replacement?",
+    answer: "Computer-assisted surgery uses real-time optical cameras and infrared sensors during the operation to measure your limb alignment and guide accurate bone cuts without needing a pre-operative CT scan. Robotic-assisted surgery (such as the Mako system) goes a step further: it uses a pre-operative 3D CT scan to create a virtual model of your joint, and Mr Shankar guides a robotic arm with active haptic boundaries to prepare the bone within fractions of a millimetre. Importantly, the robot never operates autonomously—Mr Shankar remains in 100% control at all times. While these technologies improve implant positioning accuracy, long-term success still depends on surgical skill and dedicated rehabilitation."
+  },
+  {
+    question: "How long does recovery take after a total hip or knee replacement?",
+    answer: "Every patient recovers at their own pace, depending on age, pre-operative fitness, and the specific procedure. Under Enhanced Recovery After Surgery (ERAS) pathways, most patients stand and walk with a physiotherapist on the day of surgery and return home within 1 to 2 days (with selected patients suitable for day-case discharge). Most patients transition from crutches to a walking stick between 2 and 4 weeks, resume driving around 4 to 6 weeks (once able to perform an emergency stop safely), return to desk work in 4 to 6 weeks, and continue gaining strength and endurance for 6 to 12 months."
+  },
+  {
+    question: "What are the benefits of the minimally invasive Rottinger hip replacement approach?",
+    answer: "The Rottinger approach is a true muscle-sparing anterolateral technique that accesses the hip joint by gently parting the natural interval between muscles rather than cutting or detaching tendons from the bone. Because the key abductor muscles remain intact, patients typically experience less post-operative pain, reduced blood loss, greater natural joint stability, and a faster return to walking without a limp. Mr Shankar will assess your anatomy and bone quality to confirm whether a minimally invasive approach is right for you."
+  },
+  {
+    question: "Do you accept private medical insurance and self-pay patients?",
+    answer: "Yes. Mr Shankar is a fee-assured consultant recognised by all major UK private medical insurers, including Bupa, AXA Health, Aviva, Vitality, WPA, Cigna, and Allianz. If you are using insurance, please obtain a pre-authorisation number from your insurer before your appointment. For self-funding patients, Initial Consultations are £250 and Follow-Up Consultations are £200, with all-inclusive fixed-price surgical packages available through Spire Hartswood and Nuffield Health Brentwood hospitals."
+  },
+  {
+    question: "Which hospitals does Mr Shivakumar Shankar operate at?",
+    answer: "For private patients, Mr Shankar consults and operates at Spire Hartswood Hospital (Brentwood, CM13 3LE) and Nuffield Health Brentwood Hospital (Shenfield Road, CM15 8EH). Both hospitals are easily accessible from East London, Romford, Chelmsford, and the M25 (Junction 28). His substantive NHS practice is based at Barking, Havering and Redbridge University Hospitals NHS Trust (Queen's Hospital in Romford and the King George Hospital Elective Surgical Hub in Goodmayes)."
+  },
+  {
+    question: "When is knee arthroscopy recommended instead of a knee replacement?",
+    answer: "Knee arthroscopy (keyhole surgery) is a joint-preserving day-case procedure primarily recommended for younger or active patients with specific mechanical symptoms—such as locking, catching, or sharp localised pain—caused by a torn meniscus, focal cartilage flap, or loose body. In accordance with national clinical guidelines, arthroscopy is generally not recommended for widespread bone-on-bone osteoarthritis, where partial or total knee replacement provides much more reliable pain relief."
+  },
+  {
+    question: "Are there non-surgical alternatives to hip or knee replacement?",
+    answer: "Yes. Surgery is only recommended when symptoms significantly impact your quality of life and non-surgical measures are no longer sufficient. During your consultation, Mr Shankar will always discuss conservative options first, which may include targeted physiotherapy to strengthen supporting muscles, weight optimisation, activity modification, oral anti-inflammatory medication, or targeted image-guided joint injections (such as corticosteroid, hyaluronic acid viscosupplementation, or Platelet-Rich Plasma [PRP])."
+  },
+  {
+    question: "What are the main surgical risks of hip or knee replacement?",
+    answer: "Hip and knee replacements are among the most successful operations in modern medicine, but like all surgery they carry potential risks. These include infection (less than 1%), blood clots (deep vein thrombosis or pulmonary embolism), bleeding, nerve or blood vessel injury, joint stiffness, leg length difference, hip dislocation, persistent discomfort, and long-term implant wear or loosening. Mr Shankar discusses all relevant risks transparently during your consultation and uses strict theatre sterility, blood-clot prophylaxis, and precision alignment techniques to minimise them."
+  }
+];
 
 // Helper to render comprehensive, patient-friendly clinical procedure HTML matching ClinicalProcedurePage.tsx
 const renderClinicalProcedurePage = (data, breadcrumbs = []) => {
@@ -2752,16 +2959,16 @@ const renderQueensHospitalContent = () => `
         NHS Consultant Base &bull; Barking, Havering and Redbridge University Hospitals NHS Trust
       </span>
       <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4 tracking-tight">
-        Substantive NHS Consultant Orthopaedic Practice &amp; Departmental Leadership
+        Consultant Hip &amp; Knee Surgeon in Romford — Substantive NHS Practice at Queen's Hospital
       </h2>
       <p class="text-sm sm:text-base text-slate-700 leading-relaxed mb-4">
-        Queen's Hospital in Romford serves as the substantive NHS consultant base for Mr Shivakumar Shankar within Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT). Appointed as a substantive NHS Consultant in Trauma and Orthopaedics in 2017, Mr Shankar has dedicated years of clinical service to the communities of Havering, Barking and Dagenham, Redbridge, and south-west Essex (GMC Number: 6038414).
+        Queen's Hospital in Romford serves as the substantive NHS consultant base for Mr Shivakumar Shankar within Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT). Appointed as a substantive NHS Consultant in Trauma and Orthopaedics in 2017, Mr Shankar has dedicated years of clinical service to the communities of Havering, Barking and Dagenham, Redbridge, and <a href="/essex-hip-knee-surgeon" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">south-west Essex</a> (GMC Number: 6038414).
       </p>
       <p class="text-sm sm:text-base text-slate-700 leading-relaxed mb-4">
         Over his tenure at BHRUT, Mr Shankar has undertaken pivotal clinical leadership responsibilities. He has served as <strong>Clinical Director for Trauma and Orthopaedics</strong> and <strong>NHS Clinical Lead for Trauma and Orthopaedics</strong>, overseeing clinical governance, patient safety protocols, surgical training, and clinical effectiveness across the entire orthopaedic directorate. He has also fulfilled departmental lead roles as <strong>Clinical Lead for Femur Fracture Management</strong>—driving multidisciplinary pathway improvements for vulnerable elderly fracture patients—and <strong>Clinical Lead for Infection Control</strong>, implementing rigorous theatre protocols that uphold exemplary patient safety standards.
       </p>
       <p class="text-sm sm:text-base text-slate-700 leading-relaxed text-slate-600">
-        Within the Trust, care is strategically coordinated across BHRUT's two main hospital sites: acute, emergency trauma, peri-prosthetic fracture management, and acute outpatient services operate at Queen's Hospital in Romford, while planned, routine elective joint replacements are primarily performed at King George Hospital's protected elective surgical centre in Goodmayes.
+        Within the Trust, care is strategically coordinated across BHRUT's two main hospital sites: acute, emergency trauma, peri-prosthetic fracture management, <a href="/revision-hip-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">complex NHS revision hip reconstruction</a>, and acute outpatient services operate at Queen's Hospital in Romford, while planned, routine elective <a href="/hip-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">hip replacement</a> and <a href="/knee-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">knee replacement</a> operations are primarily performed at <a href="/king-george-hospital-goodmayes" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">King George Hospital's protected elective surgical centre in Goodmayes</a>. Private consultations and surgery take place separately in Brentwood at <a href="/nuffield-brentwood-hospital" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Nuffield Health Brentwood Hospital</a> and <a href="/spire-hartswood-hospital" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Spire Hartswood Hospital</a>.
       </p>
     </div>
   </section>
@@ -3530,13 +3737,13 @@ const renderEssexPageContent = () => `
         Regional Clinical Practice
       </span>
       <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4 tracking-tight">
-        Specialist Hip &amp; Knee Surgery for Patients Across Essex
+        Consultant Hip, Knee &amp; Revision Hip Surgeon Across Brentwood, Romford &amp; Essex
       </h2>
       <p class="text-sm sm:text-base text-slate-700 leading-relaxed mb-4">
-        Mr Shivakumar Shankar provides consultant-delivered orthopaedic hip, knee, and revision hip care for patients throughout Essex. His private practice is based in Brentwood at Nuffield Health Brentwood Hospital on Shenfield Road and Spire Hartswood Hospital on Eagle Way in Great Warley. These locations provide rapid road and rail access for patients attending from Brentwood, Shenfield, Billericay, Romford, Upminster, Chelmsford, Basildon, Epping, and wider Essex communities.
+        Mr Shivakumar Shankar provides consultant-delivered orthopaedic <a href="/hip-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">hip replacement</a>, <a href="/knee-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">knee replacement</a>, and <a href="/revision-hip-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">revision hip surgery</a> for patients throughout Essex. His private practice is based in Brentwood at <a href="/nuffield-brentwood-hospital" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Nuffield Health Brentwood Hospital</a> on Shenfield Road (offering Stryker MAKO robotic-assisted joint replacement) and <a href="/spire-hartswood-hospital" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Spire Hartswood Hospital</a> on Eagle Way in Great Warley (offering conventional and computer-navigated joint replacement). These locations provide rapid road and rail access for patients attending from Brentwood, Shenfield, Billericay, Romford, Upminster, Chelmsford, Basildon, Epping, and wider Essex communities.
       </p>
       <p class="text-sm sm:text-base text-slate-700 leading-relaxed mb-4">
-        Holding substantive NHS consultant appointments at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT)—operating at Queen's Hospital in Romford and King George Hospital in Goodmayes—Mr Shankar provides seasoned clinical acumen combined with advanced joint reconstruction technology. Whether assessing primary hip and knee osteoarthritis or conducting detailed investigations for patients with painful, failing, or unstable previous joint replacements, care is delivered with strict adherence to evidence-based practice and personalized patient focus.
+        Holding substantive NHS consultant appointments at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT)—operating at <a href="/queens-hospital-romford" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Queen's Hospital in Romford</a> and <a href="/king-george-hospital-goodmayes" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">King George Hospital in Goodmayes</a>—Mr Shankar provides seasoned clinical acumen combined with advanced joint reconstruction technology. Whether assessing primary hip and knee osteoarthritis or conducting detailed investigations for patients with painful, failing, or unstable previous joint replacements, care is delivered with strict adherence to evidence-based practice and personalized patient focus.
       </p>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-slate-100 text-xs text-slate-700">
         <div class="p-3 bg-slate-50 rounded-lg">
@@ -4582,6 +4789,50 @@ const pageDefinitions = [
         </div>
       </section>
 
+      <section id="faq" class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs mb-12">
+        <div class="mb-6">
+          <span class="inline-block px-3 py-1 rounded-full bg-[#EAF1F6] text-[#1B4965] text-xs font-bold uppercase tracking-wider mb-2">
+            Patient Guidance &bull; Informed Consent
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+            Frequently Asked Questions
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1 max-w-3xl leading-relaxed">
+            Clear, evidence-based answers to common questions about robotic and computer-assisted joint replacement, recovery timelines, hospital locations, and private consultations.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          ${[
+            {
+              question: "What is the difference between robotic-assisted surgery and conventional joint replacement?",
+              answer: "Robotic technology does not replace the surgeon; rather, it serves as a precision navigational instrument guided by Mr Shankar. It uses pre-operative 3D CT modelling and intra-operative sensory mapping to support precise execution of the planned implant position, balance soft tissues throughout full movement, and preserve bone."
+            },
+            {
+              question: "Where does Mr Shankar hold his private consultations and operating lists?",
+              answer: "Mr Shankar conducts private consultations and surgery at Spire Hartswood Hospital and Nuffield Health Brentwood Hospital in Brentwood, Essex. Both hospitals offer rapid on-site diagnostic imaging (MRI, CT, ultrasound, digital X-ray), advanced laminar-flow ultra-clean operating theatres, dedicated joint replacement surgical teams, and private en-suite rooms."
+            },
+            {
+              question: "Will my private health insurance cover the cost of my treatment?",
+              answer: "Often, yes—subject to the specific terms and excess of your policy. Mr Shankar is fee-assured and fully recognised by all major UK private medical insurance companies, including Bupa, AXA Health, Aviva, Vitality, WPA, Cigna, Healix, and Police Mutual. Please contact your insurer prior to your appointment to obtain pre-authorisation and confirm that Mr Shankar and your chosen hospital (Spire Hartswood or Nuffield Brentwood) are covered."
+            },
+            {
+              question: "How much does a private self-funded consultation cost?",
+              answer: "For patients self-funding their care without private medical insurance, Mr Shankar's outpatient consultation fees are transparent and capped: First Appointment (Initial Consultation) is £250, and Follow-Up Appointment is £200. If diagnostic investigations (such as weight-bearing X-rays or MRI) are indicated, or if surgical treatment is recommended, these are quoted transparently by the hospital (Spire Hartswood or Nuffield Health Brentwood) with no hidden fees."
+            },
+            {
+              question: "How do I know if I need a Total Knee Replacement or a Partial Knee Replacement?",
+              answer: "If arthritis is confined strictly to one compartment of your knee (such as the medial inside or patellofemoral kneecap) and your cruciate ligaments are healthy, you may be an excellent candidate for a partial (unicompartmental) knee replacement. If multiple compartments are arthritic, a total knee replacement provides the most reliable and durable pain relief. Mr Shankar conducts careful clinical examination and specialised weight-bearing imaging to recommend the ideal solution."
+            },
+            ...HOMEPAGE_AND_HUB_FAQS
+          ].map(faq => `
+            <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/50 space-y-1.5">
+              <h3 class="text-sm font-bold text-slate-900">${faq.question}</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">${faq.answer}</p>
+            </div>
+          `).join('')}
+        </div>
+      </section>
+
       <section class="p-8 bg-[#EAF1F6] rounded-2xl border border-slate-300 flex flex-col md:flex-row items-center justify-between gap-6 mb-12">
         <div>
           <h2 class="text-xl font-bold text-[#1B4965]">Consultation &amp; Surgical Scheduling</h2>
@@ -4618,32 +4869,16 @@ const pageDefinitions = [
     )
   },
 
-  // 3. /about (alias for /about-mr-shivakumar-shankar)
-  {
-    path: 'about',
-    title: 'About Mr Shivakumar Shankar | Consultant Hip & Knee Surgeon',
-    description: 'Biography, credentials, and surgical training of Mr Shivakumar Shankar, NHS Clinical Lead & Consultant Orthopaedic Surgeon at Spire and Nuffield Hospitals.',
-    canonical: 'https://www.shivakumarshankar.co.uk/about-mr-shivakumar-shankar',
-    customJsonLd: generateAboutPageJsonLd('https://www.shivakumarshankar.co.uk/about-mr-shivakumar-shankar'),
-    bodyHtml: renderPageShell(
-      'about',
-      'Consultant Orthopaedic Surgeon • GMC 6038414',
-      'About Mr Shivakumar Shankar FRCS (Tr & Orth)',
-      'Mr Shivakumar Shankar is a highly accomplished Consultant Orthopaedic Surgeon specialising in hip and knee surgery, serving as the NHS Clinical Lead for Orthopaedics at Barking, Havering and Redbridge University Hospitals NHS Trust, with private consulting practices at Spire Hartswood Hospital and Nuffield Health Brentwood Hospital.',
-      renderAboutPageContent()
-    )
-  },
-
   // 4. Hip Replacement
   {
     path: 'hip-replacement',
-    title: 'Hip Replacement Surgeon in Essex & London | Mr Shivakumar Shankar',
-    description: 'Consultant Hip Replacement Surgeon in Essex & London. Mr Shivakumar Shankar offers conventional, computer-assisted, MAKO robotic & minimally invasive hip surgery.',
+    title: 'Hip Replacement Surgeon Brentwood, Essex & London | Mr Shivakumar Shankar',
+    description: 'Consultant Hip Surgeon in Brentwood, Essex & London. Mr Shivakumar Shankar offers conventional, computer-navigated, MAKO robotic & minimally invasive hip surgery.',
     canonical: 'https://www.shivakumarshankar.co.uk/hip-replacement',
     customJsonLd: generateProcedureJsonLd({
       path: 'hip-replacement',
-      title: 'Hip Replacement Surgeon in Essex & London | Mr Shivakumar Shankar',
-      description: 'Consultant Hip Replacement Surgeon in Essex & London. Mr Shivakumar Shankar offers conventional, computer-assisted, MAKO robotic & minimally invasive hip surgery.',
+      title: 'Hip Replacement Surgeon Brentwood, Essex & London | Mr Shivakumar Shankar',
+      description: 'Consultant Hip Surgeon in Brentwood, Essex & London. Mr Shivakumar Shankar offers conventional, computer-navigated, MAKO robotic & minimally invasive hip surgery.',
       canonical: 'https://www.shivakumarshankar.co.uk/hip-replacement',
       data: CLINICAL_PROCEDURES['hip-replacement'],
       procedureName: 'Total Hip Replacement Surgery',
@@ -4661,12 +4896,12 @@ const pageDefinitions = [
   {
     path: 'robotic-hip-replacement',
     title: 'Robotic Hip Replacement London & Essex | Mr Shivakumar Shankar',
-    description: 'Consultant-led Mako robotic total hip replacement in London and Essex with Mr Shivakumar Shankar. 3D CT planning, spinopelvic kinematic analysis, and haptic robotic guidance in Brentwood & Romford.',
+    description: 'MAKO robotic total hip replacement in Essex & London with Mr Shivakumar Shankar. 3D CT planning & haptic guidance at Nuffield Health Brentwood & BHRUT.',
     canonical: 'https://www.shivakumarshankar.co.uk/robotic-hip-replacement',
     customJsonLd: generateProcedureJsonLd({
       path: 'robotic-hip-replacement',
       title: 'Robotic Hip Replacement London & Essex | Mr Shivakumar Shankar',
-      description: 'Consultant-led Mako robotic total hip replacement in London and Essex with Mr Shivakumar Shankar. 3D CT planning, spinopelvic kinematic analysis, and haptic robotic guidance in Brentwood & Romford.',
+      description: 'MAKO robotic total hip replacement in Essex & London with Mr Shivakumar Shankar. 3D CT planning & haptic guidance at Nuffield Health Brentwood & BHRUT.',
       canonical: 'https://www.shivakumarshankar.co.uk/robotic-hip-replacement',
       data: CLINICAL_PROCEDURES['robotic-hip-replacement'],
       procedureName: 'MAKO Robotic-Assisted Total Hip Replacement',
@@ -4741,14 +4976,14 @@ const pageDefinitions = [
   // 8. Revision Hip Replacement
   {
     path: 'revision-hip-replacement',
-    title: 'Revision Hip Replacement Essex & London | Mr Shivakumar Shankar',
-    description: 'Specialist revision hip replacement surgery in Essex and London with Mr Shivakumar Shankar. Assessment of painful or failing hip replacements, loosening, dislocation, and complex reconstruction.',
+    title: 'Revision Hip Surgeon & Replacement Essex & London | Mr Shivakumar Shankar',
+    description: 'Specialist Revision Hip Surgeon in Essex & London. Mr Shivakumar Shankar undertakes private revision hip surgery in Brentwood & complex NHS revision at BHRUT.',
     canonical: 'https://www.shivakumarshankar.co.uk/revision-hip-replacement',
     customJsonLd: generateProcedureJsonLd({
       path: 'revision-hip-replacement',
       data: CLINICAL_PROCEDURES['revision-hip-replacement'],
-      title: 'Revision Hip Replacement Essex & London | Mr Shivakumar Shankar',
-      description: 'Specialist revision hip replacement surgery in Essex and London with Mr Shivakumar Shankar. Assessment of painful or failing hip replacements, loosening, dislocation, and complex reconstruction.',
+      title: 'Revision Hip Surgeon & Replacement Essex & London | Mr Shivakumar Shankar',
+      description: 'Specialist Revision Hip Surgeon in Essex & London. Mr Shivakumar Shankar undertakes private revision hip surgery in Brentwood & complex NHS revision at BHRUT.',
       canonical: 'https://www.shivakumarshankar.co.uk/revision-hip-replacement',
       procedureName: 'Revision Total Hip Replacement Surgery',
       bodyLocation: 'Hip joint',
@@ -4768,13 +5003,13 @@ const pageDefinitions = [
   // 9. Knee Replacement
   {
     path: 'knee-replacement',
-    title: 'Knee Replacement Surgeon in Essex & London | Mr Shivakumar Shankar',
-    description: 'Consultant Knee Replacement Surgeon in Essex & London. Mr Shivakumar Shankar offers total, partial, computer-assisted & MAKO robotic knee replacement in Brentwood.',
+    title: 'Knee Replacement Surgeon Brentwood, Essex & London | Mr Shivakumar Shankar',
+    description: 'Consultant Knee Surgeon in Brentwood, Essex & London. Mr Shivakumar Shankar offers total, partial, computer-navigated & MAKO robotic knee replacement surgery.',
     canonical: 'https://www.shivakumarshankar.co.uk/knee-replacement',
     customJsonLd: generateProcedureJsonLd({
       path: 'knee-replacement',
-      title: 'Knee Replacement Surgeon in Essex & London | Mr Shivakumar Shankar',
-      description: 'Consultant Knee Replacement Surgeon in Essex & London. Mr Shivakumar Shankar offers total, partial, computer-assisted & MAKO robotic knee replacement in Brentwood.',
+      title: 'Knee Replacement Surgeon Brentwood, Essex & London | Mr Shivakumar Shankar',
+      description: 'Consultant Knee Surgeon in Brentwood, Essex & London. Mr Shivakumar Shankar offers total, partial, computer-navigated & MAKO robotic knee replacement surgery.',
       canonical: 'https://www.shivakumarshankar.co.uk/knee-replacement',
       data: CLINICAL_PROCEDURES['knee-replacement'],
       procedureName: 'Total Knee Replacement Surgery',
@@ -4792,7 +5027,7 @@ const pageDefinitions = [
   {
     path: 'robotic-knee-replacement',
     title: 'Robotic Knee Replacement London & Essex | MAKO Surgery | Mr Shivakumar Shankar',
-    description: 'Consultant-led MAKO robotic total and partial knee replacement and robot-assisted knee surgery in London, East London, Romford & Brentwood, Essex with Mr Shivakumar Shankar.',
+    description: 'Consultant-led MAKO robotic total & partial knee replacement in Brentwood, Essex, Romford & London with Mr Shivakumar Shankar at Nuffield Health Brentwood.',
     canonical: 'https://www.shivakumarshankar.co.uk/robotic-knee-replacement',
     customJsonLd: {
       "@context": "https://schema.org",
@@ -4843,10 +5078,10 @@ const pageDefinitions = [
         },
         {
           "@type": "MedicalWebPage",
-          "@id": "https://www.shivakumarshankar.co.uk/robotic-knee-replacement",
+          "@id": "https://www.shivakumarshankar.co.uk/robotic-knee-replacement#webpage",
           "url": "https://www.shivakumarshankar.co.uk/robotic-knee-replacement",
           "name": "Robotic Knee Replacement London & Essex | MAKO Surgery | Mr Shivakumar Shankar",
-          "description": "Consultant-led MAKO robotic total and partial knee replacement and robot-assisted knee surgery in London, East London, Romford & Brentwood, Essex with Mr Shivakumar Shankar.",
+          "description": "Consultant-led MAKO robotic total & partial knee replacement in Brentwood, Essex, Romford & London with Mr Shivakumar Shankar at Nuffield Health Brentwood.",
           "inLanguage": "en-GB",
           "author": {
             "@id": "https://www.shivakumarshankar.co.uk/#physician"
@@ -5562,13 +5797,13 @@ const pageDefinitions = [
   // 11. Partial Knee Replacement
   {
     path: 'partial-knee-replacement',
-    title: 'Partial Knee Replacement London & Essex | Mr Shivakumar Shankar',
-    description: 'Mr Shivakumar Shankar provides conventional and MAKO robotic-assisted partial (unicompartmental) knee replacement where clinically appropriate in Essex and London, with private clinics in Brentwood.',
+    title: 'Partial Knee Replacement Essex, Brentwood & London | Mr Shivakumar Shankar',
+    description: 'Consultant-led conventional & MAKO robotic partial (unicompartmental) knee replacement in Brentwood, Essex & London with Mr Shivakumar Shankar.',
     canonical: 'https://www.shivakumarshankar.co.uk/partial-knee-replacement',
     customJsonLd: generateProcedureJsonLd({
       path: 'partial-knee-replacement',
-      title: 'Partial Knee Replacement London & Essex | Mr Shivakumar Shankar',
-      description: 'Mr Shivakumar Shankar provides conventional and MAKO robotic-assisted partial (unicompartmental) knee replacement where clinically appropriate in Essex and London, with private clinics in Brentwood.',
+      title: 'Partial Knee Replacement Essex, Brentwood & London | Mr Shivakumar Shankar',
+      description: 'Consultant-led conventional & MAKO robotic partial (unicompartmental) knee replacement in Brentwood, Essex & London with Mr Shivakumar Shankar.',
       canonical: 'https://www.shivakumarshankar.co.uk/partial-knee-replacement',
       data: CLINICAL_PROCEDURES['partial-knee-replacement'],
       procedureName: 'Partial (Unicompartmental) Knee Replacement Surgery',
@@ -5588,27 +5823,24 @@ const pageDefinitions = [
     title: 'Knee Arthroscopy & Keyhole Surgery | Mr Shivakumar Shankar',
     description: 'Minimally invasive keyhole knee surgery for meniscal tears, cartilage repair, and loose bodies in London and Essex. Over 1,200 procedures performed.',
     canonical: 'https://www.shivakumarshankar.co.uk/knee-arthroscopy',
-    bodyHtml: renderPageShell(
-      'knee-arthroscopy',
-      'Minimally Invasive Joint Preservation • Over 1,200 Cases',
-      'Knee Arthroscopy &amp; Keyhole Joint Preservation Surgery',
-      'Keyhole day-case surgical management of meniscal tears, cartilage wear, mechanical joint locking, and biological regenerative therapies by Mr Shivakumar Shankar.',
-      `
-      ${renderCardGrid([
-        {
-          title: 'Meniscal Repair & Preservation',
-          desc: 'Prioritises repairing meniscal tears with all-inside suture anchors rather than trimming, safeguarding natural shock absorption.'
-        },
-        {
-          title: 'Chondral Debridement & Loose Bodies',
-          desc: 'Clears mechanical fragments and smooths damaged articular surfaces to alleviate catching and joint locking.'
-        },
-        {
-          title: 'Day-Case Discharge',
-          desc: 'Small puncture incisions enable immediate mobilisation and safe same-day hospital discharge.'
-        }
-      ])}
-      `
+    customJsonLd: generateProcedureJsonLd({
+      path: 'knee-arthroscopy',
+      title: 'Knee Arthroscopy & Keyhole Surgery | Mr Shivakumar Shankar',
+      description: 'Minimally invasive keyhole knee surgery for meniscal tears, cartilage repair, and loose bodies in London and Essex. Over 1,200 procedures performed.',
+      canonical: 'https://www.shivakumarshankar.co.uk/knee-arthroscopy',
+      data: CLINICAL_PROCEDURES['knee-arthroscopy'],
+      procedureName: 'Knee Arthroscopy & Keyhole Meniscal Preservation Surgery',
+      bodyLocation: 'Knee joint',
+      howPerformed: 'Minimally invasive day-case keyhole arthroscopy through 5mm anterolateral and anteromedial portals using high-definition fibre-optic camera visualisation, sterile saline joint distension, systematic intra-articular diagnostic inspection, biological meniscal suture repair or targeted partial meniscectomy, chondroplasty, and loose body removal.',
+      breadcrumbs: [
+        { name: 'Knee Surgery', href: '/knee-replacement' }
+      ]
+    }),
+    bodyHtml: renderClinicalProcedurePage(
+      CLINICAL_PROCEDURES['knee-arthroscopy'],
+      [
+        { name: 'Knee Surgery', href: '/knee-replacement' }
+      ]
     )
   },
 
@@ -5618,6 +5850,22 @@ const pageDefinitions = [
     title: 'PRP Injections | Mr Shivakumar Shankar | London & Essex',
     description: 'Consultant-led Platelet-Rich Plasma (PRP) injections in London and Essex for selected knee and musculoskeletal conditions. Balanced clinical assessment.',
     canonical: 'https://www.shivakumarshankar.co.uk/prp-injection',
+    customJsonLd: generateStandardPageJsonLd({
+      canonical: 'https://www.shivakumarshankar.co.uk/prp-injection',
+      title: 'PRP Injections | Mr Shivakumar Shankar | London & Essex',
+      description: 'Consultant-led Platelet-Rich Plasma (PRP) injections in London and Essex for selected knee and musculoskeletal conditions. Balanced clinical assessment.',
+      breadcrumbs: [
+        { name: 'Knee Surgery', href: '/knee-replacement' },
+        { name: 'PRP Injections', href: '/prp-injection' }
+      ],
+      medicalProcedure: {
+        "name": "Platelet-Rich Plasma (PRP) Joint & Tendon Injection",
+        "procedureType": "https://schema.org/NoninvasiveProcedure",
+        "bodyLocation": "Knee joint and musculoskeletal soft tissues",
+        "description": "Autologous Platelet-Rich Plasma (PRP) non-surgical injection therapy prepared from the patient's own venous blood for selected mild-to-moderate knee osteoarthritis and tendon conditions."
+      },
+      faqs: PRP_PAGE_FAQS
+    }),
     bodyHtml: renderPageShell(
       'prp-injection',
       'Non-Surgical Musculoskeletal Therapy • London & Essex',
@@ -5683,7 +5931,7 @@ const pageDefinitions = [
       <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs mb-8 space-y-4">
         <h2 class="text-2xl font-bold text-slate-900">Alternative Non-Surgical and Surgical Options</h2>
         <p class="text-sm text-slate-700 leading-relaxed">
-          Patients have multiple evidence-based pathways depending on clinical severity: activity modification, physiotherapy, weight management, simple analgesia, corticosteroid or hyaluronic acid injections, and surgical options such as knee arthroscopy, partial knee replacement, or total knee replacement when indicated.
+          Patients have multiple evidence-based pathways depending on clinical severity: activity modification, physiotherapy, weight management, simple analgesia, corticosteroid or hyaluronic acid injections, and surgical options such as <a href="/knee-arthroscopy" class="font-bold text-[#1B4965] hover:underline">knee arthroscopy</a>, <a href="/partial-knee-replacement" class="font-bold text-[#1B4965] hover:underline">partial knee replacement</a>, or <a href="/knee-replacement" class="font-bold text-[#1B4965] hover:underline">total knee replacement</a> when indicated.
         </p>
       </section>
 
@@ -5754,7 +6002,7 @@ const pageDefinitions = [
         <div>
           <h2 class="text-xl font-bold text-[#1B4965]">Consultation &amp; PRP Suitability Assessment</h2>
           <p class="text-xs sm:text-sm text-slate-600 mt-1 max-w-2xl">
-            To discuss whether PRP injection is suitable for your condition, book a consultation with Mr Shivakumar Shankar at Spire Hartswood Hospital or Nuffield Health Brentwood Hospital in Essex.
+            To discuss whether PRP injection is suitable for your condition, book a consultation with Mr Shivakumar Shankar at <a href="/spire-hartswood-hospital" class="font-bold text-[#1B4965] hover:underline">Spire Hartswood Hospital</a> or <a href="/nuffield-brentwood-hospital" class="font-bold text-[#1B4965] hover:underline">Nuffield Health Brentwood Hospital</a> in Essex.
           </p>
           <div class="p-3 bg-white/80 rounded-lg border border-slate-300 text-xs text-slate-700 mt-3 max-w-2xl">
             <strong>Please note:</strong> PRP treatment is generally self-funded, and private medical insurance cover varies between policies. Please check with your insurer before treatment.
@@ -5779,8 +6027,17 @@ const pageDefinitions = [
     title: 'Robotic & Computer-Assisted Hip & Knee Surgery | Essex & London',
     description: 'Pioneering robotic & computer-assisted joint replacement by Mr Shivakumar Shankar. Navigational precision and personalised soft-tissue balancing.',
     canonical: 'https://www.shivakumarshankar.co.uk/robotic-computer-assisted-surgery',
+    customJsonLd: generateStandardPageJsonLd({
+      canonical: 'https://www.shivakumarshankar.co.uk/robotic-computer-assisted-surgery',
+      title: 'Robotic & Computer-Assisted Hip & Knee Surgery | Essex & London',
+      description: 'Pioneering robotic & computer-assisted joint replacement by Mr Shivakumar Shankar. Navigational precision and personalised soft-tissue balancing.',
+      breadcrumbs: [
+        { name: 'Robotic & Computer-Assisted Surgery', href: '/robotic-computer-assisted-surgery' }
+      ],
+      faqs: []
+    }),
     bodyHtml: renderPageShell(
-      'robotic-surgery',
+      'robotic-computer-assisted-surgery',
       'Regional Pioneer in Essex & North East London',
       'Robotic &amp; Computer-Assisted Hip and Knee Surgery',
       'Mr Shivakumar Shankar has personally completed more than 100 MAKO robotic hip and knee replacement surgeries (representing his individual surgical series, rather than a trust total) and was the first surgeon to perform computer-assisted and robotic total hip replacement in Essex and North East London, combining longstanding conventional and computer-assisted experience with MAKO robotic guidance.',
@@ -5799,36 +6056,26 @@ const pageDefinitions = [
           desc: 'Evaluates soft-tissue balance in real-time through the full motion arc prior to executing bone resections.'
         }
       ])}
-      `
-    )
-  },
-
-  // 14. /robotic-surgery (alias)
-  {
-    path: 'robotic-surgery',
-    title: 'Robotic & Computer-Assisted Hip & Knee Surgery | Essex & London',
-    description: 'Pioneering robotic & computer-assisted joint replacement by Mr Shivakumar Shankar. Navigational precision and personalised soft-tissue balancing.',
-    canonical: 'https://www.shivakumarshankar.co.uk/robotic-computer-assisted-surgery',
-    bodyHtml: renderPageShell(
-      'robotic-surgery',
-      'Regional Pioneer in Essex & North East London',
-      'Robotic &amp; Computer-Assisted Hip and Knee Surgery',
-      'Comprehensive patient guide to computer navigation and Mako robotic-assisted technology for total hip, total knee, and partial knee replacement in London and Essex.',
-      `
-      ${renderCardGrid([
-        {
-          title: 'Precision Implant Alignment',
-          desc: 'Supports precise execution of the planned implant position and soft-tissue balance tailored to patient anatomy.'
-        },
-        {
-          title: 'Clinical Experience',
-          desc: '9 years experience in computer-assisted surgery, incorporating Mako robotic technology.'
-        },
-        {
-          title: 'Available Locations',
-          desc: 'MAKO robotic-assisted joint replacement is available at Nuffield Health Brentwood Hospital, with robotic services also at BHRUT NHS hospitals, alongside conventional and computer-navigated surgery at Spire Hartswood.'
-        }
-      ])}
+      <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs mb-10 space-y-4">
+        <h2 class="text-xl font-bold text-slate-900">Private Hospital Technology Availability in Brentwood, Essex</h2>
+        <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+          Mr Shankar provides private robotic-assisted and computer-navigated joint replacement across his two Brentwood private practice locations:
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="p-5 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+            <h3 class="text-base font-bold text-slate-900"><a href="/nuffield-brentwood-hospital" class="text-[#1B4965] hover:underline">Nuffield Health Brentwood Hospital (CM15 8EH)</a></h3>
+            <p class="text-xs text-slate-600 leading-relaxed">Equipped with the Stryker MAKO robotic-arm assisted system for <a href="/robotic-hip-replacement" class="font-bold text-[#1B4965] hover:underline">MAKO robotic hip replacement</a>, <a href="/robotic-knee-replacement" class="font-bold text-[#1B4965] hover:underline">MAKO robotic total knee replacement</a>, and <a href="/partial-knee-replacement" class="font-bold text-[#1B4965] hover:underline">partial knee replacement</a>, alongside conventional arthroplasty.</p>
+          </div>
+          <div class="p-5 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+            <h3 class="text-base font-bold text-slate-900"><a href="/spire-hartswood-hospital" class="text-[#1B4965] hover:underline">Spire Hartswood Hospital (CM13 3LE)</a></h3>
+            <p class="text-xs text-slate-600 leading-relaxed">Equipped with optical infrared tracking for <a href="/computer-assisted-knee-replacement" class="font-bold text-[#1B4965] hover:underline">computer-navigated knee replacement</a>, <a href="/computer-assisted-hip-replacement" class="font-bold text-[#1B4965] hover:underline">computer-assisted hip replacement</a>, and conventional joint surgery (MAKO robotic surgery is not available at Spire Hartswood).</p>
+          </div>
+        </div>
+        <div class="pt-2 flex flex-wrap gap-3 text-xs">
+          <a href="/conventional-vs-computer-assisted-vs-robotic-surgery" class="font-bold text-[#1B4965] hover:underline">View Modality Comparison Matrix &rarr;</a>
+          <a href="/contact" class="font-bold text-[#1B4965] hover:underline">Contact Practice Secretary &rarr;</a>
+        </div>
+      </section>
       `
     )
   },
@@ -5839,8 +6086,18 @@ const pageDefinitions = [
     title: 'Conventional vs Computer-Assisted vs Robotic Surgery | Clinical Guide',
     description: 'Objective comparison of conventional manual, computer-navigated, and robotic-assisted joint replacement surgery with clinical evidence.',
     canonical: 'https://www.shivakumarshankar.co.uk/conventional-vs-computer-assisted-vs-robotic-surgery',
+    customJsonLd: generateStandardPageJsonLd({
+      canonical: 'https://www.shivakumarshankar.co.uk/conventional-vs-computer-assisted-vs-robotic-surgery',
+      title: 'Conventional vs Computer-Assisted vs Robotic Surgery | Clinical Guide',
+      description: 'Objective comparison of conventional manual, computer-navigated, and robotic-assisted joint replacement surgery with clinical evidence.',
+      breadcrumbs: [
+        { name: 'Robotic & Computer-Assisted Surgery', href: '/robotic-computer-assisted-surgery' },
+        { name: 'Conventional vs Navigated vs Robotic', href: '/conventional-vs-computer-assisted-vs-robotic-surgery' }
+      ],
+      faqs: []
+    }),
     bodyHtml: renderPageShell(
-      'technology-comparison',
+      'conventional-vs-computer-assisted-vs-robotic-surgery',
       'Clinical Comparison • Evidence-Based Overview',
       'Conventional vs Computer-Assisted vs Robotic Surgery',
       'A balanced, educational review evaluating the differences in surgical planning, component alignment, intra-operative navigation, surgeon control, and clinical evidence across manual, computer-navigated, and robotic joint replacement.',
@@ -5859,6 +6116,12 @@ const pageDefinitions = [
           desc: 'Combines pre-operative 3D CT modelling with active haptic stereotactic boundary guidance and dynamic soft-tissue tension mapping.'
         }
       ])}
+      <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs mb-10 space-y-4">
+        <h2 class="text-xl font-bold text-slate-900">Hospital Availability &amp; Individualised Surgical Selection</h2>
+        <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+          Robotic assistance does not guarantee better clinical outcomes, longer implant survivorship, or faster healing for every patient. Mr Shankar selects the most appropriate technique following clinical examination and imaging at <a href="/nuffield-brentwood-hospital" class="font-bold text-[#1B4965] hover:underline">Nuffield Health Brentwood Hospital</a> (MAKO robotic and conventional surgery) or <a href="/spire-hartswood-hospital" class="font-bold text-[#1B4965] hover:underline">Spire Hartswood Hospital</a> (conventional and computer-navigated surgery; MAKO robotic surgery is not available at Spire Hartswood). To arrange an assessment, <a href="/contact" class="font-bold text-[#1B4965] hover:underline">contact Mr Shankar’s practice secretary</a>.
+        </p>
+      </section>
       `
     )
   },
@@ -5869,8 +6132,17 @@ const pageDefinitions = [
     title: 'Patient Information & Surgical Guides | Mr Shivakumar Shankar',
     description: 'Comprehensive patient resources, surgical preparations, informed consent, and rehabilitation pathways for hip and knee operations.',
     canonical: 'https://www.shivakumarshankar.co.uk/patient-information',
+    customJsonLd: generateStandardPageJsonLd({
+      canonical: 'https://www.shivakumarshankar.co.uk/patient-information',
+      title: 'Patient Information & Surgical Guides | Mr Shivakumar Shankar',
+      description: 'Comprehensive patient resources, surgical preparations, informed consent, and rehabilitation pathways for hip and knee operations.',
+      breadcrumbs: [
+        { name: 'Patient Information', href: '/patient-information' }
+      ],
+      faqs: []
+    }),
     bodyHtml: renderPageShell(
-      'patient-resources',
+      'patient-information',
       'Informed Consent & Rehabilitation Guides',
       'Patient Information Guides &amp; Surgical Protocols',
       'Comprehensive educational resources, preparation checklists, recovery timelines, non-operative options, and downloadable physiotherapy protocols authored by Mr Shivakumar Shankar.',
@@ -5889,108 +6161,294 @@ const pageDefinitions = [
           desc: 'Downloadable clinical PDF exercise protocols guiding step-by-step rehabilitation from hospital to daily activities.'
         }
       ])}
+      <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs mb-10">
+        <h2 class="text-xl font-bold text-slate-900 mb-4">Dedicated Patient Guides &amp; Hospital Pathways</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+          <a href="/hip-replacement-recovery" class="p-3 bg-slate-50 hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200">Hip Replacement Recovery Guide &rarr;</a>
+          <a href="/knee-replacement-recovery" class="p-3 bg-slate-50 hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200">Knee Replacement Recovery Guide &rarr;</a>
+          <a href="/preparing-for-surgery" class="p-3 bg-slate-50 hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200">Preparing for Surgery &rarr;</a>
+          <a href="/physio-protocols" class="p-3 bg-slate-50 hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200">Downloadable Physio Protocols &rarr;</a>
+          <a href="/frequently-asked-questions" class="p-3 bg-slate-50 hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200">Frequently Asked Questions &rarr;</a>
+          <a href="/nuffield-brentwood-hospital" class="p-3 bg-slate-50 hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200">Nuffield Health Brentwood &rarr;</a>
+          <a href="/spire-hartswood-hospital" class="p-3 bg-slate-50 hover:bg-[#EAF1F6] rounded-xl font-bold text-slate-800 hover:text-[#1B4965] border border-slate-200">Spire Hartswood Hospital &rarr;</a>
+          <a href="/contact" class="p-3 bg-slate-50 hover:bg-[#EAF1F6] rounded-xl font-bold text-[#1B4965] border border-slate-200">Contact Practice Secretary &rarr;</a>
+        </div>
+      </section>
       `
     )
   },
 
-  // 17. /patient-guides (alias)
-  {
-    path: 'patient-guides',
-    title: 'Patient Information & Guides | Mr Shivakumar Shankar',
-    description: 'Patient information guides, surgical risks, non-operative options, and downloadable PDF rehabilitation protocols for hip and knee replacement patients.',
-    canonical: 'https://www.shivakumarshankar.co.uk/patient-information',
-    bodyHtml: renderPageShell(
-      'patient-resources',
-      'Informed Consent & Rehabilitation',
-      'Patient Information Guides &amp; Rehabilitation Protocols',
-      'Authoritative guidance on surgical preparation, conservative non-operative alternatives, transparent explanations of surgical risks, and comprehensive day-by-day rehabilitation protocols.',
-      `
-      ${renderCardGrid([
-        {
-          title: 'Recovery Milestones',
-          desc: 'Clear guidance on walking progression, crutch weaning, driving resumption, and return to work.'
-        },
-        {
-          title: 'Warning Signs (Red Flags)',
-          desc: 'Clear instructions distinguishing expected post-surgical swelling from symptoms requiring urgent team contact.'
-        },
-        {
-          title: 'Direct Secretary Contact',
-          desc: 'Dedicated secretarial support for rapid post-operative queries and clinic appointment coordination.'
-        }
-      ])}
-      `
-    )
-  },
-
-  // 18. Hip Replacement Recovery
+  // 17. Hip Replacement Recovery
   {
     path: 'hip-replacement-recovery',
     title: 'Hip Replacement Recovery & Rehabilitation Guide | Mr Shivakumar Shankar',
     description: 'Evidence-based hip replacement recovery and rehabilitation guide by Mr Shivakumar Shankar in London & Essex: walking milestones, physiotherapy, driving, and return to work.',
     canonical: 'https://www.shivakumarshankar.co.uk/hip-replacement-recovery',
+    customJsonLd: generateStandardPageJsonLd({
+      canonical: 'https://www.shivakumarshankar.co.uk/hip-replacement-recovery',
+      title: 'Hip Replacement Recovery & Rehabilitation Guide | Mr Shivakumar Shankar',
+      description: 'Evidence-based hip replacement recovery and rehabilitation guide by Mr Shivakumar Shankar in London & Essex: walking milestones, physiotherapy, driving, and return to work.',
+      breadcrumbs: [
+        { name: 'Patient Information', href: '/patient-information' },
+        { name: 'Hip Replacement Recovery Guide', href: '/hip-replacement-recovery' }
+      ],
+      faqs: HIP_RECOVERY_FAQS
+    }),
     bodyHtml: renderPageShell(
-      'hip-recovery',
-      'Clinical Recovery Pathway • Hip Arthroplasty',
-      'Hip Replacement Recovery & Rehabilitation Guide',
-      'Comprehensive hip replacement recovery milestones, physiotherapy exercises, wound care advice, walking progression, returning to driving, and return to work under Mr Shivakumar Shankar in London and Essex. Explore related procedures: <a href="/hip-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Total Hip Replacement</a>, <a href="/robotic-hip-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">MAKO Robotic Hip Replacement</a>, <a href="/minimally-invasive-hip-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Minimally Invasive Hip Surgery</a>, and <a href="/revision-hip-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">Revision Hip Replacement</a>.',
+      'hip-replacement-recovery',
+      'Recovery Pathway • Hip Arthroplasty',
+      'Hip Replacement Recovery &amp; Rehabilitation Guide',
+      'Comprehensive hip replacement recovery milestones, physiotherapy exercises, wound care guidance, walking progression, returning to driving, and return to work under Mr Shivakumar Shankar in London and Essex.',
       `
-      ${renderCardGrid([
-        {
-          title: 'Weeks 0 to 2: Mobilisation',
-          desc: 'Hospital discharge typically day 1 or 2. Walking with two crutches, regular ice therapy, and dedicated abductor exercises.'
-        },
-        {
-          title: 'Weeks 3 to 6: Weaning Aids',
-          desc: 'Transition to single stick, progressive walking tolerance, and driving assessment once emergency stop capability is confirmed.'
-        },
-        {
-          title: 'Weeks 6 to 12+: Return to Work',
-          desc: 'Resuming desk duties (4-6 weeks) or manual occupations (8-12 weeks), low-impact cycling, and swimming.'
-        }
-      ])}
+      <section class="mb-8 p-4 bg-[#FFFBEB] rounded-xl border border-[#FDE68A] text-xs text-amber-900 leading-relaxed">
+        <strong>Important Clinical Notice:</strong> Recovery rates vary from person to person depending on general health, bone quality, muscular strength, and surgical approach. Always follow the explicit instructions and post-operative guidance given by your treating clinical and surgical team.
+      </section>
+
+      <section class="mb-10 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-6">
+        <h2 class="text-2xl font-black text-slate-900">Hip Replacement Recovery Milestones &amp; Practical Advice</h2>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          Enhanced Recovery After Surgery (ERAS) protocols combine spinal anaesthesia, targeted local anaesthetic infiltration, and muscle-sparing surgical exposure so that most patients stand and walk with a physiotherapist on the day of their hip replacement. While individual progress depends on pre-operative fitness, bone quality, and whether surgery is primary or revision, the structured timeline below outlines typical post-operative milestones.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-2">
+            <h3 class="font-bold text-slate-900 text-sm text-[#1B4965]">Day 0 to Week 2</h3>
+            <ul class="text-xs text-slate-600 space-y-1.5 leading-relaxed">
+              <li>&bull; Same-day mobilisation with two crutches or a frame under physiotherapy supervision.</li>
+              <li>&bull; Safe stair negotiation practice (up with the non-operated leg first, down with the crutches and operated leg first) prior to hospital discharge.</li>
+              <li>&bull; Keep your waterproof surgical dressing undisturbed, clean, and dry; shower only as instructed by the ward team.</li>
+              <li>&bull; Scheduled multimodal analgesia and venous thromboembolism (VTE) prophylaxis tablets or injections.</li>
+            </ul>
+          </div>
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-2">
+            <h3 class="font-bold text-slate-900 text-sm text-[#1B4965]">Weeks 2 to 6</h3>
+            <ul class="text-xs text-slate-600 space-y-1.5 leading-relaxed">
+              <li>&bull; Progressive transition from two crutches to a single walking stick held in the hand opposite the operated hip.</li>
+              <li>&bull; Surgical wound check and clip or suture review by the outpatient nursing team at day 10 to 14.</li>
+              <li>&bull; Gradual increase in outdoor walking on even pavements and targeted hip abductor (gluteus medius) strengthening.</li>
+              <li>&bull; Sleeping comfortably on your back or on the non-operated side with a firm pillow placed between the knees.</li>
+            </ul>
+          </div>
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-2">
+            <h3 class="font-bold text-slate-900 text-sm text-[#1B4965]">Weeks 6 to 12+</h3>
+            <ul class="text-xs text-slate-600 space-y-1.5 leading-relaxed">
+              <li>&bull; Consultant clinical and radiological follow-up review at approximately 6 weeks post-operation.</li>
+              <li>&bull; Return to driving (typically 4 to 6 weeks) once completely off strong opioid medication and able to perform a firm emergency stop.</li>
+              <li>&bull; Return to desk-based work at 4 to 6 weeks, or physically demanding manual work at 8 to 12 weeks.</li>
+              <li>&bull; Graduated resumption of low-impact activities including swimming (once the wound is fully sealed), static cycling, golf, and country walking.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+          <div class="p-5 bg-slate-50 rounded-xl border border-slate-100 space-y-2.5">
+            <h3 class="font-bold text-slate-900 text-sm text-[#1B4965]">Core Daily Hip Physiotherapy Exercises</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Consistent, gentle daily repetition (3 to 4 times per day) is more effective than infrequent strenuous workouts:
+            </p>
+            <ul class="text-xs text-slate-600 space-y-1.5 leading-relaxed">
+              <li>&bull; <strong>Ankle Pumps &amp; Gluteal Squeezes:</strong> Hourly foot dorsiflexion/plantarflexion and buttock contractions in the first fortnight to stimulate venous return.</li>
+              <li>&bull; <strong>Heel Slides &amp; Static Quadriceps:</strong> Controlled knee and hip flexion sliding the heel along the bed, followed by pressing the back of the knee flat for 5 seconds.</li>
+              <li>&bull; <strong>Standing Hip Abduction &amp; Extension:</strong> Holding a sturdy kitchen worktop, gently lift the operated leg out to the side and backwards while keeping the trunk upright to eliminate any pre-operative limp.</li>
+            </ul>
+          </div>
+
+          <div class="p-5 bg-slate-50 rounded-xl border border-slate-100 space-y-2.5">
+            <h3 class="font-bold text-slate-900 text-sm text-[#1B4965]">Private Hospital Rehabilitation &amp; Follow-Up in Brentwood</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Inpatient and outpatient physiotherapy, wound care clinics, and 6-week consultant follow-up appointments are coordinated directly at your treating hospital:
+            </p>
+            <ul class="text-xs text-slate-600 space-y-1.5 leading-relaxed">
+              <li>&bull; <a href="/nuffield-brentwood-hospital" class="font-bold text-[#1B4965] hover:underline">Nuffield Health Brentwood Hospital (CM15 8EH)</a> — Dedicated inpatient and outpatient physiotherapy following <strong>MAKO robotic-assisted</strong>, minimally invasive, and conventional total hip replacement.</li>
+              <li>&bull; <a href="/spire-hartswood-hospital" class="font-bold text-[#1B4965] hover:underline">Spire Hartswood Hospital, Brentwood (CM13 3LE)</a> — Specialist arthroplasty rehabilitation following <strong>conventional and computer-navigated</strong> total hip replacement (MAKO robotic surgery is not available at Spire Hartswood).</li>
+              <li>&bull; <a href="/contact" class="font-bold text-[#1B4965] hover:underline">Contact Practice Secretary</a> — Reach Mr Shankar’s team for post-operative appointments, insurance authorisation, or clinical queries.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-100 space-y-4">
+          <h3 class="text-lg font-black text-slate-900">Frequently Asked Questions: Hip Replacement Recovery</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            ${HIP_RECOVERY_FAQS.map(faq => `
+              <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-1.5">
+                <h4 class="font-bold text-slate-900 text-xs">${faq.question}</h4>
+                <p class="text-xs text-slate-600 leading-relaxed">${faq.answer}</p>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-100 flex flex-wrap gap-3 text-xs">
+          <span class="font-bold text-slate-700">Related Hip Procedures:</span>
+          <a href="/hip-replacement" class="font-bold text-[#1B4965] hover:underline">Total Hip Replacement &rarr;</a>
+          <a href="/robotic-hip-replacement" class="font-bold text-[#1B4965] hover:underline">MAKO Robotic Hip Replacement &rarr;</a>
+          <a href="/minimally-invasive-hip-replacement" class="font-bold text-[#1B4965] hover:underline">Minimally Invasive Hip Surgery &rarr;</a>
+          <a href="/revision-hip-replacement" class="font-bold text-[#1B4965] hover:underline">Revision Hip Replacement &rarr;</a>
+        </div>
+      </section>
+
+      <section class="mb-10 bg-rose-50/70 p-6 sm:p-8 rounded-2xl border border-rose-200 shadow-xs space-y-3">
+        <h3 class="text-lg font-black text-rose-950">When to Contact the Clinical Team Immediately</h3>
+        <p class="text-xs text-rose-900 leading-relaxed">
+          While serious complications are uncommon, you must contact the hospital ward, <a href="/contact" class="font-bold underline">Mr Shankar's secretary</a>, or emergency services immediately if you experience:
+        </p>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-rose-900">
+          <li>&bull; Sudden, severe pain or swelling in the calf of either leg (potential DVT).</li>
+          <li>&bull; Sudden breathlessness, shortness of breath, or sharp chest pain (potential PE).</li>
+          <li>&bull; Spreading redness, heat, worsening wound leakage, foul discharge, or high fever (&gt;38&deg;C).</li>
+          <li>&bull; Sudden inability to bear weight through the operated leg or acute joint dislocation.</li>
+        </ul>
+      </section>
       `
     )
   },
 
-  // 19. Knee Replacement Recovery
+  // 18. Knee Replacement Recovery
   {
     path: 'knee-replacement-recovery',
     title: 'Knee Replacement Rehabilitation & Recovery Guide | Mr Shivakumar Shankar',
     description: 'Comprehensive knee replacement rehabilitation and recovery timeline by Mr Shivakumar Shankar in London & Essex: knee extension, flexion exercises, swelling control, and driving.',
     canonical: 'https://www.shivakumarshankar.co.uk/knee-replacement-recovery',
+    customJsonLd: generateStandardPageJsonLd({
+      canonical: 'https://www.shivakumarshankar.co.uk/knee-replacement-recovery',
+      title: 'Knee Replacement Rehabilitation & Recovery Guide | Mr Shivakumar Shankar',
+      description: 'Comprehensive knee replacement rehabilitation and recovery timeline by Mr Shivakumar Shankar in London & Essex: knee extension, flexion exercises, swelling control, and driving.',
+      breadcrumbs: [
+        { name: 'Patient Information', href: '/patient-information' },
+        { name: 'Knee Replacement Recovery Guide', href: '/knee-replacement-recovery' }
+      ],
+      faqs: KNEE_RECOVERY_FAQS
+    }),
     bodyHtml: renderPageShell(
-      'knee-recovery',
-      'Clinical Recovery Pathway • Knee Arthroplasty',
-      'Knee Replacement Rehabilitation & Recovery Guide',
-      'Detailed knee replacement rehabilitation milestones, straightening (0° extension) and bending exercises, swelling management, driving resumption, and recovery after <a href="/knee-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">total knee replacement</a>, <a href="/robotic-knee-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">MAKO robotic knee replacement</a>, <a href="/partial-knee-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">partial knee replacement</a>, and <a href="/computer-assisted-knee-replacement" class="font-bold underline text-[#1B4965] hover:text-[#0A192F]">computer-navigated knee surgery</a>.',
+      'knee-replacement-recovery',
+      'Recovery Pathway • Knee Arthroplasty',
+      'Knee Replacement Rehabilitation &amp; Recovery Guide',
+      'Detailed knee replacement rehabilitation pathway covering knee extension (0°), flexion milestones, swelling control, icing protocols, stair negotiation, and return to daily activities under Mr Shivakumar Shankar in London and Essex.',
       `
-      ${renderCardGrid([
-        {
-          title: 'Restoring Knee Straightening',
-          desc: 'Achieving 0 degrees full extension early prevents long-term walking limps and restores quadriceps strength.'
-        },
-        {
-          title: 'Managing Joint Swelling',
-          desc: 'Elevating the leg above heart level, structured cryotherapy (ice packs), and avoiding prolonged dependent standing.'
-        },
-        {
-          title: 'Restoring Knee Bend',
-          desc: 'Graded flexion exercises aiming for 90 degrees by week 2 and 110+ degrees by week 6 to 8 for normal stair climbing.'
-        }
-      ])}
+      <section class="mb-8 p-4 bg-[#FFFBEB] rounded-xl border border-[#FDE68A] text-xs text-amber-900 leading-relaxed">
+        <strong>Important Clinical Notice:</strong> Recovery rates vary from person to person depending on general health, bone quality, muscular strength, and surgical approach. Always follow the explicit instructions and post-operative guidance given by your treating clinical and surgical team.
+      </section>
+
+      <section class="mb-10 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-6">
+        <h2 class="text-2xl font-black text-slate-900">Knee Replacement Rehabilitation &amp; Mobility Focus</h2>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          Successful recovery after total or partial knee replacement relies on active patient participation in daily physiotherapy, disciplined swelling control, and progressive range-of-motion exercises. Unlike the hip, the knee joint requires dedicated daily work to prevent scar tissue stiffness and restore both full straightening (extension) and smooth bending (flexion).
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-2">
+            <h3 class="font-bold text-slate-900 text-sm text-[#1B4965]">Restoring Extension (0&deg;)</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Straightening the knee completely (0 degrees) is the critical early objective for an efficient, limp-free walking gait. Practise pressing the back of the knee firmly down into the mattress and resting your heel on a rolled towel with nothing supporting the back of the knee.
+            </p>
+          </div>
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-2">
+            <h3 class="font-bold text-slate-900 text-sm text-[#1B4965]">Swelling &amp; Ice Management</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Post-operative swelling and mild warmth around the knee are normal physiological responses for 3 to 6 months. Regular cryotherapy (ice packs wrapped in a damp towel for 15–20 minutes, 4 times daily) and high leg elevation after exercise control joint effusion.
+            </p>
+          </div>
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-2">
+            <h3 class="font-bold text-slate-900 text-sm text-[#1B4965]">Achieving Flexion (90&deg; to 115&deg;+)</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Aim for 90 degrees of knee bend before or shortly after week 2, progressing towards 110–120+ degrees over weeks 6 to 12. Seated heel slides and gentle upright stationary cycling (once flexion reaches ~95&deg;) safely build flexion and quadriceps endurance.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-2">
+            <h3 class="font-bold text-slate-900 text-sm text-[#1B4965]">Day 0 to Week 2</h3>
+            <ul class="text-xs text-slate-600 space-y-1.5 leading-relaxed">
+              <li>&bull; Same-day weight-bearing with crutches under physiotherapy guidance after spinal and adductor canal block analgesia.</li>
+              <li>&bull; Regular scheduled pain relief taken 30 minutes before exercise sessions to permit comfortable knee bending.</li>
+              <li>&bull; Wound clip or suture inspection at day 12 to 14; keep waterproof dressing dry until healed.</li>
+            </ul>
+          </div>
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-2">
+            <h3 class="font-bold text-slate-900 text-sm text-[#1B4965]">Weeks 2 to 6</h3>
+            <ul class="text-xs text-slate-600 space-y-1.5 leading-relaxed">
+              <li>&bull; Progression from two crutches to one walking stick indoors and outdoors as quadriceps control improves.</li>
+              <li>&bull; Outpatient physiotherapy focusing on patellar mobility, step-ups, balance, and stationary bike revolutions.</li>
+              <li>&bull; Return to driving around 4 to 6 weeks (or 2 to 4 weeks after partial knee replacement) once emergency braking is brisk and pain-free.</li>
+            </ul>
+          </div>
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-2">
+            <h3 class="font-bold text-slate-900 text-sm text-[#1B4965]">Weeks 6 to 12 &amp; Beyond</h3>
+            <ul class="text-xs text-slate-600 space-y-1.5 leading-relaxed">
+              <li>&bull; 6-week outpatient clinical and X-ray review with Mr Shankar.</li>
+              <li>&bull; Return to sedentary work at 4 to 6 weeks; active or manual roles at 8 to 12 weeks.</li>
+              <li>&bull; Continued soft-tissue remodelling, strength gains, and fading of residual warmth for up to 9 to 12 months.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="p-5 bg-slate-50 rounded-xl border border-slate-100 space-y-2.5">
+          <h3 class="font-bold text-slate-900 text-sm text-[#1B4965]">Private Hospital Knee Rehabilitation &amp; Follow-Up Locations</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Your post-operative physiotherapy, wound review, and consultant follow-up are delivered across Mr Shankar’s two Brentwood private hospital centres:
+          </p>
+          <ul class="text-xs text-slate-600 space-y-1.5 leading-relaxed">
+            <li>&bull; <a href="/nuffield-brentwood-hospital" class="font-bold text-[#1B4965] hover:underline">Nuffield Health Brentwood Hospital (CM15 8EH)</a> — Specialist inpatient and outpatient physiotherapy gym supporting patients after <strong>MAKO robotic-assisted total and partial knee replacement</strong> as well as conventional knee surgery.</li>
+            <li>&bull; <a href="/spire-hartswood-hospital" class="font-bold text-[#1B4965] hover:underline">Spire Hartswood Hospital, Brentwood (CM13 3LE)</a> — Dedicated orthopaedic rehabilitation following <strong>conventional and computer-navigated total and partial knee replacement</strong> and day-case knee arthroscopy (MAKO robotic surgery is not available at Spire Hartswood).</li>
+            <li>&bull; <a href="/contact" class="font-bold text-[#1B4965] hover:underline">Contact Practice Secretary</a> — Arrange a post-operative review, physiotherapy referral, or private knee consultation.</li>
+          </ul>
+        </div>
+
+        <div class="pt-4 border-t border-slate-100 space-y-4">
+          <h3 class="text-lg font-black text-slate-900">Frequently Asked Questions: Knee Replacement Recovery</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            ${KNEE_RECOVERY_FAQS.map(faq => `
+              <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-1.5">
+                <h4 class="font-bold text-slate-900 text-xs">${faq.question}</h4>
+                <p class="text-xs text-slate-600 leading-relaxed">${faq.answer}</p>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-100 flex flex-wrap gap-3 text-xs">
+          <span class="font-bold text-slate-700">Related Knee Procedures:</span>
+          <a href="/knee-replacement" class="font-bold text-[#1B4965] hover:underline">Total Knee Replacement &rarr;</a>
+          <a href="/robotic-knee-replacement" class="font-bold text-[#1B4965] hover:underline">MAKO Robotic Knee Replacement &rarr;</a>
+          <a href="/partial-knee-replacement" class="font-bold text-[#1B4965] hover:underline">Partial Knee Replacement &rarr;</a>
+          <a href="/computer-assisted-knee-replacement" class="font-bold text-[#1B4965] hover:underline">Computer-Navigated Knee Surgery &rarr;</a>
+          <a href="/knee-arthroscopy" class="font-bold text-[#1B4965] hover:underline">Knee Arthroscopy &rarr;</a>
+        </div>
+      </section>
+
+      <section class="mb-10 bg-rose-50/70 p-6 sm:p-8 rounded-2xl border border-rose-200 shadow-xs space-y-3">
+        <h3 class="text-lg font-black text-rose-950">When to Contact the Clinical Team Immediately</h3>
+        <p class="text-xs text-rose-900 leading-relaxed">
+          While serious complications are uncommon, you must contact the hospital ward, <a href="/contact" class="font-bold underline">Mr Shankar's secretary</a>, or emergency services immediately if you experience:
+        </p>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-rose-900">
+          <li>&bull; Sudden, severe pain or swelling in the calf of either leg (potential DVT).</li>
+          <li>&bull; Sudden breathlessness, shortness of breath, or sharp chest pain (potential PE).</li>
+          <li>&bull; Spreading redness, heat, worsening wound leakage, foul discharge, or high fever (&gt;38&deg;C).</li>
+          <li>&bull; Sudden inability to bear weight through the operated leg.</li>
+        </ul>
+      </section>
       `
     )
   },
 
-  // 20. Preparing for Surgery
+  // 19. Preparing for Surgery
   {
     path: 'preparing-for-surgery',
     title: 'Preparing for Joint Surgery | Pre-Assessment Checklist & Advice',
     description: 'Practical guidance on preparing for hip or knee surgery, pre-assessment clinic, medication management, and home preparation.',
     canonical: 'https://www.shivakumarshankar.co.uk/preparing-for-surgery',
+    customJsonLd: generateStandardPageJsonLd({
+      canonical: 'https://www.shivakumarshankar.co.uk/preparing-for-surgery',
+      title: 'Preparing for Joint Surgery | Pre-Assessment Checklist & Advice',
+      description: 'Practical guidance on preparing for hip or knee surgery, pre-assessment clinic, medication management, and home preparation.',
+      breadcrumbs: [
+        { name: 'Patient Information', href: '/patient-information' },
+        { name: 'Preparing for Surgery', href: '/preparing-for-surgery' }
+      ],
+      faqs: []
+    }),
     bodyHtml: renderPageShell(
-      'surgical-preparation',
+      'preparing-for-surgery',
       'Patient Preparation Guide • Hospital Pathway',
       'Preparing for Hip or Knee Surgery',
       'Essential guidance for patients undergoing joint replacement: pre-assessment checks, stopping medications safely, preparing your home, and what to pack for hospital.',
@@ -6009,18 +6467,34 @@ const pageDefinitions = [
           desc: 'Loose comfortable clothing, supportive flat shoes, current medications in original boxes, and toiletries.'
         }
       ])}
+      <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs mb-10 space-y-3">
+        <h2 class="text-xl font-bold text-slate-900">Hospital Pre-Admission Support in Brentwood</h2>
+        <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+          Pre-operative nursing and anaesthetic assessments take place at <a href="/nuffield-brentwood-hospital" class="font-bold text-[#1B4965] hover:underline">Nuffield Health Brentwood Hospital</a> and <a href="/spire-hartswood-hospital" class="font-bold text-[#1B4965] hover:underline">Spire Hartswood Hospital</a>. If you have questions about your admission date or current medications, please <a href="/contact" class="font-bold text-[#1B4965] hover:underline">contact Mr Shankar’s medical secretary</a>.
+        </p>
+      </section>
       `
     )
   },
 
-  // 21. Frequently Asked Questions
+  // 20. Frequently Asked Questions
   {
     path: 'frequently-asked-questions',
     title: 'Orthopaedic FAQs | Hip & Knee Surgery Questions Answered',
     description: 'Answers to frequent patient questions on private health insurance, consultation fees, surgical recovery, anaesthesia, and implant durability.',
     canonical: 'https://www.shivakumarshankar.co.uk/frequently-asked-questions',
+    customJsonLd: generateStandardPageJsonLd({
+      canonical: 'https://www.shivakumarshankar.co.uk/frequently-asked-questions',
+      title: 'Orthopaedic FAQs | Hip & Knee Surgery Questions Answered',
+      description: 'Answers to frequent patient questions on private health insurance, consultation fees, surgical recovery, anaesthesia, and implant durability.',
+      breadcrumbs: [
+        { name: 'Patient Information', href: '/patient-information' },
+        { name: 'Frequently Asked Questions', href: '/frequently-asked-questions' }
+      ],
+      faqs: HOMEPAGE_AND_HUB_FAQS
+    }),
     bodyHtml: renderPageShell(
-      'faqs',
+      'frequently-asked-questions',
       'Frequently Asked Questions • Practice FAQ',
       'Frequently Asked Questions (FAQs)',
       'Clear, authoritative answers to common patient questions covering private medical insurance pre-authorisation, self-pay fixed price packages, hospital stay, anaesthesia, and post-operative recovery.',
@@ -6039,18 +6513,44 @@ const pageDefinitions = [
           desc: 'Most joint replacements are performed using spinal anaesthesia with light sedation, avoiding general anaesthetic grogginess.'
         }
       ])}
+      <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs mb-10 space-y-4">
+        <h2 class="text-2xl font-black text-slate-900">Patient Questions &amp; Answers</h2>
+        <div class="space-y-4">
+          ${HOMEPAGE_AND_HUB_FAQS.map(faq => `
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-2">
+              <h3 class="font-bold text-slate-900 text-sm">${faq.question}</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">${faq.answer}</p>
+            </div>
+          `).join('')}
+        </div>
+        <div class="pt-4 border-t border-slate-100 flex flex-wrap gap-3 text-xs">
+          <a href="/nuffield-brentwood-hospital" class="font-bold text-[#1B4965] hover:underline">Nuffield Health Brentwood Hospital &rarr;</a>
+          <a href="/spire-hartswood-hospital" class="font-bold text-[#1B4965] hover:underline">Spire Hartswood Hospital &rarr;</a>
+          <a href="/contact" class="font-bold text-[#1B4965] hover:underline">Contact Practice Secretary &rarr;</a>
+        </div>
+      </section>
       `
     )
   },
 
-  // 22. Physiotherapy Protocols
+  // 21. Physiotherapy Protocols
   {
     path: 'physio-protocols',
     title: 'Physiotherapy Protocols & PDFs | Mr Shivakumar Shankar',
     description: 'Downloadable clinical rehabilitation protocols and exercise guidelines for total hip, total knee, partial knee, and arthroscopy patients.',
     canonical: 'https://www.shivakumarshankar.co.uk/physio-protocols',
+    customJsonLd: generateStandardPageJsonLd({
+      canonical: 'https://www.shivakumarshankar.co.uk/physio-protocols',
+      title: 'Physiotherapy Protocols & PDFs | Mr Shivakumar Shankar',
+      description: 'Downloadable clinical rehabilitation protocols and exercise guidelines for total hip, total knee, partial knee, and arthroscopy patients.',
+      breadcrumbs: [
+        { name: 'Patient Information', href: '/patient-information' },
+        { name: 'Physiotherapy Protocols', href: '/physio-protocols' }
+      ],
+      faqs: []
+    }),
     bodyHtml: renderPageShell(
-      'physiotherapy',
+      'physio-protocols',
       'Downloadable PDF Protocols • Rehabilitation',
       'Physiotherapy Protocols &amp; Rehabilitation Guidelines',
       'Downloadable step-by-step physiotherapy protocols authored by Mr Shivakumar Shankar to guide your post-operative recovery and optimise joint range of motion.',
@@ -6069,16 +6569,35 @@ const pageDefinitions = [
           desc: 'Rapid keyhole meniscal recovery guidelines for immediate day-case discharge and return to sports.'
         }
       ])}
+      <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs mb-10 space-y-3">
+        <h2 class="text-xl font-bold text-slate-900">Related Recovery Guides &amp; Hospital Physiotherapy</h2>
+        <div class="flex flex-wrap gap-3 text-xs">
+          <a href="/hip-replacement-recovery" class="font-bold text-[#1B4965] hover:underline">Hip Replacement Recovery Guide &rarr;</a>
+          <a href="/knee-replacement-recovery" class="font-bold text-[#1B4965] hover:underline">Knee Replacement Recovery Guide &rarr;</a>
+          <a href="/nuffield-brentwood-hospital" class="font-bold text-[#1B4965] hover:underline">Nuffield Health Brentwood &rarr;</a>
+          <a href="/spire-hartswood-hospital" class="font-bold text-[#1B4965] hover:underline">Spire Hartswood Hospital &rarr;</a>
+          <a href="/contact" class="font-bold text-[#1B4965] hover:underline">Contact Practice Secretary &rarr;</a>
+        </div>
+      </section>
       `
     )
   },
 
-  // 23. Hospitals & Locations Overview
+  // 22. Hospitals & Locations Overview
   {
     path: 'hospitals-locations',
     title: 'Hospitals & Practice Locations | London & Essex Hip Knee Surgeon',
     description: 'Consulting and surgical locations across Essex and London: Spire Hartswood, Nuffield Health Brentwood, Queen\'s Hospital, and King George Hospital.',
     canonical: 'https://www.shivakumarshankar.co.uk/hospitals-locations',
+    customJsonLd: generateStandardPageJsonLd({
+      canonical: 'https://www.shivakumarshankar.co.uk/hospitals-locations',
+      title: 'Hospitals & Practice Locations | London & Essex Hip Knee Surgeon',
+      description: 'Consulting and surgical locations across Essex and London: Spire Hartswood, Nuffield Health Brentwood, Queen\'s Hospital, and King George Hospital.',
+      breadcrumbs: [
+        { name: 'Hospitals & Locations', href: '/hospitals-locations' }
+      ],
+      faqs: []
+    }),
     bodyHtml: renderPageShell(
       'hospitals-overview',
       'Consulting Locations • London & Essex',
@@ -6165,14 +6684,14 @@ const pageDefinitions = [
   // 25. Essex Hip & Knee Surgeon
   {
     path: 'essex-hip-knee-surgeon',
-    title: 'Essex Hip, Knee & Revision Hip Surgeon | Mr Shivakumar Shankar',
-    description: 'Mr Shivakumar Shankar is a Consultant Orthopaedic Hip, Knee and Revision Hip Surgeon in Essex, offering conventional, navigated and MAKO robotic surgery at Nuffield Brentwood and Spire Hartswood.',
+    title: 'Hip & Knee Surgeon Brentwood, Romford & Essex | Mr Shivakumar Shankar',
+    description: 'Consultant Hip, Knee & Revision Hip Surgeon in Brentwood, Romford & Essex. MAKO robotic surgery at Nuffield Brentwood & navigated surgery at Spire Hartswood.',
     canonical: 'https://www.shivakumarshankar.co.uk/essex-hip-knee-surgeon',
     customJsonLd: generateRegionalPageJsonLd({
       path: 'essex-hip-knee-surgeon',
       canonical: 'https://www.shivakumarshankar.co.uk/essex-hip-knee-surgeon',
-      title: 'Essex Hip, Knee & Revision Hip Surgeon | Mr Shivakumar Shankar',
-      description: 'Mr Shivakumar Shankar is a Consultant Orthopaedic Hip, Knee and Revision Hip Surgeon in Essex, offering conventional, navigated and MAKO robotic surgery at Nuffield Brentwood and Spire Hartswood.',
+      title: 'Hip & Knee Surgeon Brentwood, Romford & Essex | Mr Shivakumar Shankar',
+      description: 'Consultant Hip, Knee & Revision Hip Surgeon in Brentwood, Romford & Essex. MAKO robotic surgery at Nuffield Brentwood & navigated surgery at Spire Hartswood.',
       regionName: 'Essex',
       faqs: ESSEX_FAQS
     }),
@@ -6237,14 +6756,14 @@ const pageDefinitions = [
   // 28. Queen's Hospital Romford (NHS)
   {
     path: 'queens-hospital-romford',
-    title: "Queen's Hospital Romford | Mr Shivakumar Shankar | Substantive NHS Consultant",
-    description: "Substantive NHS Consultant Orthopaedic Surgeon at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT) at Queen's Hospital, Romford. Complex revision hip surgery, joint reconstruction, and trauma care.",
+    title: "Hip & Knee Surgeon Romford | Queen's Hospital NHS | Mr Shivakumar Shankar",
+    description: "Mr Shivakumar Shankar, substantive NHS Consultant Hip & Knee Surgeon at Queen's Hospital Romford (BHRUT). Trauma, primary & complex NHS revision hip surgery.",
     canonical: 'https://www.shivakumarshankar.co.uk/queens-hospital-romford',
     customJsonLd: generateHospitalPageJsonLd({
       path: 'queens-hospital-romford',
       canonical: 'https://www.shivakumarshankar.co.uk/queens-hospital-romford',
-      title: "Queen's Hospital Romford | Mr Shivakumar Shankar | Substantive NHS Consultant",
-      description: "Substantive NHS Consultant Orthopaedic Surgeon at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT) at Queen's Hospital, Romford. Complex revision hip surgery, joint reconstruction, and trauma care.",
+      title: "Hip & Knee Surgeon Romford | Queen's Hospital NHS | Mr Shivakumar Shankar",
+      description: "Mr Shivakumar Shankar, substantive NHS Consultant Hip & Knee Surgeon at Queen's Hospital Romford (BHRUT). Trauma, primary & complex NHS revision hip surgery.",
       hospital: QUEENS_HOSPITAL_DATA,
       faqs: QUEENS_HOSPITAL_FAQS
     }),
@@ -6282,14 +6801,23 @@ const pageDefinitions = [
     )
   },
 
-  // 30. Reviews
+  // 29. Reviews
   {
     path: 'reviews',
     title: 'Patient Reviews & Clinical Outcomes | Mr Shivakumar Shankar',
     description: 'Independently verified patient reviews from Doctify and iWantGreatCare for Mr Shivakumar Shankar, Consultant Hip & Knee Surgeon.',
     canonical: 'https://www.shivakumarshankar.co.uk/reviews',
+    customJsonLd: generateStandardPageJsonLd({
+      canonical: 'https://www.shivakumarshankar.co.uk/reviews',
+      title: 'Patient Reviews & Clinical Outcomes | Mr Shivakumar Shankar',
+      description: 'Independently verified patient reviews from Doctify and iWantGreatCare for Mr Shivakumar Shankar, Consultant Hip & Knee Surgeon.',
+      breadcrumbs: [
+        { name: 'Patient Reviews', href: '/reviews' }
+      ],
+      faqs: []
+    }),
     bodyHtml: renderPageShell(
-      'patient-reviews',
+      'reviews',
       'Verified Feedback • Doctify & iWantGreatCare',
       'Patient Feedback &amp; Reviews',
       'Transparency and clinical excellence define Mr Shivakumar Shankar\'s practice. Read independently published patient feedback and reviews about Mr Shankar\'s care on leading healthcare rating platforms including Doctify and iWantGreatCare, reflecting experiences of hip and knee surgery and recovery.',
@@ -6308,48 +6836,33 @@ const pageDefinitions = [
           desc: '"Complex sports meniscal tear repaired as a day case. Pain was minimal and I was back on the golf course within 6 weeks."'
         }
       ])}
+      <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs mb-10 space-y-3">
+        <h2 class="text-xl font-bold text-slate-900">Consultations &amp; Private Hospital Care in Brentwood</h2>
+        <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+          Mr Shankar welcomes insured and self-funding patients at <a href="/nuffield-brentwood-hospital" class="font-bold text-[#1B4965] hover:underline">Nuffield Health Brentwood Hospital</a> and <a href="/spire-hartswood-hospital" class="font-bold text-[#1B4965] hover:underline">Spire Hartswood Hospital</a>. To schedule an appointment, please <a href="/contact" class="font-bold text-[#1B4965] hover:underline">contact the practice secretary</a>.
+        </p>
+      </section>
       `
     )
   },
 
-  // 31. /patient-reviews-outcomes (alias)
-  {
-    path: 'patient-reviews-outcomes',
-    title: 'Patient Reviews & Clinical Outcomes | Mr Shivakumar Shankar',
-    description: 'Independently verified patient reviews from Doctify and iWantGreatCare for Mr Shivakumar Shankar, Consultant Hip & Knee Surgeon.',
-    canonical: 'https://www.shivakumarshankar.co.uk/reviews',
-    bodyHtml: renderPageShell(
-      'patient-reviews',
-      'Verified Feedback • Doctify & iWantGreatCare',
-      'Patient Feedback &amp; Reviews',
-      'Read independently published patient testimonials, reviews, and ratings from Doctify and iWantGreatCare reflecting patient experiences of Mr Shankar\'s hip and knee care.',
-      `
-      ${renderCardGrid([
-        {
-          title: 'Top Rated Consultant',
-          desc: 'Consistently awarded top marks for bedside manner, listening to patients, and explaining surgical options clearly.'
-        },
-        {
-          title: 'National Joint Registry (NJR)',
-          desc: 'Routine submission of all arthroplasty data ensuring transparency and rigorous tracking of implant performance and safety.'
-        },
-        {
-          title: 'Care Quality Commission',
-          desc: 'Practising exclusively in CQC-inspected hospital facilities in Brentwood, Romford, and Goodmayes.'
-        }
-      ])}
-      `
-    )
-  },
-
-  // 32. Contact
+  // 30. Contact
   {
     path: 'contact',
     title: 'Contact Practice Secretary | Mr Shivakumar Shankar',
     description: 'Contact practice secretary Remya Rexlin to book consultations at Spire Hartswood Hospital or Nuffield Health Brentwood Hospital.',
     canonical: 'https://www.shivakumarshankar.co.uk/contact',
+    customJsonLd: generateStandardPageJsonLd({
+      canonical: 'https://www.shivakumarshankar.co.uk/contact',
+      title: 'Contact Practice Secretary | Mr Shivakumar Shankar',
+      description: 'Contact practice secretary Remya Rexlin to book consultations at Spire Hartswood Hospital or Nuffield Health Brentwood Hospital.',
+      breadcrumbs: [
+        { name: 'Contact Practice', href: '/contact' }
+      ],
+      faqs: []
+    }),
     bodyHtml: renderPageShell(
-      'contact-secretary',
+      'contact',
       'Fast-Track Appointments • Insured & Self-Pay',
       'Contact Mr Shivakumar Shankar\'s Practice',
       'Contact private practice medical secretary Remya Rexlin directly for fast-track consultation bookings, insurance pre-authorisations, and hospital appointments.',
@@ -6415,65 +6928,22 @@ const pageDefinitions = [
     )
   },
 
-  // 33. /contact-consultation (alias)
-  {
-    path: 'contact-consultation',
-    title: 'Contact Practice Secretary | Mr Shivakumar Shankar',
-    description: 'Contact practice secretary Remya Rexlin to book consultations at Spire Hartswood Hospital or Nuffield Health Brentwood Hospital.',
-    canonical: 'https://www.shivakumarshankar.co.uk/contact',
-    bodyHtml: renderPageShell(
-      'contact-secretary',
-      'Practice Appointments • Brentwood & London',
-      'Contact Practice Secretary &amp; Bookings',
-      'Whether you are suffering from painful hip arthritis, knee stiffness, or a sports-related meniscal tear, booking a consultation with Mr Shivakumar Shankar is fast and simple.',
-      `
-      ${renderCardGrid([
-        {
-          title: 'Direct Secretary Booking',
-          desc: 'Call 07587 765888 or email hip.knee_specialist@yahoo.com to book your preferred clinic slot.'
-        },
-        {
-          title: 'Private Health Insurance',
-          desc: 'Recognised by all major insurers; remember to obtain your pre-authorisation code prior to attendance.'
-        },
-        {
-          title: 'Self-Funding Patients',
-          desc: 'Transparent consultation and procedure fees with fixed-price hospital packages available.'
-        }
-      ])}
-      <section id="private-practice-locations" class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 mb-12">
-        <h2 class="text-2xl font-extrabold text-slate-900 mb-2">Private Practice Locations</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-          <div class="p-6 rounded-2xl border border-slate-200 bg-slate-50/50 space-y-2">
-            <h3 class="text-lg font-bold text-slate-900"><a href="/nuffield-brentwood-hospital" class="hover:text-[#1B4965] hover:underline">Nuffield Health Brentwood Hospital</a></h3>
-            <p class="text-xs text-slate-700 font-semibold">Shenfield Road, Brentwood, Essex CM15 8EH &bull; Tel: 01277 695 695</p>
-            <p class="text-xs text-slate-600">MAKO robotic-assisted hip and knee replacement. Conventional and other appropriate hip and knee procedures.</p>
-            <div class="flex flex-wrap gap-2 pt-2">
-              <a href="https://www.nuffieldhealth.com/consultants/mr-shivakumar-shankar" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-[#1B4965] hover:underline">Official Nuffield Profile &rarr;</a>
-              <a href="https://www.google.com/maps/dir/?api=1&destination=Nuffield+Health+Brentwood+Hospital,Shenfield+Road,Brentwood,Essex,CM15+8EH" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-slate-700 hover:underline">Google Maps Directions &rarr;</a>
-            </div>
-          </div>
-          <div class="p-6 rounded-2xl border border-slate-200 bg-slate-50/50 space-y-2">
-            <h3 class="text-lg font-bold text-slate-900"><a href="/spire-hartswood-hospital" class="hover:text-[#1B4965] hover:underline">Spire Hartswood Hospital</a></h3>
-            <p class="text-xs text-slate-700 font-semibold">Eagle Way, Great Warley, Brentwood, Essex CM13 3LE &bull; Tel: 01277 266 766</p>
-            <p class="text-xs text-slate-600">Conventional and computer-navigated hip and knee replacement. Knee arthroscopy and other appropriate procedures. MAKO robotic surgery is not available at this hospital.</p>
-            <div class="flex flex-wrap gap-2 pt-2">
-              <a href="https://www.spirehealthcare.com/consultant-profiles/mr-shivakumar-shankar-c6038414/" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-[#1B4965] hover:underline">Official Spire Profile &rarr;</a>
-              <a href="https://www.google.com/maps/dir/?api=1&destination=Spire+Hartswood+Hospital,Eagle+Way,Great+Warley,Brentwood,Essex,CM13+3LE" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-slate-700 hover:underline">Google Maps Directions &rarr;</a>
-            </div>
-          </div>
-        </div>
-      </section>
-      `
-    )
-  },
-
-  // 34. Book Consultation
+  // 31. Book Consultation
   {
     path: 'book-consultation',
     title: 'Book an Orthopaedic Consultation | Mr Shivakumar Shankar',
     description: 'Book a private hip or knee consultation online or access live hospital diary timeslots at Spire Hartswood and Nuffield Health Brentwood.',
     canonical: 'https://www.shivakumarshankar.co.uk/book-consultation',
+    customJsonLd: generateStandardPageJsonLd({
+      canonical: 'https://www.shivakumarshankar.co.uk/book-consultation',
+      title: 'Book an Orthopaedic Consultation | Mr Shivakumar Shankar',
+      description: 'Book a private hip or knee consultation online or access live hospital diary timeslots at Spire Hartswood and Nuffield Health Brentwood.',
+      breadcrumbs: [
+        { name: 'Contact Practice', href: '/contact' },
+        { name: 'Book Consultation', href: '/book-consultation' }
+      ],
+      faqs: []
+    }),
     bodyHtml: renderPageShell(
       'book-consultation',
       'Online Appointment Request • Spire & Nuffield',
@@ -6482,7 +6952,7 @@ const pageDefinitions = [
       `
       <section id="private-practice-locations" class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
         <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 space-y-3">
-          <h2 class="text-xl font-bold text-slate-900">Nuffield Health Brentwood Hospital</h2>
+          <h2 class="text-xl font-bold text-slate-900"><a href="/nuffield-brentwood-hospital" class="hover:text-[#1B4965] hover:underline">Nuffield Health Brentwood Hospital</a></h2>
           <p class="text-xs text-slate-700 font-semibold">Shenfield Road, Brentwood, Essex CM15 8EH &bull; Tel: 01277 695 695</p>
           <p class="text-xs sm:text-sm text-slate-600">MAKO robotic-assisted hip and knee replacement, plus conventional and other appropriate hip and knee procedures.</p>
           <div class="flex flex-wrap gap-2 pt-2">
@@ -6495,10 +6965,13 @@ const pageDefinitions = [
             <a href="https://www.google.com/maps/dir/?api=1&destination=Nuffield+Health+Brentwood+Hospital,Shenfield+Road,Brentwood,Essex,CM15+8EH" target="_blank" rel="noopener noreferrer" class="inline-block bg-white border border-slate-300 text-slate-800 px-4 py-2 rounded-lg text-xs font-bold transition-colors">
               Google Maps Directions &rarr;
             </a>
+            <a href="/nuffield-brentwood-hospital" class="inline-block bg-slate-100 text-slate-800 px-4 py-2 rounded-lg text-xs font-bold transition-colors">
+              Hospital Guide &rarr;
+            </a>
           </div>
         </div>
         <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 space-y-3">
-          <h2 class="text-xl font-bold text-slate-900">Spire Hartswood Hospital (Brentwood)</h2>
+          <h2 class="text-xl font-bold text-slate-900"><a href="/spire-hartswood-hospital" class="hover:text-[#1B4965] hover:underline">Spire Hartswood Hospital (Brentwood)</a></h2>
           <p class="text-xs text-slate-700 font-semibold">Eagle Way, Great Warley, Brentwood, Essex CM13 3LE &bull; Tel: 01277 266 766</p>
           <p class="text-xs sm:text-sm text-slate-600">Conventional and computer-navigated hip and knee replacement, knee arthroscopy and other appropriate procedures (MAKO robotic surgery is not available at this hospital).</p>
           <div class="flex flex-wrap gap-2 pt-2">
@@ -6511,19 +6984,34 @@ const pageDefinitions = [
             <a href="https://www.google.com/maps/dir/?api=1&destination=Spire+Hartswood+Hospital,Eagle+Way,Great+Warley,Brentwood,Essex,CM13+3LE" target="_blank" rel="noopener noreferrer" class="inline-block bg-white border border-slate-300 text-slate-800 px-4 py-2 rounded-lg text-xs font-bold transition-colors">
               Google Maps Directions &rarr;
             </a>
+            <a href="/spire-hartswood-hospital" class="inline-block bg-slate-100 text-slate-800 px-4 py-2 rounded-lg text-xs font-bold transition-colors">
+              Hospital Guide &rarr;
+            </a>
           </div>
         </div>
+      </section>
+      <section class="bg-white p-6 rounded-2xl border border-slate-200 mb-10 text-xs sm:text-sm text-slate-700">
+        Need direct assistance with insurance pre-authorisation or appointment dates? <a href="/contact" class="font-bold text-[#1B4965] hover:underline">Contact Mr Shankar’s Medical Secretary (Remya Rexlin) &rarr;</a>
       </section>
       `
     )
   },
 
-  // 35. Media & Social Complete Archive
+  // 32. Media & Social Complete Archive
   {
     path: 'media-social',
     title: 'Media & Social | Mr Shivakumar Shankar | Robotic Hip & Knee Surgeon',
     description: 'Latest professional news, BBC features, NHS surgical milestones, and clinical video updates from Mr Shivakumar Shankar.',
     canonical: 'https://www.shivakumarshankar.co.uk/media-social',
+    customJsonLd: generateStandardPageJsonLd({
+      canonical: 'https://www.shivakumarshankar.co.uk/media-social',
+      title: 'Media & Social | Mr Shivakumar Shankar | Robotic Hip & Knee Surgeon',
+      description: 'Latest professional news, BBC features, NHS surgical milestones, and clinical video updates from Mr Shivakumar Shankar.',
+      breadcrumbs: [
+        { name: 'Media & Social', href: '/media-social' }
+      ],
+      faqs: []
+    }),
     bodyHtml: renderPageShell(
       'media-social',
       'Professional Media, Broadcasts &amp; Social Archive',
@@ -6561,6 +7049,18 @@ const pageDefinitions = [
     )
   }
 ];
+
+// Ensure legacy alias directories/files are removed if present in distDir so 301 redirects handle them cleanly
+['about', 'robotic-surgery', 'patient-guides', 'patient-reviews-outcomes', 'contact-consultation'].forEach(legacySlug => {
+  const legacyDir = path.join(distDir, legacySlug);
+  const legacyHtml = path.join(distDir, `${legacySlug}.html`);
+  if (fs.existsSync(legacyDir)) {
+    fs.rmSync(legacyDir, { recursive: true, force: true });
+  }
+  if (fs.existsSync(legacyHtml)) {
+    fs.rmSync(legacyHtml, { force: true });
+  }
+});
 
 console.log(`Generating pre-rendered static HTML routes for ${pageDefinitions.length} direct URLs...`);
 
@@ -6609,7 +7109,7 @@ pageDefinitions.forEach(page => {
   // Update MedicalWebPage in JSON-LD with page-specific URL and title
   html = html.replace(
     /"@type":\s*"MedicalWebPage",\s*"@id":\s*".*?",\s*"url":\s*".*?",\s*"name":\s*".*?",/g,
-    `"@type": "MedicalWebPage",\n          "@id": "${page.canonical}",\n          "url": "${page.canonical}",\n          "name": "${page.title.replace(/"/g, '\\"')}",`
+    `"@type": "MedicalWebPage",\n          "@id": "${page.canonical}#webpage",\n          "url": "${page.canonical}",\n          "name": "${page.title.replace(/"/g, '\\"')}",`
   );
 
   // Custom JSON-LD schema replacement if specified on page definition

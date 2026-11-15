@@ -64,7 +64,7 @@ export const RoboticComparisonPage: React.FC<RoboticComparisonPageProps> = ({
               <Calendar size={16} /> Book Surgical Consultation
             </button>
             <button
-              onClick={() => onNavigate(isComparison ? '/robotic-computer-assisted-surgery/' : '/conventional-vs-computer-assisted-vs-robotic-surgery/')}
+              onClick={() => onNavigate(isComparison ? '/robotic-computer-assisted-surgery' : '/conventional-vs-computer-assisted-vs-robotic-surgery')}
               className="bg-slate-100 hover:bg-slate-200 text-slate-800 px-5 py-3 rounded-lg font-bold text-sm transition-colors"
             >
               {isComparison ? 'View Robotic Overview' : 'View Comparison Table'}
@@ -218,15 +218,15 @@ export const RoboticComparisonPage: React.FC<RoboticComparisonPageProps> = ({
                 </h4>
                 <div className="space-y-2 text-xs">
                   <a
-                    href="/hip-replacement/"
-                    onClick={(e) => { e.preventDefault(); onNavigate('/hip-replacement/'); }}
+                    href="/hip-replacement"
+                    onClick={(e) => { e.preventDefault(); onNavigate('/hip-replacement'); }}
                     className="block p-2.5 rounded-lg bg-slate-50 hover:bg-[#EAF1F6] font-bold text-slate-800 hover:text-[#1B4965] transition-colors"
                   >
                     → Hip Replacement Surgery
                   </a>
                   <a
-                    href="/robotic-hip-replacement/"
-                    onClick={(e) => { e.preventDefault(); onNavigate('/robotic-hip-replacement/'); }}
+                    href="/robotic-hip-replacement"
+                    onClick={(e) => { e.preventDefault(); onNavigate('/robotic-hip-replacement'); }}
                     className="block p-2.5 rounded-lg bg-slate-50 hover:bg-[#EAF1F6] font-bold text-slate-800 hover:text-[#1B4965] transition-colors"
                   >
                     → Robotic Hip Replacement
@@ -251,6 +251,27 @@ export const RoboticComparisonPage: React.FC<RoboticComparisonPageProps> = ({
                     className="block p-2.5 rounded-lg bg-slate-50 hover:bg-[#EAF1F6] font-bold text-slate-800 hover:text-[#1B4965] transition-colors"
                   >
                     → Partial Knee Replacement
+                  </a>
+                  <a
+                    href="/nuffield-brentwood-hospital"
+                    onClick={(e) => { e.preventDefault(); onNavigate('/nuffield-brentwood-hospital'); }}
+                    className="block p-2.5 rounded-lg bg-slate-50 hover:bg-[#EAF1F6] font-bold text-slate-800 hover:text-[#1B4965] transition-colors"
+                  >
+                    → Nuffield Health Brentwood (MAKO Robotic)
+                  </a>
+                  <a
+                    href="/spire-hartswood-hospital"
+                    onClick={(e) => { e.preventDefault(); onNavigate('/spire-hartswood-hospital'); }}
+                    className="block p-2.5 rounded-lg bg-slate-50 hover:bg-[#EAF1F6] font-bold text-slate-800 hover:text-[#1B4965] transition-colors"
+                  >
+                    → Spire Hartswood Hospital (Navigated)
+                  </a>
+                  <a
+                    href="/contact"
+                    onClick={(e) => { e.preventDefault(); onNavigate('/contact'); }}
+                    className="block p-2.5 rounded-lg bg-slate-50 hover:bg-[#EAF1F6] font-bold text-slate-800 hover:text-[#1B4965] transition-colors"
+                  >
+                    → Contact &amp; Private Practice Locations
                   </a>
                 </div>
               </div>

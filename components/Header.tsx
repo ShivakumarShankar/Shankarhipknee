@@ -290,6 +290,11 @@ export const getCanonicalHref = (href: string) => {
   if (href.startsWith('#')) return href;
   if (href === 'home' || href === '' || href === '/') return '/';
   const clean = href.replace(/^\/+|\/+$/g, '');
+  if (clean === 'about') return '/about-mr-shivakumar-shankar';
+  if (clean === 'robotic-surgery') return '/robotic-computer-assisted-surgery';
+  if (clean === 'patient-guides') return '/patient-information';
+  if (clean === 'patient-reviews-outcomes') return '/reviews';
+  if (clean === 'contact-consultation') return '/contact';
   return `/${clean}`;
 };
 

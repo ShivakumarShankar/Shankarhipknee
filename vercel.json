@@ -95,72 +95,72 @@
     {
       "source": "/about",
       "destination": "/about-mr-shivakumar-shankar",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/about/",
       "destination": "/about-mr-shivakumar-shankar",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/robotic-surgery",
       "destination": "/robotic-computer-assisted-surgery",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/robotic-surgery/",
       "destination": "/robotic-computer-assisted-surgery",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/patient-guides",
       "destination": "/patient-information",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/patient-guides/",
       "destination": "/patient-information",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/patient-reviews-outcomes",
       "destination": "/reviews",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/patient-reviews-outcomes/",
       "destination": "/reviews",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/contact-consultation",
       "destination": "/contact",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/contact-consultation/",
       "destination": "/contact",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/book",
       "destination": "/book-consultation",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/book/",
       "destination": "/book-consultation",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/prp",
       "destination": "/prp-injection",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/prp/",
       "destination": "/prp-injection",
-      "permanent": true
+      "statusCode": 301
     }
   ],
   "rewrites": [

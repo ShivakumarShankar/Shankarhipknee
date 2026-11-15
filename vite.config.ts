@@ -13,6 +13,67 @@ export default defineConfig(({ mode }) => {
       plugins: [
         react(),
         {
+          name: 'legacy-301-redirects',
+          configureServer(server) {
+            const redirectMap: Record<string, string> = {
+              '/about': '/about-mr-shivakumar-shankar',
+              '/about/': '/about-mr-shivakumar-shankar',
+              '/contact-consultation': '/contact',
+              '/contact-consultation/': '/contact',
+              '/patient-guides': '/patient-information',
+              '/patient-guides/': '/patient-information',
+              '/patient-reviews-outcomes': '/reviews',
+              '/patient-reviews-outcomes/': '/reviews',
+              '/robotic-surgery': '/robotic-computer-assisted-surgery',
+              '/robotic-surgery/': '/robotic-computer-assisted-surgery',
+              '/home': '/',
+              '/home/': '/',
+              '/book': '/book-consultation',
+              '/book/': '/book-consultation',
+              '/prp': '/prp-injection',
+              '/prp/': '/prp-injection'
+            };
+            server.middlewares.use((req, res, next) => {
+              const urlPath = (req.url || '').split('?')[0];
+              if (redirectMap[urlPath]) {
+                res.writeHead(301, { Location: redirectMap[urlPath] });
+                res.end();
+                return;
+              }
+              next();
+            });
+          },
+          configurePreviewServer(server) {
+            const redirectMap: Record<string, string> = {
+              '/about': '/about-mr-shivakumar-shankar',
+              '/about/': '/about-mr-shivakumar-shankar',
+              '/contact-consultation': '/contact',
+              '/contact-consultation/': '/contact',
+              '/patient-guides': '/patient-information',
+              '/patient-guides/': '/patient-information',
+              '/patient-reviews-outcomes': '/reviews',
+              '/patient-reviews-outcomes/': '/reviews',
+              '/robotic-surgery': '/robotic-computer-assisted-surgery',
+              '/robotic-surgery/': '/robotic-computer-assisted-surgery',
+              '/home': '/',
+              '/home/': '/',
+              '/book': '/book-consultation',
+              '/book/': '/book-consultation',
+              '/prp': '/prp-injection',
+              '/prp/': '/prp-injection'
+            };
+            server.middlewares.use((req, res, next) => {
+              const urlPath = (req.url || '').split('?')[0];
+              if (redirectMap[urlPath]) {
+                res.writeHead(301, { Location: redirectMap[urlPath] });
+                res.end();
+                return;
+              }
+              next();
+            });
+          }
+        },
+        {
           name: 'mako-image-uploader',
           configureServer(server) {
             server.middlewares.use('/api/consultations', (req, res) => {

@@ -157,13 +157,13 @@ const PAGE_METADATA: Record<string, { title: string; desc: string; canonical: st
     canonical: 'https://www.shivakumarshankar.co.uk/media-social'
   },
   'hip-replacement': {
-    title: 'Hip Replacement Surgeon in Essex & London | Mr Shivakumar Shankar',
-    desc: 'Consultant Hip Replacement Surgeon in Essex & London. Mr Shivakumar Shankar offers conventional, computer-assisted, MAKO robotic & minimally invasive hip surgery.',
+    title: 'Hip Replacement Surgeon Brentwood, Essex & London | Mr Shivakumar Shankar',
+    desc: 'Consultant Hip Surgeon in Brentwood, Essex & London. Mr Shivakumar Shankar offers conventional, computer-navigated, MAKO robotic & minimally invasive hip surgery.',
     canonical: 'https://www.shivakumarshankar.co.uk/hip-replacement'
   },
   'robotic-hip-replacement': {
     title: 'Robotic Hip Replacement London & Essex | Mr Shivakumar Shankar',
-    desc: 'Consultant-led Mako robotic total hip replacement in London and Essex with Mr Shivakumar Shankar. 3D CT planning, spinopelvic kinematic analysis, and haptic robotic guidance in Brentwood & Romford.',
+    desc: 'MAKO robotic total hip replacement in Essex & London with Mr Shivakumar Shankar. 3D CT planning & haptic guidance at Nuffield Health Brentwood & BHRUT.',
     canonical: 'https://www.shivakumarshankar.co.uk/robotic-hip-replacement'
   },
   'computer-assisted-hip-replacement': {
@@ -177,18 +177,18 @@ const PAGE_METADATA: Record<string, { title: string; desc: string; canonical: st
     canonical: 'https://www.shivakumarshankar.co.uk/minimally-invasive-hip-replacement'
   },
   'revision-hip-replacement': {
-    title: 'Revision Hip Replacement Essex & London | Mr Shivakumar Shankar',
-    desc: 'Specialist revision hip surgeon in Essex & London. Mr Shivakumar Shankar undertakes revision hip replacement in Brentwood and complex NHS revision surgery at BHRUT.',
+    title: 'Revision Hip Surgeon & Replacement Essex & London | Mr Shivakumar Shankar',
+    desc: 'Specialist Revision Hip Surgeon in Essex & London. Mr Shivakumar Shankar undertakes private revision hip surgery in Brentwood & complex NHS revision at BHRUT.',
     canonical: 'https://www.shivakumarshankar.co.uk/revision-hip-replacement'
   },
   'knee-replacement': {
-    title: 'Knee Replacement Surgeon in Essex & London | Mr Shivakumar Shankar',
-    desc: 'Consultant Knee Replacement Surgeon in Essex & London. Mr Shivakumar Shankar offers total, partial, computer-assisted & MAKO robotic knee replacement in Brentwood.',
+    title: 'Knee Replacement Surgeon Brentwood, Essex & London | Mr Shivakumar Shankar',
+    desc: 'Consultant Knee Surgeon in Brentwood, Essex & London. Mr Shivakumar Shankar offers total, partial, computer-navigated & MAKO robotic knee replacement surgery.',
     canonical: 'https://www.shivakumarshankar.co.uk/knee-replacement'
   },
   'robotic-knee-replacement': {
     title: 'Robotic Knee Replacement London & Essex | MAKO Surgery | Mr Shivakumar Shankar',
-    desc: 'Consultant-led MAKO robotic total and partial knee replacement and robot-assisted knee surgery in London, East London, Romford & Brentwood, Essex with Mr Shivakumar Shankar.',
+    desc: 'Consultant-led MAKO robotic total & partial knee replacement in Brentwood, Essex, Romford & London with Mr Shivakumar Shankar at Nuffield Health Brentwood.',
     canonical: 'https://www.shivakumarshankar.co.uk/robotic-knee-replacement'
   },
   'computer-assisted-knee-replacement': {
@@ -197,8 +197,8 @@ const PAGE_METADATA: Record<string, { title: string; desc: string; canonical: st
     canonical: 'https://www.shivakumarshankar.co.uk/computer-assisted-knee-replacement'
   },
   'partial-knee-replacement': {
-    title: 'Partial Knee Replacement London & Essex | Mr Shivakumar Shankar',
-    desc: 'Mr Shivakumar Shankar provides conventional and MAKO robotic-assisted partial (unicompartmental) knee replacement where clinically appropriate in Essex and London, with private clinics in Brentwood.',
+    title: 'Partial Knee Replacement Essex, Brentwood & London | Mr Shivakumar Shankar',
+    desc: 'Consultant-led conventional & MAKO robotic partial (unicompartmental) knee replacement in Brentwood, Essex & London with Mr Shivakumar Shankar.',
     canonical: 'https://www.shivakumarshankar.co.uk/partial-knee-replacement'
   },
   'knee-arthroscopy': {
@@ -272,8 +272,8 @@ const PAGE_METADATA: Record<string, { title: string; desc: string; canonical: st
     canonical: 'https://www.shivakumarshankar.co.uk/london-hip-knee-surgeon'
   },
   'essex-hip-knee-surgeon': {
-    title: 'Essex Hip, Knee & Revision Hip Surgeon | Mr Shivakumar Shankar',
-    desc: 'Mr Shivakumar Shankar is a Consultant Orthopaedic Hip, Knee and Revision Hip Surgeon in Essex, offering conventional, navigated and MAKO robotic surgery at Nuffield Brentwood and Spire Hartswood.',
+    title: 'Hip & Knee Surgeon Brentwood, Romford & Essex | Mr Shivakumar Shankar',
+    desc: 'Consultant Hip, Knee & Revision Hip Surgeon in Brentwood, Romford & Essex. MAKO robotic surgery at Nuffield Brentwood & navigated surgery at Spire Hartswood.',
     canonical: 'https://www.shivakumarshankar.co.uk/essex-hip-knee-surgeon'
   },
   'spire-hartswood-hospital': {
@@ -287,8 +287,8 @@ const PAGE_METADATA: Record<string, { title: string; desc: string; canonical: st
     canonical: 'https://www.shivakumarshankar.co.uk/nuffield-brentwood-hospital'
   },
   'queens-hospital-romford': {
-    title: "Queen's Hospital Romford | Mr Shivakumar Shankar | Substantive NHS Consultant",
-    desc: "Substantive NHS Consultant Orthopaedic Surgeon at Barking, Havering and Redbridge University Hospitals NHS Trust (BHRUT) at Queen's Hospital, Romford. Complex revision hip surgery, joint reconstruction, and trauma care.",
+    title: "Hip & Knee Surgeon Romford | Queen's Hospital NHS | Mr Shivakumar Shankar",
+    desc: "Mr Shivakumar Shankar, substantive NHS Consultant Hip & Knee Surgeon at Queen's Hospital Romford (BHRUT). Trauma, primary & complex NHS revision hip surgery.",
     canonical: 'https://www.shivakumarshankar.co.uk/queens-hospital-romford'
   },
   'king-george-hospital-goodmayes': {
@@ -415,10 +415,26 @@ function App() {
   }, [currentPage]);
 
   useEffect(() => {
-    // Sanitize non-canonical URLs on mount (e.g. /home, /index.html, .html extensions)
+    // Sanitize non-canonical URLs on mount (e.g. /home, /index.html, legacy paths)
     const rawPath = window.location.pathname;
+    const legacyCanonicalMap: Record<string, string> = {
+      '/about': '/about-mr-shivakumar-shankar',
+      '/about/': '/about-mr-shivakumar-shankar',
+      '/robotic-surgery': '/robotic-computer-assisted-surgery',
+      '/robotic-surgery/': '/robotic-computer-assisted-surgery',
+      '/patient-guides': '/patient-information',
+      '/patient-guides/': '/patient-information',
+      '/patient-reviews-outcomes': '/reviews',
+      '/patient-reviews-outcomes/': '/reviews',
+      '/contact-consultation': '/contact',
+      '/contact-consultation/': '/contact',
+    };
     if (rawPath === '/home' || rawPath === '/home/' || rawPath === '/index.html' || rawPath === '/index') {
       window.history.replaceState({}, '', '/');
+    } else if (legacyCanonicalMap[rawPath]) {
+      const targetCanonical = legacyCanonicalMap[rawPath];
+      window.history.replaceState({}, '', targetCanonical);
+      setCurrentPage(getPageFromPath(targetCanonical));
     } else if (rawPath === '/media' || rawPath === '/social' || rawPath === '/news') {
       window.history.replaceState({}, '', '/media-social');
       setCurrentPage('media-social');
@@ -474,7 +490,15 @@ function App() {
     }
 
     const normalizedPath = target.startsWith('/') ? target : `/${target}`;
-    const cleanPath = normalizedPath.replace(/\.html$/, '').replace(/\/$/, '') || '/';
+    const rawCleanPath = normalizedPath.replace(/\.html$/, '').replace(/\/$/, '') || '/';
+    const canonicalPathMap: Record<string, string> = {
+      '/about': '/about-mr-shivakumar-shankar',
+      '/robotic-surgery': '/robotic-computer-assisted-surgery',
+      '/patient-guides': '/patient-information',
+      '/patient-reviews-outcomes': '/reviews',
+      '/contact-consultation': '/contact',
+    };
+    const cleanPath = canonicalPathMap[rawCleanPath] || rawCleanPath;
     const newPage = getPageFromPath(cleanPath);
 
     setCurrentPage(newPage);
@@ -666,8 +690,8 @@ function App() {
                 <span>&rarr; Homepage</span>
               </a>
               <a 
-                href="/about" 
-                onClick={(e) => { e.preventDefault(); handleNavigate('about'); }} 
+                href="/about-mr-shivakumar-shankar" 
+                onClick={(e) => { e.preventDefault(); handleNavigate('about-mr-shivakumar-shankar'); }} 
                 className="p-2.5 rounded-lg bg-[#F8FAFC] hover:bg-[#EAF1F6] text-[#1B4965] transition-colors border border-slate-200 flex items-center justify-between"
               >
                 <span>&rarr; About</span>
@@ -687,8 +711,8 @@ function App() {
                 <span>&rarr; Knee Surgery</span>
               </a>
               <a 
-                href="/robotic-surgery" 
-                onClick={(e) => { e.preventDefault(); handleNavigate('robotic-surgery'); }} 
+                href="/robotic-computer-assisted-surgery" 
+                onClick={(e) => { e.preventDefault(); handleNavigate('robotic-computer-assisted-surgery'); }} 
                 className="p-2.5 rounded-lg bg-[#F8FAFC] hover:bg-[#EAF1F6] text-[#1B4965] transition-colors border border-slate-200 flex items-center justify-between"
               >
                 <span>&rarr; Robotic Surgery</span>
@@ -701,8 +725,8 @@ function App() {
                 <span>&rarr; Arthroscopy</span>
               </a>
               <a 
-                href="/patient-guides" 
-                onClick={(e) => { e.preventDefault(); handleNavigate('patient-guides'); }} 
+                href="/patient-information" 
+                onClick={(e) => { e.preventDefault(); handleNavigate('patient-information'); }} 
                 className="p-2.5 rounded-lg bg-[#F8FAFC] hover:bg-[#EAF1F6] text-[#1B4965] transition-colors border border-slate-200 flex items-center justify-between"
               >
                 <span>&rarr; Patient Guides</span>
@@ -1893,12 +1917,12 @@ function App() {
             <h5 className="text-slate-900 font-bold mb-4 uppercase tracking-wider text-xs">Quick Links</h5>
             <ul className="space-y-2 text-xs">
               <li><a href="/" onClick={(e) => { e.preventDefault(); handleNavigate('home'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Home</a></li>
-              <li><a href="/about" onClick={(e) => { e.preventDefault(); handleNavigate('about'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">About Mr Shankar</a></li>
+              <li><a href="/about-mr-shivakumar-shankar" onClick={(e) => { e.preventDefault(); handleNavigate('about-mr-shivakumar-shankar'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">About Mr Shankar</a></li>
               <li><a href="/hip-replacement" onClick={(e) => { e.preventDefault(); handleNavigate('hip-replacement'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Hip Replacement Surgery</a></li>
               <li><a href="/knee-replacement" onClick={(e) => { e.preventDefault(); handleNavigate('knee-replacement'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Knee Replacement &amp; Arthroplasty</a></li>
-              <li><a href="/robotic-surgery" onClick={(e) => { e.preventDefault(); handleNavigate('robotic-surgery'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Robotic &amp; Computer-Assisted</a></li>
+              <li><a href="/robotic-computer-assisted-surgery" onClick={(e) => { e.preventDefault(); handleNavigate('robotic-computer-assisted-surgery'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Robotic &amp; Computer-Assisted</a></li>
               <li><a href="/knee-arthroscopy" onClick={(e) => { e.preventDefault(); handleNavigate('knee-arthroscopy'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Knee Arthroscopy &amp; Keyhole</a></li>
-              <li><a href="/patient-guides" onClick={(e) => { e.preventDefault(); handleNavigate('patient-guides'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Patient Guides &amp; Risks</a></li>
+              <li><a href="/patient-information" onClick={(e) => { e.preventDefault(); handleNavigate('patient-information'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Patient Guides &amp; Risks</a></li>
               <li><a href="/reviews" onClick={(e) => { e.preventDefault(); handleNavigate('reviews'); }} className="text-[#1B4965] font-bold hover:underline transition-colors block">Patient Reviews (Doctify &amp; IWGC)</a></li>
               <li><a href="/contact" onClick={(e) => { e.preventDefault(); handleNavigate('contact'); }} className="text-[#1B4965] font-bold hover:text-[#13364B] transition-colors block">Contact Practice Secretary</a></li>
               <li><a href="/media-social" onClick={(e) => { e.preventDefault(); handleNavigate('media-social'); }} className="text-slate-600 hover:text-[#1B4965] transition-colors block">Media &amp; Social</a></li>
